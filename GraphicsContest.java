@@ -17,10 +17,12 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final double OBSTACLE_SIZE = 20;
 	private GRect obstacle;
 	private GOval ball;
+	private boolean[] keys=new boolean[256];
 
 	public void run() {
 		setUp();
 		addKeyListeners();
+		move();
 	}
 	
 	private void setUp() {
@@ -44,20 +46,31 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	public void keyPressed(KeyEvent e) {
-		if (ball != null) {
-			if ( e.getKeyCode() == KeyEvent.VK_UP ) {
-			    ball.move(0,-10);
-			}
-			if ( e.getKeyCode() == KeyEvent.VK_DOWN ) {
-			    ball.move(0,+10);
-			}
-			if ( e.getKeyCode() == KeyEvent.VK_LEFT ) {
-			    obstacle.move(+10,0);
-			}
-			if ( e.getKeyCode() == KeyEvent.VK_RIGHT ) {
-			    obstacle.move(-10,0);
-			}
+		keys[e.getKeyCode()]=true;
+	}
+	public void keyReleased(KeyEvent e) {
+	    keys[e.getKeyCode()]=false;
+	}
+
+	private void move() {
+		if(keys[KeyEvent.VK_UP]) {
+		      moveUp(ball);
 		}
+		if(keys[KeyEvent.VK_RIGHT]) {
+		      moveLeft(obstacle);
+		}
+	}
+	
+	private void moveUp(GObject obj) {
+		obj.move(0, +10);
+	}
+	
+	private void moveRight(GObject obj) {
+		obj.move(+10, 0);
+	}
+	
+	private void moveLeft(GObject obj) {
+		obj.move(-10, 0);
 	}
 	
 }
