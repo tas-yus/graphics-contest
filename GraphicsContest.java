@@ -30,14 +30,15 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void drawCharacter() {
 		double ballCenterX = getWidth()/4;
-		double ballCenterY = getHeight()/8;
+		double ballCenterY = getHeight()*7/8;
 		ball = new GOval (ballCenterX - BALL_RADIUS, ballCenterY - BALL_RADIUS, BALL_RADIUS*2, BALL_RADIUS *2);
 		add(ball);
+		ball.setFilled(true);
 	}
 	
 	private void drawBackGround() {
 		double obCenterX = getWidth()*2;
-		double obCenterY = getHeight()/8;
+		double obCenterY = getHeight()*7/8;
 		obstacle = new GRect (obCenterX - OBSTACLE_SIZE/2, obCenterY - OBSTACLE_SIZE/2, OBSTACLE_SIZE, OBSTACLE_SIZE);
 		add(obstacle);
 	}
