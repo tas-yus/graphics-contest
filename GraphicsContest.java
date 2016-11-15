@@ -64,7 +64,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void moveUp(GObject obj) {
-		obj.move(0, +10);
+		obj.move(0, -10);
 	}
 	
 	private void moveRight(GObject obj) {
