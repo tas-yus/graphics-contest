@@ -45,12 +45,11 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	public void keyPressed(KeyEvent e) {
-		move();
 		keys[e.getKeyCode()]=true;
+		move();
 	}
 	
 	public void keyReleased(KeyEvent e) {
-		move();
 	    keys[e.getKeyCode()]=false;
 	}
 
