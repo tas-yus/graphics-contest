@@ -22,12 +22,12 @@ public class GraphicsContest extends GraphicsProgram {
 	public void run() {
 		setUp();
 		addKeyListeners();
-		move();
 	}
 	
 	private void setUp() {
 		drawCharacter();
 		drawBackGround();
+		move();
 	}
 	
 	private void drawCharacter() {
