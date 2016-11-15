@@ -46,10 +46,10 @@ public class GraphicsContest extends GraphicsProgram {
 	public void keyPressed(KeyEvent e) {
 		if (ball != null) {
 			switch (e.getKeyCode()) {
-			case KeyEvent.VK_UP: ball.move(0, -1); break;
-			case KeyEvent.VK_DOWN: ball.move(0, +1); break;
-			case KeyEvent.VK_LEFT: ball.move(-1, 0); break;
-			case KeyEvent.VK_RIGHT: ball.move(+10, 0); break;
+			case KeyEvent.VK_UP: ball.move(0, -10); break;
+			case KeyEvent.VK_DOWN: ball.move(0, +10); break;
+			case KeyEvent.VK_LEFT: obstacle.move(+10, 0); break;
+			case KeyEvent.VK_RIGHT: obstacle.move(-10, 0); break;
 			}
 		}
 	}
