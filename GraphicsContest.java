@@ -22,6 +22,7 @@ public class GraphicsContest extends GraphicsProgram {
 	public void run() {
 		setUp();
 		addKeyListeners();
+		move();
 	}
 	
 	private void setUp() {
@@ -46,12 +47,10 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	public void keyPressed(KeyEvent e) {
 		keys[e.getKeyCode()]=true;
-		move();
 	}
 	
 	public void keyReleased(KeyEvent e) {
 	    keys[e.getKeyCode()]=false;
-	    move();
 	}
 
 	private void move() {
