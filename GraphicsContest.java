@@ -21,7 +21,6 @@ public class GraphicsContest extends GraphicsProgram {
 
 	public void run() {
 		setUp();
-		jump(ball);
 		addKeyListeners();
 	}
 	
@@ -63,7 +62,7 @@ public class GraphicsContest extends GraphicsProgram {
 			moveLeft(obstacle);
 		}
 		if(keys[KeyEvent.VK_SPACE]) {
-			
+			jump(ball);
 		}
 	}
 	
@@ -82,12 +81,12 @@ public class GraphicsContest extends GraphicsProgram {
 	private void jump(GObject obj) {
 		while(true) {
 			obj.move(0, -5);
-			pause(50);
-			if (obj.getY() <= getHeight()*1/2) break;
+			pause(10);
+			if (obj.getY() <= getHeight()*3/4) break;
 		}
 		while(true) {
 			obj.move(0, +5);
-			pause(50);
+			pause(10);
 			if (obj.getY() >= getHeight()*7/8 - OBSTACLE_SIZE/2) break;
 		}
 	}
