@@ -17,7 +17,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final double OBSTACLE_SIZE = 20;
 	private GRect obstacle;
 	private GOval ball;
-	private boolean[] keys=new boolean[256];
+	private boolean[]keys = new boolean[256];
 
 	public void run() {
 		setUp();
@@ -48,6 +48,7 @@ public class GraphicsContest extends GraphicsProgram {
 	public void keyPressed(KeyEvent e) {
 		keys[e.getKeyCode()]=true;
 	}
+	
 	public void keyReleased(KeyEvent e) {
 	    keys[e.getKeyCode()]=false;
 	}
