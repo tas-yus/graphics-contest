@@ -79,6 +79,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void jump(GObject obj) {
+		obj.move(0, -5);
 		while(true) {
 			obj.move(0, -5);
 			pause(10);
