@@ -37,7 +37,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void drawBackGround() {
-		double obCenterX = getWidth()*2;
+		double obCenterX = getWidth();
 		double obCenterY = getHeight()*7/8;
 		obstacle = new GRect (obCenterX - OBSTACLE_SIZE/2, obCenterY - OBSTACLE_SIZE/2, OBSTACLE_SIZE, OBSTACLE_SIZE);
 		add(obstacle);
