@@ -49,7 +49,7 @@ public class GraphicsContest extends GraphicsProgram {
 			case KeyEvent.VK_UP: ball.move(0, -1); break;
 			case KeyEvent.VK_DOWN: ball.move(0, +1); break;
 			case KeyEvent.VK_LEFT: ball.move(-1, 0); break;
-			case KeyEvent.VK_RIGHT: ball.move(+1, 0); break;
+			case KeyEvent.VK_RIGHT: ball.move(+50, 0); break;
 			}
 		}
 	}
