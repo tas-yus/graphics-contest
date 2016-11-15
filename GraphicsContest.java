@@ -55,10 +55,13 @@ public class GraphicsContest extends GraphicsProgram {
 
 	private void move() {
 		if(keys[KeyEvent.VK_UP]) {
-		      moveUp(ball);
+			moveUp(ball);
 		}
 		if(keys[KeyEvent.VK_RIGHT]) {
-		      moveLeft(obstacle);
+			moveLeft(obstacle);
+		}
+		if(keys[KeyEvent.VK_SPACE]) {
+			jump(ball);
 		}
 	}
 	
@@ -72,6 +75,19 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void moveLeft(GObject obj) {
 		obj.move(-10, 0);
+	}
+	
+	private void jump(GObject obj) {
+		while(true) {
+			obj.move(0, -1);
+			pause(5);
+			if (ball.getX() <= getHeight()*3/4) break;
+		}
+		while(true) {
+			obj.move(0, +1);
+			pause(5);
+			if (ball.getX() >= getHeight()*7/8 - OBSTACLE_SIZE/2) break;
+		}
 	}
 	
 }
