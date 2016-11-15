@@ -83,7 +83,12 @@ public class GraphicsContest extends GraphicsProgram {
 		while(true) {
 			obj.move(0, -5);
 			pause(50);
-			if (obj.getX() <= getHeight()*3/4) break;
+			if (obj.getY() <= getHeight()*1/2) break;
+		}
+		while(true) {
+			obj.move(0, +5);
+			pause(50);
+			if (obj.getY() >= getHeight()*7/8 - OBSTACLE_SIZE/2) break;
 		}
 	}
 	
