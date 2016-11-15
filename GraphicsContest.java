@@ -81,14 +81,14 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void jump(GObject obj) {
 		while(true) {
-			obj.move(0, -5);
-			pause(50);
-			if (obj.getX() <= getHeight()*3/4) break;
-		}
-		while(true) {
 			obj.move(0, +5);
 			pause(50);
 			if (obj.getX() >= getHeight()*7/8 - OBSTACLE_SIZE/2) break;
+		}
+		while(true) {
+			obj.move(0, -5);
+			pause(50);
+			if (obj.getX() <= getHeight()*3/4) break;
 		}
 	}
 	
