@@ -20,7 +20,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean[]keys = new boolean[256];
 
 	public void run() {
-		move();
 		setUp();
 		addKeyListeners();
 	}
