@@ -50,13 +50,13 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	public void keyReleased(KeyEvent e) {
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			jump(ball);  
+		}
 	    keys[e.getKeyCode()]=false;
 	    move();
 	}
 	public void keyTyped(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			moveUp(ball);  
-		}
 	}
 	
 	private void move() {
