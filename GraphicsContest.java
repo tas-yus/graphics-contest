@@ -45,9 +45,6 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			jump(ball);  
-		}
 		keys[e.getKeyCode()]=true;
 		move();
 	}
@@ -55,6 +52,11 @@ public class GraphicsContest extends GraphicsProgram {
 	public void keyReleased(KeyEvent e) {
 	    keys[e.getKeyCode()]=false;
 	    move();
+	}
+	public void keyTyped(KeyEvent e) {
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			jump(ball);  
+		}
 	}
 	
 	private void move() {
