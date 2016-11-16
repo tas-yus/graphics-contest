@@ -31,6 +31,7 @@ public class GraphicsContest extends GraphicsProgram {
 			ball.setFilled(true);
 			ball.setColor(rgen.nextColor());
 			add(ball);
+			pause(20);
 		}
 	}
 
