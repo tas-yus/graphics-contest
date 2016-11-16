@@ -12,82 +12,30 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class GraphicsContest extends GraphicsProgram {
-	
-	private static final double BALL_RADIUS = 10;
-	private static final double OBSTACLE_SIZE = 20;
-	private GRect obstacle;
-	private GOval ball;
-	private boolean[]keys = new boolean[256];
 
+	private RandomGenerator rgen = RandomGenerator.getInstance();
+	
 	public void run() {
-		setUp();
-		addKeyListeners();
+		setUpBall();
+
 	}
-	
-	private void setUp() {
-		drawCharacter();
-		drawBackGround();
+
+	private void setUpBall() {
+		while (true) {
+			double r = rgen.nextDouble(20,50);
+			double vx = rgen.nextDouble(1,5);
+			double vy = rgen.nextDouble(1,5);
+			double x = rgen.nextDouble(getWidth() - r/2, getHeight() - r/2);
+			double y = rgen.nextDouble(getWidth() - r/2, getHeight() - r/2);
+			GOval ball = new GOval (x - r/2, y - r/2, r*2, r*2);
+			ball.setFilled(true);
+			ball.setColor(rgen.nextColor());
+			add(ball);
+		}
 	}
-	
-	private void drawCharacter() {
-		double ballCenterX = getWidth()/4;
-		double ballCenterY = getHeight()*7/8;
-		ball = new GOval (ballCenterX - BALL_RADIUS, ballCenterY - BALL_RADIUS, BALL_RADIUS*2, BALL_RADIUS *2);
-		add(ball);
-		ball.setFilled(true);
-	}
-	
+
 	private void drawBackGround() {
-		double obCenterX = getWidth();
-		double obCenterY = getHeight()*7/8;
-		obstacle = new GRect (obCenterX - OBSTACLE_SIZE/2, obCenterY - OBSTACLE_SIZE/2, OBSTACLE_SIZE, OBSTACLE_SIZE);
-		add(obstacle);
+
 	}
-	
-	public void keyPressed(KeyEvent e) {
-		keys[e.getKeyCode()]=true;
-		move();
-	}
-	
-	public void keyReleased(KeyEvent e) {
-	    keys[e.getKeyCode()]=false;
-	}
-	
-	public void move() {
-		if(keys[KeyEvent.VK_UP]) {
-			moveUp(ball);
-		}
-		if(keys[KeyEvent.VK_RIGHT]) {
-			moveLeft(obstacle);
-		}
-		if(keys[KeyEvent.VK_SPACE]) {
-			jump(ball);
-		}
-	}
-	
-	public void moveUp(GObject obj) {
-		obj.move(0, -10);
-	}
-	
-	public void moveRight(GObject obj) {
-		obj.move(+10, 0);
-	}
-	
-	public void moveLeft(GObject obj) {
-		obj.move(-10, 0);
-	}
-	
-	
-	public void jump(GObject obj) {
-		while(true) {
-			obj.move(0, -2);
-			pause(10);
-			if (obj.getY() <= getHeight()*3/4) break;
-		}
-		while(true) {
-			obj.move(0, +2);
-			pause(10);
-			if (obj.getY() >= getHeight()*7/8 - OBSTACLE_SIZE/2) break;
-		}
-	}
+
 }
