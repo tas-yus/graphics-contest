@@ -20,6 +20,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean[]keys = new boolean[256];
 
 	public void run() {
+		move();
 		setUp();
 		addKeyListeners();
 	}
@@ -46,17 +47,13 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	public void keyPressed(KeyEvent e) {
 		keys[e.getKeyCode()]=true;
-		move();
 	}
 	
 	public void keyReleased(KeyEvent e) {
 	    keys[e.getKeyCode()]=false;
 	}
 	
-	public void keyTyped(KeyEvent e) {
-	}
-	
-	private void move() {
+	public void move() {
 		if(keys[KeyEvent.VK_UP]) {
 			moveUp(ball);
 		}
@@ -68,20 +65,20 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 	
-	private void moveUp(GObject obj) {
+	public void moveUp(GObject obj) {
 		obj.move(0, -10);
 	}
 	
-	private void moveRight(GObject obj) {
+	public void moveRight(GObject obj) {
 		obj.move(+10, 0);
 	}
 	
-	private void moveLeft(GObject obj) {
+	public void moveLeft(GObject obj) {
 		obj.move(-10, 0);
 	}
 	
 	
-	private void jump(GObject obj) {
+	public void jump(GObject obj) {
 		while(true) {
 			obj.move(0, -2);
 			pause(10);
