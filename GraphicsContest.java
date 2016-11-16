@@ -91,5 +91,4 @@ public class GraphicsContest extends GraphicsProgram {
 			if (obj.getY() >= getHeight()*7/8 - OBSTACLE_SIZE/2) break;
 		}
 	}
-	
 }
