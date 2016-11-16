@@ -21,6 +21,7 @@ public class GraphicsContest extends GraphicsProgram {
 
 	public void run() {
 		setUp();
+		jump(ball);
 		addKeyListeners();
 	}
 	
@@ -77,6 +78,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private void moveLeft(GObject obj) {
 		obj.move(-10, 0);
 	}
+	
 	
 	private void jump(GObject obj) {
 		while(true) {
