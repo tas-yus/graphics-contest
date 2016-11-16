@@ -55,8 +55,14 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void move() {
+		if(keys[KeyEvent.VK_UP]) {
+			moveUp(ball);
+		}
+		if(keys[KeyEvent.VK_RIGHT]) {
+			moveLeft(obstacle);
+		}
 		if(keys[KeyEvent.VK_SPACE]) {
-			jump(ball);
+			moveUp(ball);
 		}
 	}
 	
