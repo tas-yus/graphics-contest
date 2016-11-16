@@ -21,7 +21,6 @@ public class GraphicsContest extends GraphicsProgram {
 
 	public void run() {
 		setUp();
-		jump(ball);
 		addKeyListeners();
 	}
 	
