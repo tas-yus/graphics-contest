@@ -25,6 +25,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GRect icon1;
 	private GRect icon2;
 	private GRect icon3;
+	private GRect icon4;
 	private GLabel brushStatus;
 	
 
@@ -45,6 +46,8 @@ public class GraphicsContest extends GraphicsProgram {
 		add(icon2);
 		icon3 = new GRect (0, 0, WIDTH*3/4, ICON_HEIGHT);
 		add(icon3);
+		icon4 = new GRect (0, 0, WIDTH*3/4, ICON_HEIGHT);
+		add(icon4);
 	}
 	
 	private void updateIcons() {
@@ -65,12 +68,14 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	public void mouseClicked(MouseEvent e) {
-		if (draw == false && clickIcon2(e) == false && clickIcon3(e) == false) {
-			draw = true;
-			updateIcons();
-		} else if (draw == true && clickIcon2(e) == false && clickIcon3(e) == false) {
-			draw = false;
-			updateIcons();
+		if (clickIcon1(e) == true) {
+			if (draw == false)  {
+				draw = true;
+				updateIcons();
+			} else if (draw == true) {
+				draw = false;
+				updateIcons();
+			}
 		}
 		if (clickIcon2(e) == true) {
 			s++;
@@ -132,7 +137,12 @@ public class GraphicsContest extends GraphicsProgram {
 		add(pixel7);
 		add(pixel8);
 	}
-
+	
+	private boolean clickIcon1(MouseEvent e) {
+		if (clickIcon2(e) && clickIcon3(e)) return false;
+		else return true;
+	}
+	
 	private boolean clickIcon2(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
