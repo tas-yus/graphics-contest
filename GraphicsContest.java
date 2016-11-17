@@ -295,13 +295,13 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (plain == true) {
 			if(clickColorIcon1(e) == true) {
-				chosenColor = plainColor[RED]; 
+				chosenColor = plainColor[RED];
 			}
 			if(clickColorIcon2(e) == true) {
-				chosenColor = plainColor[ORANGE]; 
+				chosenColor = plainColor[ORANGE];
 			}
 			if(clickColorIcon3(e) == true) {
-				chosenColor = plainColor[YELLOW]; 
+				chosenColor = plainColor[YELLOW];
 			}
 			if(clickColorIcon4(e) == true) {
 				chosenColor = plainColor[GREEN]; 
@@ -361,6 +361,27 @@ public class GraphicsContest extends GraphicsProgram {
 			if(clickColorIcon7(e) == true) {
 				chosenMixedColor = PURPLE; 
 			}
+		}
+		if(clickColorIcon1(e) == true) {
+			colorIcon1.setColor(plainColor[RED][0]);
+		}
+		if(clickColorIcon2(e) == true) {
+			colorIcon1.setColor(plainColor[ORANGE][0]);
+		}
+		if(clickColorIcon3(e) == true) {
+			colorIcon1.setColor(plainColor[YELLOW][0]);
+		}
+		if(clickColorIcon4(e) == true) {
+			colorIcon1.setColor(plainColor[GREEN][0]);
+		}
+		if(clickColorIcon5(e) == true) {
+			colorIcon1.setColor(plainColor[BLUE][0]);
+		}
+		if(clickColorIcon6(e) == true) {
+			colorIcon1.setColor(plainColor[CYAN][0]);
+		}
+		if(clickColorIcon7(e) == true) {
+			colorIcon1.setColor(plainColor[PURPLE][0]);
 		}
 	}
 
