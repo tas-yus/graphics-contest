@@ -53,7 +53,7 @@ public class GraphicsContest extends GraphicsProgram {
 			double y = e.getY();
 			if (y > ICON_HEIGHT) {
 				x = x - (getWidth()/2 - s/2);
-				y = y - (getHeight()/2 - s/2);
+				y = y - (getHeight()/2 + ICON_HEIGHT - s/2);
 				setUpBall(x, y);
 			}
 		}
@@ -64,28 +64,28 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	private void addAll(int s, double x, double y) {
 		newColor = new Color (255,rgen.nextInt(128,255),0);
-		GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 - y - s/2, s, s);
+		GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + ICON_HEIGHT - y - s/2, s, s);
 		pixel1.setFilled(true);
 		pixel1.setColor(newColor);
-		GOval pixel2 = new GOval (getWidth()/2 - y - s/2, getHeight()/2 - x - s/2, s, s);
+		GOval pixel2 = new GOval (getWidth()/2 - y - s/2, getHeight()/2 + ICON_HEIGHT- x - s/2, s, s);
 		pixel2.setFilled(true);
 		pixel2.setColor(newColor);
-		GOval pixel3 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + y - s/2, s, s);
+		GOval pixel3 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT + y - s/2, s, s);
 		pixel3.setFilled(true);
 		pixel3.setColor(newColor);
-		GOval pixel4 = new GOval (getWidth()/2 + y - s/2, getHeight()/2 + x - s/2, s, s);
+		GOval pixel4 = new GOval (getWidth()/2 + y - s/2, getHeight()/2 + ICON_HEIGHT + x - s/2, s, s);
 		pixel4.setFilled(true);
 		pixel4.setColor(newColor);
-		GOval pixel5 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + y - s/2, s, s);
+		GOval pixel5 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + ICON_HEIGHT + y - s/2, s, s);
 		pixel5.setFilled(true);
 		pixel5.setColor(newColor);
-		GOval pixel6 = new GOval (getWidth()/2 - y - s/2, getHeight()/2 + x - s/2, s, s);
+		GOval pixel6 = new GOval (getWidth()/2 - y - s/2, getHeight()/2 + ICON_HEIGHT + x - s/2, s, s);
 		pixel6.setFilled(true);
 		pixel6.setColor(newColor);
-		GOval pixel7 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 - y - s/2, s, s);
+		GOval pixel7 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT - y - s/2, s, s);
 		pixel7.setFilled(true);
 		pixel7.setColor(newColor);
-		GOval pixel8 = new GOval (getWidth()/2 + y - s/2, getHeight()/2 - x - s/2, s, s);
+		GOval pixel8 = new GOval (getWidth()/2 + y - s/2, getHeight()/2 + ICON_HEIGHT - x - s/2, s, s);
 		pixel8.setFilled(true);
 		pixel8.setColor(newColor);
 		add(pixel1);
