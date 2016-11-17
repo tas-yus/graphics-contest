@@ -18,13 +18,18 @@ public class GraphicsContest extends GraphicsProgram {
     private static final int HEIGHT = 700;
     private static final int PAUSE = 10;
     private static final int s = 10;
+    private Color newColor = new Color (255, 128, 0);
     
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
         pause(PAUSE);
         addMouseListeners();
 	}
-
+	
+	public void mouseClicked(MouseEvent e) {
+		newColor = new Color (255,rgen.nextInt(64,255),0);
+	}
+	
 	public void mouseMoved(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
@@ -36,9 +41,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private void setUpBall(double x, double y) {
 		addAll(s, x, y);
 	}
-
 	private void addAll(int s, double x, double y) {
-		Color newColor = new Color (255,128,0);
 		GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 - y - s/2, s, s);
 		pixel1.setFilled(true);
 		pixel1.setColor(newColor);
