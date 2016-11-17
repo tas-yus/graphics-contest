@@ -75,11 +75,11 @@ public class GraphicsContest extends GraphicsProgram {
 	public void mouseClicked(MouseEvent e) {
 		if (clickIcon1(e) == true) {
 			if (draw == false)  {
-				status = "On";
+				status = "Off";
 				draw = true;
 				updateIcons();
 			} else if (draw == true) {
-				status = "Off";
+				status = "On";
 				draw = false;
 				updateIcons();
 			}
