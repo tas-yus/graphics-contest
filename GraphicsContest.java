@@ -26,12 +26,9 @@ public class GraphicsContest extends GraphicsProgram {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
 		addMouseListeners();
-		while(true) {
-			UpdateIcons();
-		}
 	}
 
-	private void UpdateIcons() {
+	private void updateIcons() {
 		GRect brushOnOff = new GRect (0, 0, WIDTH/3, ICON_HEIGHT);
 		String status = "";
 		if (draw == true) {
@@ -50,6 +47,7 @@ public class GraphicsContest extends GraphicsProgram {
 		} else if (draw == true) {
 			draw = false;
 		}
+		updateIcons();
 	}
 
 	public void mouseMoved(MouseEvent e) {
