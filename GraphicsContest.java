@@ -17,7 +17,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int WIDTH = 700;
     private static final int HEIGHT = 700;
     private static final int PAUSE = 10;
-    private static final int s = 20;
+    private static final int s = 2;
     private Color newColor = new Color (255, 128, 0);
     
 	public void run() {
