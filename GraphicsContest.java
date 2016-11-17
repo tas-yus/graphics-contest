@@ -38,6 +38,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private int s = BRUSH_SIZE;
 	private int speed = DELAY;
 	private int speedLevel = 1;
+	private GRect colorTray;
 	private GRect icon1;
 	private GRect icon2;
 	private GRect icon3;
@@ -130,7 +131,9 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void setUpIcons() {
-		icon1 = new GRect (0, 0, getWidth()/5, ICON_HEIGHT);
+		colorTray = new GRect (0, 0, getWidth()/20, ICON_HEIGHT);
+		add(colorTray);
+		icon1 = new GRect (getWidth()/20, 0, getWidth()*3/20, ICON_HEIGHT);
 		add(icon1);
 		icon2 = new GRect (getWidth()*1/5, 0, getWidth()/5, ICON_HEIGHT);
 		add(icon2);
