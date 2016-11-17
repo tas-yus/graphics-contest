@@ -21,7 +21,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int BRUSH_SIZE = 5;
 	private Color newColor = new Color (255, 128, 0);
 	private boolean draw = true;
-	private int s;
+	private int s = BRUSH_SIZE;
 	private GRect icon1;
 	private GRect icon2;
 	private GLabel brushStatus;
