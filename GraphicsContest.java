@@ -159,7 +159,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean clickIcon3(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > WIDTH*2/5 && x < WIDTH*3/5 && y <= ICON_HEIGHT) {
+		if (x > WIDTH*2/5 && x < WIDTH*1/2 && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
 	}
@@ -167,7 +167,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean clickIcon4(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > WIDTH*3/5 && x < WIDTH*4/5 && y <= ICON_HEIGHT) {
+		if (x > WIDTH*1/2 && x < WIDTH*3/4 && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
 	}
