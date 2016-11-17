@@ -133,6 +133,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private void setUpIcons() {
 		colorTray = new GRect (0, 0, getWidth()/20, ICON_HEIGHT);
 		add(colorTray);
+		colorTray.setFilled(true);
 		icon1 = new GRect (getWidth()/20, 0, getWidth()*3/20, ICON_HEIGHT);
 		add(icon1);
 		icon2 = new GRect (getWidth()*1/5, 0, getWidth()/5, ICON_HEIGHT);
@@ -363,25 +364,25 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if(clickColorIcon1(e) == true) {
-			colorIcon1.setColor(plainColor[RED][0]);
+			colorTray.setColor(plainColor[RED][0]);
 		}
 		if(clickColorIcon2(e) == true) {
-			colorIcon1.setColor(plainColor[ORANGE][0]);
+			colorTray.setColor(plainColor[ORANGE][0]);
 		}
 		if(clickColorIcon3(e) == true) {
-			colorIcon1.setColor(plainColor[YELLOW][0]);
+			colorTray.setColor(plainColor[YELLOW][0]);
 		}
 		if(clickColorIcon4(e) == true) {
-			colorIcon1.setColor(plainColor[GREEN][0]);
+			colorTray.setColor(plainColor[GREEN][0]);
 		}
 		if(clickColorIcon5(e) == true) {
-			colorIcon1.setColor(plainColor[BLUE][0]);
+			colorTray.setColor(plainColor[BLUE][0]);
 		}
 		if(clickColorIcon6(e) == true) {
-			colorIcon1.setColor(plainColor[CYAN][0]);
+			colorTray.setColor(plainColor[CYAN][0]);
 		}
 		if(clickColorIcon7(e) == true) {
-			colorIcon1.setColor(plainColor[PURPLE][0]);
+			colorTray.setColor(plainColor[PURPLE][0]);
 		}
 	}
 
