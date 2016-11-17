@@ -19,7 +19,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int PAUSE = 10;
 	private static final int s = 5;
 	private Color newColor = new Color (255, 128, 0);
-	private boolean draw = false;
+	private boolean draw = true;
 
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
