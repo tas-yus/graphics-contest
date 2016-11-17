@@ -24,6 +24,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private int s = BRUSH_SIZE;
 	private GRect icon1;
 	private GRect icon2;
+	private GRect icon3;
 	private GLabel brushStatus;
 	
 
@@ -42,6 +43,8 @@ public class GraphicsContest extends GraphicsProgram {
 		add(brushStatus);
 		icon2 = new GRect (0, 0, WIDTH/2, ICON_HEIGHT);
 		add(icon2);
+		icon3 = new GRect (0, 0, WIDTH*3/4, ICON_HEIGHT);
+		add(icon3);
 	}
 	
 	private void updateIcons() {
@@ -58,6 +61,7 @@ public class GraphicsContest extends GraphicsProgram {
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
 		add(icon2);
+		add(icon3);
 	}
 	
 	public void mouseClicked(MouseEvent e) {
@@ -70,6 +74,10 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (clickIcon2(e) == true) {
 			s++;
+			updateIcons();
+		}
+		if (clickIcon3(e) == true) {
+			s--;
 			updateIcons();
 		}
 	}
@@ -129,6 +137,14 @@ public class GraphicsContest extends GraphicsProgram {
 		double x = e.getX();
 		double y = e.getY();
 		if (x > WIDTH/4 && x < WIDTH/2 && y <= 50) {
+			return true;
+		} else return false;
+	}
+	
+	private boolean clickIcon3(MouseEvent e) {
+		double x = e.getX();
+		double y = e.getY();
+		if (x > WIDTH/2 && x < WIDTH*3/4 && y <= 50) {
 			return true;
 		} else return false;
 	}
