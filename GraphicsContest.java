@@ -30,8 +30,7 @@ public class GraphicsContest extends GraphicsProgram {
 	public void mouseClicked(MouseEvent e) {
 		if (draw == false) {
 			draw = true;
-		}
-		if (draw == true) {
+		} else if (draw == true) {
 			draw = false;
 		}
 	}
@@ -48,12 +47,7 @@ public class GraphicsContest extends GraphicsProgram {
 		addAll(s, x, y);
 	}
 	private void addAll(int s, double x, double y) {
-		if(draw == true) {
-			newColor = new Color (255,rgen.nextInt(128,255),0);
-		}
-		if (draw == false) {
-			newColor = Color.WHITE;
-		}
+		newColor = new Color (255,rgen.nextInt(128,255),0);
 		GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 - y - s/2, s, s);
 		pixel1.setFilled(true);
 		pixel1.setColor(newColor);
