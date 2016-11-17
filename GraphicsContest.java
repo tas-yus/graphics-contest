@@ -259,8 +259,6 @@ public class GraphicsContest extends GraphicsProgram {
 				mixed = false;
 				pure = true;
 				mode = "Pure";
-				draw = false;
-				status = "Off";
 				updateIcons();
 			}
 		}
