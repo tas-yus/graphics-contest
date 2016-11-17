@@ -19,14 +19,12 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int PAUSE = 10;
 	private static final int s = 5;
 	private Color newColor = new Color (255, 128, 0);
-	private boolean draw = true;
+	private boolean draw = false;
 
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
-		while(true) {
-			addMouseListeners();
-		}
+		addMouseListeners();
 	}
 
 	public void mouseClicked(MouseEvent e) {
@@ -39,20 +37,23 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	public void mouseMoved(MouseEvent e) {
-		if(draw == true) {
-			double x = e.getX();
-			double y = e.getY();
-			x = x - (getWidth()/2 - s/2);
-			y = y - (getHeight()/2 - s/2);
-			setUpBall(x, y);
-		}
+		double x = e.getX();
+		double y = e.getY();
+		x = x - (getWidth()/2 - s/2);
+		y = y - (getHeight()/2 - s/2);
+		setUpBall(x, y);
 	}
 
 	private void setUpBall(double x, double y) {
 		addAll(s, x, y);
 	}
 	private void addAll(int s, double x, double y) {
-		newColor = new Color (255,rgen.nextInt(128,255),0);
+		if(draw == true) {
+			newColor = new Color (255,rgen.nextInt(128,255),0);
+		}
+		if (draw == false) {
+			newColor = Color.WHITE;
+		}
 		GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 - y - s/2, s, s);
 		pixel1.setFilled(true);
 		pixel1.setColor(newColor);
