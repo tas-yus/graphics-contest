@@ -31,6 +31,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color newColor = new Color (255, 128, 0);
 	private boolean draw = false;
 	private boolean plain = false;
+	private boolean pure = false;
+	private boolean mixed = false;
 	private int s = BRUSH_SIZE;
 	private GRect icon1;
 	private GRect icon2;
@@ -49,6 +51,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLabel brushSizeStatus;
 	private GLabel plusSize;
 	private GLabel minusSize;
+	private GLabel colorMode;
 	
 	private Color[][] plainColor;
 	private Color[] chosenColor;
@@ -123,6 +126,9 @@ public class GraphicsContest extends GraphicsProgram {
 		minusSize = new GLabel ("-", WIDTH*19/40, ICON_HEIGHT/2);
 		minusSize.move(-minusSize.getWidth()/2, +minusSize.getAscent()/2);
 		add(minusSize);
+		colorMode = new GLabel ("Pure", WIDTH*11/20, ICON_HEIGHT/2);
+		colorMode.move(-minusSize.getWidth()/2, +minusSize.getAscent()/2);
+		add(colorMode);
 		colorIcon1 = new GRect (WIDTH*3/5, 0, WIDTH*2/35, ICON_HEIGHT);
 		add(colorIcon1);
 		colorIcon2 = new GRect (WIDTH*23/35, 0, WIDTH*2/35, ICON_HEIGHT);
@@ -191,9 +197,9 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (clickIcon5(e) == true) {
 			updateColorChoice();
-			plain = true;
+			pure = true;
 		}
-		if (plain == true) {
+		if (pure == true) {
 			if(clickColorIcon1(e) == true) {
 				chosenColor = plainColor[RED]; 
 			}
