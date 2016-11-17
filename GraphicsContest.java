@@ -235,6 +235,7 @@ public class GraphicsContest extends GraphicsProgram {
 				auto = true;
 				mode = "Auto";
 				updateIcons();
+				autoDraw();
 			} else if (auto == true) {
 				auto = false;
 				pure = true;
