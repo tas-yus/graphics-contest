@@ -82,6 +82,7 @@ public class GraphicsContest extends GraphicsProgram {
 					setUpBall(x, y);
 				}
 			}
+			pause(100);
 		}
 	}
 
