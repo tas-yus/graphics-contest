@@ -388,11 +388,11 @@ public class GraphicsContest extends GraphicsProgram {
 
 	public void mouseMoved(MouseEvent e) {
 		if (draw == true) {
-			double x = e.getX() - s;
-			double y = e.getY() - s;
+			double x = e.getX();
+			double y = e.getY();
 			if (y > ICON_HEIGHT + s) {
 				x = x - getWidth()/2;
-				y = y - (getHeight()/2 + ICON_HEIGHT);
+				y = y - (getHeight()/2 - ICON_HEIGHT/2);
 				setUpBall(x, y);
 			}
 		}
