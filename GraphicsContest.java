@@ -31,7 +31,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLabel brushStatus;
 	private GLabel brushSizeStatus;
 	private GLabel plusSize;
-	private GLabel smallerSize;
+	private GLabel minusSize;
 
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
@@ -57,6 +57,11 @@ public class GraphicsContest extends GraphicsProgram {
 		brushSizeStatus = new GLabel ("Size = x" + s, WIDTH*3/10, ICON_HEIGHT/2);
 		brushSizeStatus.move(-brushSizeStatus.getWidth()/2, +brushSizeStatus.getAscent()/2);
 		add(brushSizeStatus);
+		plusSize = new GLabel ("+", WIDTH/2, ICON_HEIGHT/2);
+		plusSize.move(-plusSize.getWidth()/2, +plusSize.getAscent()/2);
+		add(plusSize);
+		minusSize = new GLabel ("-", WIDTH*7/10, ICON_HEIGHT/2);
+		minusSize.move(-minusSize.getWidth()/2, +minusSize.getAscent()/2);
 	}
 	
 	private void updateIcons() {
