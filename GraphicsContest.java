@@ -14,6 +14,7 @@ import java.awt.event.*;
 public class GraphicsContest extends GraphicsProgram {
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
+	private static final int ICON_HEIGHT = 50;
 	private static final int WIDTH = 700;
 	private static final int HEIGHT = 700;
 	private static final int PAUSE = 10;
@@ -27,6 +28,17 @@ public class GraphicsContest extends GraphicsProgram {
 		addMouseListeners();
 	}
 
+	private void UpdateIcons() {
+		GRect BrushOnOff = new GRect (0, 0, WIDTH/3, ICON_HEIGHT);
+		String status = "";
+		if (draw == true) {
+			status = "On";
+		} else {
+			status = "Off";
+		}
+		GLabel OnOff = new GLabel ("Brush:" + status);
+	}
+	
 	public void mouseClicked(MouseEvent e) {
 		if (draw == false) {
 			draw = true;
