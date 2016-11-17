@@ -73,6 +73,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void autoDraw() {
+		newColor = mixColor(chosenMixedColor);
 		while (true) {
 			if (draw == true) {
 				double x = rgen.nextDouble(0 + s*1.0, WIDTH - s*1.0);
