@@ -49,7 +49,7 @@ public class GraphicsContest extends GraphicsProgram {
 		GOval pixel2 = new GOval (getWidth()/2 - y - s/2, getHeight()/2 - x - s/2, s, s);
 		pixel2.setFilled(true);
 		pixel2.setColor(newColor);
-		pixel1.setFillColor(Color.WHITE);
+		pixel2.setFillColor(Color.WHITE);
 		GOval pixel3 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + y - s/2, s, s);
 		pixel3.setFilled(true);
 		pixel3.setColor(newColor);
