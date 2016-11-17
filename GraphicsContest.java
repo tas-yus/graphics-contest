@@ -34,6 +34,9 @@ public class GraphicsContest extends GraphicsProgram {
 	private void setUpIcons() {
 		icon1 = new GRect (0, 0, WIDTH/3, ICON_HEIGHT);
 		add(icon1);
+		brushStatus = new GLabel ("Brush: On", WIDTH/6, ICON_HEIGHT/2);
+		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
+		add(brushStatus);
 	}
 	
 	private void updateIcons() {
@@ -43,7 +46,7 @@ public class GraphicsContest extends GraphicsProgram {
 		} else {
 			status = "Off";
 		}
-		brushStatus = new GLabel ("Brush:" + status, WIDTH/6, ICON_HEIGHT/2);
+		brushStatus = new GLabel ("Brush: " + status, WIDTH/6, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		if (getElementAt(WIDTH/6,ICON_HEIGHT/2) != null){
             remove(getElementAt(WIDTH/6,ICON_HEIGHT/2));
