@@ -257,15 +257,10 @@ public class GraphicsContest extends GraphicsProgram {
 				updateIcons();
 			} else if (mixed == true) {
 				mixed = false;
-				auto = true;
-				mode = "Auto";
-				draw = false;
-				status = "Off";
-				updateIcons();
-			} else if (auto == true) {
-				auto = false;
 				pure = true;
 				mode = "Pure";
+				draw = false;
+				status = "Off";
 				updateIcons();
 			}
 		}
@@ -386,6 +381,12 @@ public class GraphicsContest extends GraphicsProgram {
 				draw = false;
 				updateIcons();
 			}
+		}
+		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+			auto = true;
+			draw = false;
+			status = "Off";
+			updateIcons();
 		}
 		if (auto == true) {
 			if (e.getKeyCode() == KeyEvent.VK_UP && speed > 5) {
