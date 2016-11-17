@@ -22,13 +22,13 @@ public class GraphicsContest extends GraphicsProgram {
 
 	private void setUpBall() {
 		while (true) {
-			double r = rgen.nextDouble(20,50);
-			double x = rgen.nextDouble(0 + 2*r, getWidth() - 2*r);
-			double y = rgen.nextDouble(0 + 2*r, getHeight() - 2*r);
-			GOval ball = new GOval (x - r, y - r, r*2, r*2);
-			ball.setFilled(true);
-			ball.setColor(rgen.nextColor());
-			add(ball);
+			double s = 1;
+			double x = rgen.nextDouble(0 + 2*s, getWidth() - 2*s);
+			double y = rgen.nextDouble(0 + 2*s, getHeight() - 2*s);
+			GRect pixel = new GRect (x - s, y - s, s*2, s*2);
+			pixel.setFilled(true);
+			pixel.setColor(rgen.nextColor());
+			add(pixel);
 			pause(20);
 		}
 	}
