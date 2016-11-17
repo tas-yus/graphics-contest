@@ -61,10 +61,10 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	public void mouseClicked(MouseEvent e) {
-		if (draw == false) {
+		if (draw == false && clickIcon2(e) == false) {
 			draw = true;
 			updateIcons();
-		} else if (draw == true) {
+		} else if (draw == true && clickIcon2(e) == false) {
 			draw = false;
 			updateIcons();
 		}
