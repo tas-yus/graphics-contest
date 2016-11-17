@@ -14,10 +14,10 @@ import java.awt.event.*;
 public class GraphicsContest extends GraphicsProgram {
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
-	private static final int ICON_getHeight() = 30;
+	private static final int ICON_HEIGHT = 30;
 	private static final int DELAY = 100;
-	private static final int getWidth() = 700;
-	private static final int getHeight() = 700 + ICON_getHeight();
+	private static final int WIDTH = 700;
+	private static final int HEIGHT = 700 + ICON_HEIGHT;
 	private static final int PAUSE = 10;
 	private static final int BRUSH_SIZE = 5;
 	private static final int RED = 0;
@@ -79,10 +79,10 @@ public class GraphicsContest extends GraphicsProgram {
 		while(true) {
 			if(auto == true) {
 				double x = rgen.nextDouble(0 + s*1.0, getWidth()/2 - s*1.0);
-				double y = rgen.nextDouble(0 + s*2.0 + ICON_getHeight(), getHeight()/2 - s*2.0);
-				if (y > ICON_getHeight()) {
+				double y = rgen.nextDouble(0 + s*2.0 + ICON_HEIGHT, getHeight()/2 - s*2.0);
+				if (y > ICON_HEIGHT) {
 					x = x - (getWidth()/2 - s/2);
-					y = y - (getHeight()/2 + ICON_getHeight() - s/2);
+					y = y - (getHeight()/2 + ICON_HEIGHT - s/2);
 					setUpBall(x, y);
 				}
 			}
@@ -130,47 +130,47 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void setUpIcons() {
-		icon1 = new GRect (0, 0, getWidth()/5, ICON_getHeight());
+		icon1 = new GRect (0, 0, getWidth()/5, ICON_HEIGHT);
 		add(icon1);
-		icon2 = new GRect (getWidth()*1/5, 0, getWidth()/5, ICON_getHeight());
+		icon2 = new GRect (getWidth()*1/5, 0, getWidth()/5, ICON_HEIGHT);
 		add(icon2);
-		icon3 = new GRect (getWidth()*2/5, 0, getWidth()/20, ICON_getHeight());
+		icon3 = new GRect (getWidth()*2/5, 0, getWidth()/20, ICON_HEIGHT);
 		add(icon3);
-		icon4 = new GRect (getWidth()*9/20, 0, getWidth()/20, ICON_getHeight());
+		icon4 = new GRect (getWidth()*9/20, 0, getWidth()/20, ICON_HEIGHT);
 		add(icon4);
-		icon5 = new GRect (getWidth()*1/2, 0, getWidth()/10, ICON_getHeight());
+		icon5 = new GRect (getWidth()*1/2, 0, getWidth()/10, ICON_HEIGHT);
 		add(icon5);
-		brushStatus = new GLabel ("Brush: " + status, getWidth()/10, ICON_getHeight()/2);
+		brushStatus = new GLabel ("Brush: " + status, getWidth()/10, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
-		brushSizeStatus = new GLabel ("Size x" + s, getWidth()*3/10, ICON_getHeight()/2);
+		brushSizeStatus = new GLabel ("Size x" + s, getWidth()*3/10, ICON_HEIGHT/2);
 		brushSizeStatus.move(-brushSizeStatus.getWidth()()/2, +brushSizeStatus.getAscent()/2);
 		add(brushSizeStatus);
-		speedStatus = new GLabel ("", getWidth()*3/10, ICON_getHeight()/2);
+		speedStatus = new GLabel ("", getWidth()*3/10, ICON_HEIGHT/2);
 		speedStatus.move(-speedStatus.getWidth()()/2, +speedStatus.getAscent()/2);
 		add(speedStatus);
-		plusSize = new GLabel ("+", getWidth()*17/40, ICON_getHeight()/2);
+		plusSize = new GLabel ("+", getWidth()*17/40, ICON_HEIGHT/2);
 		plusSize.move(-plusSize.getWidth()()/2, +plusSize.getAscent()/2);
 		add(plusSize);
-		minusSize = new GLabel ("-", getWidth()*19/40, ICON_getHeight()/2);
+		minusSize = new GLabel ("-", getWidth()*19/40, ICON_HEIGHT/2);
 		minusSize.move(-minusSize.getWidth()()/2, +minusSize.getAscent()/2);
 		add(minusSize);
-		colorMode = new GLabel (mode, getWidth()*11/20, ICON_getHeight()/2);
+		colorMode = new GLabel (mode, getWidth()*11/20, ICON_HEIGHT/2);
 		colorMode.move(-colorMode.getWidth()()/2, +colorMode.getAscent()/2);
 		add(colorMode);
-		colorIcon1 = new GRect (getWidth()*3/5, 0, getWidth()*2/35, ICON_getHeight());
+		colorIcon1 = new GRect (getWidth()*3/5, 0, getWidth()*2/35, ICON_HEIGHT);
 		add(colorIcon1);
-		colorIcon2 = new GRect (getWidth()*23/35, 0, getWidth()*2/35, ICON_getHeight());
+		colorIcon2 = new GRect (getWidth()*23/35, 0, getWidth()*2/35, ICON_HEIGHT);
 		add(colorIcon2);
-		colorIcon3 = new GRect (getWidth()*25/35, 0, getWidth()*2/35, ICON_getHeight());
+		colorIcon3 = new GRect (getWidth()*25/35, 0, getWidth()*2/35, ICON_HEIGHT);
 		add(colorIcon3);
-		colorIcon4 = new GRect (getWidth()*27/35, 0, getWidth()*2/35, ICON_getHeight());
+		colorIcon4 = new GRect (getWidth()*27/35, 0, getWidth()*2/35, ICON_HEIGHT);
 		add(colorIcon4);
-		colorIcon5 = new GRect (getWidth()*29/35, 0, getWidth()*2/35, ICON_getHeight());
+		colorIcon5 = new GRect (getWidth()*29/35, 0, getWidth()*2/35, ICON_HEIGHT);
 		add(colorIcon5);
-		colorIcon6 = new GRect (getWidth()*31/35, 0, getWidth()*2/35, ICON_getHeight());
+		colorIcon6 = new GRect (getWidth()*31/35, 0, getWidth()*2/35, ICON_HEIGHT);
 		add(colorIcon6);
-		colorIcon7 = new GRect (getWidth()*33/35, 0, getWidth()*2/35, ICON_getHeight());
+		colorIcon7 = new GRect (getWidth()*33/35, 0, getWidth()*2/35, ICON_HEIGHT);
 		add(colorIcon7);
 	}
 
@@ -179,13 +179,13 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(brushSizeStatus);
 		remove(colorMode);
 		remove(speedStatus);
-		brushStatus = new GLabel ("Brush: " + status, getWidth()/10, ICON_getHeight()/2);
+		brushStatus = new GLabel ("Brush: " + status, getWidth()/10, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()()/2, +brushStatus.getAscent()/2);
-		brushSizeStatus = new GLabel ("Size x" + s, getWidth()*3/10, ICON_getHeight()/2);
+		brushSizeStatus = new GLabel ("Size x" + s, getWidth()*3/10, ICON_HEIGHT/2);
 		brushSizeStatus.move(-brushSizeStatus.getWidth()()/2, +brushSizeStatus.getAscent()/2);
-		colorMode = new GLabel (mode, getWidth()*11/20, ICON_getHeight()/2);
+		colorMode = new GLabel (mode, getWidth()*11/20, ICON_HEIGHT/2);
 		colorMode.move(-colorMode.getWidth()()/2, +colorMode.getAscent()/2);
-		speedStatus = new GLabel ("Speed x" + speedLevel, getWidth()*3/10, ICON_getHeight()/2);
+		speedStatus = new GLabel ("Speed x" + speedLevel, getWidth()*3/10, ICON_HEIGHT/2);
 		speedStatus.move(-speedStatus.getWidth()()/2, +speedStatus.getAscent()/2);
 		add(brushStatus);
 		add(colorMode);
@@ -365,9 +365,9 @@ public class GraphicsContest extends GraphicsProgram {
 		if (draw == true) {
 			double x = e.getX() - s;
 			double y = e.getY() - s;
-			if (y > ICON_getHeight() + 2*s) {
+			if (y > ICON_HEIGHT + 2*s) {
 				x = x - getWidth()/2;
-				y = y - (getHeight()/2 + ICON_getHeight());
+				y = y - (getHeight()/2 + ICON_HEIGHT);
 				setUpBall(x, y);
 			}
 		}
@@ -434,28 +434,28 @@ public class GraphicsContest extends GraphicsProgram {
 		if (auto == true) {
 			newColor = mixColor(chosenMixedColor);
 		}
-		GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + ICON_getHeight() - y - s/2, s, s);
+		GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + ICON_HEIGHT - y - s/2, s, s);
 		pixel1.setFilled(true);
 		pixel1.setColor(newColor);
-		GOval pixel2 = new GOval (getWidth()/2 - y - s/2, getHeight()/2 + ICON_getHeight()- x - s/2, s, s);
+		GOval pixel2 = new GOval (getWidth()/2 - y - s/2, getHeight()/2 + ICON_HEIGHT- x - s/2, s, s);
 		pixel2.setFilled(true);
 		pixel2.setColor(newColor);
-		GOval pixel3 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_getHeight() + y - s/2, s, s);
+		GOval pixel3 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT + y - s/2, s, s);
 		pixel3.setFilled(true);
 		pixel3.setColor(newColor);
-		GOval pixel4 = new GOval (getWidth()/2 + y - s/2, getHeight()/2 + ICON_getHeight() + x - s/2, s, s);
+		GOval pixel4 = new GOval (getWidth()/2 + y - s/2, getHeight()/2 + ICON_HEIGHT + x - s/2, s, s);
 		pixel4.setFilled(true);
 		pixel4.setColor(newColor);
-		GOval pixel5 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + ICON_getHeight() + y - s/2, s, s);
+		GOval pixel5 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + ICON_HEIGHT + y - s/2, s, s);
 		pixel5.setFilled(true);
 		pixel5.setColor(newColor);
-		GOval pixel6 = new GOval (getWidth()/2 - y - s/2, getHeight()/2 + ICON_getHeight() + x - s/2, s, s);
+		GOval pixel6 = new GOval (getWidth()/2 - y - s/2, getHeight()/2 + ICON_HEIGHT + x - s/2, s, s);
 		pixel6.setFilled(true);
 		pixel6.setColor(newColor);
-		GOval pixel7 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_getHeight() - y - s/2, s, s);
+		GOval pixel7 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT - y - s/2, s, s);
 		pixel7.setFilled(true);
 		pixel7.setColor(newColor);
-		GOval pixel8 = new GOval (getWidth()/2 + y - s/2, getHeight()/2 + ICON_getHeight() - x - s/2, s, s);
+		GOval pixel8 = new GOval (getWidth()/2 + y - s/2, getHeight()/2 + ICON_HEIGHT - x - s/2, s, s);
 		pixel8.setFilled(true);
 		pixel8.setColor(newColor);
 		add(pixel1);
@@ -508,7 +508,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean clickIcon3(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > getWidth()*2/5 && x < getWidth()*9/20 && y <= ICON_getHeight()) {
+		if (x > getWidth()*2/5 && x < getWidth()*9/20 && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
 	}
@@ -516,7 +516,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean clickIcon4(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > getWidth()*9/20 && x < getWidth()*1/2 && y <= ICON_getHeight()) {
+		if (x > getWidth()*9/20 && x < getWidth()*1/2 && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
 	}
@@ -524,7 +524,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean clickIcon5(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > getWidth()*1/2 && x < getWidth()*3/5 && y <= ICON_getHeight()) {
+		if (x > getWidth()*1/2 && x < getWidth()*3/5 && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
 	}
@@ -532,7 +532,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean clickColorIcon1(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > getWidth()*3/5 && x < getWidth()*23/35 && y <= ICON_getHeight()) {
+		if (x > getWidth()*3/5 && x < getWidth()*23/35 && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
 	}
@@ -540,7 +540,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean clickColorIcon2(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > getWidth()*23/35 && x < getWidth()*25/35 && y <= ICON_getHeight()) {
+		if (x > getWidth()*23/35 && x < getWidth()*25/35 && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
 	}
@@ -548,35 +548,35 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean clickColorIcon3(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > getWidth()*25/35 && x < getWidth()*27/35 && y <= ICON_getHeight()) {
+		if (x > getWidth()*25/35 && x < getWidth()*27/35 && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
 	}
 	private boolean clickColorIcon4(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > getWidth()*27/35 && x < getWidth()*29/35 && y <= ICON_getHeight()) {
+		if (x > getWidth()*27/35 && x < getWidth()*29/35 && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
 	}
 	private boolean clickColorIcon5(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > getWidth()*29/35 && x < getWidth()*31/35 && y <= ICON_getHeight()) {
+		if (x > getWidth()*29/35 && x < getWidth()*31/35 && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
 	}
 	private boolean clickColorIcon6(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > getWidth()*31/35 && x < getWidth()*33/35 && y <= ICON_getHeight()) {
+		if (x > getWidth()*31/35 && x < getWidth()*33/35 && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
 	}
 	private boolean clickColorIcon7(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > getWidth()*33/35 && x < getWidth() && y <= ICON_getHeight()) {
+		if (x > getWidth()*33/35 && x < getWidth() && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
 	}
