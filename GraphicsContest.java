@@ -14,8 +14,8 @@ import java.awt.event.*;
 public class GraphicsContest extends GraphicsProgram {
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
-	private static final int WIDTH = 750;
-    private static final int HEIGHT = 750;
+	private static final int WIDTH = 700;
+    private static final int HEIGHT = 700;
     private static final int PAUSE = 10;
     
 	public void run() {
