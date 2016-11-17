@@ -47,6 +47,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GRect colorIcon6;
 	private GRect colorIcon7;
 	private String status = "off";
+	private String mode = "Pure";
 	private GLabel brushStatus;
 	private GLabel brushSizeStatus;
 	private GLabel plusSize;
@@ -128,7 +129,7 @@ public class GraphicsContest extends GraphicsProgram {
 		minusSize = new GLabel ("-", WIDTH*19/40, ICON_HEIGHT/2);
 		minusSize.move(-minusSize.getWidth()/2, +minusSize.getAscent()/2);
 		add(minusSize);
-		colorMode = new GLabel ("Plain", WIDTH*11/20, ICON_HEIGHT/2);
+		colorMode = new GLabel (mode, WIDTH*11/20, ICON_HEIGHT/2);
 		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
 		add(colorMode);
 		colorIcon1 = new GRect (WIDTH*3/5, 0, WIDTH*2/35, ICON_HEIGHT);
@@ -150,12 +151,16 @@ public class GraphicsContest extends GraphicsProgram {
 	private void updateIcons() {
 		remove(brushStatus);
 		remove(brushSizeStatus);
+		remove(colorMode);
 		brushStatus = new GLabel ("Brush: " + status, WIDTH/10, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		brushSizeStatus = new GLabel ("Size = x" + s, WIDTH*3/10, ICON_HEIGHT/2);
 		brushSizeStatus.move(-brushSizeStatus.getWidth()/2, +brushSizeStatus.getAscent()/2);
+		colorMode = new GLabel (mode, WIDTH*11/20, ICON_HEIGHT/2);
+		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
 		add(brushStatus);
 		add(brushSizeStatus);
+		add(colorMode);
 	}
 	
 	private void setUpColorChoice() {
@@ -201,9 +206,12 @@ public class GraphicsContest extends GraphicsProgram {
 			if(pure == true) {
 				pure = false;
 				plain = true;
+				mode = "Plain";
+				updateIcons();
 			} if (plain == true) {
 				plain = false;
 				mixed = true;
+				mode = "Mixed";
 			}
 		}
 		if (pure == true) {
