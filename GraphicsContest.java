@@ -70,7 +70,6 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void autoDraw() {
-		newColor = mixColor(chosenMixedColor);
 		while (true) {
 			if (draw == true) {
 				double x = rgen.nextDouble(0 + s*1.0, WIDTH - s*1.0);
@@ -361,6 +360,9 @@ public class GraphicsContest extends GraphicsProgram {
 			newColor = randomizeColor(chosenColor);
 		}
 		if (mixed == true) {
+			newColor = mixColor(chosenMixedColor);
+		}
+		if (auto == true) {
 			newColor = mixColor(chosenMixedColor);
 		}
 		GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + ICON_HEIGHT - y - s/2, s, s);
