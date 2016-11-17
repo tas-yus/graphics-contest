@@ -62,6 +62,7 @@ public class GraphicsContest extends GraphicsProgram {
 		addMouseListeners();
 		setUpColors();
 		setUpIcons();
+		setUpColorChoice();
 	}
 
 	private void setUpColors() {
@@ -156,7 +157,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(brushSizeStatus);
 	}
 	
-	private void updateColorChoice() {
+	private void setUpColorChoice() {
 		colorIcon1.setFilled(true);
 		colorIcon1.setColor(plainColor[RED][0]);
 		colorIcon2.setFilled(true);
