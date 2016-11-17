@@ -37,6 +37,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean auto = false;
 	private int s = BRUSH_SIZE;
 	private int speed = DELAY;
+	private int speedLevel = 1;
 	private GRect icon1;
 	private GRect icon2;
 	private GRect icon3;
@@ -53,6 +54,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private String mode = "Pure";
 	private GLabel brushStatus;
 	private GLabel brushSizeStatus;
+	private GLabel speedStatus;
 	private GLabel plusSize;
 	private GLabel minusSize;
 	private GLabel colorMode;
@@ -179,9 +181,15 @@ public class GraphicsContest extends GraphicsProgram {
 		brushSizeStatus.move(-brushSizeStatus.getWidth()/2, +brushSizeStatus.getAscent()/2);
 		colorMode = new GLabel (mode, WIDTH*11/20, ICON_HEIGHT/2);
 		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
+		speedStatus = new GLabel ("Speed = x" + speedLevel, WIDTH*3/10, ICON_HEIGHT/2);
+		speedStatus.move(-speedStatus.getWidth()/2, +speedStatus.getAscent()/2);
 		add(brushStatus);
-		add(brushSizeStatus);
 		add(colorMode);
+		if(auto = true) {
+			add(speedStatus);
+		} else {
+			add(brushSizeStatus);
+		}
 	}
 
 	private void setUpColorChoice() {
@@ -369,17 +377,21 @@ public class GraphicsContest extends GraphicsProgram {
 		if (auto == true) {
 			if (e.getKeyCode() == KeyEvent.VK_UP && speed > 5) {
 				speed -= 5;
+				updateIcons();
 			}
 			if (e.getKeyCode() == KeyEvent.VK_DOWN && speed < 200) {
 				speed += 5;
+				updateIcons();
 			}
 		}
 		if (auto == false) {
 			if (e.getKeyCode() == KeyEvent.VK_UP) {
 				s++;
+				updateIcons();
 			}
 			if (e.getKeyCode() == KeyEvent.VK_DOWN && s > 0) {
 				s--;
+				updateIcons();
 			}
 		}
 	}
