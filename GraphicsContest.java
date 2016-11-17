@@ -33,6 +33,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean pure = true;
 	private boolean plain = false;
 	private boolean mixed = false;
+	private boolean auto = false;
 	private int s = BRUSH_SIZE;
 	private GRect icon1;
 	private GRect icon2;
@@ -66,8 +67,25 @@ public class GraphicsContest extends GraphicsProgram {
 		setUpColors();
 		setUpIcons();
 		setUpColorChoice();
+		if (auto == true) {
+			autoDraw();
+		}
 	}
 
+	private void autoDraw() {
+		while (true) {
+			if (draw == true) {
+				double x = rgen.nextDouble(0 + s*1.0, WIDTH - s*1.0);
+				double y = rgen.nextDouble(0 + s*1.0 + ICON_HEIGHT, HEIGHT - s*1.0);
+				if (y > ICON_HEIGHT) {
+					x = x - (getWidth()/2 - s/2);
+					y = y - (getHeight()/2 + ICON_HEIGHT - s/2);
+					setUpBall(x, y);
+				}
+			}
+		}
+	}
+	
 	private void setUpColors() {
 		plainColor = new Color[7][5];
 		plainColor[RED][0] = new Color(255,0,0); 
@@ -216,8 +234,13 @@ public class GraphicsContest extends GraphicsProgram {
 				updateIcons();
 			} else if (mixed == true) {
 				mixed = false;
-				pure = true;
+				auto = true;
 				mode = "Pure";
+				updateIcons();
+			} else if (auto == true) {
+				auto = false;
+				pure = true;
+				mode = "Auto";
 				updateIcons();
 			}
 		}
@@ -268,6 +291,29 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (mixed == true) {
+			if(clickColorIcon1(e) == true) {
+				chosenMixedColor = RED;
+			}
+			if(clickColorIcon2(e) == true) {
+				chosenMixedColor = ORANGE;
+			}
+			if(clickColorIcon3(e) == true) {
+				chosenMixedColor = YELLOW;
+			}
+			if(clickColorIcon4(e) == true) {
+				chosenMixedColor = GREEN;
+			}
+			if(clickColorIcon5(e) == true) {
+				chosenMixedColor = BLUE;
+			}
+			if(clickColorIcon6(e) == true) {
+				chosenMixedColor = CYAN;
+			}
+			if(clickColorIcon7(e) == true) {
+				chosenMixedColor = PURPLE; 
+			}
+		}
+		if (auto == true) {
 			if(clickColorIcon1(e) == true) {
 				chosenMixedColor = RED;
 			}
