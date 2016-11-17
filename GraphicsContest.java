@@ -30,7 +30,8 @@ public class GraphicsContest extends GraphicsProgram {
 	public void mouseClicked(MouseEvent e) {
 		if (draw == false) {
 			draw = true;
-		} else if (draw == true) {
+		} 
+		if (draw == true) {
 			draw = false;
 		}
 	}
