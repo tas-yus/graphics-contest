@@ -31,7 +31,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color newColor = new Color (255, 128, 0);
 	private boolean draw = false;
 	private boolean plain = false;
-	private boolean pure = false;
+	private boolean pure = true;
 	private boolean mixed = false;
 	private int s = BRUSH_SIZE;
 	private GRect icon1;
