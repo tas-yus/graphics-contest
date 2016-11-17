@@ -29,7 +29,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void UpdateIcons() {
-		GRect BrushOnOff = new GRect (0, 0, WIDTH/3, ICON_HEIGHT);
+		GRect brushOnOff = new GRect (0, 0, WIDTH/3, ICON_HEIGHT);
 		String status = "";
 		if (draw == true) {
 			status = "On";
@@ -37,6 +37,8 @@ public class GraphicsContest extends GraphicsProgram {
 			status = "Off";
 		}
 		GLabel OnOff = new GLabel ("Brush:" + status);
+		add(brushOnOff);
+		add(OnOff);
 	}
 	
 	public void mouseClicked(MouseEvent e) {
