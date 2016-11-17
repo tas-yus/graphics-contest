@@ -37,7 +37,7 @@ public class GraphicsContest extends GraphicsProgram {
 		} else {
 			status = "Off";
 		}
-		GLabel OnOff = new GLabel ("Brush:" + status);
+		GLabel OnOff = new GLabel ("Brush:" + status, 50, 50);
 		add(brushOnOff);
 		add(OnOff);
 	}
