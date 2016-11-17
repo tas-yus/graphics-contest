@@ -47,10 +47,10 @@ public class GraphicsContest extends GraphicsProgram {
 			status = "Off";
 		}
 		brushStatus = new GLabel ("Brush: " + status, WIDTH/6, ICON_HEIGHT/2);
-		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		if (getElementAt(WIDTH/6,ICON_HEIGHT/2) != null){
             remove(getElementAt(WIDTH/6,ICON_HEIGHT/2));
 		}
+		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
 		add(icon1);
 	}
