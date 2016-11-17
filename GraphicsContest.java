@@ -67,8 +67,8 @@ public class GraphicsContest extends GraphicsProgram {
 		setUpColors();
 		setUpIcons();
 		setUpColorChoice();
-		while(true) {
-			if(auto == true) {
+		if(auto == true) {
+			while(true) {
 				autoDraw();
 			}
 		}
