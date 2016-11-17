@@ -353,7 +353,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private Color mixColor(int chosenMixedColor) {
 		if (chosenMixedColor == RED) {
-			Color color = new Color (255,rgen.nextInt(90,180),rgen.nextInt(128,255));
+			Color color = new Color (255,rgen.nextInt(90,180),rgen.nextInt(0,255));
 			return color;
 		} else if (chosenMixedColor == ORANGE) {
 			Color color = new Color (255, rgen.nextInt(128,255),0);
