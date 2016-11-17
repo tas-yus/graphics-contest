@@ -89,7 +89,9 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 		}
 		if (clickIcon4(e) == true) {
-			s--;
+			if(s != 0) {
+				s--;
+			}
 			updateIcons();
 		}
 	}
