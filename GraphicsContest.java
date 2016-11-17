@@ -235,12 +235,12 @@ public class GraphicsContest extends GraphicsProgram {
 			} else if (mixed == true) {
 				mixed = false;
 				auto = true;
-				mode = "Pure";
+				mode = "Auto";
 				updateIcons();
 			} else if (auto == true) {
 				auto = false;
 				pure = true;
-				mode = "Auto";
+				mode = "Pure";
 				updateIcons();
 			}
 		}
