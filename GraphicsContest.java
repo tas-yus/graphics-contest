@@ -37,9 +37,10 @@ public class GraphicsContest extends GraphicsProgram {
 		} else {
 			status = "Off";
 		}
-		GLabel OnOff = new GLabel ("Brush:" + status, 50, 50);
+		GLabel onOff = new GLabel ("Brush:" + status, WIDTH/6, ICON_HEIGHT/2);
+		onOff.move(-onOff.getWidth()/2, +onOff.getAscent()/2);
 		add(brushOnOff);
-		add(OnOff);
+		add(onOff);
 	}
 	
 	public void mouseClicked(MouseEvent e) {
