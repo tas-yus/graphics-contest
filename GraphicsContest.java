@@ -57,7 +57,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color[][] plainColor;
 	private Color[] chosenColor;
 	private Color chosenPureColor;
-	private Color chosenMixedColor;
 
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
@@ -315,7 +314,7 @@ public class GraphicsContest extends GraphicsProgram {
 			newColor = randomizeColor(chosenColor);
 		}
 		if (mixed == true) {
-			newColor = mixColor(chosenMixedColor);
+
 		}
 		GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + ICON_HEIGHT - y - s/2, s, s);
 		pixel1.setFilled(true);
@@ -351,10 +350,6 @@ public class GraphicsContest extends GraphicsProgram {
 		add(pixel8);
 	}
 	
-	private Color mixColor(Color[] chosenMixedColor) {
-		Color color = new Color(255,rgen.nextInt(128,255),0);;
-		return color;
-	}
 	private Color randomizeColor(Color[] chosenColor) {
 		Color color = chosenColor[rgen.nextInt(0,chosenColor.length - 1)];
 		return color;
