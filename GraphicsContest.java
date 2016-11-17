@@ -51,9 +51,11 @@ public class GraphicsContest extends GraphicsProgram {
 		if (draw == true) {
 			double x = e.getX();
 			double y = e.getY();
-			x = x - (getWidth()/2 - s/2);
-			y = y - (getHeight()/2 - s/2);
-			setUpBall(x, y);
+			if (y > ICON_HEIGHT) {
+				x = x - (getWidth()/2 - s/2);
+				y = y - (getHeight()/2 - s/2);
+				setUpBall(x, y);
+			}
 		}
 	}
 
