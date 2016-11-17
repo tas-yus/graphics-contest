@@ -30,8 +30,8 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private Color newColor = new Color (255, 128, 0);
 	private boolean draw = false;
-	private boolean plain = false;
 	private boolean pure = true;
+	private boolean plain = false;
 	private boolean mixed = false;
 	private int s = BRUSH_SIZE;
 	private GRect icon1;
@@ -208,13 +208,11 @@ public class GraphicsContest extends GraphicsProgram {
 				plain = true;
 				mode = "Plain";
 				updateIcons();
-			} 
-			if (plain == true) {
+			} else if (plain == true) {
 				plain = false;
 				mixed = true;
 				mode = "Mixed";
-			}
-			if (mixed == true) {
+			} else if (mixed == true) {
 				mixed = false;
 				pure = true;
 				mode = "Pure";
