@@ -26,8 +26,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int BLUE = 4;
 	private static final int CYAN = 5;
 	private static final int PURPLE = 6;
-	
-	
+
+
 	private Color newColor;
 	private boolean draw = false;
 	private boolean pure = true;
@@ -54,7 +54,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLabel plusSize;
 	private GLabel minusSize;
 	private GLabel colorMode;
-	
+
 	private Color[][] plainColor;
 	private Color[] chosenColor;
 	private Color chosenPureColor;
@@ -67,24 +67,25 @@ public class GraphicsContest extends GraphicsProgram {
 		setUpColors();
 		setUpIcons();
 		setUpColorChoice();
-		autoDraw();
+		while(true) {
+			if(auto == true) {
+				autoDraw();
+			}
+		}
 	}
 
 	private void autoDraw() {
-		while (true) {
-			if (draw == true) {
-				double x = rgen.nextDouble(0 + s*1.0, WIDTH/2 - s*1.0);
-				double y = rgen.nextDouble(0 + s*1.0 + ICON_HEIGHT, HEIGHT/2 - s*1.0);
-				if (y > ICON_HEIGHT) {
-					x = x - (WIDTH/2 - s/2);
-					y = y - (HEIGHT/2 + ICON_HEIGHT - s/2);
-					setUpBall(x, y);
-				}
+		if (draw == true) {
+			double x = rgen.nextDouble(0 + s*1.0, WIDTH/2 - s*1.0);
+			double y = rgen.nextDouble(0 + s*1.0 + ICON_HEIGHT, HEIGHT/2 - s*1.0);
+			if (y > ICON_HEIGHT) {
+				x = x - (WIDTH/2 - s/2);
+				y = y - (HEIGHT/2 + ICON_HEIGHT - s/2);
+				setUpBall(x, y);
 			}
-			pause(100);
 		}
 	}
-	
+
 	private void setUpColors() {
 		plainColor = new Color[7][5];
 		plainColor[RED][0] = new Color(255,0,0); 
@@ -123,7 +124,7 @@ public class GraphicsContest extends GraphicsProgram {
 		plainColor[PURPLE][3] = new Color(204,153,255);
 		plainColor[PURPLE][4] = new Color(229,204,255);
 	}
-	
+
 	private void setUpIcons() {
 		icon1 = new GRect (0, 0, WIDTH/5, ICON_HEIGHT);
 		add(icon1);
@@ -165,7 +166,7 @@ public class GraphicsContest extends GraphicsProgram {
 		colorIcon7 = new GRect (WIDTH*33/35, 0, WIDTH*2/35, ICON_HEIGHT);
 		add(colorIcon7);
 	}
-	
+
 	private void updateIcons() {
 		remove(brushStatus);
 		remove(brushSizeStatus);
@@ -180,7 +181,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(brushSizeStatus);
 		add(colorMode);
 	}
-	
+
 	private void setUpColorChoice() {
 		colorIcon1.setFilled(true);
 		colorIcon1.setColor(plainColor[RED][0]);
@@ -197,7 +198,7 @@ public class GraphicsContest extends GraphicsProgram {
 		colorIcon7.setFilled(true);
 		colorIcon7.setColor(plainColor[PURPLE][0]);
 	}
-	
+
 	public void mouseClicked(MouseEvent e) {
 		if (clickIcon1(e) == true) {
 			if (draw == false)  {
@@ -336,7 +337,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 	}
-	
+
 	public void mouseMoved(MouseEvent e) {
 		if (draw == true) {
 			double x = e.getX();
@@ -398,7 +399,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(pixel7);
 		add(pixel8);
 	}
-	
+
 	private Color mixColor(int chosenMixedColor) {
 		if (chosenMixedColor == RED) {
 			Color color = new Color (255,rgen.nextInt(25,150),rgen.nextInt(25,255));
@@ -427,7 +428,7 @@ public class GraphicsContest extends GraphicsProgram {
 		Color color = chosenColor[rgen.nextInt(0,chosenColor.length - 1)];
 		return color;
 	}
-	
+
 	private boolean clickIcon1(MouseEvent e) {
 		if (clickIcon3(e) || clickIcon4(e) || clickIcon5(e) ||
 				clickColorIcon1(e) || clickColorIcon2(e) || clickColorIcon3(e) ||
@@ -435,7 +436,7 @@ public class GraphicsContest extends GraphicsProgram {
 				clickColorIcon7(e)) return false;
 		else return true;
 	}
-	
+
 	private boolean clickIcon3(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
@@ -443,7 +444,7 @@ public class GraphicsContest extends GraphicsProgram {
 			return true;
 		} else return false;
 	}
-	
+
 	private boolean clickIcon4(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
@@ -451,7 +452,7 @@ public class GraphicsContest extends GraphicsProgram {
 			return true;
 		} else return false;
 	}
-	
+
 	private boolean clickIcon5(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
@@ -459,7 +460,7 @@ public class GraphicsContest extends GraphicsProgram {
 			return true;
 		} else return false;
 	}
-	
+
 	private boolean clickColorIcon1(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
@@ -467,7 +468,7 @@ public class GraphicsContest extends GraphicsProgram {
 			return true;
 		} else return false;
 	}
-	
+
 	private boolean clickColorIcon2(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
@@ -475,7 +476,7 @@ public class GraphicsContest extends GraphicsProgram {
 			return true;
 		} else return false;
 	}
-	
+
 	private boolean clickColorIcon3(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
