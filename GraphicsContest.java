@@ -240,6 +240,7 @@ public class GraphicsContest extends GraphicsProgram {
 				pure = true;
 				mode = "Pure";
 				updateIcons();
+				autoDraw();
 			}
 		}
 		if (pure == true) {
@@ -345,9 +346,6 @@ public class GraphicsContest extends GraphicsProgram {
 				y = y - (getHeight()/2 + ICON_HEIGHT - s/2);
 				setUpBall(x, y);
 			}
-		}
-		if (auto == true) {
-			autoDraw();
 		}
 	}
 
