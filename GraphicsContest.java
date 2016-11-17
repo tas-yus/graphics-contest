@@ -27,7 +27,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	public void mouseClicked(MouseEvent e) {
-		newColor = new Color (255,rgen.nextInt(64,255),0);
+		newColor = new Color (255,rgen.nextInt(128,255),0);
 	}
 	
 	public void mouseMoved(MouseEvent e) {
