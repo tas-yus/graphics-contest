@@ -30,7 +30,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private String status = "On";
 	private GLabel brushStatus;
 	private GLabel brushSizeStatus;
-	
+	private GLabel plusSize;
+	private GLabel smallerSize;
 
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
@@ -67,9 +68,6 @@ public class GraphicsContest extends GraphicsProgram {
 		brushSizeStatus.move(-brushSizeStatus.getWidth()/2, +brushSizeStatus.getAscent()/2);
 		add(brushStatus);
 		add(brushSizeStatus);
-		add(icon2);
-		add(icon3);
-		add(icon4);
 	}
 	
 	public void mouseClicked(MouseEvent e) {
