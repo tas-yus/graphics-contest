@@ -117,7 +117,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	private void addAll(int s, double x, double y) {
 		newColor = new Color (255,rgen.nextInt(128,255),0);
-		newColor = new Color (255,rgen.nextInt(0,255),rgen.nextInt(0,255));
+		newColor = new Color (255,rgen.nextInt(128,255),rgen.nextInt(0,255));
 		GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + ICON_HEIGHT - y - s/2, s, s);
 		pixel1.setFilled(true);
 		pixel1.setColor(newColor);
