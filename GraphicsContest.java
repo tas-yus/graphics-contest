@@ -389,6 +389,7 @@ public class GraphicsContest extends GraphicsProgram {
 			auto = true;
 			draw = false;
 			status = "Off";
+			mode = "Auto";
 			updateIcons();
 		}
 		if (auto == true) {
