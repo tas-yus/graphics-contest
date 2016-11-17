@@ -19,6 +19,15 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int HEIGHT = 700 + ICON_HEIGHT;
 	private static final int PAUSE = 10;
 	private static final int BRUSH_SIZE = 5;
+	private static final int RED = 0;
+	private static final int ORANGE = 1;
+	private static final int YELLOW = 2;
+	private static final int GREEN = 3;
+	private static final int BLUE = 4;
+	private static final int CYAN = 5;
+	private static final int PURPLE = 6;
+	
+	
 	private Color newColor = new Color (255, 128, 0);
 	private boolean draw = false;
 	private int s = BRUSH_SIZE;
@@ -32,14 +41,56 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLabel brushSizeStatus;
 	private GLabel plusSize;
 	private GLabel minusSize;
+	
+	private Color[][] plainColor;
 
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
 		addMouseListeners();
+		setUpColors();
 		setUpIcons();
 	}
 
+	private void setUpColors() {
+		plainColor = new Color[7][5];
+		plainColor[RED][0] = new Color(255,0,0); 
+		plainColor[RED][1] = new Color(255,51,51); 
+		plainColor[RED][2] = new Color(255,102,102); 
+		plainColor[RED][3] = new Color(255,153,153);
+		plainColor[RED][4] = new Color(255,204,204);
+		plainColor[ORANGE][0] = new Color(255,128,0); 
+		plainColor[ORANGE][1] = new Color(255,153,51); 
+		plainColor[ORANGE][2] = new Color(255,178,102); 
+		plainColor[ORANGE][3] = new Color(255,204,153);
+		plainColor[ORANGE][4] = new Color(255,229,204);
+		plainColor[YELLOW][0] = new Color(255,255,0); 
+		plainColor[YELLOW][1] = new Color(255,255,51); 
+		plainColor[YELLOW][2] = new Color(255,255,102); 
+		plainColor[YELLOW][3] = new Color(255,255,153);
+		plainColor[YELLOW][4] = new Color(255,255,204);
+		plainColor[GREEN][0] = new Color(0,255,0); 
+		plainColor[GREEN][1] = new Color(51,255,51); 
+		plainColor[GREEN][2] = new Color(102,255,102); 
+		plainColor[GREEN][3] = new Color(153,255,153);
+		plainColor[GREEN][4] = new Color(204,255,204);
+		plainColor[BLUE][0] = new Color(0,255,255); 
+		plainColor[BLUE][1] = new Color(51,255,255); 
+		plainColor[BLUE][2] = new Color(102,255,255); 
+		plainColor[BLUE][3] = new Color(153,255,255);
+		plainColor[BLUE][4] = new Color(204,255,255);
+		plainColor[CYAN][0] = new Color(0,0,255); 
+		plainColor[CYAN][1] = new Color(51,51,255); 
+		plainColor[CYAN][2] = new Color(102,102,255); 
+		plainColor[CYAN][3] = new Color(153,153,255);
+		plainColor[CYAN][4] = new Color(204,204,255);
+		plainColor[PURPLE][0] = new Color(127,0,255); 
+		plainColor[PURPLE][1] = new Color(153,51,255); 
+		plainColor[PURPLE][2] = new Color(178,102,255); 
+		plainColor[PURPLE][3] = new Color(204,153,255);
+		plainColor[PURPLE][4] = new Color(229,204,255);
+	}
+	
 	private void setUpIcons() {
 		icon1 = new GRect (0, 0, WIDTH/5, ICON_HEIGHT);
 		add(icon1);
@@ -117,8 +168,6 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	private void addAll(int s, double x, double y) {
 		newColor = new Color (255,rgen.nextInt(128,255),0);
-		newColor = new Color (0,rgen.nextInt(76,153),rgen.nextInt(76,153));
-		newColor = new Color (255,rgen.nextInt(0,255),rgen.nextInt(0,255));
 		GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + ICON_HEIGHT - y - s/2, s, s);
 		pixel1.setFilled(true);
 		pixel1.setColor(newColor);
