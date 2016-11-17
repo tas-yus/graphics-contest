@@ -27,7 +27,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GRect icon3;
 	private GRect icon4;
 	private GRect icon5;
-	private String status;
+	private String status = "On";
 	private GLabel brushStatus;
 	private GLabel brushSizeStatus;
 	
