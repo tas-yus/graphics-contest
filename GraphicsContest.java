@@ -55,6 +55,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private Color[][] plainColor;
 	private Color[] chosenColor;
+	private Color chosenPureColor;
 
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
@@ -197,10 +198,38 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 		}
 		if (clickIcon5(e) == true) {
-			updateColorChoice();
-			pure = true;
+			if(pure == true) {
+				pure = false;
+				plain = true;
+			} if (plain == true) {
+				plain = false;
+				mixed = true;
+			}
 		}
 		if (pure == true) {
+			if(clickColorIcon1(e) == true) {
+				chosenPureColor = plainColor[RED][0]; 
+			}
+			if(clickColorIcon2(e) == true) {
+				chosenPureColor = plainColor[ORANGE][0]; 
+			}
+			if(clickColorIcon3(e) == true) {
+				chosenPureColor = plainColor[YELLOW][0]; 
+			}
+			if(clickColorIcon4(e) == true) {
+				chosenPureColor = plainColor[GREEN][0]; 
+			}
+			if(clickColorIcon5(e) == true) {
+				chosenPureColor = plainColor[BLUE][0]; 
+			}
+			if(clickColorIcon6(e) == true) {
+				chosenPureColor = plainColor[CYAN][0]; 
+			}
+			if(clickColorIcon7(e) == true) {
+				chosenPureColor = plainColor[PURPLE][0]; 
+			}
+		}
+		if (plain == true) {
 			if(clickColorIcon1(e) == true) {
 				chosenColor = plainColor[RED]; 
 			}
@@ -241,7 +270,12 @@ public class GraphicsContest extends GraphicsProgram {
 		addAll(s, x, y);
 	}
 	private void addAll(int s, double x, double y) {
-		newColor = randomizeColor(chosenColor);
+		if (pure == true) {
+			newColor = chosenPureColor; 
+		}
+		if (plain == true) {
+			newColor = randomizeColor(chosenColor);
+		}
 		GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + ICON_HEIGHT - y - s/2, s, s);
 		pixel1.setFilled(true);
 		pixel1.setColor(newColor);
