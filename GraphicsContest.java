@@ -38,10 +38,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void setUpBall(double x, double y) {
-		while(true) {
-			addAll(s, x, y);
-			pause(10);
-		}
+		addAll(s, x, y);
 	}
 
 	private void addAll(int s, double x, double y) {
