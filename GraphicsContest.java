@@ -27,8 +27,8 @@ public class GraphicsContest extends GraphicsProgram {
 
 	private void setUpBall() {
 		int s = 10;
-		int x = rgen.nextInt(0, getWidth() - s);
-		int y = rgen.nextInt(0, getHeight() - s);
+		int x = rgen.nextInt(0, WIDTH/2 - s);
+		int y = rgen.nextInt(0, HEIGHT/2 - s);
 		addAll(s, x, y);
 	}
 
