@@ -222,11 +222,20 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (clickIcon3(e) == true) {
-			s++;
+			if (auto == true && speed > 0) {
+				speed -= 5;
+				speedLevel++;
+			}
+			else {
+				s++;
+			}
 			updateIcons();
 		}
 		if (clickIcon4(e) == true) {
-			if(s != 0) {
+			if (auto == true) {
+				speed += 5;
+				speedLevel--;
+			} else if (s != 0){
 				s--;
 			}
 			updateIcons();
@@ -377,10 +386,12 @@ public class GraphicsContest extends GraphicsProgram {
 		if (auto == true) {
 			if (e.getKeyCode() == KeyEvent.VK_UP && speed > 5) {
 				speed -= 5;
+				speedLevel++;
 				updateIcons();
 			}
 			if (e.getKeyCode() == KeyEvent.VK_DOWN && speed < 200) {
 				speed += 5;
+				speedLevel--;
 				updateIcons();
 			}
 		}
