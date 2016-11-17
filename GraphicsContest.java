@@ -185,7 +185,7 @@ public class GraphicsContest extends GraphicsProgram {
 		speedStatus.move(-speedStatus.getWidth()/2, +speedStatus.getAscent()/2);
 		add(brushStatus);
 		add(colorMode);
-		if(auto = true) {
+		if(auto == true) {
 			add(speedStatus);
 		} else {
 			add(brushSizeStatus);
