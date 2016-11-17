@@ -36,6 +36,13 @@ public class GraphicsContest extends GraphicsProgram {
 	private GRect icon3;
 	private GRect icon4;
 	private GRect icon5;
+	private GRect colorIcon1;
+	private GRect colorIcon2;
+	private GRect colorIcon3;
+	private GRect colorIcon4;
+	private GRect colorIcon5;
+	private GRect colorIcon6;
+	private GRect colorIcon7;
 	private String status = "off";
 	private GLabel brushStatus;
 	private GLabel brushSizeStatus;
@@ -108,12 +115,26 @@ public class GraphicsContest extends GraphicsProgram {
 		brushSizeStatus = new GLabel ("Size = x" + s, WIDTH*3/10, ICON_HEIGHT/2);
 		brushSizeStatus.move(-brushSizeStatus.getWidth()/2, +brushSizeStatus.getAscent()/2);
 		add(brushSizeStatus);
-		plusSize = new GLabel ("+", WIDTH*9/40, ICON_HEIGHT/2);
+		plusSize = new GLabel ("+", WIDTH*17/40, ICON_HEIGHT/2);
 		plusSize.move(-plusSize.getWidth()/2, +plusSize.getAscent()/2);
 		add(plusSize);
-		minusSize = new GLabel ("-", WIDTH*1/4, ICON_HEIGHT/2);
+		minusSize = new GLabel ("-", WIDTH*19/40, ICON_HEIGHT/2);
 		minusSize.move(-minusSize.getWidth()/2, +minusSize.getAscent()/2);
 		add(minusSize);
+		colorIcon1 = new GRect (WIDTH*3/5, 0, WIDTH*2/35, ICON_HEIGHT);
+		add(colorIcon1);
+		colorIcon2 = new GRect (WIDTH*23/35, 0, WIDTH*2/35, ICON_HEIGHT);
+		add(colorIcon2);
+		colorIcon3 = new GRect (WIDTH*25/35, 0, WIDTH*2/35, ICON_HEIGHT);
+		add(colorIcon3);
+		colorIcon4 = new GRect (WIDTH*27/35, 0, WIDTH*2/35, ICON_HEIGHT);
+		add(colorIcon4);
+		colorIcon5 = new GRect (WIDTH*29/35, 0, WIDTH*2/35, ICON_HEIGHT);
+		add(colorIcon5);
+		colorIcon6 = new GRect (WIDTH*31/35, 0, WIDTH*2/35, ICON_HEIGHT);
+		add(colorIcon6);
+		colorIcon7 = new GRect (WIDTH*33/35, 0, WIDTH*2/35, ICON_HEIGHT);
+		add(colorIcon7);
 	}
 	
 	private void updateIcons() {
@@ -125,6 +146,10 @@ public class GraphicsContest extends GraphicsProgram {
 		brushSizeStatus.move(-brushSizeStatus.getWidth()/2, +brushSizeStatus.getAscent()/2);
 		add(brushStatus);
 		add(brushSizeStatus);
+	}
+	
+	private void updateColorChoice() {
+		
 	}
 	
 	public void mouseClicked(MouseEvent e) {
@@ -148,6 +173,9 @@ public class GraphicsContest extends GraphicsProgram {
 				s--;
 			}
 			updateIcons();
+		}
+		if (clickIcon5(e) == true) {
+			updateColorChoice();
 		}
 	}
 	
@@ -226,7 +254,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean clickIcon5(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > WIDTH*1/2 && x < WIDTH*3/4 && y <= ICON_HEIGHT) {
+		if (x > WIDTH*1/2 && x < WIDTH*3/5 && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
 	}
