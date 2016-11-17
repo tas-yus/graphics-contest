@@ -37,16 +37,16 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void setUpIcons() {
-		icon1 = new GRect (0, 0, WIDTH/4, ICON_HEIGHT);
+		icon1 = new GRect (0, 0, WIDTH/5, ICON_HEIGHT);
 		add(icon1);
-		brushStatus = new GLabel ("Brush: On", WIDTH/8, ICON_HEIGHT/2);
+		brushStatus = new GLabel ("Brush: On", WIDTH/10, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
-		icon2 = new GRect (0, 0, WIDTH/2, ICON_HEIGHT);
+		icon2 = new GRect (0, 0, WIDTH*2/5, ICON_HEIGHT);
 		add(icon2);
-		icon3 = new GRect (0, 0, WIDTH*3/4, ICON_HEIGHT);
+		icon3 = new GRect (0, 0, WIDTH*3/5, ICON_HEIGHT);
 		add(icon3);
-		icon4 = new GRect (0, 0, WIDTH*3/4, ICON_HEIGHT);
+		icon4 = new GRect (0, 0, WIDTH*4/5, ICON_HEIGHT);
 		add(icon4);
 	}
 	
@@ -57,14 +57,15 @@ public class GraphicsContest extends GraphicsProgram {
 		} else {
 			status = "Off";
 		}
-		brushStatus = new GLabel ("Brush: " + status, WIDTH/8, ICON_HEIGHT/2);
-		if (getElementAt(WIDTH/8,ICON_HEIGHT/2) != null){
-            remove(getElementAt(WIDTH/8,ICON_HEIGHT/2));
+		brushStatus = new GLabel ("Brush: " + status, WIDTH/10, ICON_HEIGHT/2);
+		if (getElementAt(WIDTH/10,ICON_HEIGHT/2) != null){
+            remove(getElementAt(WIDTH/10,ICON_HEIGHT/2));
 		}
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
 		add(icon2);
 		add(icon3);
+		add(icon4);
 	}
 	
 	public void mouseClicked(MouseEvent e) {
@@ -77,11 +78,11 @@ public class GraphicsContest extends GraphicsProgram {
 				updateIcons();
 			}
 		}
-		if (clickIcon2(e) == true) {
+		if (clickIcon3(e) == true) {
 			s++;
 			updateIcons();
 		}
-		if (clickIcon3(e) == true) {
+		if (clickIcon4(e) == true) {
 			s--;
 			updateIcons();
 		}
@@ -139,22 +140,22 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private boolean clickIcon1(MouseEvent e) {
-		if (clickIcon2(e) && clickIcon3(e)) return false;
+		if (clickIcon3(e) && clickIcon4(e)) return false;
 		else return true;
-	}
-	
-	private boolean clickIcon2(MouseEvent e) {
-		double x = e.getX();
-		double y = e.getY();
-		if (x > WIDTH/4 && x < WIDTH/2 && y <= 50) {
-			return true;
-		} else return false;
 	}
 	
 	private boolean clickIcon3(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > WIDTH/2 && x < WIDTH*3/4 && y <= 50) {
+		if (x > WIDTH*2/5 && x < WIDTH*3/5 && y <= 50) {
+			return true;
+		} else return false;
+	}
+	
+	private boolean clickIcon4(MouseEvent e) {
+		double x = e.getX();
+		double y = e.getY();
+		if (x > WIDTH*3/5 && x < WIDTH*4/5 && y <= 50) {
 			return true;
 		} else return false;
 	}
