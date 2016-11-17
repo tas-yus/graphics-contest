@@ -52,6 +52,9 @@ public class GraphicsContest extends GraphicsProgram {
 		brushStatus = new GLabel ("Brush: On", WIDTH/10, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
+		brushSizeStatus = new GLabel ("Size = x" + s, WIDTH/10, ICON_HEIGHT/2);
+		brushSizeStatus.move(-brushSizeStatus.getWidth()/2, +brushSizeStatus.getAscent()/2);
+		add(brushSizeStatus);
 	}
 	
 	private void updateIcons() {
@@ -67,6 +70,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
+		add(brushSizeStatus);
 		add(icon2);
 		add(icon3);
 		add(icon4);
