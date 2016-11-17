@@ -356,8 +356,15 @@ public class GraphicsContest extends GraphicsProgram {
 
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			draw = true;
-			status = "On";
+			if (draw == false)  {
+				status = "On";
+				draw = true;
+				updateIcons();
+			} else if (draw == true) {
+				status = "Off";
+				draw = false;
+				updateIcons();
+			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_UP && speed > 5) {
 			speed -= 5;
