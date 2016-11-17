@@ -174,7 +174,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private void updateIcons() {
 		remove(brushStatus);
 		remove(brushSizeStatus);
-		remove(speedStatus);
 		remove(colorMode);
 		brushStatus = new GLabel ("Brush: " + status, WIDTH/10, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
