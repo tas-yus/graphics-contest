@@ -51,7 +51,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(icon4);
 		icon5 = new GRect (WIDTH*4/5, 0, WIDTH/5, ICON_HEIGHT);
 		add(icon5);
-		brushStatus = new GLabel ("Brush: On", WIDTH/10, ICON_HEIGHT/2);
+		brushStatus = new GLabel ("Brush: " + status, WIDTH/10, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
 		brushSizeStatus = new GLabel ("Size = x" + s, WIDTH*3/10, ICON_HEIGHT/2);
