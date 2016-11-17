@@ -27,6 +27,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GRect icon3;
 	private GRect icon4;
 	private GRect icon5;
+	private String status;
 	private GLabel brushStatus;
 	private GLabel brushSizeStatus;
 	
@@ -60,12 +61,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private void updateIcons() {
 		remove(brushStatus);
 		remove(brushSizeStatus);
-		String status = "";
-		if (draw == true) {
-			status = "On";
-		} else {
-			status = "Off";
-		}
 		brushStatus = new GLabel ("Brush: " + status, WIDTH/10, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		brushSizeStatus = new GLabel ("Size = x" + s, WIDTH*3/10, ICON_HEIGHT/2);
@@ -80,9 +75,11 @@ public class GraphicsContest extends GraphicsProgram {
 	public void mouseClicked(MouseEvent e) {
 		if (clickIcon1(e) == true) {
 			if (draw == false)  {
+				status = "On";
 				draw = true;
 				updateIcons();
 			} else if (draw == true) {
+				status = "Off";
 				draw = false;
 				updateIcons();
 			}
