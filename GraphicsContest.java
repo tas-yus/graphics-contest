@@ -30,6 +30,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private Color newColor = new Color (255, 128, 0);
 	private boolean draw = false;
+	private boolean plain = false;
 	private int s = BRUSH_SIZE;
 	private GRect icon1;
 	private GRect icon2;
@@ -50,6 +51,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLabel minusSize;
 	
 	private Color[][] plainColor;
+	private Color[] chosenColor;
 
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
@@ -189,6 +191,30 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (clickIcon5(e) == true) {
 			updateColorChoice();
+			plain = true;
+		}
+		if (plain == true) {
+			if(clickColorIcon1(e) == true) {
+				chosenColor = plainColor[RED]; 
+			}
+			if(clickColorIcon2(e) == true) {
+				chosenColor = plainColor[ORANGE]; 
+			}
+			if(clickColorIcon3(e) == true) {
+				chosenColor = plainColor[YELLOW]; 
+			}
+			if(clickColorIcon4(e) == true) {
+				chosenColor = plainColor[GREEN]; 
+			}
+			if(clickColorIcon5(e) == true) {
+				chosenColor = plainColor[BLUE]; 
+			}
+			if(clickColorIcon6(e) == true) {
+				chosenColor = plainColor[CYAN]; 
+			}
+			if(clickColorIcon7(e) == true) {
+				chosenColor = plainColor[PURPLE]; 
+			}
 		}
 	}
 	
@@ -208,7 +234,7 @@ public class GraphicsContest extends GraphicsProgram {
 		addAll(s, x, y);
 	}
 	private void addAll(int s, double x, double y) {
-		newColor = new Color (255,rgen.nextInt(128,255),0);
+		newColor = randomizeColor(chosenColor);
 		GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + ICON_HEIGHT - y - s/2, s, s);
 		pixel1.setFilled(true);
 		pixel1.setColor(newColor);
@@ -243,8 +269,16 @@ public class GraphicsContest extends GraphicsProgram {
 		add(pixel8);
 	}
 	
+	private Color randomizeColor(Color[] chosenColor) {
+		Color color = chosenColor[rgen.nextInt(0,chosenColor.length - 1)];
+		return color;
+	}
+	
 	private boolean clickIcon1(MouseEvent e) {
-		if (clickIcon3(e) || clickIcon4(e)) return false;
+		if (clickIcon3(e) || clickIcon4(e) || clickIcon5(e) ||
+				clickColorIcon1(e) || clickColorIcon2(e) || clickColorIcon3(e) ||
+				clickColorIcon4(e) || clickColorIcon5(e) || clickColorIcon6(e) ||
+				clickColorIcon7(e)) return false;
 		else return true;
 	}
 	
@@ -268,6 +302,58 @@ public class GraphicsContest extends GraphicsProgram {
 		double x = e.getX();
 		double y = e.getY();
 		if (x > WIDTH*1/2 && x < WIDTH*3/5 && y <= ICON_HEIGHT) {
+			return true;
+		} else return false;
+	}
+	
+	private boolean clickColorIcon1(MouseEvent e) {
+		double x = e.getX();
+		double y = e.getY();
+		if (x > WIDTH*3/5 && x < WIDTH*23/35 && y <= ICON_HEIGHT) {
+			return true;
+		} else return false;
+	}
+	
+	private boolean clickColorIcon2(MouseEvent e) {
+		double x = e.getX();
+		double y = e.getY();
+		if (x > WIDTH*23/35 && x < WIDTH*25/35 && y <= ICON_HEIGHT) {
+			return true;
+		} else return false;
+	}
+	
+	private boolean clickColorIcon3(MouseEvent e) {
+		double x = e.getX();
+		double y = e.getY();
+		if (x > WIDTH*25/35 && x < WIDTH*27/35 && y <= ICON_HEIGHT) {
+			return true;
+		} else return false;
+	}
+	private boolean clickColorIcon4(MouseEvent e) {
+		double x = e.getX();
+		double y = e.getY();
+		if (x > WIDTH*27/35 && x < WIDTH*29/35 && y <= ICON_HEIGHT) {
+			return true;
+		} else return false;
+	}
+	private boolean clickColorIcon5(MouseEvent e) {
+		double x = e.getX();
+		double y = e.getY();
+		if (x > WIDTH*29/35 && x < WIDTH*31/35 && y <= ICON_HEIGHT) {
+			return true;
+		} else return false;
+	}
+	private boolean clickColorIcon6(MouseEvent e) {
+		double x = e.getX();
+		double y = e.getY();
+		if (x > WIDTH*31/35 && x < WIDTH*33/35 && y <= ICON_HEIGHT) {
+			return true;
+		} else return false;
+	}
+	private boolean clickColorIcon7(MouseEvent e) {
+		double x = e.getX();
+		double y = e.getY();
+		if (x > WIDTH*33/35 && x < WIDTH && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
 	}
