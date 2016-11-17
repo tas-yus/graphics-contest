@@ -24,7 +24,9 @@ public class GraphicsContest extends GraphicsProgram {
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
-		addMouseListeners();
+		while(true) {
+			addMouseListeners();
+		}
 	}
 
 	public void mouseClicked(MouseEvent e) {
