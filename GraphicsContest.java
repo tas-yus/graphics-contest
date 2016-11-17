@@ -18,9 +18,10 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int WIDTH = 700;
 	private static final int HEIGHT = 700 + ICON_HEIGHT;
 	private static final int PAUSE = 10;
-	private static final int s = 5;
+	private static final int BRUSH_SIZE = 5;
 	private Color newColor = new Color (255, 128, 0);
 	private boolean draw = true;
+	private int s;
 	private GRect icon1;
 	private GRect icon2;
 	private GLabel brushStatus;
@@ -67,8 +68,12 @@ public class GraphicsContest extends GraphicsProgram {
 			draw = false;
 			updateIcons();
 		}
+		if (clickIcon2(e) == true) {
+			s++;
+			updateIcons();
+		}
 	}
-
+	
 	public void mouseMoved(MouseEvent e) {
 		if (draw == true) {
 			double x = e.getX();
@@ -120,5 +125,11 @@ public class GraphicsContest extends GraphicsProgram {
 		add(pixel8);
 	}
 
-
+	private boolean clickIcon2(MouseEvent e) {
+		double x = e.getX();
+		double y = e.getY();
+		if (x > WIDTH/3 && x < WIDTH*2/3 && y <= 50) {
+			return true;
+		} else return false;
+	}
 }
