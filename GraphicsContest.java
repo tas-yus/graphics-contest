@@ -28,8 +28,11 @@ public class GraphicsContest extends GraphicsProgram {
 			GRect pixel = new GRect (x - s, y - s, s*2, s*2);
 			pixel.setFilled(true);
 			pixel.setColor(rgen.nextColor());
+			if (getElementAt(x,y) != null){
+	            remove(getElementAt(x,y));
+			}
 			add(pixel);
-			pause(20);
+			pause(1);
 		}
 	}
 
