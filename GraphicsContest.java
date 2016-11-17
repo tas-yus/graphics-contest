@@ -130,6 +130,9 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void setUpIcons() {
+		speedStatus = new GLabel ("Speed = x" + speedLevel, WIDTH*3/10, ICON_HEIGHT/2);
+		speedStatus.move(-speedStatus.getWidth()/2, +speedStatus.getAscent()/2);
+		add(speedStatus);
 		icon1 = new GRect (0, 0, WIDTH/5, ICON_HEIGHT);
 		add(icon1);
 		icon2 = new GRect (WIDTH*1/5, 0, WIDTH/5, ICON_HEIGHT);
@@ -175,6 +178,7 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(brushStatus);
 		remove(brushSizeStatus);
 		remove(colorMode);
+		remove(speedStatus);
 		brushStatus = new GLabel ("Brush: " + status, WIDTH/10, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		brushSizeStatus = new GLabel ("Size = x" + s, WIDTH*3/10, ICON_HEIGHT/2);
