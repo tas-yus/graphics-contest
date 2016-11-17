@@ -56,6 +56,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
+		add(icon2);
 	}
 	
 	public void mouseClicked(MouseEvent e) {
