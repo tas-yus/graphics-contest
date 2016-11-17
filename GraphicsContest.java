@@ -33,7 +33,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean pure = true;
 	private boolean plain = false;
 	private boolean mixed = false;
-	private boolean auto = false;
+	private boolean auto = true;
 	private int s = BRUSH_SIZE;
 	private GRect icon1;
 	private GRect icon2;
