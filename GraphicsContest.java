@@ -21,6 +21,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int s = 5;
 	private Color newColor = new Color (255, 128, 0);
 	private boolean draw = true;
+	private GRect icon1;
 
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
@@ -30,8 +31,8 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void setUpIcons() {
-		GRect brushOnOff = new GRect (0, 0, WIDTH/3, ICON_HEIGHT);
-		add(brushOnOff);
+		icon1 = new GRect (0, 0, WIDTH/3, ICON_HEIGHT);
+		add(icon1);
 	}
 	
 	private void updateIcons() {
@@ -43,11 +44,11 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		GLabel onOff = new GLabel ("Brush:" + status, WIDTH/6, ICON_HEIGHT/2);
 		onOff.move(-onOff.getWidth()/2, +onOff.getAscent()/2);
-		
 		if (getElementAt(WIDTH/6,ICON_HEIGHT/2) != null){
             remove(getElementAt(WIDTH/6,ICON_HEIGHT/2));
 		}
 		add(onOff);
+		add(icon1);
 	}
 	
 	public void mouseClicked(MouseEvent e) {
