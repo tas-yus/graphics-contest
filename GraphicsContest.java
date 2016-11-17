@@ -67,11 +67,6 @@ public class GraphicsContest extends GraphicsProgram {
 		setUpColors();
 		setUpIcons();
 		setUpColorChoice();
-		while(true) {
-			if(auto == true) {
-				autoDraw();
-			}
-		}
 	}
 
 	private void autoDraw() {
@@ -240,6 +235,7 @@ public class GraphicsContest extends GraphicsProgram {
 				auto = true;
 				mode = "Auto";
 				updateIcons();
+				autoDraw();
 			} else if (auto == true) {
 				auto = false;
 				pure = true;
