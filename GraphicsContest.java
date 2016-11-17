@@ -79,7 +79,7 @@ public class GraphicsContest extends GraphicsProgram {
 		while(true) {
 			if(auto == true) {
 				double x = rgen.nextDouble(0 + s*1.0, WIDTH/2 - s*1.0);
-				double y = rgen.nextDouble(0 + s*1.0 + ICON_HEIGHT, HEIGHT/2 - s*1.0);
+				double y = rgen.nextDouble(0 + s*2.0 + ICON_HEIGHT, HEIGHT/2 - s*2.0);
 				if (y > ICON_HEIGHT) {
 					x = x - (WIDTH/2 - s/2);
 					y = y - (HEIGHT/2 + ICON_HEIGHT - s/2);
@@ -366,8 +366,8 @@ public class GraphicsContest extends GraphicsProgram {
 			double x = e.getX();
 			double y = e.getY();
 			if (y > ICON_HEIGHT + 3*s) {
-				x = x - WIDTH/2 - s/2;
-				y = y - (HEIGHT/2 + ICON_HEIGHT) - s/2;
+				x = x - WIDTH/2 - s;
+				y = y - (HEIGHT/2 + ICON_HEIGHT) - s;
 				setUpBall(x, y);
 			}
 		}
