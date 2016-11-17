@@ -28,18 +28,8 @@ public class GraphicsContest extends GraphicsProgram {
 	public void mousePressed(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if(x >= getWidth()/2 - s) {
-			x = x - (getWidth()/2 - s);
-		}
-		if(x < getWidth()/2 - s) {
-			x = (getWidth()/2 - s) - x;
-		}
-		if (y > getHeight()/2 - s) {
-			y = y - (getHeight()/2 - s);
-		}
-		if (y >= getHeight()/2 - s) {
-			y = (getHeight()/2 - s) - y;
-		}
+		x = x - (getWidth()/2 - s/2);
+		y = y - (getHeight()/2 - s/2);
 		setUpBall(x, y);
 	}
 	
