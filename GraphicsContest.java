@@ -30,18 +30,19 @@ public class GraphicsContest extends GraphicsProgram {
 	public void mouseClicked(MouseEvent e) {
 		if (draw == false) {
 			draw = true;
-		} 
-		if (draw == true) {
+		} else if (draw == true) {
 			draw = false;
 		}
 	}
 
 	public void mouseMoved(MouseEvent e) {
-		double x = e.getX();
-		double y = e.getY();
-		x = x - (getWidth()/2 - s/2);
-		y = y - (getHeight()/2 - s/2);
-		setUpBall(x, y);
+		if (draw == true) {
+			double x = e.getX();
+			double y = e.getY();
+			x = x - (getWidth()/2 - s/2);
+			y = y - (getHeight()/2 - s/2);
+			setUpBall(x, y);
+		}
 	}
 
 	private void setUpBall(double x, double y) {
