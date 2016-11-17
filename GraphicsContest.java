@@ -260,6 +260,11 @@ public class GraphicsContest extends GraphicsProgram {
 				pure = true;
 				mode = "Pure";
 				updateIcons();
+			} else if (auto == true) {
+				auto = false;
+				pure = true;
+				mode = "Pure";
+				updateIcons();
 			}
 		}
 		if (pure == true) {
