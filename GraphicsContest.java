@@ -22,7 +22,9 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color newColor = new Color (255, 128, 0);
 	private boolean draw = true;
 	private GRect icon1;
+	private GRect icon2;
 	private GLabel brushStatus;
+	
 
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
@@ -37,6 +39,8 @@ public class GraphicsContest extends GraphicsProgram {
 		brushStatus = new GLabel ("Brush: On", WIDTH/6, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
+		icon2 = new GRect (0, 0, WIDTH*2/3, ICON_HEIGHT);
+		add(icon2);
 	}
 	
 	private void updateIcons() {
