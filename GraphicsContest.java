@@ -33,7 +33,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean pure = true;
 	private boolean plain = false;
 	private boolean mixed = false;
-	private boolean auto = true;
+	private boolean auto = false;
 	private int s = BRUSH_SIZE;
 	private GRect icon1;
 	private GRect icon2;
@@ -67,7 +67,9 @@ public class GraphicsContest extends GraphicsProgram {
 		setUpColors();
 		setUpIcons();
 		setUpColorChoice();
-		autoDraw();
+		if(auto == true) {
+			autoDraw();
+		}
 	}
 
 	private void autoDraw() {
@@ -237,7 +239,6 @@ public class GraphicsContest extends GraphicsProgram {
 				auto = true;
 				mode = "Auto";
 				updateIcons();
-				autoDraw();
 			} else if (auto == true) {
 				auto = false;
 				pure = true;
