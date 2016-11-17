@@ -72,8 +72,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private void autoDraw() {
 		while (true) {
 			if (draw == true) {
-				double x = rgen.nextDouble(0 + s*1.0, WIDTH - s*1.0);
-				double y = rgen.nextDouble(0 + s*1.0 + ICON_HEIGHT, HEIGHT - s*1.0);
+				double x = rgen.nextDouble(0 + s*1.0, WIDTH/2 - s*1.0);
+				double y = rgen.nextDouble(0 + s*1.0 + ICON_HEIGHT, HEIGHT/2 - s*1.0);
 				if (y > ICON_HEIGHT) {
 					x = x - (getWidth()/2 - s/2);
 					y = y - (getHeight()/2 + ICON_HEIGHT - s/2);
