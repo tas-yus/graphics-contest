@@ -26,6 +26,7 @@ public class GraphicsContest extends GraphicsProgram {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
 		addMouseListeners();
+		UpdateIcons();
 	}
 
 	private void UpdateIcons() {
