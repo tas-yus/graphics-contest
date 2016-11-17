@@ -67,17 +67,20 @@ public class GraphicsContest extends GraphicsProgram {
 		setUpColors();
 		setUpIcons();
 		setUpColorChoice();
+		autoDraw();
 	}
 
 	private void autoDraw() {
 		while(true) {
-			if (draw == true) {
-				double x = rgen.nextDouble(0 + s*1.0, WIDTH/2 - s*1.0);
-				double y = rgen.nextDouble(0 + s*1.0 + ICON_HEIGHT, HEIGHT/2 - s*1.0);
-				if (y > ICON_HEIGHT) {
-					x = x - (WIDTH/2 - s/2);
-					y = y - (HEIGHT/2 + ICON_HEIGHT - s/2);
-					setUpBall(x, y);
+			if(auto == true) {
+				if (draw == true) {
+					double x = rgen.nextDouble(0 + s*1.0, WIDTH/2 - s*1.0);
+					double y = rgen.nextDouble(0 + s*1.0 + ICON_HEIGHT, HEIGHT/2 - s*1.0);
+					if (y > ICON_HEIGHT) {
+						x = x - (WIDTH/2 - s/2);
+						y = y - (HEIGHT/2 + ICON_HEIGHT - s/2);
+						setUpBall(x, y);
+					}
 				}
 			}
 			pause(100);
@@ -235,7 +238,6 @@ public class GraphicsContest extends GraphicsProgram {
 				auto = true;
 				mode = "Auto";
 				updateIcons();
-				autoDraw();
 			} else if (auto == true) {
 				auto = false;
 				pure = true;
