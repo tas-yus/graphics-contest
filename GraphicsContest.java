@@ -35,12 +35,12 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void setUpIcons() {
-		icon1 = new GRect (0, 0, WIDTH/3, ICON_HEIGHT);
+		icon1 = new GRect (0, 0, WIDTH/4, ICON_HEIGHT);
 		add(icon1);
-		brushStatus = new GLabel ("Brush: On", WIDTH/6, ICON_HEIGHT/2);
+		brushStatus = new GLabel ("Brush: On", WIDTH/4, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
-		icon2 = new GRect (0, 0, WIDTH*2/3, ICON_HEIGHT);
+		icon2 = new GRect (0, 0, WIDTH/2, ICON_HEIGHT);
 		add(icon2);
 	}
 	
@@ -51,9 +51,9 @@ public class GraphicsContest extends GraphicsProgram {
 		} else {
 			status = "Off";
 		}
-		brushStatus = new GLabel ("Brush: " + status, WIDTH/6, ICON_HEIGHT/2);
-		if (getElementAt(WIDTH/6,ICON_HEIGHT/2) != null){
-            remove(getElementAt(WIDTH/6,ICON_HEIGHT/2));
+		brushStatus = new GLabel ("Brush: " + status, WIDTH/8, ICON_HEIGHT/2);
+		if (getElementAt(WIDTH/8,ICON_HEIGHT/2) != null){
+            remove(getElementAt(WIDTH/8,ICON_HEIGHT/2));
 		}
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
@@ -128,7 +128,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean clickIcon2(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > WIDTH/3 && x < WIDTH*2/3 && y <= 50) {
+		if (x > WIDTH/4 && x < WIDTH/2 && y <= 50) {
 			return true;
 		} else return false;
 	}
