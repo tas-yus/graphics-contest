@@ -187,6 +187,8 @@ public class GraphicsContest extends GraphicsProgram {
 		add(colorMode);
 		if(auto == true) {
 			add(speedStatus);
+			remove(speedStatus);
+			add(speedStatus);
 		} else {
 			add(brushSizeStatus);
 		}
