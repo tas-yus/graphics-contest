@@ -61,6 +61,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private int chosenMixedColor;
 
 	public void run() {
+		autoDraw();
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
 		addMouseListeners();
