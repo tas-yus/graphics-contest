@@ -387,6 +387,9 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			auto = true;
+			plain = false;
+			pure = false;
+			mixed = false;
 			draw = false;
 			status = "Off";
 			mode = "Auto";
