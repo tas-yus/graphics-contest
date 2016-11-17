@@ -25,14 +25,6 @@ public class GraphicsContest extends GraphicsProgram {
         addMouseListeners();
 	}
 
-	public void mousePressed(MouseEvent e) {
-		double x = e.getX();
-		double y = e.getY();
-		x = x - (getWidth()/2 - s/2);
-		y = y - (getHeight()/2 - s/2);
-		setUpBall(x, y);
-	}
-	
 	public void mouseMoved(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
