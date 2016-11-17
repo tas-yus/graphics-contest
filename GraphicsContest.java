@@ -368,7 +368,7 @@ public class GraphicsContest extends GraphicsProgram {
 			Color color = new Color (0, rgen.nextInt(128,255),255);
 			return color;
 		} else if (chosenMixedColor == CYAN) {
-			Color color = new Color (rgen.nextInt(0,128), rgen.nextInt(0,128),255);
+			Color color = new Color (rgen.nextInt(0,128), rgen.nextInt(0,255),255);
 			return color;
 		} else if (chosenMixedColor == PURPLE) {
 			Color color = new Color (255, rgen.nextInt(128,255),0);
