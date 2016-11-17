@@ -62,6 +62,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(plusSize);
 		minusSize = new GLabel ("-", WIDTH*7/10, ICON_HEIGHT/2);
 		minusSize.move(-minusSize.getWidth()/2, +minusSize.getAscent()/2);
+		add(minusSize);
 	}
 	
 	private void updateIcons() {
