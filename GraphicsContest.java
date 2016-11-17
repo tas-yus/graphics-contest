@@ -31,7 +31,7 @@ public class GraphicsContest extends GraphicsProgram {
 			int x = rgen.nextInt(0, getWidth()/2 - s);
 			int y = rgen.nextInt(0, getHeight()/2 - s);
 			addAll(s, x, y);
-			pause(100);
+			pause(10);
 		}
 	}
 
