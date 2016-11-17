@@ -241,7 +241,6 @@ public class GraphicsContest extends GraphicsProgram {
 				pure = true;
 				mode = "Pure";
 				updateIcons();
-				autoDraw();
 			}
 		}
 		if (pure == true) {
