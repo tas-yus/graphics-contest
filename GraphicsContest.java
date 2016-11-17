@@ -127,7 +127,7 @@ public class GraphicsContest extends GraphicsProgram {
 		minusSize.move(-minusSize.getWidth()/2, +minusSize.getAscent()/2);
 		add(minusSize);
 		colorMode = new GLabel ("Plain", WIDTH*11/20, ICON_HEIGHT/2);
-		colorMode.move(-minusSize.getWidth()/2, +minusSize.getAscent()/2);
+		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
 		add(colorMode);
 		colorIcon1 = new GRect (WIDTH*3/5, 0, WIDTH*2/35, ICON_HEIGHT);
 		add(colorIcon1);
