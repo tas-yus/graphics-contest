@@ -15,6 +15,7 @@ public class GraphicsContest extends GraphicsProgram {
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	private static final int ICON_HEIGHT = 30;
+	private static final int DELAY = 100;
 	private static final int WIDTH = 700;
 	private static final int HEIGHT = 700 + ICON_HEIGHT;
 	private static final int PAUSE = 10;
@@ -35,6 +36,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean mixed = false;
 	private boolean auto = false;
 	private int s = BRUSH_SIZE;
+	private int speed = DELAY;
 	private GRect icon1;
 	private GRect icon2;
 	private GRect icon3;
@@ -64,6 +66,7 @@ public class GraphicsContest extends GraphicsProgram {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
 		addMouseListeners();
+		addKeyListeners();
 		setUpColors();
 		setUpIcons();
 		setUpColorChoice();
@@ -353,6 +356,14 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 
+	public void keyPressed(KeyEvent e) {
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
+			speed += 5;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			speed -= 5;
+		}
+	}
 	private void setUpBall(double x, double y) {
 		addAll(s, x, y);
 	}
