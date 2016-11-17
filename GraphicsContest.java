@@ -30,7 +30,7 @@ public class GraphicsContest extends GraphicsProgram {
 		newColor = new Color (255,rgen.nextInt(128,255),0);
 	}
 	
-	public void mouseMoved(MouseEvent e) {
+	public void mouseEntered(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
 		x = x - (getWidth()/2 - s/2);
