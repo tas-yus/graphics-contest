@@ -149,7 +149,13 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void updateColorChoice() {
-		
+		colorIcon1.setColor(plainColor[RED][0]);
+		colorIcon2.setColor(plainColor[ORANGE][0]);
+		colorIcon3.setColor(plainColor[YELLOW][0]);
+		colorIcon4.setColor(plainColor[GREEN][0]);
+		colorIcon5.setColor(plainColor[BLUE][0]);
+		colorIcon6.setColor(plainColor[CYAN][0]);
+		colorIcon7.setColor(plainColor[PURPLE][0]);
 	}
 	
 	public void mouseClicked(MouseEvent e) {
