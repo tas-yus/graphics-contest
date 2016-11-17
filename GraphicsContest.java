@@ -96,11 +96,11 @@ public class GraphicsContest extends GraphicsProgram {
 		add(icon1);
 		icon2 = new GRect (WIDTH*1/5, 0, WIDTH/5, ICON_HEIGHT);
 		add(icon2);
-		icon3 = new GRect (WIDTH*2/5, 0, WIDTH/10, ICON_HEIGHT);
+		icon3 = new GRect (WIDTH*2/5, 0, WIDTH/20, ICON_HEIGHT);
 		add(icon3);
-		icon4 = new GRect (WIDTH/2, 0, WIDTH/10, ICON_HEIGHT);
+		icon4 = new GRect (WIDTH*9/20, 0, WIDTH/20, ICON_HEIGHT);
 		add(icon4);
-		icon5 = new GRect (WIDTH*4/5, 0, WIDTH/5, ICON_HEIGHT);
+		icon5 = new GRect (WIDTH*1/2, 0, WIDTH/10, ICON_HEIGHT);
 		add(icon5);
 		brushStatus = new GLabel ("Brush: " + status, WIDTH/10, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
@@ -108,10 +108,10 @@ public class GraphicsContest extends GraphicsProgram {
 		brushSizeStatus = new GLabel ("Size = x" + s, WIDTH*3/10, ICON_HEIGHT/2);
 		brushSizeStatus.move(-brushSizeStatus.getWidth()/2, +brushSizeStatus.getAscent()/2);
 		add(brushSizeStatus);
-		plusSize = new GLabel ("+", WIDTH*9/20, ICON_HEIGHT/2);
+		plusSize = new GLabel ("+", WIDTH*9/40, ICON_HEIGHT/2);
 		plusSize.move(-plusSize.getWidth()/2, +plusSize.getAscent()/2);
 		add(plusSize);
-		minusSize = new GLabel ("-", WIDTH*11/20, ICON_HEIGHT/2);
+		minusSize = new GLabel ("-", WIDTH*1/4, ICON_HEIGHT/2);
 		minusSize.move(-minusSize.getWidth()/2, +minusSize.getAscent()/2);
 		add(minusSize);
 	}
@@ -210,7 +210,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean clickIcon3(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > WIDTH*2/5 && x < WIDTH*1/2 && y <= ICON_HEIGHT) {
+		if (x > WIDTH*2/5 && x < WIDTH*9/20 && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
 	}
@@ -218,7 +218,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean clickIcon4(MouseEvent e) {
 		double x = e.getX();
 		double y = e.getY();
-		if (x > WIDTH*1/2 && x < WIDTH*3/4 && y <= ICON_HEIGHT) {
+		if (x > WIDTH*9/20 && x < WIDTH*1/2 && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
 	}
