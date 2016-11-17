@@ -268,7 +268,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (mixed == true) {
 			if(clickColorIcon1(e) == true) {
-				chosenMixedColor = new Color(255,rgen.nextInt(128,255),0); 
+				chosenColor = plainColor[RED];
 			}
 			if(clickColorIcon2(e) == true) {
 				chosenColor = plainColor[ORANGE]; 
