@@ -136,6 +136,8 @@ public class GraphicsContest extends GraphicsProgram {
 		icon1 = new GRect (0, 0, WIDTH/5, ICON_HEIGHT);
 		add(icon1);
 		icon2 = new GRect (WIDTH*1/5, 0, WIDTH/5, ICON_HEIGHT);
+		icon2.setColor(Color.WHITE);
+		icon2.setFilled(true);
 		add(icon2);
 		icon3 = new GRect (WIDTH*2/5, 0, WIDTH/20, ICON_HEIGHT);
 		add(icon3);
