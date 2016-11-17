@@ -20,14 +20,14 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int PAUSE = 10;
 	private static final int BRUSH_SIZE = 5;
 	private Color newColor = new Color (255, 128, 0);
-	private boolean draw = true;
+	private boolean draw = false;
 	private int s = BRUSH_SIZE;
 	private GRect icon1;
 	private GRect icon2;
 	private GRect icon3;
 	private GRect icon4;
 	private GRect icon5;
-	private String status = "On";
+	private String status = "off";
 	private GLabel brushStatus;
 	private GLabel brushSizeStatus;
 	private GLabel plusSize;
