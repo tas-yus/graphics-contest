@@ -245,8 +245,6 @@ public class GraphicsContest extends GraphicsProgram {
 				auto = false;
 				pure = true;
 				mode = "Pure";
-				draw = true;
-				status = "On";
 				updateIcons();
 			}
 		}
@@ -357,6 +355,10 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	public void keyPressed(KeyEvent e) {
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			draw = true;
+			status = "On";
+		}
 		if (e.getKeyCode() == KeyEvent.VK_UP && speed > 5) {
 			speed -= 5;
 		}
