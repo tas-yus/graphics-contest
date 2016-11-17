@@ -358,6 +358,21 @@ public class GraphicsContest extends GraphicsProgram {
 		} else if (chosenMixedColor == ORANGE) {
 			Color color = new Color (255, rgen.nextInt(128,255),0);
 			return color;
+		} else if (chosenMixedColor == YELLOW) {
+			Color color = new Color (rgen.nextInt(0,128), 255,0);
+			return color;
+		} else if (chosenMixedColor == GREEN) {
+			Color color = new Color (255, 255, 0);
+			return color;
+		} else if (chosenMixedColor == BLUE) {
+			Color color = new Color (255, rgen.nextInt(128,255),0);
+			return color;
+		} else if (chosenMixedColor == CYAN) {
+			Color color = new Color (255, rgen.nextInt(128,255),0);
+			return color;
+		} else if (chosenMixedColor == PURPLE) {
+			Color color = new Color (255, rgen.nextInt(128,255),0);
+			return color;
 		} else return null;
 	}
 	private Color randomizeColor(Color[] chosenColor) {
