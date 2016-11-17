@@ -34,28 +34,28 @@ public class GraphicsContest extends GraphicsProgram {
 
 	private void addAll(int s, int x, int y) {
 		Color newColor = rgen.nextColor();
-		GOval pixel1 = new GOval (WIDTH/2 - x - s/2, HEIGHT - y - s/2, s, s);
+		GOval pixel1 = new GOval (WIDTH/2 - x - s/2, HEIGHT/2 - y - s/2, s, s);
 		pixel1.setFilled(true);
 		pixel1.setColor(newColor);
-		GOval pixel2 = new GOval (WIDTH/2 - y - s/2, HEIGHT - x - s/2, s, s);
+		GOval pixel2 = new GOval (WIDTH/2 - y - s/2, HEIGHT/2 - x - s/2, s, s);
 		pixel2.setFilled(true);
 		pixel2.setColor(newColor);
-		GOval pixel3 = new GOval (WIDTH/2 + x - s/2, HEIGHT + y - s/2, s, s);
+		GOval pixel3 = new GOval (WIDTH/2 + x - s/2, HEIGHT/2 + y - s/2, s, s);
 		pixel3.setFilled(true);
 		pixel3.setColor(newColor);
-		GOval pixel4 = new GOval (WIDTH/2 + y - s/2, HEIGHT + x - s/2, s, s);
+		GOval pixel4 = new GOval (WIDTH/2 + y - s/2, HEIGHT/2 + x - s/2, s, s);
 		pixel4.setFilled(true);
 		pixel4.setColor(newColor);
-		GOval pixel5 = new GOval (WIDTH/2 - x - s/2, HEIGHT + y - s/2, s, s);
+		GOval pixel5 = new GOval (WIDTH/2 - x - s/2, HEIGHT/2 + y - s/2, s, s);
 		pixel5.setFilled(true);
 		pixel5.setColor(newColor);
-		GOval pixel6 = new GOval (WIDTH/2 - y - s/2, HEIGHT + x - s/2, s, s);
+		GOval pixel6 = new GOval (WIDTH/2 - y - s/2, HEIGHT/2 + x - s/2, s, s);
 		pixel6.setFilled(true);
 		pixel6.setColor(newColor);
-		GOval pixel7 = new GOval (WIDTH/2 + x - s/2, HEIGHT - y - s/2, s, s);
+		GOval pixel7 = new GOval (WIDTH/2 + x - s/2, HEIGHT/2 - y - s/2, s, s);
 		pixel7.setFilled(true);
 		pixel7.setColor(newColor);
-		GOval pixel8 = new GOval (WIDTH/2 + y - s/2, HEIGHT - x - s/2, s, s);
+		GOval pixel8 = new GOval (WIDTH/2 + y - s/2, HEIGHT/2 - x - s/2, s, s);
 		pixel8.setFilled(true);
 		pixel8.setColor(newColor);
 		add(pixel1);
