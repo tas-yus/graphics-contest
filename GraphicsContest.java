@@ -23,8 +23,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private void setUpBall() {
 		while (true) {
 			double r = rgen.nextDouble(20,50);
-			double vx = rgen.nextDouble(1,5);
-			double vy = rgen.nextDouble(1,5);
 			double x = rgen.nextDouble(0 + 2*r, getWidth() - 2*r);
 			double y = rgen.nextDouble(0 + 2*r, getHeight() - 2*r);
 			GOval ball = new GOval (x - r, y - r, r*2, r*2);
