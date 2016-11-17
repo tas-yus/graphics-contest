@@ -17,26 +17,35 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int WIDTH = 700;
     private static final int HEIGHT = 700;
     private static final int PAUSE = 10;
+    private static final int s = 10;
     
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
         pause(PAUSE);
-		setUpBall();
-
+        addMouseListeners();
 	}
 
-	private void setUpBall() {
-		int s = 10;
+	public void mousePressed(MouseEvent e) {
+		double x = e.getX();
+		double y = e.getY();
+		if(x > getWidth()/2 - s) {
+			x = getWidth() - 2*s - x;
+		}
+		if (y > getHeight()/2 - s) {
+			y = getHeight() - 2*s - y;
+		}
+		setUpBall(x, y);
+	}
+	
+	private void setUpBall(double x, double y) {
 		while(true) {
-			int x = rgen.nextInt(0, getWidth()/2 - s);
-			int y = rgen.nextInt(0, getHeight()/2 - s);
 			addAll(s, x, y);
 			pause(10);
 		}
 	}
 
-	private void addAll(int s, int x, int y) {
-		Color newColor = new Color (255,255,0);
+	private void addAll(int s, double x, double y) {
+		Color newColor = new Color (255,128,0);
 		GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 - y - s/2, s, s);
 		pixel1.setFilled(true);
 		pixel1.setColor(newColor);
