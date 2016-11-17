@@ -16,7 +16,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	private static final int ICON_HEIGHT = 50;
 	private static final int WIDTH = 700;
-	private static final int HEIGHT = 700;
+	private static final int HEIGHT = 700 + ICON_HEIGHT;
 	private static final int PAUSE = 10;
 	private static final int s = 5;
 	private Color newColor = new Color (255, 128, 0);
@@ -53,7 +53,9 @@ public class GraphicsContest extends GraphicsProgram {
 			double y = e.getY();
 			x = x - (getWidth()/2 - s/2);
 			y = y - (getHeight()/2 - s/2);
-			setUpBall(x, y);
+			if (y > ICON_HEIGHT) {
+				setUpBall(x, y);
+			}
 		}
 	}
 
