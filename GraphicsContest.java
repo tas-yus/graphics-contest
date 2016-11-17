@@ -81,6 +81,7 @@ public class GraphicsContest extends GraphicsProgram {
 					setUpBall(x, y);
 				}
 			}
+			if (auto == false) break;
 		}
 	}
 	
