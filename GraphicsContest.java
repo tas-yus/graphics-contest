@@ -149,12 +149,19 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void updateColorChoice() {
+		colorIcon1.setFilled(true);
 		colorIcon1.setColor(plainColor[RED][0]);
+		colorIcon2.setFilled(true);
 		colorIcon2.setColor(plainColor[ORANGE][0]);
+		colorIcon3.setFilled(true);
 		colorIcon3.setColor(plainColor[YELLOW][0]);
+		colorIcon4.setFilled(true);
 		colorIcon4.setColor(plainColor[GREEN][0]);
+		colorIcon5.setFilled(true);
 		colorIcon5.setColor(plainColor[BLUE][0]);
+		colorIcon6.setFilled(true);
 		colorIcon6.setColor(plainColor[CYAN][0]);
+		colorIcon7.setFilled(true);
 		colorIcon7.setColor(plainColor[PURPLE][0]);
 	}
 	
