@@ -366,11 +366,21 @@ public class GraphicsContest extends GraphicsProgram {
 				updateIcons();
 			}
 		}
-		if (e.getKeyCode() == KeyEvent.VK_UP && speed > 5) {
-			speed -= 5;
+		if (auto == true) {
+			if (e.getKeyCode() == KeyEvent.VK_UP && speed > 5) {
+				speed -= 5;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_DOWN && speed < 200) {
+				speed += 5;
+			}
 		}
-		if (e.getKeyCode() == KeyEvent.VK_DOWN && speed < 200) {
-			speed += 5;
+		if (auto == false) {
+			if (e.getKeyCode() == KeyEvent.VK_UP) {
+				s++;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_DOWN && s > 0) {
+				s--;
+			}
 		}
 	}
 	private void setUpBall(double x, double y) {
