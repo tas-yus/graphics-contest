@@ -26,11 +26,15 @@ public class GraphicsContest extends GraphicsProgram {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
 		addMouseListeners();
-		updateIcons();
+		setUpIcons();
 	}
 
-	private void updateIcons() {
+	private void setUpIcons() {
 		GRect brushOnOff = new GRect (0, 0, WIDTH/3, ICON_HEIGHT);
+		add(brushOnOff);
+	}
+	
+	private void updateIcons() {
 		String status = "";
 		if (draw == true) {
 			status = "On";
@@ -39,7 +43,10 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		GLabel onOff = new GLabel ("Brush:" + status, WIDTH/6, ICON_HEIGHT/2);
 		onOff.move(-onOff.getWidth()/2, +onOff.getAscent()/2);
-		add(brushOnOff);
+		
+		if (getElementAt(WIDTH/6,ICON_HEIGHT/2) != null){
+            remove(getElementAt(WIDTH/6,ICON_HEIGHT/2));
+		}
 		add(onOff);
 	}
 	
