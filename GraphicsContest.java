@@ -26,7 +26,9 @@ public class GraphicsContest extends GraphicsProgram {
 	private GRect icon2;
 	private GRect icon3;
 	private GRect icon4;
+	private GRect icon5;
 	private GLabel brushStatus;
+	private GLabel brushSizeStatus;
 	
 
 	public void run() {
@@ -37,17 +39,19 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void setUpIcons() {
-		icon1 = new GRect (0, 0, WIDTH/5, ICON_HEIGHT);
+		icon1 = new GRect (0, 0, 0, ICON_HEIGHT);
 		add(icon1);
+		icon2 = new GRect (0, 0, WIDTH*1/5, ICON_HEIGHT);
+		add(icon2);
+		icon3 = new GRect (0, 0, WIDTH*2/5, ICON_HEIGHT);
+		add(icon3);
+		icon4 = new GRect (0, 0, WIDTH*3/5, ICON_HEIGHT);
+		add(icon4);
+		icon5 = new GRect (0, 0, WIDTH*4/5, ICON_HEIGHT);
+		add(icon5);
 		brushStatus = new GLabel ("Brush: On", WIDTH/10, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
-		icon2 = new GRect (0, 0, WIDTH*2/5, ICON_HEIGHT);
-		add(icon2);
-		icon3 = new GRect (0, 0, WIDTH*3/5, ICON_HEIGHT);
-		add(icon3);
-		icon4 = new GRect (0, 0, WIDTH*4/5, ICON_HEIGHT);
-		add(icon4);
 	}
 	
 	private void updateIcons() {
@@ -63,6 +67,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
+		add(icon1);
 		add(icon2);
 		add(icon3);
 		add(icon4);
