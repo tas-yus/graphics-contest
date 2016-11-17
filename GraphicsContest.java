@@ -357,11 +357,11 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			speed += 5;
-		}
-		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+		if (e.getKeyCode() == KeyEvent.VK_UP && speed != 200) {
 			speed -= 5;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_DOWN && speed != 5) {
+			speed += 5;
 		}
 	}
 	private void setUpBall(double x, double y) {
