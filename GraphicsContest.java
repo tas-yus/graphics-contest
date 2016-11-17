@@ -26,6 +26,7 @@ public class GraphicsContest extends GraphicsProgram {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
 		addMouseListeners();
+		updateIcons();
 	}
 
 	private void updateIcons() {
@@ -44,10 +45,11 @@ public class GraphicsContest extends GraphicsProgram {
 	public void mouseClicked(MouseEvent e) {
 		if (draw == false) {
 			draw = true;
+			updateIcons();
 		} else if (draw == true) {
 			draw = false;
+			updateIcons();
 		}
-		updateIcons();
 	}
 
 	public void mouseMoved(MouseEvent e) {
