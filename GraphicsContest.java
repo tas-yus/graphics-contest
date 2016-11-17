@@ -184,10 +184,11 @@ public class GraphicsContest extends GraphicsProgram {
 		speedStatus = new GLabel ("Speed = x" + speedLevel, WIDTH*3/10, ICON_HEIGHT/2);
 		speedStatus.move(-speedStatus.getWidth()/2, +speedStatus.getAscent()/2);
 		add(brushStatus);
+		if (getElementAt(WIDTH*3/10 -speedStatus.getWidth()/2, ICON_HEIGHT/2 + speedStatus.getAscent()) != null){
+            remove(getElementAt(WIDTH*3/10 -speedStatus.getWidth()/2, ICON_HEIGHT/2 + speedStatus.getAscent()));
+		}
 		add(colorMode);
 		if(auto == true) {
-			add(speedStatus);
-			remove(speedStatus);
 			add(speedStatus);
 		} else {
 			add(brushSizeStatus);
