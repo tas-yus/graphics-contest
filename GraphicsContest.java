@@ -317,30 +317,7 @@ public class GraphicsContest extends GraphicsProgram {
 				chosenColor = plainColor[PURPLE]; 
 			}
 		}
-		if (mixed == true) {
-			if(clickColorIcon1(e) == true) {
-				chosenMixedColor = RED;
-			}
-			if(clickColorIcon2(e) == true) {
-				chosenMixedColor = ORANGE;
-			}
-			if(clickColorIcon3(e) == true) {
-				chosenMixedColor = YELLOW;
-			}
-			if(clickColorIcon4(e) == true) {
-				chosenMixedColor = GREEN;
-			}
-			if(clickColorIcon5(e) == true) {
-				chosenMixedColor = BLUE;
-			}
-			if(clickColorIcon6(e) == true) {
-				chosenMixedColor = CYAN;
-			}
-			if(clickColorIcon7(e) == true) {
-				chosenMixedColor = PURPLE; 
-			}
-		}
-		if (auto == true) {
+		if (mixed == true || auto == true) {
 			if(clickColorIcon1(e) == true) {
 				chosenMixedColor = RED;
 			}
@@ -428,6 +405,23 @@ public class GraphicsContest extends GraphicsProgram {
 				}
 				chosenPureColor = plainColor[newColor][0];
 				colorTray.setColor(plainColor[newColor][0]);
+			}
+			if (plain == true) {
+				int newColor = colorToInt(colorTray.getColor()) + 1;
+				if (newColor == 7) {
+					newColor = 0;
+				}
+				chosenColor = plainColor[RED];
+				colorTray.setColor(plainColor[newColor][0]);
+			}
+			if (mixed == true || auto == true) {
+				int newColor = colorToInt(colorTray.getColor()) + 1;
+				if (newColor == 7) {
+					newColor = 0;
+				}
+				chosenColor = plainColor[RED];
+				colorTray.setColor(plainColor[newColor][0]);
+				chosenMixedColor = RED;
 			}
 		}
 		if (auto == true) {
