@@ -44,6 +44,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GRect icon3;
 	private GRect icon4;
 	private GRect icon5;
+	private GRect icon6;
 	private GRect colorIcon1;
 	private GRect colorIcon2;
 	private GRect colorIcon3;
@@ -148,6 +149,8 @@ public class GraphicsContest extends GraphicsProgram {
 		add(icon4);
 		icon5 = new GRect (getWidth()*1/2, 0, getWidth()/10, ICON_HEIGHT);
 		add(icon5);
+		icon6 = new GRect (getWidth()*1/2, 0, getWidth()/10, ICON_HEIGHT);
+		add(icon6);
 		brushStatus = new GLabel ("Brush: " + status, getWidth()/8, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
