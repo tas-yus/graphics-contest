@@ -183,7 +183,7 @@ public class GraphicsContest extends GraphicsProgram {
 		line1 = new GLine (0,ICON_HEIGHT,getWidth(),getHeight());
 		line2 = new GLine (getWidth(),ICON_HEIGHT,0,getHeight());
 		line3 = new GLine (0,getHeight()/2 + ICON_HEIGHT/2,getWidth(),getHeight()/2 + ICON_HEIGHT/2);
-		line3 = new GLine (getWidth()/2,ICON_HEIGHT,getWidth()/2,getHeight());
+		line4 = new GLine (getWidth()/2,ICON_HEIGHT,getWidth()/2,getHeight());
 		add(line1);
 		add(line2);
 		add(line3);
