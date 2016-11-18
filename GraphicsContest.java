@@ -590,7 +590,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private boolean clickIcon1(MouseEvent e) {
-		if (clickIcon3(e) || clickIcon4(e) || clickIcon5(e) ||
+		if (clickIcon3(e) || clickIcon4(e) || clickIcon5(e) || clickIcon6(e) ||
 				clickColorIcon1(e) || clickColorIcon2(e) || clickColorIcon3(e) ||
 				clickColorIcon4(e) || clickColorIcon5(e) || clickColorIcon6(e) ||
 				clickColorIcon7(e)) return false;
