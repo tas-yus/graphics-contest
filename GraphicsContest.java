@@ -27,6 +27,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int BLUE = 4;
 	private static final int CYAN = 5;
 	private static final int PURPLE = 6;
+	private static final int WHITE = 7;
+	private static final int BLACK = 8;
 
 
 	private Color newColor;
@@ -136,6 +138,8 @@ public class GraphicsContest extends GraphicsProgram {
 		plainColor[PURPLE][2] = new Color(178,102,255); 
 		plainColor[PURPLE][3] = new Color(204,153,255);
 		plainColor[PURPLE][4] = new Color(229,204,255);
+		plainColor[WHITE][0] = Color.WHITE;
+		plainColor[BLACK][0] = Color.BLACK;
 	}
 
 	private void setUpIcons() {
@@ -187,9 +191,9 @@ public class GraphicsContest extends GraphicsProgram {
 		colorIcon7 = new GRect (getWidth()*39/45, 0, getWidth()*41/45, ICON_HEIGHT);
 		add(colorIcon7);
 		colorIcon8 = new GRect (getWidth()*41/45, 0, getWidth()*43/35, ICON_HEIGHT);
-		add(colorIcon7);
+		add(colorIcon8);
 		colorIcon9 = new GRect (getWidth()*43/45, 0, getWidth(), ICON_HEIGHT);
-		add(colorIcon7);
+		add(colorIcon9);
 		line1 = new GLine (0,ICON_HEIGHT,getWidth(),getHeight());
 		line2 = new GLine (getWidth(),ICON_HEIGHT,0,getHeight());
 		line3 = new GLine (0,getHeight()/2 + ICON_HEIGHT/2,getWidth(),getHeight()/2 + ICON_HEIGHT/2);
@@ -233,6 +237,10 @@ public class GraphicsContest extends GraphicsProgram {
 		colorIcon6.setColor(plainColor[CYAN][0]);
 		colorIcon7.setFilled(true);
 		colorIcon7.setColor(plainColor[PURPLE][0]);
+		colorIcon8.setFilled(true);
+		colorIcon8.setColor(plainColor[WHITE][0]);
+		colorIcon8.setFilled(true);
+		colorIcon8.setColor(plainColor[BLACK][0]);
 	}
 
 	public void mouseClicked(MouseEvent e) {
@@ -456,7 +464,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			if (pure == true) {
 				int newColor = colorToInt(colorTray.getColor()) + 1;
-				if (newColor == 7) {
+				if (newColor == 9) {
 					newColor = 0;
 				}
 				chosenPureColor = plainColor[newColor][0];
@@ -464,7 +472,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 			if (plain == true) {
 				int newColor = colorToInt(colorTray.getColor()) + 1;
-				if (newColor == 7) {
+				if (newColor == 9) {
 					newColor = 0;
 				}
 				chosenColor = plainColor[newColor];
@@ -472,7 +480,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 			if (mixed == true || auto == true) {
 				int newColor = colorToInt(colorTray.getColor()) + 1;
-				if (newColor == 7) {
+				if (newColor == 9) {
 					newColor = 0;
 				}
 				chosenMixedColor = newColor;
@@ -483,7 +491,7 @@ public class GraphicsContest extends GraphicsProgram {
 			if (pure == true) {
 				int newColor = colorToInt(colorTray.getColor()) - 1;
 				if (newColor == -1) {
-					newColor = 6;
+					newColor = 8;
 				}
 				chosenPureColor = plainColor[newColor][0];
 				colorTray.setColor(plainColor[newColor][0]);
@@ -491,7 +499,7 @@ public class GraphicsContest extends GraphicsProgram {
 			if (plain == true) {
 				int newColor = colorToInt(colorTray.getColor()) - 1;
 				if (newColor == -1) {
-					newColor = 6;
+					newColor = 8;
 				}
 				chosenColor = plainColor[newColor];
 				colorTray.setColor(plainColor[newColor][0]);
@@ -499,7 +507,7 @@ public class GraphicsContest extends GraphicsProgram {
 			if (mixed == true || auto == true) {
 				int newColor = colorToInt(colorTray.getColor()) - 1;
 				if (newColor == -1) {
-					newColor = 6;
+					newColor = 8;
 				}
 				chosenMixedColor = newColor;
 				colorTray.setColor(plainColor[newColor][0]);
