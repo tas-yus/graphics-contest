@@ -423,6 +423,32 @@ public class GraphicsContest extends GraphicsProgram {
 				colorTray.setColor(plainColor[newColor][0]);
 			}
 		}
+		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			if (pure == true) {
+				int newColor = colorToInt(colorTray.getColor()) - 1;
+				if (newColor == -1) {
+					newColor = 6;
+				}
+				chosenPureColor = plainColor[newColor][0];
+				colorTray.setColor(plainColor[newColor][0]);
+			}
+			if (plain == true) {
+				int newColor = colorToInt(colorTray.getColor()) - 1;
+				if (newColor == -1) {
+					newColor = 6;
+				}
+				chosenColor = plainColor[newColor];
+				colorTray.setColor(plainColor[newColor][0]);
+			}
+			if (mixed == true || auto == true) {
+				int newColor = colorToInt(colorTray.getColor()) - 1;
+				if (newColor == -1) {
+					newColor = 6;
+				}
+				chosenMixedColor = newColor;
+				colorTray.setColor(plainColor[newColor][0]);
+			}
+		}
 		if (auto == true) {
 			if (e.getKeyCode() == KeyEvent.VK_UP && speed > 5) {
 				speed -= 5;
