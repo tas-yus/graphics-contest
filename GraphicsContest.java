@@ -141,13 +141,13 @@ public class GraphicsContest extends GraphicsProgram {
 		colorTray.setFilled(true);
 		icon1 = new GRect (getWidth()/20, 0, getWidth()*3/20, ICON_HEIGHT);
 		add(icon1);
-		icon2 = new GRect (getWidth()*1/5, 0, getWidth()/5, ICON_HEIGHT);
+		icon2 = new GRect (getWidth()*1/5, 0, getWidth()*3/20, ICON_HEIGHT);
 		add(icon2);
-		icon3 = new GRect (getWidth()*2/5, 0, getWidth()/20, ICON_HEIGHT);
+		icon3 = new GRect (getWidth()*7/20, 0, getWidth()/20, ICON_HEIGHT);
 		add(icon3);
-		icon4 = new GRect (getWidth()*9/20, 0, getWidth()/20, ICON_HEIGHT);
+		icon4 = new GRect (getWidth()*8/20, 0, getWidth()/20, ICON_HEIGHT);
 		add(icon4);
-		icon5 = new GRect (getWidth()*1/2, 0, getWidth()/10, ICON_HEIGHT);
+		icon5 = new GRect (getWidth()*9/20, 0, getWidth()/10, ICON_HEIGHT);
 		add(icon5);
 		icon6 = new GRect (getWidth()*1/2, 0, getWidth()/10, ICON_HEIGHT);
 		add(icon6);
