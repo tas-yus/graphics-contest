@@ -102,7 +102,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void setUpColors() {
-		plainColor = new Color[7][5];
+		plainColor = new Color[9][5];
 		plainColor[RED][0] = new Color(255,0,0); 
 		plainColor[RED][1] = new Color(255,51,51); 
 		plainColor[RED][2] = new Color(255,102,102); 
