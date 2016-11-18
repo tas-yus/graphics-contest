@@ -247,8 +247,8 @@ public class GraphicsContest extends GraphicsProgram {
 		colorIcon7.setColor(plainColor[PURPLE][0]);
 		colorIcon8.setFilled(true);
 		colorIcon8.setColor(plainColor[WHITE][0]);
-		colorIcon8.setFilled(true);
-		colorIcon8.setColor(plainColor[BLACK][0]);
+		colorIcon9.setFilled(true);
+		colorIcon9.setColor(plainColor[BLACK][0]);
 	}
 
 	public void mouseClicked(MouseEvent e) {
