@@ -139,7 +139,15 @@ public class GraphicsContest extends GraphicsProgram {
 		plainColor[PURPLE][3] = new Color(204,153,255);
 		plainColor[PURPLE][4] = new Color(229,204,255);
 		plainColor[WHITE][0] = Color.WHITE;
+		plainColor[WHITE][1] = Color.WHITE;
+		plainColor[WHITE][2] = Color.WHITE; 
+		plainColor[WHITE][3] = Color.WHITE;
+		plainColor[WHITE][4] = Color.WHITE;;
 		plainColor[BLACK][0] = Color.BLACK;
+		plainColor[BLACK][1] = Color.BLACK;
+		plainColor[BLACK][2] = Color.BLACK;
+		plainColor[BLACK][3] = Color.BLACK;
+		plainColor[BLACK][4] = Color.BLACK;
 	}
 
 	private void setUpIcons() {
