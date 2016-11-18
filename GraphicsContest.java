@@ -147,7 +147,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(icon3);
 		icon4 = new GRect (getWidth()*8/20, 0, getWidth()/20, ICON_HEIGHT);
 		add(icon4);
-		icon5 = new GRect (getWidth()*9/20, 0, getWidth()/10, ICON_HEIGHT);
+		icon5 = new GRect (getWidth()*9/20, 0, getWidth()/20, ICON_HEIGHT);
 		add(icon5);
 		icon6 = new GRect (getWidth()*1/2, 0, getWidth()/10, ICON_HEIGHT);
 		add(icon6);
