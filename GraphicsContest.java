@@ -53,6 +53,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private GRect colorIcon5;
 	private GRect colorIcon6;
 	private GRect colorIcon7;
+	private GRect colorIcon8;
+	private GRect colorIcon9;
 	private String status = "off";
 	private String mode = "Pure";
 	private GLabel brushStatus;
@@ -170,19 +172,23 @@ public class GraphicsContest extends GraphicsProgram {
 		colorMode = new GLabel (mode, getWidth()*11/20, ICON_HEIGHT/2);
 		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
 		add(colorMode);
-		colorIcon1 = new GRect (getWidth()*3/5, 0, getWidth()*2/35, ICON_HEIGHT);
+		colorIcon1 = new GRect (getWidth()*3/5, 0, getWidth()*2/45, ICON_HEIGHT);
 		add(colorIcon1);
-		colorIcon2 = new GRect (getWidth()*23/35, 0, getWidth()*2/35, ICON_HEIGHT);
+		colorIcon2 = new GRect (getWidth()*29/45, 0, getWidth()*31/45, ICON_HEIGHT);
 		add(colorIcon2);
-		colorIcon3 = new GRect (getWidth()*25/35, 0, getWidth()*2/35, ICON_HEIGHT);
+		colorIcon3 = new GRect (getWidth()*31/45, 0, getWidth()*33/45, ICON_HEIGHT);
 		add(colorIcon3);
-		colorIcon4 = new GRect (getWidth()*27/35, 0, getWidth()*2/35, ICON_HEIGHT);
+		colorIcon4 = new GRect (getWidth()*33/45, 0, getWidth()*35/45, ICON_HEIGHT);
 		add(colorIcon4);
-		colorIcon5 = new GRect (getWidth()*29/35, 0, getWidth()*2/35, ICON_HEIGHT);
+		colorIcon5 = new GRect (getWidth()*35/45, 0, getWidth()*37/45, ICON_HEIGHT);
 		add(colorIcon5);
-		colorIcon6 = new GRect (getWidth()*31/35, 0, getWidth()*2/35, ICON_HEIGHT);
+		colorIcon6 = new GRect (getWidth()*37/45, 0, getWidth()*39/45, ICON_HEIGHT);
 		add(colorIcon6);
-		colorIcon7 = new GRect (getWidth()*33/35, 0, getWidth()*2/35, ICON_HEIGHT);
+		colorIcon7 = new GRect (getWidth()*39/45, 0, getWidth()*41/45, ICON_HEIGHT);
+		add(colorIcon7);
+		colorIcon8 = new GRect (getWidth()*41/45, 0, getWidth()*43/35, ICON_HEIGHT);
+		add(colorIcon7);
+		colorIcon9 = new GRect (getWidth()*43/45, 0, getWidth(), ICON_HEIGHT);
 		add(colorIcon7);
 		line1 = new GLine (0,ICON_HEIGHT,getWidth(),getHeight());
 		line2 = new GLine (getWidth(),ICON_HEIGHT,0,getHeight());
@@ -657,6 +663,14 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	private boolean clickColorIcon7(MouseEvent e) {
 		if (colorIcon7.contains(e.getX(),e.getY())) return true;
+		else return false;
+	}
+	private boolean clickColorIcon8(MouseEvent e) {
+		if (colorIcon8.contains(e.getX(),e.getY())) return true;
+		else return false;
+	}
+	private boolean clickColorIcon9(MouseEvent e) {
+		if (colorIcon9.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
 	
