@@ -374,7 +374,7 @@ public class GraphicsContest extends GraphicsProgram {
 			if(clickColorIcon8(e) == true) {
 				chosenColor = plainColor[WHITE]; 
 			}
-			if(clickColorIcon8(e) == true) {
+			if(clickColorIcon9(e) == true) {
 				chosenColor = plainColor[WHITE]; 
 			}
 		}
@@ -403,7 +403,7 @@ public class GraphicsContest extends GraphicsProgram {
 			if(clickColorIcon8(e) == true) {
 				chosenMixedColor = WHITE; 
 			}
-			if(clickColorIcon8(e) == true) {
+			if(clickColorIcon9(e) == true) {
 				chosenMixedColor = BLACK; 
 			}
 		}
