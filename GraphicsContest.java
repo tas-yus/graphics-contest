@@ -35,6 +35,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean plain = false;
 	private boolean mixed = false;
 	private boolean auto = false;
+	private boolean line = false;
 	private int s = BRUSH_SIZE;
 	private int speed = DELAY;
 	private int speedLevel = 1;
@@ -187,10 +188,6 @@ public class GraphicsContest extends GraphicsProgram {
 		line2 = new GLine (getWidth(),ICON_HEIGHT,0,getHeight());
 		line3 = new GLine (0,getHeight()/2 + ICON_HEIGHT/2,getWidth(),getHeight()/2 + ICON_HEIGHT/2);
 		line4 = new GLine (getWidth()/2,ICON_HEIGHT,getWidth()/2,getHeight());
-		add(line1);
-		add(line2);
-		add(line3);
-		add(line4);
 	}
 
 	private void updateIcons() {
@@ -262,6 +259,21 @@ public class GraphicsContest extends GraphicsProgram {
 				s--;
 			}
 			updateIcons();
+		}
+		if (clickIcon5(e) == true) {
+			if (line == false) {
+				add(line1);
+				add(line2);
+				add(line3);
+				add(line4);
+				line = true;
+			} else {
+				remove(line1);
+				remove(line2);
+				remove(line3);
+				remove(line4);
+				line = false;
+			}
 		}
 		if (clickIcon6(e) == true) {
 			if(pure == true) {
