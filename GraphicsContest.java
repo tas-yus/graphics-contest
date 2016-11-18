@@ -59,6 +59,10 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLabel plusSize;
 	private GLabel minusSize;
 	private GLabel colorMode;
+	private GLine line1;
+	private GLine line2;
+	private GLine line3;
+	private GLine line4;
 
 	private Color[][] plainColor;
 	private Color[] chosenColor;
@@ -176,6 +180,14 @@ public class GraphicsContest extends GraphicsProgram {
 		add(colorIcon6);
 		colorIcon7 = new GRect (getWidth()*33/35, 0, getWidth()*2/35, ICON_HEIGHT);
 		add(colorIcon7);
+		line1 = new GLine (0,ICON_HEIGHT,getWidth(),getHeight());
+		line2 = new GLine (getWidth(),ICON_HEIGHT,0,getHeight());
+		line3 = new GLine (0,getHeight()/2 + ICON_HEIGHT/2,getWidth(),getHeight()/2 + ICON_HEIGHT/2);
+		line3 = new GLine (getWidth()/2,ICON_HEIGHT,getWidth()/2,getHeight());
+		add(line1);
+		add(line2);
+		add(line3);
+		add(line4);
 	}
 
 	private void updateIcons() {
