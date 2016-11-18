@@ -160,10 +160,10 @@ public class GraphicsContest extends GraphicsProgram {
 		speedStatus = new GLabel ("", getWidth()/8, ICON_HEIGHT/2);
 		speedStatus.move(-speedStatus.getWidth()/2, +speedStatus.getAscent()/2);
 		add(speedStatus);
-		plusSize = new GLabel ("+", getWidth()*17/40, ICON_HEIGHT/2);
+		plusSize = new GLabel ("+", getWidth()*15/40, ICON_HEIGHT/2);
 		plusSize.move(-plusSize.getWidth()/2, +plusSize.getAscent()/2);
 		add(plusSize);
-		minusSize = new GLabel ("-", getWidth()*19/40, ICON_HEIGHT/2);
+		minusSize = new GLabel ("-", getWidth()*17/40, ICON_HEIGHT/2);
 		minusSize.move(-minusSize.getWidth()/2, +minusSize.getAscent()/2);
 		add(minusSize);
 		colorMode = new GLabel (mode, getWidth()*11/20, ICON_HEIGHT/2);
