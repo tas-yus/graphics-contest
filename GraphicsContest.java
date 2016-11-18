@@ -342,6 +342,12 @@ public class GraphicsContest extends GraphicsProgram {
 			if(clickColorIcon7(e) == true) {
 				chosenPureColor = plainColor[PURPLE][0]; 
 			}
+			if(clickColorIcon8(e) == true) {
+				chosenPureColor = plainColor[WHITE][0]; 
+			}
+			if(clickColorIcon9(e) == true) {
+				chosenPureColor = plainColor[BLACK][0]; 
+			}
 		}
 		if (plain == true) {
 			if(clickColorIcon1(e) == true) {
@@ -364,6 +370,12 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 			if(clickColorIcon7(e) == true) {
 				chosenColor = plainColor[PURPLE]; 
+			}
+			if(clickColorIcon8(e) == true) {
+				chosenColor = plainColor[WHITE]; 
+			}
+			if(clickColorIcon8(e) == true) {
+				chosenColor = plainColor[WHITE]; 
 			}
 		}
 		if (mixed == true || auto == true) {
@@ -388,6 +400,12 @@ public class GraphicsContest extends GraphicsProgram {
 			if(clickColorIcon7(e) == true) {
 				chosenMixedColor = PURPLE; 
 			}
+			if(clickColorIcon8(e) == true) {
+				chosenMixedColor = WHITE; 
+			}
+			if(clickColorIcon8(e) == true) {
+				chosenMixedColor = BLACK; 
+			}
 		}
 		if(clickColorIcon1(e) == true) {
 			colorTray.setColor(plainColor[RED][0]);
@@ -409,6 +427,12 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if(clickColorIcon7(e) == true) {
 			colorTray.setColor(plainColor[PURPLE][0]);
+		}
+		if(clickColorIcon8(e) == true) {
+			colorTray.setColor(plainColor[WHITE][0]);
+		}
+		if(clickColorIcon7(e) == true) {
+			colorTray.setColor(plainColor[BLACK][0]);
 		}
 	}
 
@@ -616,6 +640,12 @@ public class GraphicsContest extends GraphicsProgram {
 		} else if (chosenMixedColor == PURPLE) {
 			Color color = new Color (rgen.nextInt(0,255), 0,rgen.nextInt(127,255));
 			return color;
+		} else if (chosenMixedColor == WHITE) {
+			Color color = Color.WHITE;
+			return color;
+		} else if (chosenMixedColor == BLACK) {
+			Color color = Color.BLACK;
+			return color;
 		} else return null;
 	}
 	private Color randomizeColor(Color[] chosenColor) {
@@ -627,7 +657,9 @@ public class GraphicsContest extends GraphicsProgram {
 		if (clickIcon3(e) || clickIcon4(e) || clickIcon5(e) || clickIcon6(e) ||
 				clickColorIcon1(e) || clickColorIcon2(e) || clickColorIcon3(e) ||
 				clickColorIcon4(e) || clickColorIcon5(e) || clickColorIcon6(e) ||
-				clickColorIcon7(e)) return false;
+				clickColorIcon7(e) || clickColorIcon8(e) || clickColorIcon9(e)) {
+			return false;
+		}
 		else return true;
 	}
 
