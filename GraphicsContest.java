@@ -419,9 +419,8 @@ public class GraphicsContest extends GraphicsProgram {
 				if (newColor == 7) {
 					newColor = 0;
 				}
-				chosenColor = plainColor[RED];
-				colorTray.setColor(plainColor[newColor][0]);
 				chosenMixedColor = RED;
+				colorTray.setColor(plainColor[newColor][0]);
 			}
 		}
 		if (auto == true) {
