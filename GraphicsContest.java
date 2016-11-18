@@ -595,9 +595,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private boolean clickIcon3(MouseEvent e) {
-		double x = e.getX();
-		double y = e.getY();
-		if (x > getWidth()*2/5 && x < getWidth()*9/20 && y <= ICON_HEIGHT) {
+		if (icon3.contains(e.getX(),e.getY())) {
 			return true;
 		} else return false;
 	}
