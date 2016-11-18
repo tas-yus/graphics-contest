@@ -263,7 +263,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 			updateIcons();
 		}
-		if (clickIcon5(e) == true) {
+		if (clickIcon6(e) == true) {
 			if(pure == true) {
 				pure = false;
 				plain = true;
@@ -609,6 +609,11 @@ public class GraphicsContest extends GraphicsProgram {
 
 	private boolean clickIcon5(MouseEvent e) {
 		if (icon5.contains(e.getX(),e.getY())) return true;
+		else return false;
+	}
+	
+	private boolean clickIcon6(MouseEvent e) {
+		if (icon6.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
 	
