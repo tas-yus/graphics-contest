@@ -618,11 +618,12 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private int colorToInt(Color color) {
 		if (color == plainColor[RED][0]) return 0;
-		if (color == plainColor[ORANGE][0]) return 1;
-		if (color == plainColor[YELLOW][0]) return 2;
-		if (color == plainColor[GREEN][0]) return 3;
-		if (color == plainColor[BLUE][0]) return 4;
-		if (color == plainColor[CYAN][0]) return 5;
-		if (color == plainColor[PURPLE][0]) return 6;
+		else if (color == plainColor[ORANGE][0]) return 1;
+		else if (color == plainColor[YELLOW][0]) return 2;
+		else if (color == plainColor[GREEN][0]) return 3;
+		else if (color == plainColor[BLUE][0]) return 4;
+		else if (color == plainColor[CYAN][0]) return 5;
+		else if (color == plainColor[PURPLE][0]) return 6;
+		else return 0;
 	}
 }
