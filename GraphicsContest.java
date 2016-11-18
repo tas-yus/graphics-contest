@@ -730,6 +730,8 @@ public class GraphicsContest extends GraphicsProgram {
 		else if (color == plainColor[BLUE][0]) return 4;
 		else if (color == plainColor[CYAN][0]) return 5;
 		else if (color == plainColor[PURPLE][0]) return 6;
+		else if (color == plainColor[WHITE][0]) return 7;
+		else if (color == plainColor[BLACK][0]) return 8;
 		else return 0;
 	}
 }
