@@ -154,6 +154,8 @@ public class GraphicsContest extends GraphicsProgram {
 		colorTray = new GRect (0, 0, getWidth()/20, ICON_HEIGHT);
 		add(colorTray);
 		colorTray.setFilled(true);
+		colorTray.setColor(plainColor[RED][0]);
+		chosenPureColor = plainColor[RED][0];
 		icon1 = new GRect (getWidth()/20, 0, getWidth()*3/20, ICON_HEIGHT);
 		add(icon1);
 		icon2 = new GRect (getWidth()*1/5, 0, getWidth()*3/20, ICON_HEIGHT);
