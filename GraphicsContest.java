@@ -431,7 +431,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if(clickColorIcon8(e) == true) {
 			colorTray.setColor(plainColor[WHITE][0]);
 		}
-		if(clickColorIcon7(e) == true) {
+		if(clickColorIcon9(e) == true) {
 			colorTray.setColor(plainColor[BLACK][0]);
 		}
 	}
