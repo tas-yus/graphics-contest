@@ -387,6 +387,29 @@ public class GraphicsContest extends GraphicsProgram {
 				updateIcons();
 			}
 		}
+		if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
+			if(pure == true) {
+				pure = false;
+				plain = true;
+				mode = "Plain";
+				updateIcons();
+			} else if (plain == true) {
+				plain = false;
+				mixed = true;
+				mode = "Mixed";
+				updateIcons();
+			} else if (mixed == true) {
+				mixed = false;
+				pure = true;
+				mode = "Pure";
+				updateIcons();
+			} else if (auto == true) {
+				auto = false;
+				pure = true;
+				mode = "Pure";
+				updateIcons();
+			}
+		}
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			auto = true;
 			plain = false;
