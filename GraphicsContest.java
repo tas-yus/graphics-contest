@@ -595,77 +595,49 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private boolean clickIcon3(MouseEvent e) {
-		if (icon3.contains(e.getX(),e.getY())) {
-			return true;
-		} else return false;
+		if (icon3.contains(e.getX(),e.getY())) return true;
+		else return false;
 	}
 
 	private boolean clickIcon4(MouseEvent e) {
-		double x = e.getX();
-		double y = e.getY();
-		if (x > getWidth()*9/20 && x < getWidth()*1/2 && y <= ICON_HEIGHT) {
-			return true;
-		} else return false;
+		if (icon4.contains(e.getX(),e.getY())) return true;
+		else return false;
 	}
 
 	private boolean clickIcon5(MouseEvent e) {
-		double x = e.getX();
-		double y = e.getY();
-		if (x > getWidth()*1/2 && x < getWidth()*3/5 && y <= ICON_HEIGHT) {
-			return true;
-		} else return false;
+		if (icon5.contains(e.getX(),e.getY())) return true;
+		else return false;
 	}
-
+	
 	private boolean clickColorIcon1(MouseEvent e) {
-		double x = e.getX();
-		double y = e.getY();
-		if (x > getWidth()*3/5 && x < getWidth()*23/35 && y <= ICON_HEIGHT) {
-			return true;
-		} else return false;
+		if (colorIcon1.contains(e.getX(),e.getY())) return true;
+		else return false;
 	}
 
 	private boolean clickColorIcon2(MouseEvent e) {
-		double x = e.getX();
-		double y = e.getY();
-		if (x > getWidth()*23/35 && x < getWidth()*25/35 && y <= ICON_HEIGHT) {
-			return true;
-		} else return false;
+		if (colorIcon2.contains(e.getX(),e.getY())) return true;
+		else return false;
 	}
 
 	private boolean clickColorIcon3(MouseEvent e) {
-		double x = e.getX();
-		double y = e.getY();
-		if (x > getWidth()*25/35 && x < getWidth()*27/35 && y <= ICON_HEIGHT) {
-			return true;
-		} else return false;
+		if (colorIcon3.contains(e.getX(),e.getY())) return true;
+		else return false;
 	}
 	private boolean clickColorIcon4(MouseEvent e) {
-		double x = e.getX();
-		double y = e.getY();
-		if (x > getWidth()*27/35 && x < getWidth()*29/35 && y <= ICON_HEIGHT) {
-			return true;
-		} else return false;
+		if (colorIcon4.contains(e.getX(),e.getY())) return true;
+		else return false;
 	}
 	private boolean clickColorIcon5(MouseEvent e) {
-		double x = e.getX();
-		double y = e.getY();
-		if (x > getWidth()*29/35 && x < getWidth()*31/35 && y <= ICON_HEIGHT) {
-			return true;
-		} else return false;
+		if (colorIcon5.contains(e.getX(),e.getY())) return true;
+		else return false;
 	}
 	private boolean clickColorIcon6(MouseEvent e) {
-		double x = e.getX();
-		double y = e.getY();
-		if (x > getWidth()*31/35 && x < getWidth()*33/35 && y <= ICON_HEIGHT) {
-			return true;
-		} else return false;
+		if (colorIcon6.contains(e.getX(),e.getY())) return true;
+		else return false;
 	}
 	private boolean clickColorIcon7(MouseEvent e) {
-		double x = e.getX();
-		double y = e.getY();
-		if (x > getWidth()*33/35 && x < getWidth() && y <= ICON_HEIGHT) {
-			return true;
-		} else return false;
+		if (colorIcon7.contains(e.getX(),e.getY())) return true;
+		else return false;
 	}
 	
 	private int colorToInt(Color color) {
