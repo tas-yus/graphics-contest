@@ -420,6 +420,16 @@ public class GraphicsContest extends GraphicsProgram {
 			mode = "Auto";
 			updateIcons();
 		}
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			if (pure == true) {
+				int newColor = colorToInt(colorTray.getColor()) + 1;
+				if (newColor == 7) {
+					newColor = 0;
+				}
+				chosenPureColor = plainColor[newColor][0];
+				colorTray.setColor(plainColor[newColor][0]);
+			}
+		}
 		if (auto == true) {
 			if (e.getKeyCode() == KeyEvent.VK_UP && speed > 5) {
 				speed -= 5;
@@ -604,5 +614,15 @@ public class GraphicsContest extends GraphicsProgram {
 		if (x > getWidth()*33/35 && x < getWidth() && y <= ICON_HEIGHT) {
 			return true;
 		} else return false;
+	}
+	
+	private int colorToInt(Color color) {
+		if (color == plainColor[RED][0]) return 0;
+		if (color == plainColor[ORANGE][0]) return 1;
+		if (color == plainColor[YELLOW][0]) return 2;
+		if (color == plainColor[GREEN][0]) return 3;
+		if (color == plainColor[BLUE][0]) return 4;
+		if (color == plainColor[CYAN][0]) return 5;
+		if (color == plainColor[PURPLE][0]) return 6;
 	}
 }
