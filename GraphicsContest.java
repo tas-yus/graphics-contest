@@ -94,7 +94,7 @@ public class GraphicsContest extends GraphicsProgram {
 		y = y - (getHeight()/2 + ICON_HEIGHT - s/2);
 		while(true) {
 			if(auto == true) {
-				int n = 1;
+				int n = 2;
 				double dx = s;
 				double dy = s;
 				for (int i = 0; i < n; i++) {
