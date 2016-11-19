@@ -94,31 +94,28 @@ public class GraphicsContest extends GraphicsProgram {
 		y = y - (getHeight()/2 + ICON_HEIGHT - s/2);
 		while(true) {
 			if(auto == true) {
+				int n = 1;
 				double dx = s;
 				double dy = s;
-				int c = rgen.nextInt(1,8);
-				if (c == 1) {
+				for (int i = 0; i < n; i++) {
 					x = x + dx;
-				} else if (c == 2) {
-					x = x - dx;
-				} else if (c == 3) {
-					y = y + dy;
-				} else if (c == 4) {
-					y = y - dy;
-				} else if (c == 5) {
-					x = x + dx;
-					y = y + dy;
-				} else if (c == 6) {
-					x = x + dx;
-					y = y - dy;
-				} else if (c == 7) {
-					x = x - dx;
-					y = y + dy;
-				} else if (c == 8) {
-					x = x - dx;
-					y = y - dy;
+					setUpBall(x, y);
 				}
+				x = x + dx;
+				y = y + dy;
 				setUpBall(x, y);
+				for (int i = 0; i < n; i++) {
+					y = y + dy;
+					setUpBall(x, y);
+				}
+				x = x - dx;
+				y = y + dy;
+				setUpBall(x, y);
+				for (int i = 0; i < n + 1; i++) {
+					x = x - dy;
+					setUpBall(x, y);
+				}
+				n++;
 			}
 			pause(speed);
 		}
