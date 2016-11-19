@@ -92,6 +92,7 @@ public class GraphicsContest extends GraphicsProgram {
 		double y = rgen.nextDouble(0 + s*2.0 + ICON_HEIGHT, getHeight()/2 - s*2.0);
 		while(true) {
 			if(auto == true) {
+				int case = rgen.nextInt(1,7);
 				if (y > ICON_HEIGHT) {
 					x = x - (getWidth()/2 - s/2);
 					y = y - (getHeight()/2 + ICON_HEIGHT - s/2);
