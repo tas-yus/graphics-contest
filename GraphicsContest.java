@@ -88,8 +88,8 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void autoDraw() {
-		double x = getWidth()/2 - s;
-		double y = getHeight()/2 + ICON_HEIGHT/2;
+		double x = getWidth()/8;
+		double y = getHeight()/8 + ICON_HEIGHT/8;
 		x = x - (getWidth()/2 - s);
 		y = y - (getHeight()/2 + ICON_HEIGHT/2 - s);
 		while(true) {
@@ -111,14 +111,14 @@ public class GraphicsContest extends GraphicsProgram {
 				x = x - dx;
 				y = y + dy;
 				setUpBall(x, y);
-				for (int i = 0; i < n + 10; i++) {
+				for (int i = 0; i < n + 5; i++) {
 					x = x - dx;
 					setUpBall(x, y);
 				}
 				x = x - dx;
 				y = y - dy;
 				setUpBall(x, y);
-				for (int i = 0; i < n + 10; i++) {
+				for (int i = 0; i < n + 5; i++) {
 					y = y - dy;
 					setUpBall(x, y);
 				}
