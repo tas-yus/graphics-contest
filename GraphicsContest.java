@@ -70,7 +70,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLine line2;
 	private GLine line3;
 	private GLine line4;
-	private int n;
 
 	private Color[][] plainColor;
 	private Color[] chosenColor;
@@ -94,7 +93,7 @@ public class GraphicsContest extends GraphicsProgram {
 		x = x - (getWidth()/2 - s);
 		y = y - (getHeight()/2 + ICON_HEIGHT/2 - s);
 		int c = 1;
-		n = 1;
+		int n = 2;
 		while(true) {
 			if(auto == true) {
 				double dx = s;
@@ -150,7 +149,6 @@ public class GraphicsContest extends GraphicsProgram {
 						y = y - dy;
 						setUpBall(x, y);
 					}
-					n++;
 				}
 				c = (c+1)%8;
 			}
