@@ -93,34 +93,32 @@ public class GraphicsContest extends GraphicsProgram {
 		x = x - (getWidth()/2 - s/2);
 		y = y - (getHeight()/2 + ICON_HEIGHT - s/2);
 		while(true) {
-			if (y > s*2.0 + ICON_HEIGHT) {
-				if(auto == true) {
-					double dx = s/2;
-					double dy = s/2;
-					int c = rgen.nextInt(1,8);
-					if (c == 1) {
-						x = x + dx;
-					} else if (c == 2) {
-						x = x - dx;
-					} else if (c == 3) {
-						y = y + dy;
-					} else if (c == 4) {
-						y = y - dy;
-					} else if (c == 5) {
-						x = x + dx;
-						y = y + dy;
-					} else if (c == 6) {
-						x = x + dx;
-						y = y - dy;
-					} else if (c == 7) {
-						x = x - dx;
-						y = y + dy;
-					} else if (c == 8) {
-						x = x - dx;
-						y = y - dy;
-					}
-					setUpBall(x, y);
+			if(auto == true) {
+				double dx = s/2;
+				double dy = s/2;
+				int c = rgen.nextInt(1,8);
+				if (c == 1) {
+					x = x + dx;
+				} else if (c == 2) {
+					x = x - dx;
+				} else if (c == 3) {
+					y = y + dy;
+				} else if (c == 4) {
+					y = y - dy;
+				} else if (c == 5) {
+					x = x + dx;
+					y = y + dy;
+				} else if (c == 6) {
+					x = x + dx;
+					y = y - dy;
+				} else if (c == 7) {
+					x = x - dx;
+					y = y + dy;
+				} else if (c == 8) {
+					x = x - dx;
+					y = y - dy;
 				}
+				setUpBall(x, y);
 			}
 			pause(speed);
 		}
