@@ -654,7 +654,8 @@ public class GraphicsContest extends GraphicsProgram {
 			Color color = Color.WHITE;
 			return color;
 		} else if (chosenMixedColor == BLACK) {
-			Color color = Color.BLACK;
+			int x = rgen.nextInt(0,255);
+			Color color = new Color (x, x, x);
 			return color;
 		} else return null;
 	}
