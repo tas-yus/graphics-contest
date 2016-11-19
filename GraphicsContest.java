@@ -151,7 +151,7 @@ public class GraphicsContest extends GraphicsProgram {
 					}
 				}
 				c = (c+1)%8;
-				n += 5;
+				n += 1;
 			}
 			pause(speed);
 		}
