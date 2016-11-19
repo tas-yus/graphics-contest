@@ -149,9 +149,9 @@ public class GraphicsContest extends GraphicsProgram {
 						y = y - dy;
 						setUpBall(x, y);
 					}
+					n += 1;
 				}
 				c = (c+1)%8;
-				n += 1;
 			}
 			pause(speed);
 		}
