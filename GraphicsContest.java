@@ -70,6 +70,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLine line2;
 	private GLine line3;
 	private GLine line4;
+	private double x;
+	private double y;
 
 	private Color[][] plainColor;
 	private Color[] chosenColor;
@@ -88,8 +90,8 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void autoDraw() {
-		double x = rgen.nextDouble(0 + s*1.0, getWidth()/2 - s*1.0);
-		double y = rgen.nextDouble(0 + s*2.0 + ICON_HEIGHT, getHeight()/2 - s*2.0);
+		x = rgen.nextDouble(0 + s*1.0, getWidth()/2 - s*1.0);
+		y = rgen.nextDouble(0 + s*2.0 + ICON_HEIGHT, getHeight()/2 - s*2.0);
 		while(true) {
 			if(auto == true) {
 				x = x - (getWidth()/2 - s/2);
