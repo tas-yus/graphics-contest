@@ -561,31 +561,34 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_R) {
-			if (choose == true && red <= 255) {
-				red = (red + 5)%255;
+			if (choose == true) {
+				red += 5;
 				int r = (colorTray.getColor()).getRed();
 				int b = (colorTray.getColor()).getGreen();
 				int g = (colorTray.getColor()).getBlue();
-				chosenYourOwnColor = new Color (r + red,b,g);
+				r = (r + red)%255;
+				chosenYourOwnColor = new Color (r,b,g);
 				colorTray.setColor(chosenYourOwnColor);
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_G) {
-			if (choose == true && green <= 255) {
-				green = (green + 5)%255;
+			if (choose == true) {
+				green += 5;
 				int r = (colorTray.getColor()).getRed();
 				int b = (colorTray.getColor()).getGreen();
 				int g = (colorTray.getColor()).getBlue();
+				g = (g + green)%255;
 				chosenYourOwnColor = new Color (r,b + blue,g);
 				colorTray.setColor(chosenYourOwnColor);
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_B) {
-			if (choose == true && blue <= 255) {
-				blue = (blue + 5)%255;
+			if (choose == true) {
+				blue += 5;
 				int r = (colorTray.getColor()).getRed();
 				int b = (colorTray.getColor()).getGreen();
 				int g = (colorTray.getColor()).getBlue();
+				g = (b + blue)%255;
 				chosenYourOwnColor = new Color (r,b,g + green);
 				colorTray.setColor(chosenYourOwnColor);
 			}
