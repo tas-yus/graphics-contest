@@ -125,7 +125,7 @@ public class GraphicsContest extends GraphicsProgram {
 				x = x + dx;
 				y = y - dy;
 				setUpBall(x, y);
-				n++;
+				n += 2;
 			}
 			pause(speed);
 		}
