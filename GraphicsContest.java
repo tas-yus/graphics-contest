@@ -37,6 +37,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean pure = false;
 	private boolean plain = false;
 	private boolean mixed = true;
+	private boolean choose = false;
 	private boolean auto = false;
 	private boolean line = false;
 	private int s = BRUSH_SIZE;
@@ -301,20 +302,26 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (clickIcon6(e) == true) {
-			if(pure == true) {
+			if (mixed == true) {
+				mixed = false;
+				pure = true;
+				mode = "Pure";
+				updateIcons();
+				updateIcons();
+			} else if(pure == true) {
 				pure = false;
 				plain = true;
 				mode = "Plain";
 				updateIcons();
 			} else if (plain == true) {
 				plain = false;
+				choose = true;
+				mode = "Choose";
+				updateIcons();
+			} else if(choose == true) {
+				choose = false;
 				mixed = true;
 				mode = "Mixed";
-				updateIcons();
-			} else if (mixed == true) {
-				mixed = false;
-				pure = true;
-				mode = "Pure";
 				updateIcons();
 			} else if (auto == true) {
 				auto = false;
