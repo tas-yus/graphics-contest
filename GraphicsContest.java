@@ -93,7 +93,7 @@ public class GraphicsContest extends GraphicsProgram {
 		x = x - (getWidth()/2 - s);
 		y = y - (getHeight()/2 + ICON_HEIGHT/2 - s);
 		int c = 1;
-		int n = 11;
+		int n = 1;
 		while(true) {
 			if(auto == true) {
 				double dx = s;
@@ -151,6 +151,7 @@ public class GraphicsContest extends GraphicsProgram {
 					}
 				}
 				c = (c+1)%8;
+				n++;
 			}
 			pause(speed);
 		}
