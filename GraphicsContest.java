@@ -37,7 +37,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean pure = false;
 	private boolean plain = false;
 	private boolean mixed = true;
-	private boolean choose = false;
 	private boolean auto = false;
 	private boolean line = false;
 	private int s = BRUSH_SIZE;
@@ -76,7 +75,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color[] chosenColor;
 	private Color chosenPureColor;
 	private int chosenMixedColor;
-	private Color yourChosenColor;
 
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
@@ -316,12 +314,6 @@ public class GraphicsContest extends GraphicsProgram {
 				updateIcons();
 			} else if (plain == true) {
 				plain = false;
-				choose = true;
-				mode = "Choose";
-				updateIcons();
-				colorTray.setColor(yourChosenColor);
-			} else if(choose == true) {
-				choose = false;
 				mixed = true;
 				mode = "Mixed";
 				updateIcons();
@@ -558,33 +550,33 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_R) {
-			if (choose == true) {
+			if (pure == true) {
 				int r = (colorTray.getColor()).getRed();
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
 				r = (r + 5)%255;
-				yourChosenColor = new Color (r,g,b);
-				colorTray.setColor(yourChosenColor);
+				chosenPureColor = new Color (r,g,b);
+				colorTray.setColor(chosenPureColor);
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_G) {
-			if (choose == true) {
+			if (pure == true) {
 				int r = (colorTray.getColor()).getRed();
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
 				g = (g + 5)%255;
-				yourChosenColor = new Color (r,g,b);
-				colorTray.setColor(yourChosenColor);
+				chosenPureColor = new Color (r,g,b);
+				colorTray.setColor(chosenPureColor);
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_B) {
-			if (choose == true) {
+			if (pure == true) {
 				int r = (colorTray.getColor()).getRed();
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
 				b = (b + 5)%255;
-				yourChosenColor = new Color (r,g,b);
-				colorTray.setColor(yourChosenColor);
+				chosenPureColor = new Color (r,g,b);
+				colorTray.setColor(chosenPureColor);
 			}
 		}
 		if (auto == true) {
