@@ -43,6 +43,9 @@ public class GraphicsContest extends GraphicsProgram {
 	private int s = BRUSH_SIZE;
 	private int speed = DELAY;
 	private int speedLevel = 1;
+	private int red = 0;
+	private int green = 0;
+	private int blue = 0;
 	private GRect colorTray;
 	private GRect icon1;
 	private GRect icon2;
@@ -76,6 +79,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color[] chosenColor;
 	private Color chosenPureColor;
 	private int chosenMixedColor;
+	private Color chosenYourOwnColor = new Color (red,green,blue);
 
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
@@ -555,6 +559,24 @@ public class GraphicsContest extends GraphicsProgram {
 				colorTray.setColor(plainColor[newColor][0]);
 			}
 		}
+		if (e.getKeyCode() == KeyEvent.VK_R) {
+			if (choose == true) {
+				red += 10;
+				colorTray.setColor(chosenYourOwnColor);
+			}
+		}
+		if (e.getKeyCode() == KeyEvent.VK_G) {
+			if (choose == true) {
+				green += 10;
+				colorTray.setColor(chosenYourOwnColor);
+			}
+		}
+		if (e.getKeyCode() == KeyEvent.VK_B) {
+			if (choose == true) {
+				blue += 10;
+				colorTray.setColor(chosenYourOwnColor);
+			}
+		}
 		if (auto == true) {
 			if (e.getKeyCode() == KeyEvent.VK_UP && speed > 5) {
 				speed -= 5;
@@ -593,6 +615,9 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (auto == true) {
 			newColor = mixColor(chosenMixedColor);
+		}
+		if (choose == true) {
+			newColor = chosenYourOwnColor;
 		}
 		GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + ICON_HEIGHT/2 - y - s/2, s, s);
 		pixel1.setFilled(true);
