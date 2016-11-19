@@ -145,7 +145,7 @@ public class GraphicsContest extends GraphicsProgram {
 		plainColor[WHITE][2] = Color.WHITE; 
 		plainColor[WHITE][3] = Color.WHITE;
 		plainColor[WHITE][4] = Color.WHITE;;
-		plainColor[BLACK][0] =  new Color(0,0,0);
+		plainColor[BLACK][0] = new Color(0,0,0);
 		plainColor[BLACK][1] = new Color(51,51,51);
 		plainColor[BLACK][2] = new Color(102,102,102);
 		plainColor[BLACK][3] = new Color(153,153,153);
@@ -385,7 +385,7 @@ public class GraphicsContest extends GraphicsProgram {
 				chosenColor = plainColor[WHITE]; 
 			}
 			if(clickColorIcon9(e) == true) {
-				chosenColor = plainColor[WHITE]; 
+				chosenColor = plainColor[BLACK]; 
 			}
 		}
 		if (mixed == true || auto == true) {
