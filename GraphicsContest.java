@@ -561,22 +561,22 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_R) {
-			if (choose == true) {
-				red += 10;
+			if (choose == true && red < 255) {
+				red += 5;
 				chosenYourOwnColor = new Color (red,blue,green);
 				colorTray.setColor(chosenYourOwnColor);
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_G) {
-			if (choose == true) {
-				green += 10;
+			if (choose == true && green < 255) {
+				green += 5;
 				chosenYourOwnColor = new Color (red,blue,green);
 				colorTray.setColor(chosenYourOwnColor);
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_B) {
-			if (choose == true) {
-				blue += 10;
+			if (choose == true && blue < 255) {
+				blue += 5;
 				chosenYourOwnColor = new Color (red,blue,green);
 				colorTray.setColor(chosenYourOwnColor);
 			}
