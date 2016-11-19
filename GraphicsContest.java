@@ -748,18 +748,31 @@ public class GraphicsContest extends GraphicsProgram {
 			add(pixel4);
 		}
 		if (symmetry == 4) {
+			double A = 0.3090169944;
+			double B = 0.9510565163;
 			GOval pixel1 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT/2 + y - s/2, s, s);
 			pixel1.setFilled(true);
 			pixel1.setColor(newColor);
-			GOval pixel2 = new GOval (getWidth()/2 + -x/2 + y*(0.866025) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(-0.866025) - y/2 - s/2, s, s);
+			GOval pixel2 = new GOval (getWidth()/2 + x*(A) + y*(B) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(-B) + y*(A) - s/2, s, s);
 			pixel2.setFilled(true);
 			pixel2.setColor(newColor);
-			GOval pixel3 = new GOval (getWidth()/2 + -x/2 - y*(0.866025) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(0.866025) - y/2 - s/2, s, s);
+			GOval pixel3 = new GOval (getWidth()/2 + x*(A*A - B*B) + y*(2*A*B) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(-2*A*B) +y*(A*A - B*B) - s/2, s, s);
 			pixel3.setFilled(true);
 			pixel3.setColor(newColor);
+			GOval pixel4 = new GOval (getWidth()/2 + x*(A*A*A - 3*A*B*B) + y*(3*A*A*B - B*B*B) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(-3*A*A*B + B*B*B) + y*(A*A*A - 3*A*B*B) - s/2, s, s);
+			pixel4.setFilled(true);
+			pixel4.setColor(newColor);
+			GOval pixel5 = new GOval (getWidth()/2 + x*(A*A*A*A - 6*A*A*B*B + B*B*B*B) + y*(4*A*A*A*B - 4*A*B*B*B) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(4*A*B*B*B - 4*A*A*A*B) + y*(A*A*A*A - 6*A*A*B*B + B*B*B*B) - s/2, s, s);
+			pixel5.setFilled(true);
+			pixel5.setColor(newColor);
 			add(pixel1);
 			add(pixel2);
 			add(pixel3);
+			add(pixel4);
+			add(pixel5);
+		}
+		if (symmetry == 5) {
+			
 		}
 	}
 
