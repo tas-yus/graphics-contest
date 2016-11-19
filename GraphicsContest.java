@@ -157,6 +157,10 @@ public class GraphicsContest extends GraphicsProgram {
 			if (n == 11) {
 				removeAll();
 				n = 1;
+				x = getWidth()/2 - s;
+				y = getHeight()/2 + ICON_HEIGHT/2;
+				x = x - (getWidth()/2 - s);
+				y = y - (getHeight()/2 + ICON_HEIGHT/2 - s);
 			}
 		}
 	}
