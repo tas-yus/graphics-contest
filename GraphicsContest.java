@@ -16,7 +16,7 @@ public class GraphicsContest extends GraphicsProgram {
 	/*removeall, auto, rgb, mergecolor*/
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	private static final int ICON_HEIGHT = 30;
-	private static final int DELAY = 100;
+	private static final int DELAY = 200;
 	private static final int WIDTH = 700;
 	private static final int HEIGHT = 700 + ICON_HEIGHT;
 	private static final int PAUSE = 10;
