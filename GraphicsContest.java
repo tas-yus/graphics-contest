@@ -563,18 +563,21 @@ public class GraphicsContest extends GraphicsProgram {
 		if (e.getKeyCode() == KeyEvent.VK_R) {
 			if (choose == true) {
 				red += 10;
+				chosenYourOwnColor = new Color (red,blue,green);
 				colorTray.setColor(chosenYourOwnColor);
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_G) {
 			if (choose == true) {
 				green += 10;
+				chosenYourOwnColor = new Color (red,blue,green);
 				colorTray.setColor(chosenYourOwnColor);
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_B) {
 			if (choose == true) {
 				blue += 10;
+				chosenYourOwnColor = new Color (red,blue,green);
 				colorTray.setColor(chosenYourOwnColor);
 			}
 		}
