@@ -151,7 +151,7 @@ public class GraphicsContest extends GraphicsProgram {
 					}
 				}
 				if (c == 8) {
-					n++;
+					n += 5;
 				}
 				c = (c+1)%8;
 			}
