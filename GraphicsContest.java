@@ -70,6 +70,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLine line2;
 	private GLine line3;
 	private GLine line4;
+	private int n;
 
 	private Color[][] plainColor;
 	private Color[] chosenColor;
