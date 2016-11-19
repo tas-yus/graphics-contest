@@ -112,7 +112,7 @@ public class GraphicsContest extends GraphicsProgram {
 				y = y + dy;
 				setUpBall(x, y);
 				for (int i = 0; i < n + 1; i++) {
-					x = x - dy;
+					x = x - dx;
 					setUpBall(x, y);
 				}
 				n++;
