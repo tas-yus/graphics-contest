@@ -635,10 +635,10 @@ public class GraphicsContest extends GraphicsProgram {
 			Color color = new Color (rgen.nextInt(0,102), rgen.nextInt(102,255), 0);
 			return color;
 		} else if (chosenMixedColor == BLUE) {
-			Color color = new Color (0, rgen.nextInt(128,255),255);
+			Color color = new Color (rgen.nextInt(0,128), rgen.nextInt(0,255),255);
 			return color;
 		} else if (chosenMixedColor == CYAN) {
-			Color color = new Color (rgen.nextInt(0,128), rgen.nextInt(0,255),255);
+			Color color = new Color (rgen.nextInt(0,60), rgen.nextInt(128,255),rgen.nextInt(204,255));
 			return color;
 		} else if (chosenMixedColor == PURPLE) {
 			Color color = new Color (rgen.nextInt(0,255), 0,rgen.nextInt(127,255));
