@@ -88,8 +88,8 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void autoDraw() {
-		double x = getWidth()/8;
-		double y = getHeight()/8 + ICON_HEIGHT/8;
+		double x = getWidth()/2;
+		double y = getHeight()/2 + ICON_HEIGHT/2;
 		x = x - (getWidth()/2 - s);
 		y = y - (getHeight()/2 + ICON_HEIGHT/2 - s);
 		while(true) {
