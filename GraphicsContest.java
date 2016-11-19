@@ -327,6 +327,7 @@ public class GraphicsContest extends GraphicsProgram {
 				mixed = true;
 				mode = "Mixed";
 				updateIcons();
+				colorTray.setColor(chosenYourOwnColor);
 			} else if (auto == true) {
 				auto = false;
 				pure = true;
