@@ -144,12 +144,12 @@ public class GraphicsContest extends GraphicsProgram {
 					}
 				}
 				if (c == 8) {
+					n += 10;
 					for (int i = 0; i < n + 1; i++) {
 						x = x + dx;
 						y = y - dy;
 						setUpBall(x, y);
 					}
-					n += 10;
 				}
 				c = (c+1)%8;
 			}
