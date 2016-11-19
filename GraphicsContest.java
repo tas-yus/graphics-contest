@@ -136,6 +136,7 @@ public class GraphicsContest extends GraphicsProgram {
 				n += 2;
 			}
 			pause(speed);
+			if (n == 20) break;
 		}
 	}
 
