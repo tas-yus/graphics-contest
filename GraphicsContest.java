@@ -554,7 +554,7 @@ public class GraphicsContest extends GraphicsProgram {
 				int r = (colorTray.getColor()).getRed();
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
-				r = (r + 5)%255;
+				r = (r + 10)%255;
 				chosenPureColor = new Color (r,g,b);
 				colorTray.setColor(chosenPureColor);
 			}
@@ -564,7 +564,7 @@ public class GraphicsContest extends GraphicsProgram {
 				int r = (colorTray.getColor()).getRed();
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
-				g = (g + 5)%255;
+				g = (g + 10)%255;
 				chosenPureColor = new Color (r,g,b);
 				colorTray.setColor(chosenPureColor);
 			}
@@ -574,7 +574,7 @@ public class GraphicsContest extends GraphicsProgram {
 				int r = (colorTray.getColor()).getRed();
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
-				b = (b + 5)%255;
+				b = (b + 10)%255;
 				chosenPureColor = new Color (r,g,b);
 				colorTray.setColor(chosenPureColor);
 			}
