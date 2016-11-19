@@ -148,6 +148,7 @@ public class GraphicsContest extends GraphicsProgram {
 						x = x + dx;
 						y = y - dy;
 						setUpBall(x, y);
+						n++;
 					}
 				}
 				c = (c+1)%8;
