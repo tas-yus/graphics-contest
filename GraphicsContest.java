@@ -125,26 +125,26 @@ public class GraphicsContest extends GraphicsProgram {
 					}
 				}
 				if (c == 5) {
-					for (int i = 0; i < n+1; i++) {
+					for (int i = 0; i < n; i++) {
 						x = x - dx;
 						setUpBall(x, y);
 					}
 				}
 				if (c == 6) {
-					for (int i = 0; i < n+2; i++) {
+					for (int i = 0; i < n; i++) {
 						x = x - dx;
 						y = y - dy;
 						setUpBall(x, y);
 					}
 				}
 				if (c == 7) {
-					for (int i = 0; i < n+3; i++) {
+					for (int i = 0; i < n; i++) {
 						y = y - dy;
 						setUpBall(x, y);
 					}
 				}
 				if (c == 8) {
-					for (int i = 0; i < n+4; i++) {
+					for (int i = 0; i < n; i++) {
 						x = x + dx;
 						y = y - dy;
 						setUpBall(x, y);
