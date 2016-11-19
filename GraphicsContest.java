@@ -42,7 +42,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private int s = BRUSH_SIZE;
 	private int speed = DELAY;
 	private int speedLevel = 1;
-	private int symmetry = 2;
+	private int symmetry = 3;
 	private GRect colorTray;
 	private GRect icon1;
 	private GRect icon2;
@@ -522,6 +522,12 @@ public class GraphicsContest extends GraphicsProgram {
 					x = x - getWidth()/2;
 				}
 			}
+			if (symmetry == 3) {
+				if (y > ICON_HEIGHT + s) {
+					x = x - getWidth()/2;
+					y = y - (getHeight()/2 + ICON_HEIGHT/2);
+				}
+			}
 			setUpBall(x, y);
 		}
 	}
@@ -735,6 +741,24 @@ public class GraphicsContest extends GraphicsProgram {
 			pixel2.setColor(newColor);
 			add(pixel1);
 			add(pixel2);
+		}
+		if (symmetry == 3) {
+			GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + ICON_HEIGHT/2 - y - s/2, s, s);
+			pixel1.setFilled(true);
+			pixel1.setColor(newColor);
+			GOval pixel2 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT/2 + y - s/2, s, s);
+			pixel2.setFilled(true);
+			pixel2.setColor(newColor);
+			GOval pixel3 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + ICON_HEIGHT/2 + y - s/2, s, s);
+			pixel3.setFilled(true);
+			pixel3.setColor(newColor);
+			GOval pixel4 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT/2 - y - s/2, s, s);
+			pixel4.setFilled(true);
+			pixel4.setColor(newColor);
+			add(pixel1);
+			add(pixel2);
+			add(pixel3);
+			add(pixel4);
 		}
 
 	}
