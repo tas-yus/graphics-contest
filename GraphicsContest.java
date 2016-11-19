@@ -43,9 +43,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private int s = BRUSH_SIZE;
 	private int speed = DELAY;
 	private int speedLevel = 1;
-	private int red = 0;
-	private int green = 0;
-	private int blue = 0;
 	private GRect colorTray;
 	private GRect icon1;
 	private GRect icon2;
@@ -562,33 +559,30 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (e.getKeyCode() == KeyEvent.VK_R) {
 			if (choose == true) {
-				red += 2;
 				int r = (colorTray.getColor()).getRed();
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
-				r = (r + red)%255;
+				r = (r + 5)%255;
 				chosenYourOwnColor = new Color (r,g,b);
 				colorTray.setColor(chosenYourOwnColor);
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_G) {
 			if (choose == true) {
-				green += 2;
 				int r = (colorTray.getColor()).getRed();
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
-				g = (g + green)%255;
+				g = (g + 5)%255;
 				chosenYourOwnColor = new Color (r,g,b);
 				colorTray.setColor(chosenYourOwnColor);
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_B) {
 			if (choose == true) {
-				blue += 2;
 				int r = (colorTray.getColor()).getRed();
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
-				b = (b + blue)%255;
+				b = (b + 5)%255;
 				chosenYourOwnColor = new Color (r,g,b);
 				colorTray.setColor(chosenYourOwnColor);
 			}
