@@ -133,7 +133,6 @@ public class GraphicsContest extends GraphicsProgram {
 					y = y - dy;
 					setUpBall(x, y);
 				}
-				n += 7;
 			}
 			pause(speed);
 		}
