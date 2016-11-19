@@ -564,8 +564,8 @@ public class GraphicsContest extends GraphicsProgram {
 			if (choose == true) {
 				red += 5;
 				int r = (colorTray.getColor()).getRed();
-				int b = (colorTray.getColor()).getGreen();
-				int g = (colorTray.getColor()).getBlue();
+				int g = (colorTray.getColor()).getGreen();
+				int b = (colorTray.getColor()).getBlue();
 				r = (r + red)%255;
 				chosenYourOwnColor = new Color (r,g,b);
 				colorTray.setColor(chosenYourOwnColor);
@@ -575,8 +575,8 @@ public class GraphicsContest extends GraphicsProgram {
 			if (choose == true) {
 				green += 5;
 				int r = (colorTray.getColor()).getRed();
-				int b = (colorTray.getColor()).getGreen();
-				int g = (colorTray.getColor()).getBlue();
+				int g = (colorTray.getColor()).getGreen();
+				int b = (colorTray.getColor()).getBlue();
 				g = (g + green)%255;
 				chosenYourOwnColor = new Color (r,g,b);
 				colorTray.setColor(chosenYourOwnColor);
@@ -586,8 +586,8 @@ public class GraphicsContest extends GraphicsProgram {
 			if (choose == true) {
 				blue += 5;
 				int r = (colorTray.getColor()).getRed();
-				int b = (colorTray.getColor()).getGreen();
-				int g = (colorTray.getColor()).getBlue();
+				int g = (colorTray.getColor()).getGreen();
+				int b = (colorTray.getColor()).getBlue();
 				b = (b + blue)%255;
 				chosenYourOwnColor = new Color (r,g,b);
 				colorTray.setColor(chosenYourOwnColor);
