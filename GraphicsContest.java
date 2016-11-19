@@ -144,7 +144,7 @@ public class GraphicsContest extends GraphicsProgram {
 					}
 				}
 				if (c == 8) {
-					for (int i = 0; i < n+1; i++) {
+					for (int i = 0; i < n; i++) {
 						x = x + dx;
 						y = y - dy;
 						setUpBall(x, y);
