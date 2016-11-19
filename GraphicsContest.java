@@ -88,8 +88,8 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void autoDraw() {
-		double x = rgen.nextDouble();
-		double y = rgen.nextDouble();
+		double x = rgen.nextDouble(0, getWidth());
+		double y = rgen.nextDouble(ICON_HEIGHT,getHeight());
 		x = x - (getWidth()/2 - s);
 		y = y - (getHeight()/2 + ICON_HEIGHT/2 - s);
 		int n = 1;
