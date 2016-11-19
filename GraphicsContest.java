@@ -92,27 +92,34 @@ public class GraphicsContest extends GraphicsProgram {
 		double y = getHeight()/2 + ICON_HEIGHT/2;
 		x = x - (getWidth()/2 - s);
 		y = y - (getHeight()/2 + ICON_HEIGHT/2 - s);
-		int c = 1;
+		int c = 0;
 		int n = 1;
 		while(true) {
 			if(auto == true) {
 				double dx = s;
 				double dy = s;
-				if (c == 1) {
+				if (c == 0) {
 					for (int i = 0; i < n; i++) {
 						x = x + dx;
 						setUpBall(x, y);
 					}
 				}
-				if (c == 2) {
+				if (c == 1) {
 					for (int i = 0; i < n; i++) {
 						x = x + dx;
 						y = y + dy;
 						setUpBall(x, y);
 					}
 				}
-				if (c == 3) {
+				if (c == 2) {
 					for (int i = 0; i < n; i++) {
+						y = y + dy;
+						setUpBall(x, y);
+					}
+				}
+				if (c == 3) {
+					for (int i = 0; i < n+1; i++) {
+						x = x - dx;
 						y = y + dy;
 						setUpBall(x, y);
 					}
@@ -120,42 +127,33 @@ public class GraphicsContest extends GraphicsProgram {
 				if (c == 4) {
 					for (int i = 0; i < n+1; i++) {
 						x = x - dx;
-						y = y + dy;
 						setUpBall(x, y);
 					}
 				}
 				if (c == 5) {
 					for (int i = 0; i < n+1; i++) {
 						x = x - dx;
-						setUpBall(x, y);
-					}
-				}
-				if (c == 6) {
-					for (int i = 0; i < n+1; i++) {
-						x = x - dx;
 						y = y - dy;
 						setUpBall(x, y);
 					}
 				}
-				if (c == 7) {
+				if (c == 6) {
 					for (int i = 0; i < n; i++) {
 						y = y - dy;
 						setUpBall(x, y);
 					}
 				}
-				if (c == 8) {
+				if (c == 7) {
 					for (int i = 0; i < n+1; i++) {
 						x = x + dx;
 						y = y - dy;
 						setUpBall(x, y);
+						n++;
 					}
 				}
 				c = (c+1)%8;
 			}
 			pause(speed);
-			if (c == 0) {
-				n++;
-			}
 		}
 	}
 
