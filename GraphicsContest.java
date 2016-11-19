@@ -150,9 +150,7 @@ public class GraphicsContest extends GraphicsProgram {
 						setUpBall(x, y);
 					}
 				}
-				if (c == 8) {
-					n += 5;
-				}
+			
 				c = (c+1)%8;
 			}
 			pause(speed);
