@@ -154,7 +154,7 @@ public class GraphicsContest extends GraphicsProgram {
 				c = (c+1)%8;
 			}
 			pause(speed);
-			if (n == 20) {
+			if (n == 20 || auto == false) {
 				removeAll();
 				setUpColors();
 				setUpIcons();
