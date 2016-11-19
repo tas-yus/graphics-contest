@@ -562,7 +562,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (e.getKeyCode() == KeyEvent.VK_R) {
 			if (choose == true) {
-				red += 5;
+				red += 2;
 				int r = (colorTray.getColor()).getRed();
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
@@ -573,7 +573,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (e.getKeyCode() == KeyEvent.VK_G) {
 			if (choose == true) {
-				green += 5;
+				green += 2;
 				int r = (colorTray.getColor()).getRed();
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
@@ -584,7 +584,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (e.getKeyCode() == KeyEvent.VK_B) {
 			if (choose == true) {
-				blue += 5;
+				blue += 2;
 				int r = (colorTray.getColor()).getRed();
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
