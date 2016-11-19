@@ -144,14 +144,14 @@ public class GraphicsContest extends GraphicsProgram {
 					}
 				}
 				if (c == 8) {
-					for (int i =0; i < n; i++) {
+					for (int i = 0; i < n; i++) {
 						x = x + dx;
 						y = y - dy;
 						setUpBall(x, y);
 					}
 				}
 				c = (c+1)%8;
-				n += 2;
+				n += 1;
 			}
 			pause(speed);
 			if (n == 13) break;
