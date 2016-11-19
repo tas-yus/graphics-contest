@@ -154,8 +154,11 @@ public class GraphicsContest extends GraphicsProgram {
 				c = (c+1)%8;
 			}
 			pause(speed);
-			if (n == 11) {
+			if (n == 12) {
 				removeAll();
+				setUpColors();
+				setUpIcons();
+				setUpColorChoice();
 				n = 1;
 				x = getWidth()/2 - s;
 				y = getHeight()/2 + ICON_HEIGHT/2;
