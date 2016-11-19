@@ -322,12 +322,12 @@ public class GraphicsContest extends GraphicsProgram {
 				choose = true;
 				mode = "Choose";
 				updateIcons();
+				colorTray.setColor(chosenYourOwnColor);
 			} else if(choose == true) {
 				choose = false;
 				mixed = true;
 				mode = "Mixed";
 				updateIcons();
-				colorTray.setColor(chosenYourOwnColor);
 			} else if (auto == true) {
 				auto = false;
 				pure = true;
