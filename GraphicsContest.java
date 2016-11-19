@@ -70,8 +70,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLine line2;
 	private GLine line3;
 	private GLine line4;
-	private double x;
-	private double y;
 
 	private Color[][] plainColor;
 	private Color[] chosenColor;
@@ -90,8 +88,8 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void autoDraw() {
-		x = rgen.nextDouble(0 + s*1.0, getWidth()/2 - s*1.0);
-		y = rgen.nextDouble(0 + s*2.0 + ICON_HEIGHT, getHeight()/2 - s*2.0);
+		double x = rgen.nextDouble(0 + s*1.0, getWidth()/2 - s*1.0);
+		double y = rgen.nextDouble(0 + s*2.0 + ICON_HEIGHT, getHeight()/2 - s*2.0);
 		while(true) {
 			if(auto == true) {
 				x = x - (getWidth()/2 - s/2);
@@ -101,26 +99,34 @@ public class GraphicsContest extends GraphicsProgram {
 				int c = rgen.nextInt(1,8);
 				if (c == 1) {
 					x = x + dx;
+					setUpBall(x, y);
 				} else if (c == 2) {
 					x = x - dx;
+					setUpBall(x, y);
 				} else if (c == 3) {
 					y = y + dy;
+					setUpBall(x, y);
 				} else if (c == 4) {
 					y = y - dy;
+					setUpBall(x, y);
 				} else if (c == 5) {
 					x = x + dx;
 					y = y + dy;
+					setUpBall(x, y);
 				} else if (c == 6) {
 					x = x + dx;
 					y = y - dy;
+					setUpBall(x, y);
 				} else if (c == 7) {
 					x = x - dx;
 					y = y + dy;
+					setUpBall(x, y);
 				} else if (c == 8) {
 					x = x - dx;
 					y = y - dy;
+					setUpBall(x, y);
 				}
-				setUpBall(x, y);
+				
 			}
 			pause(speed);
 		}
