@@ -629,7 +629,7 @@ public class GraphicsContest extends GraphicsProgram {
 			Color color = new Color (255, rgen.nextInt(128,255),0);
 			return color;
 		} else if (chosenMixedColor == YELLOW) {
-			Color color = new Color (rgen.nextInt(175,255), rgen.nextInt(200,255),0);
+			Color color = new Color (rgen.nextInt(175,255), rgen.nextInt(230,255),0);
 			return color;
 		} else if (chosenMixedColor == GREEN) {
 			Color color = new Color (rgen.nextInt(0,102), rgen.nextInt(102,255), 0);
