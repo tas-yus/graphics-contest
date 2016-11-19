@@ -566,7 +566,7 @@ public class GraphicsContest extends GraphicsProgram {
 				int r = (colorTray.getColor()).getRed();
 				int b = (colorTray.getColor()).getGreen();
 				int g = (colorTray.getColor()).getBlue();
-				chosenYourOwnColor = new Color (r + red,b + blue,g + green);
+				chosenYourOwnColor = new Color (r + red,b,g);
 				colorTray.setColor(chosenYourOwnColor);
 			}
 		}
@@ -576,7 +576,7 @@ public class GraphicsContest extends GraphicsProgram {
 				int r = (colorTray.getColor()).getRed();
 				int b = (colorTray.getColor()).getGreen();
 				int g = (colorTray.getColor()).getBlue();
-				chosenYourOwnColor = new Color (r + red,b + blue,g + green);
+				chosenYourOwnColor = new Color (r,b + blue,g);
 				colorTray.setColor(chosenYourOwnColor);
 			}
 		}
@@ -586,7 +586,7 @@ public class GraphicsContest extends GraphicsProgram {
 				int r = (colorTray.getColor()).getRed();
 				int b = (colorTray.getColor()).getGreen();
 				int g = (colorTray.getColor()).getBlue();
-				chosenYourOwnColor = new Color (r + red,b + blue,g + green);
+				chosenYourOwnColor = new Color (r,b,g + green);
 				colorTray.setColor(chosenYourOwnColor);
 			}
 		}
