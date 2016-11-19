@@ -578,7 +578,7 @@ public class GraphicsContest extends GraphicsProgram {
 				int b = (colorTray.getColor()).getGreen();
 				int g = (colorTray.getColor()).getBlue();
 				g = (g + green)%255;
-				chosenYourOwnColor = new Color (r,b + blue,g);
+				chosenYourOwnColor = new Color (r,b,g);
 				colorTray.setColor(chosenYourOwnColor);
 			}
 		}
@@ -589,7 +589,7 @@ public class GraphicsContest extends GraphicsProgram {
 				int b = (colorTray.getColor()).getGreen();
 				int g = (colorTray.getColor()).getBlue();
 				g = (b + blue)%255;
-				chosenYourOwnColor = new Color (r,b,g + green);
+				chosenYourOwnColor = new Color (r,b,g);
 				colorTray.setColor(chosenYourOwnColor);
 			}
 		}
