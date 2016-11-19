@@ -748,7 +748,7 @@ public class GraphicsContest extends GraphicsProgram {
 			add(pixel4);
 		}
 		if (symmetry == 4) {
-			double A = 0.5;
+			double A = -0.5;
 			double B = 0.8660254038;
 			GOval pixel1 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT/2 + y - s/2, s, s);
 			pixel1.setFilled(true);
