@@ -76,7 +76,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color[] chosenColor;
 	private Color chosenPureColor;
 	private int chosenMixedColor;
-	private Color chosenYourOwnColor = new Color (red,green,blue);
+	private Color yourChosenColor;
 
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
@@ -319,7 +319,7 @@ public class GraphicsContest extends GraphicsProgram {
 				choose = true;
 				mode = "Choose";
 				updateIcons();
-				colorTray.setColor(chosenYourOwnColor);
+				colorTray.setColor(yourChosenColor);
 			} else if(choose == true) {
 				choose = false;
 				mixed = true;
@@ -563,8 +563,8 @@ public class GraphicsContest extends GraphicsProgram {
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
 				r = (r + 5)%255;
-				chosenYourOwnColor = new Color (r,g,b);
-				colorTray.setColor(chosenYourOwnColor);
+				yourChosenColor = new Color (r,g,b);
+				colorTray.setColor(yourChosenColor);
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_G) {
@@ -573,8 +573,8 @@ public class GraphicsContest extends GraphicsProgram {
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
 				g = (g + 5)%255;
-				chosenYourOwnColor = new Color (r,g,b);
-				colorTray.setColor(chosenYourOwnColor);
+				yourChosenColor = new Color (r,g,b);
+				colorTray.setColor(yourChosenColor);
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_B) {
@@ -583,8 +583,8 @@ public class GraphicsContest extends GraphicsProgram {
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
 				b = (b + 5)%255;
-				chosenYourOwnColor = new Color (r,g,b);
-				colorTray.setColor(chosenYourOwnColor);
+				yourChosenColor = new Color (r,g,b);
+				colorTray.setColor(yourChosenColor);
 			}
 		}
 		if (auto == true) {
@@ -627,7 +627,7 @@ public class GraphicsContest extends GraphicsProgram {
 			newColor = mixColor(chosenMixedColor);
 		}
 		if (choose == true) {
-			newColor = chosenYourOwnColor;
+			newColor = yourChosenColor;
 		}
 		GOval pixel1 = new GOval (getWidth()/2 - x - s/2, getHeight()/2 + ICON_HEIGHT/2 - y - s/2, s, s);
 		pixel1.setFilled(true);
