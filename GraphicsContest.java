@@ -92,12 +92,33 @@ public class GraphicsContest extends GraphicsProgram {
 		double y = rgen.nextDouble(0 + s*2.0 + ICON_HEIGHT, getHeight()/2 - s*2.0);
 		while(true) {
 			if(auto == true) {
-				int case = rgen.nextInt(1,7);
-				if (y > ICON_HEIGHT) {
-					x = x - (getWidth()/2 - s/2);
-					y = y - (getHeight()/2 + ICON_HEIGHT - s/2);
-					setUpBall(x, y);
+				x = x - (getWidth()/2 - s/2);
+				y = y - (getHeight()/2 + ICON_HEIGHT - s/2);
+				int dx = s/2;
+				int dy = s/2;
+				int c = rgen.nextInt(1,8);
+				if (c == 1) {
+					x = x + dx;
+				} else if (c == 2) {
+					x = x - dx;
+				} else if (c == 3) {
+					y = y + dy;
+				} else if (c == 4) {
+					y = y - dy;
+				} else if (c == 5) {
+					x = x + dx;
+					y = y + dy;
+				} else if (c == 6) {
+					x = x + dx;
+					y = y - dy;
+				} else if (c == 7) {
+					x = x - dx;
+					y = y + dy;
+				} else if (c == 8) {
+					x = x - dx;
+					y = y - dy;
 				}
+				setUpBall(x, y);
 			}
 			pause(speed);
 		}
@@ -713,12 +734,12 @@ public class GraphicsContest extends GraphicsProgram {
 		if (icon5.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-	
+
 	private boolean clickIcon6(MouseEvent e) {
 		if (icon6.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-	
+
 	private boolean clickColorIcon1(MouseEvent e) {
 		if (colorIcon1.contains(e.getX(),e.getY())) return true;
 		else return false;
@@ -757,7 +778,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (colorIcon9.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-	
+
 	private int colorToInt(Color color) {
 		if (color == plainColor[RED][0]) return 0;
 		else if (color == plainColor[ORANGE][0]) return 1;
