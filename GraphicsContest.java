@@ -39,12 +39,12 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean mixed = true;
 	private boolean auto = false;
 	private boolean line = false;
-	private boolean rotation = true;
-	private boolean reflection = false;
+	private boolean rotation = false;
+	private boolean reflection = true;
 	private int s = BRUSH_SIZE;
 	private int speed = DELAY;
 	private int speedLevel = 1;
-	private int symmetry = 100;
+	private int symmetry = 12;
 	private int plane = 4;
 	private GRect colorTray;
 	private GRect icon1;
@@ -743,7 +743,7 @@ public class GraphicsContest extends GraphicsProgram {
 				reflectionArray[0][1] = B;
 				reflectionArray[1][0] = B;
 				reflectionArray[1][1] = -A;
-				for (int i = 1; i <= (int) Math.pow(2, n); i++) {
+				for (int i = 1; i <= Math.pow(2, n); i++) {
 					coordinate[(int) (Math.pow(2, n) + i)][0] = coordinate[i][0]*(reflectionArray[0][0]) + coordinate[0][i]*(reflectionArray[0][1]);
 					coordinate[0][(int) (Math.pow(2, n) + i)] = coordinate[i][0]*(reflectionArray[1][0]) + coordinate[0][i]*(reflectionArray[1][1]);
 				}
