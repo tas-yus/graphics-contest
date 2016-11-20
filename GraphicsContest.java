@@ -778,7 +778,7 @@ public class GraphicsContest extends GraphicsProgram {
 		rotationalArray[0][1] = B;
 		rotationalArray[1][0] = -B;
 		rotationalArray[1][1] = A;
-		for (int n = 0; n < fold - 1; n++) {
+		for (int n = 0; n < fold; n++) {
 			GOval pixel = new GOval (getWidth()/2 + x*(powMatrix(rotationalArray, n)[0][0]) + y*(powMatrix(rotationalArray, n)[0][1]) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(powMatrix(rotationalArray, n)[1][0]) + y*(powMatrix(rotationalArray, n)[1][1]) - s/2, s, s);
 			pixel.setFilled(true);
 			pixel.setColor(newColor);
