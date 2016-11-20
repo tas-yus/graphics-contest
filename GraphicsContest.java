@@ -76,6 +76,10 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color[] chosenColor;
 	private Color chosenPureColor;
 	private int chosenMixedColor;
+	
+	double A;
+	double B;
+	double rotationalArray[][] = {{A, B}, {-B, A}};
 
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
@@ -748,8 +752,8 @@ public class GraphicsContest extends GraphicsProgram {
 			add(pixel4);
 		}
 		if (symmetry == 4) {
-			double A = -0.5;
-			double B = 0.8660254038;
+			A = -0.5;
+			B = 0.8660254038;
 			GOval pixel1 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT/2 + y - s/2, s, s);
 			pixel1.setFilled(true);
 			pixel1.setColor(newColor);
@@ -764,12 +768,13 @@ public class GraphicsContest extends GraphicsProgram {
 			add(pixel3);			
 		}
 		if (symmetry == 5) {
-			double A = 0.3090169944;
-			double B = 0.9510565163;
+			A = 0.3090169944;
+			B = 0.9510565163;
+			int fold = 5;
 			GOval pixel1 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT/2 + y - s/2, s, s);
 			pixel1.setFilled(true);
 			pixel1.setColor(newColor);
-			GOval pixel2 = new GOval (getWidth()/2 + x*(A) + y*(B) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(-B) + y*(A) - s/2, s, s);
+			GOval pixel2 = new GOval (getWidth()/2 + x*(powMatrix(rotationalArray,fold)[0][0]) + y*(powMatrix(rotationalArray,fold)[0][1]) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(powMatrix(rotationalArray,fold)[1][0]) + y*(powMatrix(rotationalArray,fold)[1][1]) - s/2, s, s);
 			pixel2.setFilled(true);
 			pixel2.setColor(newColor);
 			GOval pixel3 = new GOval (getWidth()/2 + x*(A*A - B*B) + y*(2*A*B) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(-2*A*B) +y*(A*A - B*B) - s/2, s, s);
@@ -905,5 +910,19 @@ public class GraphicsContest extends GraphicsProgram {
 		else if (color == plainColor[WHITE][0]) return 7;
 		else if (color == plainColor[BLACK][0]) return 8;
 		else return 0;
+	}
+	
+	private double[][] powMatrix(double[][] rotationalArray, int n) {
+		double [][] result = new double[rotationalArray.length][rotationalArray[0].length];
+		for (int f = 0; f < n; f++) {
+			for (int i = 0; i < rotationalArray.length; i++) { 
+			    for (int j = 0; j < rotationalArray[0].length; j++) { 
+			        for (int k = 0; k < rotationalArray[0].length; k++) { 
+			            result[i][j] += rotationalArray[i][k] * rotationalArray[k][j];
+			        }
+			    }
+			}
+		}
+		return result;
 	}
 }
