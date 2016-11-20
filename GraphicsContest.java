@@ -734,7 +734,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (reflection == true) {
-			for (int n = 0; n < fold; n++) {
+			for (int n = 0; n < fold - 1; n++) {
 				double[][] reflectionArray = new double[2][2];
 				double m = slope[n];
 				double A = (1 - m*m)/(1 + m*m);
