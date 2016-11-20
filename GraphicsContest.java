@@ -165,6 +165,7 @@ public class GraphicsContest extends GraphicsProgram {
 				setUpColors();
 				setUpIcons();
 				setUpColorChoice();
+				colorTray.setColor(plainColor[chosenMixedColor][0]);
 				n = 1;
 				x = getWidth()/2 - s;
 				y = getHeight()/2 + ICON_HEIGHT/2;
