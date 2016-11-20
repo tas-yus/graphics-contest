@@ -279,7 +279,6 @@ public class GraphicsContest extends GraphicsProgram {
 		add(colorIcon9);
 		setUpLines(plane);
 		coordinate = new double[2*plane + 1][2*plane + 1];
-		slope = new double[plane];
 	}
 
 	private void setUpLines (int fold) {
@@ -295,6 +294,7 @@ public class GraphicsContest extends GraphicsProgram {
 			GLine reflectionLine = new GLine (getWidth()/2 + y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 + y*(powMatrix(rotationalArray, n)[1][1]),
 					getWidth()/2 - y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 - y*(powMatrix(rotationalArray, n)[1][1]));
 			add(reflectionLine);
+			slope = new double[plane];
 			slope[n] = getSlope(reflectionLine);
 		}
 		
