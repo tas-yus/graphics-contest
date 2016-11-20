@@ -919,9 +919,7 @@ public class GraphicsContest extends GraphicsProgram {
 		double [][] result = new double[matrix.length][matrix[0].length];
 		double [][] temp = new double[matrix.length][matrix[0].length];
 		for (int i = 0; i < matrix.length; i++) {
-			for (int j = 0; j < matrix[0].length; j++) {
-				result[i][j] = 1;
-			}
+			result[i][i] = 1;
 		}
 		for (int power = 0; power < n; power++) {
 			for (int i = 0; i < matrix.length; i++) { 
