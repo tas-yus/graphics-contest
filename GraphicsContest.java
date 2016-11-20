@@ -45,7 +45,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private int speed = DELAY;
 	private int speedLevel = 1;
 	private int symmetry = 8;
-	private int plane = 8;
+	private int plane = 20;
 	private GRect colorTray;
 	private GRect icon1;
 	private GRect icon2;
@@ -287,8 +287,8 @@ public class GraphicsContest extends GraphicsProgram {
 		rotationalArray[1][0] = -B;
 		rotationalArray[1][1] = A;
 		for (int n = 0; n < fold; n++) {
-			GLine reflectionLine = new GLine (getWidth()/2*((powMatrix(rotationalArray, n))[0][0]) + ICON_HEIGHT*((powMatrix(rotationalArray, n))[0][1]), getWidth()/2*((powMatrix(rotationalArray, n))[1][0]) + ICON_HEIGHT*((powMatrix(rotationalArray, n))[1][1]),
-					getWidth()/2*((powMatrix(rotationalArray, n))[0][0]) + getHeight()*((powMatrix(rotationalArray, n))[0][1]), getWidth()/2*((powMatrix(rotationalArray, n))[1][0]) + getHeight()*((powMatrix(rotationalArray, n))[1][1]));
+			GLine reflectionLine = new GLine (getWidth()/2*(powMatrix(rotationalArray, n)[0][0]) + ICON_HEIGHT*(powMatrix(rotationalArray, n)[0][1]), getWidth()/2*(powMatrix(rotationalArray, n)[1][0]) + ICON_HEIGHT*(powMatrix(rotationalArray, n)[1][1]),
+					getWidth()/2*(powMatrix(rotationalArray, n)[0][0]) + getHeight()*(powMatrix(rotationalArray, n)[0][1]), getWidth()/2*(powMatrix(rotationalArray, n)[1][0]) + getHeight()*(powMatrix(rotationalArray, n)[1][1]));
 			add(reflectionLine);
 		}
 	}
