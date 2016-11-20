@@ -784,7 +784,7 @@ public class GraphicsContest extends GraphicsProgram {
 			pixel5.setFilled(true);
 			pixel5.setColor(newColor);
 			add(pixel1);
-			add(pixel2);
+			
 			add(pixel3);
 			add(pixel4);
 			add(pixel5);
