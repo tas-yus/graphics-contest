@@ -309,12 +309,12 @@ public class GraphicsContest extends GraphicsProgram {
 				add(label2);
 				add(label3);
 				add(label4);
+				double d = slope[1];
+				String e = "" + d;
+				GLabel label = new GLabel (e, 50, 50);
+				add(label);
 			}
 		}
-		double d = slope[1];
-		String e = "" + d;
-		GLabel label = new GLabel (e, 50, 50);
-		add(label);
 	}
 	
 	private void updateIcons() {
