@@ -767,7 +767,9 @@ public class GraphicsContest extends GraphicsProgram {
 			add(pixel2);
 			add(pixel3);			
 		}
-		addPixel(x,y,5);
+		if (symmetry == 5) {
+			addPixel(x,y,5);
+		}
 	}
 
 	private void addPixel(double x, double y, int fold) {
