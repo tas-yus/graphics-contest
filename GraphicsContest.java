@@ -296,25 +296,7 @@ public class GraphicsContest extends GraphicsProgram {
 					getWidth()/2 - y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 - y*(powMatrix(rotationalArray, n)[1][1]));
 			add(reflectionLine);
 			slope[n] = getSlope(reflectionLine);
-			if (n == 1) {
-				double f = (reflectionLine.getEndPoint()).getX();
-				double g = (reflectionLine.getEndPoint()).getY();
-				double h = (reflectionLine.getStartPoint()).getX();
-				double i = (reflectionLine.getStartPoint()).getY();
-				GLabel label1 = new GLabel ("" + f, 50, 100);
-				GLabel label2 = new GLabel ("" + g, 50, 150);
-				GLabel label3 = new GLabel ("" + h, 50, 200);
-				GLabel label4 = new GLabel ("" + i, 50, 250);
-				add(label1);
-				add(label2);
-				add(label3);
-				add(label4);
-			}
 		}
-		double d = slope[0];
-		String e = "" + d;
-		GLabel label = new GLabel (e, 50, 50);
-		add(label);
 	}
 	
 	private void updateIcons() {
