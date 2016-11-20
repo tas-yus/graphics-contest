@@ -80,10 +80,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color chosenPureColor;
 	private int chosenMixedColor;
 
-	double A;
-	double B;
-	double[][] rotationalArray;
-
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
@@ -283,9 +279,9 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void setUpLines (int fold) {
-		A = Math.cos(2*Math.PI/fold);
-		B = Math.sin(2*Math.PI/fold);
-		rotationalArray = new double[2][2];
+		double A = Math.cos(2*Math.PI/fold);
+		double B = Math.sin(2*Math.PI/fold);
+		double[][] rotationalArray = new double[2][2];
 		rotationalArray[0][0] = A;
 		rotationalArray[0][1] = B;
 		rotationalArray[1][0] = -B;
@@ -713,9 +709,9 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void addPixel(double x, double y, int fold) {
-		A = Math.cos(2*Math.PI/fold);
-		B = Math.sin(2*Math.PI/fold);
-		rotationalArray = new double[2][2];
+		double A = Math.cos(2*Math.PI/fold);
+		double B = Math.sin(2*Math.PI/fold);
+		double[][] rotationalArray = new double[2][2];
 		rotationalArray[0][0] = A;
 		rotationalArray[0][1] = B;
 		rotationalArray[1][0] = -B;
