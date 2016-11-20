@@ -290,9 +290,9 @@ public class GraphicsContest extends GraphicsProgram {
 		for (int n = 0; n < fold; n++) {
 			line1 = new GLine (getWidth()/2 + y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 + y*(powMatrix(rotationalArray, n)[1][1]),
 					getWidth()/2 - y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 - y*(powMatrix(rotationalArray, n)[1][1]));
-			
+			add(line1);
 		}
-		add(line1);
+		
 	}
 	
 	private void updateIcons() {
