@@ -914,11 +914,11 @@ public class GraphicsContest extends GraphicsProgram {
 
 	private double[][] powMatrix(double[][] matrix, int n) {
 		double [][] result = new double[matrix.length][matrix[0].length];
-		double [][] temp = new double[matrix.length][matrix[0].length];
 		for (int i = 0; i < matrix.length; i++) {
 			result[i][i] = 1;
 		}
 		for (int power = 0; power < n; power++) {
+			double [][] temp = new double[matrix.length][matrix[0].length];
 			for (int i = 0; i < matrix.length; i++) { 
 				for (int j = 0; j < result[0].length; j++) { 
 					for (int k = 0; k < matrix[0].length; k++) { 
