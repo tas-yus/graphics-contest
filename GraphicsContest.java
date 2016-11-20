@@ -279,8 +279,8 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void setUpLines (int fold) {
-		double A = Math.cos(2*Math.PI/2*fold);
-		double B = Math.sin(2*Math.PI/2*fold);
+		double A = Math.cos(2*Math.PI/2/fold);
+		double B = Math.sin(2*Math.PI/2/fold);
 		double[][] rotationalArray = new double[2][2];
 		rotationalArray[0][0] = A;
 		rotationalArray[0][1] = B;
@@ -288,9 +288,9 @@ public class GraphicsContest extends GraphicsProgram {
 		rotationalArray[1][1] = A;
 		double y = getHeight() - (getHeight()/2 + ICON_HEIGHT/2);
 		for (int n = 0; n < fold; n++) {
-			line1 = new GLine (getWidth()/2 + y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 + y*(powMatrix(rotationalArray, n)[1][1]),
+			GLine reflectionLine = new GLine (getWidth()/2 + y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 + y*(powMatrix(rotationalArray, n)[1][1]),
 					getWidth()/2 - y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 - y*(powMatrix(rotationalArray, n)[1][1]));
-			
+			add(reflectionLine);
 		}
 		
 	}
