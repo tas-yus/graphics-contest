@@ -76,7 +76,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color[] chosenColor;
 	private Color chosenPureColor;
 	private int chosenMixedColor;
-	
+
 	double A;
 	double B;
 	double[][] rotationalArray = new double[2][2];
@@ -777,7 +777,7 @@ public class GraphicsContest extends GraphicsProgram {
 			GOval pixel1 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT/2 + y - s/2, s, s);
 			pixel1.setFilled(true);
 			pixel1.setColor(newColor);
-			GOval pixel2 = new GOval (getWidth()/2 + x*(rotationalArray[0][0]) + y*(rotationalArray[0][1]) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(rotationalArray[1][0]) + y*(rotationalArray[1][1]) - s/2, s, s);
+			GOval pixel2 = new GOval (getWidth()/2 + x*(powMatrix(rotationalArray,1)[0][0]) + y*(rotationalArray[0][1]) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(rotationalArray[1][0]) + y*(rotationalArray[1][1]) - s/2, s, s);
 			pixel2.setFilled(true);
 			pixel2.setColor(newColor);
 			GOval pixel3 = new GOval (getWidth()/2 + x*(A*A - B*B) + y*(2*A*B) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(-2*A*B) +y*(A*A - B*B) - s/2, s, s);
@@ -914,16 +914,21 @@ public class GraphicsContest extends GraphicsProgram {
 		else if (color == plainColor[BLACK][0]) return 8;
 		else return 0;
 	}
-	
-	private double[][] powMatrix(double[][] rotationalArray, int n) {
-		double [][] result = new double[rotationalArray.length][rotationalArray[0].length];
-		for (int f = 0; f < n; f++) {
-			for (int i = 0; i < rotationalArray.length; i++) { 
-			    for (int j = 0; j < rotationalArray[0].length; j++) { 
-			        for (int k = 0; k < rotationalArray[0].length; k++) { 
-			            result[i][j] += rotationalArray[i][k] * rotationalArray[k][j];
-			        }
-			    }
+
+	private double[][] powMatrix(double[][] matrix, int n) {
+		double [][] result = new double[matrix.length][matrix[0].length];
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix[0].length; j++) {
+				result[i][j] = 1;
+			}
+		}
+		for (int power = 0; power < n; power++) {
+			for (int i = 0; i < matrix.length; i++) { 
+				for (int j = 0; j < result[0].length; j++) { 
+					for (int k = 0; k < matrix[0].length; k++) { 
+						result[i][j] = matrix[i][k] * result[k][j];
+					}
+				}
 			}
 		}
 		return result;
