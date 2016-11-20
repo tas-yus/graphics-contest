@@ -45,7 +45,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private int speed = DELAY;
 	private int speedLevel = 1;
 	private int symmetry = 8;
-	private int plane = 4;
+	private int plane = 8;
 	private GRect colorTray;
 	private GRect icon1;
 	private GRect icon2;
@@ -279,8 +279,8 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void setUpLines (int fold) {
-		double A = Math.cos(2*Math.PI/fold);
-		double B = Math.sin(2*Math.PI/fold);
+		double A = Math.cos(2*Math.PI/2*fold);
+		double B = Math.sin(2*Math.PI/2*fold);
 		double[][] rotationalArray = new double[2][2];
 		rotationalArray[0][0] = A;
 		rotationalArray[0][1] = B;
