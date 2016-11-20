@@ -770,7 +770,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (symmetry == 5) {
 			A = 0.3090169944;
 			B = 0.9510565163;
-			int fold = 5;
+			int fold = 1;
 			GOval pixel1 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT/2 + y - s/2, s, s);
 			pixel1.setFilled(true);
 			pixel1.setColor(newColor);
