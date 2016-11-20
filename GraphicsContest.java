@@ -75,7 +75,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLine line3;
 	private GLine line4;
 	private double[] slope = new double[plane];
-	double[][] coordinate;
+	private double[][] coordinate;
 	
 	private Color[][] plainColor;
 	private Color[] chosenColor;
@@ -278,6 +278,7 @@ public class GraphicsContest extends GraphicsProgram {
 		colorIcon9 = new GRect (getWidth()*43/45, 0, getWidth(), ICON_HEIGHT);
 		add(colorIcon9);
 		setUpLines(plane);
+		coordinate = new double[2*plane + 1][2*plane + 1];
 	}
 
 	private void setUpLines (int fold) {
@@ -747,7 +748,6 @@ public class GraphicsContest extends GraphicsProgram {
 				}
 			}
 			for (int j = 1; j < coordinate.length; j++) {
-				coordinate = new double[2*plane + 1][2*plane + 1];
 				double X = coordinate[j][0];
 				double Y = coordinate[0][j];
 				GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
