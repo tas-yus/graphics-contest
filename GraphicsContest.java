@@ -296,6 +296,16 @@ public class GraphicsContest extends GraphicsProgram {
 			add(reflectionLine);
 			slope = new double[plane];
 			slope[n] = getSlope(reflectionLine);
+			if (n == 1) {
+				double f = (reflectionLine.getEndPoint()).getX();
+				double g = (reflectionLine.getEndPoint()).getY();
+				double h = (reflectionLine.getStartPoint()).getX();
+				double i = (reflectionLine.getStartPoint()).getY();
+				GLabel label1 = new GLabel ("" + f, 50, 100);
+				GLabel label2 = new GLabel ("" + g, 50, 150);
+				GLabel label3 = new GLabel ("" + h, 50, 200);
+				GLabel label4 = new GLabel ("" + i, 50, 250);
+			}
 		}
 		double d = slope[1];
 		String e = "" + d;
