@@ -747,7 +747,7 @@ public class GraphicsContest extends GraphicsProgram {
 					coordinate[0][(int) (Math.pow(2, n) + i)] = coordinate[i][0]*(reflectionArray[1][0]) + coordinate[0][i]*(reflectionArray[1][1]);
 				}
 			}
-			for (int j = 1; j < coordinate.length - 1; j++) {
+			for (int j = 1; j <= coordinate.length - 1; j++) {
 				double X = coordinate[j][0];
 				double Y = coordinate[0][j];
 				GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
