@@ -676,7 +676,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private void setUpBall(double x, double y) {
 		addAll(s, x, y);
 	}
-	
 	private void addAll(int s, double x, double y) {
 		if (pure == true) {
 			newColor = chosenPureColor; 
@@ -798,7 +797,6 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 
-	private 
 	private Color mixColor(int chosenMixedColor) {
 		if (chosenMixedColor == RED) {
 			Color color = new Color (255,rgen.nextInt(25,220),rgen.nextInt(25,255));
