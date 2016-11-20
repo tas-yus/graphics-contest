@@ -286,9 +286,10 @@ public class GraphicsContest extends GraphicsProgram {
 		rotationalArray[0][1] = B;
 		rotationalArray[1][0] = -B;
 		rotationalArray[1][1] = A;
+		double y = getHeight() - (getHeight()/2 + ICON_HEIGHT/2);
 		for (int n = 0; n < fold; n++) {
-			GLine reflectionLine = new GLine (getWidth()/2*(powMatrix(rotationalArray, n)[0][0]) + ICON_HEIGHT*(powMatrix(rotationalArray, n)[0][1]), getWidth()/2*(powMatrix(rotationalArray, n)[1][0]) + ICON_HEIGHT*(powMatrix(rotationalArray, n)[1][1]),
-					getWidth()/2*(powMatrix(rotationalArray, n)[0][0]) + getHeight()*(powMatrix(rotationalArray, n)[0][1]), getWidth()/2*(powMatrix(rotationalArray, n)[1][0]) + getHeight()*(powMatrix(rotationalArray, n)[1][1]));
+			GLine reflectionLine = new GLine (getWidth()/2 + y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 + y*(powMatrix(rotationalArray, n)[1][1]),
+					getWidth()/2 - y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 - y*(powMatrix(rotationalArray, n)[1][1]));
 			add(reflectionLine);
 		}
 	}
