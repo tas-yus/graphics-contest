@@ -45,7 +45,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private int speed = DELAY;
 	private int speedLevel = 1;
 	private int symmetry = 8;
-	private int plane = 1;
+	private int plane = 4;
 	private GRect colorTray;
 	private GRect icon1;
 	private GRect icon2;
@@ -278,7 +278,7 @@ public class GraphicsContest extends GraphicsProgram {
 		colorIcon9 = new GRect (getWidth()*43/45, 0, getWidth(), ICON_HEIGHT);
 		add(colorIcon9);
 		setUpLines(plane);
-		coordinate = new double[2*plane + 1][2*plane + 1];
+		coordinate = new double[(int) Math.pow(2, (plane-1)) + 1][(int) Math.pow(2, (plane-1)) + 1];
 	}
 
 	private void setUpLines (int fold) {
