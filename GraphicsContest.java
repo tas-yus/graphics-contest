@@ -770,14 +770,11 @@ public class GraphicsContest extends GraphicsProgram {
 		if (symmetry == 5) {
 			A = 0.3090169944;
 			B = 0.9510565163;
-			rotationalArray[0][0] = A;
-			rotationalArray[0][1] = B;
-			rotationalArray[1][0] = -B;
-			rotationalArray[1][1] = A;
+			
 			GOval pixel1 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT/2 + y - s/2, s, s);
 			pixel1.setFilled(true);
 			pixel1.setColor(newColor);
-		
+			
 			GOval pixel3 = new GOval (getWidth()/2 + x*(A*A - B*B) + y*(2*A*B) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(-2*A*B) +y*(A*A - B*B) - s/2, s, s);
 			pixel3.setFilled(true);
 			pixel3.setColor(newColor);
@@ -788,7 +785,7 @@ public class GraphicsContest extends GraphicsProgram {
 			pixel5.setFilled(true);
 			pixel5.setColor(newColor);
 			add(pixel1);
-		
+			
 			add(pixel3);
 			add(pixel4);
 			add(pixel5);
