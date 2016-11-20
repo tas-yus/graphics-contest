@@ -770,11 +770,10 @@ public class GraphicsContest extends GraphicsProgram {
 		if (symmetry == 5) {
 			A = 0.3090169944;
 			B = 0.9510565163;
-			int fold = 1;
 			GOval pixel1 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT/2 + y - s/2, s, s);
 			pixel1.setFilled(true);
 			pixel1.setColor(newColor);
-			GOval pixel2 = new GOval (getWidth()/2 + x*(powMatrix(rotationalArray,fold)[0][0]) + y*(powMatrix(rotationalArray,fold)[0][1]) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(powMatrix(rotationalArray,fold)[1][0]) + y*(powMatrix(rotationalArray,fold)[1][1]) - s/2, s, s);
+			GOval pixel2 = new GOval (getWidth()/2 + x*(powMatrix(rotationalArray,1)[0][0]) + y*(powMatrix(rotationalArray,1)[0][1]) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(powMatrix(rotationalArray,1)[1][0]) + y*(powMatrix(rotationalArray,1)[1][1]) - s/2, s, s);
 			pixel2.setFilled(true);
 			pixel2.setColor(newColor);
 			GOval pixel3 = new GOval (getWidth()/2 + x*(A*A - B*B) + y*(2*A*B) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(-2*A*B) +y*(A*A - B*B) - s/2, s, s);
