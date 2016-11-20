@@ -106,53 +106,53 @@ public class GraphicsContest extends GraphicsProgram {
 				if (c == 0) {
 					for (int i = 0; i < n; i++) {
 						x = x + dx;
-						addAll(s, x, y);
+						setUpBall(x, y);
 					}
 				}
 				if (c == 1) {
 					for (int i = 0; i < n; i++) {
 						x = x + dx;
 						y = y + dy;
-						addAll(s, x, y);
+						setUpBall(x, y);
 					}
 				}
 				if (c == 2) {
 					for (int i = 0; i < n; i++) {
 						y = y + dy;
-						addAll(s, x, y);
+						setUpBall(x, y);
 					}
 				}
 				if (c == 3) {
 					for (int i = 0; i < n+1; i++) {
 						x = x - dx;
 						y = y + dy;
-						addAll(s, x, y);
+						setUpBall(x, y);
 					}
 				}
 				if (c == 4) {
 					for (int i = 0; i < n+1; i++) {
 						x = x - dx;
-						addAll(s, x, y);
+						setUpBall(x, y);
 					}
 				}
 				if (c == 5) {
 					for (int i = 0; i < n+1; i++) {
 						x = x - dx;
 						y = y - dy;
-						addAll(s, x, y);
+						setUpBall(x, y);
 					}
 				}
 				if (c == 6) {
 					for (int i = 0; i < n; i++) {
 						y = y - dy;
-						addAll(s, x, y);
+						setUpBall(x, y);
 					}
 				}
 				if (c == 7) {
 					for (int i = 0; i < n+1; i++) {
 						x = x + dx;
 						y = y - dy;
-						addAll(s, x, y);
+						setUpBall(x, y);
 					}
 					n++;
 				}
@@ -519,7 +519,7 @@ public class GraphicsContest extends GraphicsProgram {
 				x = (x - getWidth()/2);
 				y = (y - (getHeight()/2 + ICON_HEIGHT/2));
 			}
-			addAll(s, x, y);
+			setUpBall(x, y);
 		}
 	}
 
@@ -673,6 +673,9 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 	}
+	private void setUpBall(double x, double y) {
+		addAll(s, x, y);
+	}
 	
 	private void addAll(int s, double x, double y) {
 		if (pure == true) {
@@ -795,6 +798,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 
+	private 
 	private Color mixColor(int chosenMixedColor) {
 		if (chosenMixedColor == RED) {
 			Color color = new Color (255,rgen.nextInt(25,220),rgen.nextInt(25,255));
