@@ -74,7 +74,9 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLine line2;
 	private GLine line3;
 	private GLine line4;
-
+	private double[] slope;
+	double[][] coordinate;
+	
 	private Color[][] plainColor;
 	private Color[] chosenColor;
 	private Color chosenPureColor;
@@ -276,6 +278,7 @@ public class GraphicsContest extends GraphicsProgram {
 		colorIcon9 = new GRect (getWidth()*43/45, 0, getWidth(), ICON_HEIGHT);
 		add(colorIcon9);
 		setUpLines(plane);
+		coordinate = new double[2*plane + 1][2*plane + 1];
 	}
 
 	private void setUpLines (int fold) {
@@ -291,6 +294,7 @@ public class GraphicsContest extends GraphicsProgram {
 			GLine reflectionLine = new GLine (getWidth()/2 + y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 + y*(powMatrix(rotationalArray, n)[1][1]),
 					getWidth()/2 - y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 - y*(powMatrix(rotationalArray, n)[1][1]));
 			add(reflectionLine);
+			slope[n] = getSlope(reflectionLine);
 		}
 		
 	}
@@ -532,6 +536,8 @@ public class GraphicsContest extends GraphicsProgram {
 				x = (x - getWidth()/2);
 				y = (y - (getHeight()/2 + ICON_HEIGHT/2));
 			}
+			coordinate[1][0] = x;
+			coordinate[0][1] = y;
 			setUpBall(x, y);
 		}
 	}
@@ -711,16 +717,40 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void addPixel(double x, double y, int fold) {
-		double A = Math.cos(2*Math.PI/fold);
-		double B = Math.sin(2*Math.PI/fold);
-		double[][] rotationalArray = new double[2][2];
-		rotationalArray[0][0] = A;
-		rotationalArray[0][1] = B;
-		rotationalArray[1][0] = -B;
-		rotationalArray[1][1] = A;
 		if (rotation == true) {
+			double A = Math.cos(2*Math.PI/fold);
+			double B = Math.sin(2*Math.PI/fold);
+			double[][] rotationalArray = new double[2][2];
+			rotationalArray[0][0] = A;
+			rotationalArray[0][1] = B;
+			rotationalArray[1][0] = -B;
+			rotationalArray[1][1] = A;
 			for (int n = 0; n < fold; n++) {
 				GOval pixel = new GOval (getWidth()/2 + x*(powMatrix(rotationalArray, n)[0][0]) + y*(powMatrix(rotationalArray, n)[0][1]) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(powMatrix(rotationalArray, n)[1][0]) + y*(powMatrix(rotationalArray, n)[1][1]) - s/2, s, s);
+				pixel.setFilled(true);
+				pixel.setColor(newColor);
+				add(pixel);
+			}
+		}
+		if (reflection == true) {
+			for (int n = 0; n < fold; n++) {
+				double[][] reflectionArray = new double[2][2];
+				double m = slope[n];
+				double A = (1 - m*m)/(1 + m*m);
+				double B = 2*m/(1 + m*m);
+				reflectionArray[0][0] = A;
+				reflectionArray[0][1] = B;
+				reflectionArray[1][0] = B;
+				reflectionArray[1][1] = -A;
+				for (int i = 1; i <= Math.pow(2, n-1); i++) {
+					coordinate[(int) (Math.pow(2, n) + i)][0] = coordinate[i][0]*(powMatrix(reflectionArray, i)[0][0]) + coordinate[0][i]*(powMatrix(reflectionArray, i)[0][1]);
+					coordinate[0][(int) (Math.pow(2, n) + i)] = coordinate[i][0]*(powMatrix(reflectionArray, i)[1][0]) + coordinate[0][i]*(powMatrix(reflectionArray, i)[1][1]);
+				}
+			}
+			for (int j = 1; j < coordinate.length - 1; j++) {
+				double X = coordinate[j][0];
+				double Y = coordinate[0][j];
+				GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
 				pixel.setFilled(true);
 				pixel.setColor(newColor);
 				add(pixel);
