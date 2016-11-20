@@ -79,7 +79,7 @@ public class GraphicsContest extends GraphicsProgram {
 
 	double A;
 	double B;
-	double[][] rotationalArray = {{A,B},{-B,A}};
+	double[][] rotationalArray;
 
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
@@ -106,53 +106,53 @@ public class GraphicsContest extends GraphicsProgram {
 				if (c == 0) {
 					for (int i = 0; i < n; i++) {
 						x = x + dx;
-						setUpBall(x, y);
+						addAll(x, y);
 					}
 				}
 				if (c == 1) {
 					for (int i = 0; i < n; i++) {
 						x = x + dx;
 						y = y + dy;
-						setUpBall(x, y);
+						addAll(x, y);
 					}
 				}
 				if (c == 2) {
 					for (int i = 0; i < n; i++) {
 						y = y + dy;
-						setUpBall(x, y);
+						addAll(x, y);
 					}
 				}
 				if (c == 3) {
 					for (int i = 0; i < n+1; i++) {
 						x = x - dx;
 						y = y + dy;
-						setUpBall(x, y);
+						addAll(x, y);
 					}
 				}
 				if (c == 4) {
 					for (int i = 0; i < n+1; i++) {
 						x = x - dx;
-						setUpBall(x, y);
+						addAll(x, y);
 					}
 				}
 				if (c == 5) {
 					for (int i = 0; i < n+1; i++) {
 						x = x - dx;
 						y = y - dy;
-						setUpBall(x, y);
+						addAll(x, y);
 					}
 				}
 				if (c == 6) {
 					for (int i = 0; i < n; i++) {
 						y = y - dy;
-						setUpBall(x, y);
+						addAll(x, y);
 					}
 				}
 				if (c == 7) {
 					for (int i = 0; i < n+1; i++) {
 						x = x + dx;
 						y = y - dy;
-						setUpBall(x, y);
+						addAll(x, y);
 					}
 					n++;
 				}
@@ -519,7 +519,7 @@ public class GraphicsContest extends GraphicsProgram {
 				x = (x - getWidth()/2);
 				y = (y - (getHeight()/2 + ICON_HEIGHT/2));
 			}
-			setUpBall(x, y);
+			addAll(x, y);
 		}
 	}
 
@@ -673,10 +673,8 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 	}
-	private void setUpBall(double x, double y) {
-		addAll(s, x, y);
-	}
-	private void addAll(int s, double x, double y) {
+	
+	private void addAll(double x, double y) {
 		if (pure == true) {
 			newColor = chosenPureColor; 
 		}
@@ -770,6 +768,10 @@ public class GraphicsContest extends GraphicsProgram {
 		if (symmetry == 5) {
 			A = 0.3090169944;
 			B = 0.9510565163;
+			rotationalArray[0][0] = A;
+			rotationalArray[0][1] = B;
+			rotationalArray[1][0] = -B;
+			rotationalArray[1][1] = A;
 			GOval pixel1 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT/2 + y - s/2, s, s);
 			pixel1.setFilled(true);
 			pixel1.setColor(newColor);
@@ -793,6 +795,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 
+	private 
 	private Color mixColor(int chosenMixedColor) {
 		if (chosenMixedColor == RED) {
 			Color color = new Color (255,rgen.nextInt(25,220),rgen.nextInt(25,255));
