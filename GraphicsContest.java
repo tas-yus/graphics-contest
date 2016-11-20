@@ -782,6 +782,7 @@ public class GraphicsContest extends GraphicsProgram {
 			GOval pixel = new GOval (getWidth()/2 + x*(powMatrix(rotationalArray, n)[0][0]) + y*(powMatrix(rotationalArray, n)[0][1]) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(powMatrix(rotationalArray, n)[1][0]) + y*(powMatrix(rotationalArray, n)[1][1]) - s/2, s, s);
 			pixel.setFilled(true);
 			pixel.setColor(newColor);
+			add(pixel);
 		}
 
 	}
