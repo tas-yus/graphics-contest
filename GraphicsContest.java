@@ -305,6 +305,10 @@ public class GraphicsContest extends GraphicsProgram {
 				GLabel label2 = new GLabel ("" + g, 50, 150);
 				GLabel label3 = new GLabel ("" + h, 50, 200);
 				GLabel label4 = new GLabel ("" + i, 50, 250);
+				add(label1);
+				add(label2);
+				add(label3);
+				add(label4);
 			}
 		}
 		double d = slope[1];
