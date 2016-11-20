@@ -42,7 +42,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private int s = BRUSH_SIZE;
 	private int speed = DELAY;
 	private int speedLevel = 1;
-	private int symmetry = 18;
+	private int symmetry = 9;
 	private GRect colorTray;
 	private GRect icon1;
 	private GRect icon2;
