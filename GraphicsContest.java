@@ -770,6 +770,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (symmetry == 5) {
 			A = 0.3090169944;
 			B = 0.9510565163;
+			rotationalArray = new double[2][2];
 			rotationalArray[0][0] = A;
 			rotationalArray[0][1] = B;
 			rotationalArray[1][0] = -B;
