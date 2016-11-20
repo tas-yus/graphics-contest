@@ -519,7 +519,7 @@ public class GraphicsContest extends GraphicsProgram {
 				x = (x - getWidth()/2);
 				y = (y - (getHeight()/2 + ICON_HEIGHT/2));
 			}
-			addAll(x, y);
+			addAll(s, x, y);
 		}
 	}
 
@@ -674,7 +674,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 	
-	private void addAll(double x, double y) {
+	private void addAll(int s, double x, double y) {
 		if (pure == true) {
 			newColor = chosenPureColor; 
 		}
@@ -794,7 +794,7 @@ public class GraphicsContest extends GraphicsProgram {
 			add(pixel5);
 		}
 	}
-	
+
 	private Color mixColor(int chosenMixedColor) {
 		if (chosenMixedColor == RED) {
 			Color color = new Color (255,rgen.nextInt(25,220),rgen.nextInt(25,255));
