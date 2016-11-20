@@ -794,8 +794,7 @@ public class GraphicsContest extends GraphicsProgram {
 			add(pixel5);
 		}
 	}
-
-	private 
+	
 	private Color mixColor(int chosenMixedColor) {
 		if (chosenMixedColor == RED) {
 			Color color = new Color (255,rgen.nextInt(25,220),rgen.nextInt(25,255));
