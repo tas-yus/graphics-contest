@@ -742,7 +742,7 @@ public class GraphicsContest extends GraphicsProgram {
 				reflectionArray[0][1] = B;
 				reflectionArray[1][0] = B;
 				reflectionArray[1][1] = -A;
-				GLabel line = new GLabel ("" + A, 50, 50);
+				GLabel line = new GLabel ("" + B, 50, 50);
 				add(line);
 				coordinate[2][0] = -x;
 				coordinate[0][2] = y;
