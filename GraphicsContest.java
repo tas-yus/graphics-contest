@@ -74,7 +74,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLine line2;
 	private GLine line3;
 	private GLine line4;
-	private double[] slope = new double[plane];
+	private double[] slope;
 	private double[][] coordinate;
 	
 	private Color[][] plainColor;
@@ -279,6 +279,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(colorIcon9);
 		setUpLines(plane);
 		coordinate = new double[2*plane + 1][2*plane + 1];
+		slope = new double[plane];
 	}
 
 	private void setUpLines (int fold) {
