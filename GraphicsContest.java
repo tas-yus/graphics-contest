@@ -733,7 +733,9 @@ public class GraphicsContest extends GraphicsProgram {
 		if (reflection == true) {
 			coordinate[1][0] = x;
 			coordinate[0][1] = y;
-			for (int n = 0; n < fold; n++) {
+			coordinate[2][0] = -x;
+			coordinate[0][2] = y;
+			for (int n = 1; n < fold; n++) {
 				double[][] reflectionArray = new double[2][2];
 				double m = slope[n];
 				double A = (1 - m*m)/(1 + m*m);
@@ -742,10 +744,6 @@ public class GraphicsContest extends GraphicsProgram {
 				reflectionArray[0][1] = B;
 				reflectionArray[1][0] = B;
 				reflectionArray[1][1] = -A;
-				GLabel line = new GLabel ("" + B, 50, 50);
-				add(line);
-				coordinate[2][0] = -x;
-				coordinate[0][2] = y;
 				for (int i = 1; i <= (int) Math.pow(2, n); i++) {
 					coordinate[(int) (Math.pow(2, n) + i)][0] = coordinate[i][0]*(reflectionArray[0][0]) + coordinate[0][i]*(reflectionArray[0][1]);
 					coordinate[0][(int) (Math.pow(2, n) + i)] = coordinate[i][0]*(reflectionArray[1][0]) + coordinate[0][i]*(reflectionArray[1][1]);
