@@ -767,171 +767,159 @@ public class GraphicsContest extends GraphicsProgram {
 			add(pixel2);
 			add(pixel3);			
 		}
-		if (symmetry == 5) {
-			A = 0.3090169944;
-			B = 0.9510565163;
-			rotationalArray = new double[2][2];
-			rotationalArray[0][0] = A;
-			rotationalArray[0][1] = B;
-			rotationalArray[1][0] = -B;
-			rotationalArray[1][1] = A;
-			GOval pixel1 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT/2 + y - s/2, s, s);
-			pixel1.setFilled(true);
-			pixel1.setColor(newColor);
-			GOval pixel2 = new GOval (getWidth()/2 + x*(powMatrix(rotationalArray,1)[0][0]) + y*(rotationalArray[0][1]) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(rotationalArray[1][0]) + y*(rotationalArray[1][1]) - s/2, s, s);
-			pixel2.setFilled(true);
-			pixel2.setColor(newColor);
-			GOval pixel3 = new GOval (getWidth()/2 + x*(A*A - B*B) + y*(2*A*B) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(-2*A*B) +y*(A*A - B*B) - s/2, s, s);
-			pixel3.setFilled(true);
-			pixel3.setColor(newColor);
-			GOval pixel4 = new GOval (getWidth()/2 + x*(A*A*A - 3*A*B*B) + y*(3*A*A*B - B*B*B) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(-3*A*A*B + B*B*B) + y*(A*A*A - 3*A*B*B) - s/2, s, s);
-			pixel4.setFilled(true);
-			pixel4.setColor(newColor);
-			GOval pixel5 = new GOval (getWidth()/2 + x*(A*A*A*A - 6*A*A*B*B + B*B*B*B) + y*(4*A*A*A*B - 4*A*B*B*B) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(4*A*B*B*B - 4*A*A*A*B) + y*(A*A*A*A - 6*A*A*B*B + B*B*B*B) - s/2, s, s);
-			pixel5.setFilled(true);
-			pixel5.setColor(newColor);
-			add(pixel1);
-			add(pixel2);
-			add(pixel3);
-			add(pixel4);
-			add(pixel5);
-		}
+		addPixel(x,y,5);
 	}
 
-	private Color mixColor(int chosenMixedColor) {
-		if (chosenMixedColor == RED) {
-			Color color = new Color (255,rgen.nextInt(25,220),rgen.nextInt(25,255));
-			return color;
-		} else if (chosenMixedColor == ORANGE) {
-			Color color = new Color (255, rgen.nextInt(128,255),0);
-			return color;
-		} else if (chosenMixedColor == YELLOW) {
-			Color color = new Color (rgen.nextInt(200,255), rgen.nextInt(230,255),0);
-			return color;
-		} else if (chosenMixedColor == GREEN) {
-			Color color = new Color (rgen.nextInt(0,102), rgen.nextInt(102,255), 0);
-			return color;
-		} else if (chosenMixedColor == BLUE) {
-			Color color = new Color (rgen.nextInt(0,102), rgen.nextInt(128,255),rgen.nextInt(102,255));
-			return color;
-		} else if (chosenMixedColor == CYAN) {
-			Color color = new Color (rgen.nextInt(0,128), rgen.nextInt(0,255),255);
-			return color;
-		} else if (chosenMixedColor == PURPLE) {
-			Color color = new Color (rgen.nextInt(0,255), 0,rgen.nextInt(127,255));
-			return color;
-		} else if (chosenMixedColor == WHITE) {
-			Color color = Color.WHITE;
-			return color;
-		} else if (chosenMixedColor == BLACK) {
-			int x = rgen.nextInt(0,255);
-			Color color = new Color (x, x, x);
-			return color;
-		} else return null;
+	private void addPixel(double x, double y, int fold) {
+		A = Math.cos(2*Math.PI/fold);
+		B = Math.sin(2*Math.PI/fold);
+		rotationalArray = new double[2][2];
+		rotationalArray[0][0] = A;
+		rotationalArray[0][1] = B;
+		rotationalArray[1][0] = -B;
+		rotationalArray[1][1] = A;
+		for (int n = 0; n < fold - 1; n++) {
+			GOval pixel = new GOval (getWidth()/2 + x*(powMatrix(rotationalArray, n)[0][0]) + y*(powMatrix(rotationalArray, n)[0][1]) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(powMatrix(rotationalArray, n)[1][0]) + y*(powMatrix(rotationalArray, n)[1][1]) - s/2, s, s);
+			pixel.setFilled(true);
+			pixel.setColor(newColor);
+		}
+
 	}
-	private Color randomizeColor(Color[] chosenColor) {
-		Color color = chosenColor[rgen.nextInt(0,chosenColor.length - 1)];
+
+private Color mixColor(int chosenMixedColor) {
+	if (chosenMixedColor == RED) {
+		Color color = new Color (255,rgen.nextInt(25,220),rgen.nextInt(25,255));
 		return color;
-	}
+	} else if (chosenMixedColor == ORANGE) {
+		Color color = new Color (255, rgen.nextInt(128,255),0);
+		return color;
+	} else if (chosenMixedColor == YELLOW) {
+		Color color = new Color (rgen.nextInt(200,255), rgen.nextInt(230,255),0);
+		return color;
+	} else if (chosenMixedColor == GREEN) {
+		Color color = new Color (rgen.nextInt(0,102), rgen.nextInt(102,255), 0);
+		return color;
+	} else if (chosenMixedColor == BLUE) {
+		Color color = new Color (rgen.nextInt(0,102), rgen.nextInt(128,255),rgen.nextInt(102,255));
+		return color;
+	} else if (chosenMixedColor == CYAN) {
+		Color color = new Color (rgen.nextInt(0,128), rgen.nextInt(0,255),255);
+		return color;
+	} else if (chosenMixedColor == PURPLE) {
+		Color color = new Color (rgen.nextInt(0,255), 0,rgen.nextInt(127,255));
+		return color;
+	} else if (chosenMixedColor == WHITE) {
+		Color color = Color.WHITE;
+		return color;
+	} else if (chosenMixedColor == BLACK) {
+		int x = rgen.nextInt(0,255);
+		Color color = new Color (x, x, x);
+		return color;
+	} else return null;
+}
+private Color randomizeColor(Color[] chosenColor) {
+	Color color = chosenColor[rgen.nextInt(0,chosenColor.length - 1)];
+	return color;
+}
 
-	private boolean clickIcon1(MouseEvent e) {
-		if (clickIcon3(e) || clickIcon4(e) || clickIcon5(e) || clickIcon6(e) ||
-				clickColorIcon1(e) || clickColorIcon2(e) || clickColorIcon3(e) ||
-				clickColorIcon4(e) || clickColorIcon5(e) || clickColorIcon6(e) ||
-				clickColorIcon7(e) || clickColorIcon8(e) || clickColorIcon9(e)) {
-			return false;
-		}
-		else return true;
+private boolean clickIcon1(MouseEvent e) {
+	if (clickIcon3(e) || clickIcon4(e) || clickIcon5(e) || clickIcon6(e) ||
+			clickColorIcon1(e) || clickColorIcon2(e) || clickColorIcon3(e) ||
+			clickColorIcon4(e) || clickColorIcon5(e) || clickColorIcon6(e) ||
+			clickColorIcon7(e) || clickColorIcon8(e) || clickColorIcon9(e)) {
+		return false;
 	}
+	else return true;
+}
 
-	private boolean clickIcon3(MouseEvent e) {
-		if (icon3.contains(e.getX(),e.getY())) return true;
-		else return false;
-	}
+private boolean clickIcon3(MouseEvent e) {
+	if (icon3.contains(e.getX(),e.getY())) return true;
+	else return false;
+}
 
-	private boolean clickIcon4(MouseEvent e) {
-		if (icon4.contains(e.getX(),e.getY())) return true;
-		else return false;
-	}
+private boolean clickIcon4(MouseEvent e) {
+	if (icon4.contains(e.getX(),e.getY())) return true;
+	else return false;
+}
 
-	private boolean clickIcon5(MouseEvent e) {
-		if (icon5.contains(e.getX(),e.getY())) return true;
-		else return false;
-	}
+private boolean clickIcon5(MouseEvent e) {
+	if (icon5.contains(e.getX(),e.getY())) return true;
+	else return false;
+}
 
-	private boolean clickIcon6(MouseEvent e) {
-		if (icon6.contains(e.getX(),e.getY())) return true;
-		else return false;
-	}
+private boolean clickIcon6(MouseEvent e) {
+	if (icon6.contains(e.getX(),e.getY())) return true;
+	else return false;
+}
 
-	private boolean clickColorIcon1(MouseEvent e) {
-		if (colorIcon1.contains(e.getX(),e.getY())) return true;
-		else return false;
-	}
+private boolean clickColorIcon1(MouseEvent e) {
+	if (colorIcon1.contains(e.getX(),e.getY())) return true;
+	else return false;
+}
 
-	private boolean clickColorIcon2(MouseEvent e) {
-		if (colorIcon2.contains(e.getX(),e.getY())) return true;
-		else return false;
-	}
+private boolean clickColorIcon2(MouseEvent e) {
+	if (colorIcon2.contains(e.getX(),e.getY())) return true;
+	else return false;
+}
 
-	private boolean clickColorIcon3(MouseEvent e) {
-		if (colorIcon3.contains(e.getX(),e.getY())) return true;
-		else return false;
-	}
-	private boolean clickColorIcon4(MouseEvent e) {
-		if (colorIcon4.contains(e.getX(),e.getY())) return true;
-		else return false;
-	}
-	private boolean clickColorIcon5(MouseEvent e) {
-		if (colorIcon5.contains(e.getX(),e.getY())) return true;
-		else return false;
-	}
-	private boolean clickColorIcon6(MouseEvent e) {
-		if (colorIcon6.contains(e.getX(),e.getY())) return true;
-		else return false;
-	}
-	private boolean clickColorIcon7(MouseEvent e) {
-		if (colorIcon7.contains(e.getX(),e.getY())) return true;
-		else return false;
-	}
-	private boolean clickColorIcon8(MouseEvent e) {
-		if (colorIcon8.contains(e.getX(),e.getY())) return true;
-		else return false;
-	}
-	private boolean clickColorIcon9(MouseEvent e) {
-		if (colorIcon9.contains(e.getX(),e.getY())) return true;
-		else return false;
-	}
+private boolean clickColorIcon3(MouseEvent e) {
+	if (colorIcon3.contains(e.getX(),e.getY())) return true;
+	else return false;
+}
+private boolean clickColorIcon4(MouseEvent e) {
+	if (colorIcon4.contains(e.getX(),e.getY())) return true;
+	else return false;
+}
+private boolean clickColorIcon5(MouseEvent e) {
+	if (colorIcon5.contains(e.getX(),e.getY())) return true;
+	else return false;
+}
+private boolean clickColorIcon6(MouseEvent e) {
+	if (colorIcon6.contains(e.getX(),e.getY())) return true;
+	else return false;
+}
+private boolean clickColorIcon7(MouseEvent e) {
+	if (colorIcon7.contains(e.getX(),e.getY())) return true;
+	else return false;
+}
+private boolean clickColorIcon8(MouseEvent e) {
+	if (colorIcon8.contains(e.getX(),e.getY())) return true;
+	else return false;
+}
+private boolean clickColorIcon9(MouseEvent e) {
+	if (colorIcon9.contains(e.getX(),e.getY())) return true;
+	else return false;
+}
 
-	private int colorToInt(Color color) {
-		if (color == plainColor[RED][0]) return 0;
-		else if (color == plainColor[ORANGE][0]) return 1;
-		else if (color == plainColor[YELLOW][0]) return 2;
-		else if (color == plainColor[GREEN][0]) return 3;
-		else if (color == plainColor[BLUE][0]) return 4;
-		else if (color == plainColor[CYAN][0]) return 5;
-		else if (color == plainColor[PURPLE][0]) return 6;
-		else if (color == plainColor[WHITE][0]) return 7;
-		else if (color == plainColor[BLACK][0]) return 8;
-		else return 0;
-	}
+private int colorToInt(Color color) {
+	if (color == plainColor[RED][0]) return 0;
+	else if (color == plainColor[ORANGE][0]) return 1;
+	else if (color == plainColor[YELLOW][0]) return 2;
+	else if (color == plainColor[GREEN][0]) return 3;
+	else if (color == plainColor[BLUE][0]) return 4;
+	else if (color == plainColor[CYAN][0]) return 5;
+	else if (color == plainColor[PURPLE][0]) return 6;
+	else if (color == plainColor[WHITE][0]) return 7;
+	else if (color == plainColor[BLACK][0]) return 8;
+	else return 0;
+}
 
-	private double[][] powMatrix(double[][] matrix, int n) {
-		double [][] result = new double[matrix.length][matrix[0].length];
-		double [][] temp = new double[matrix.length][matrix[0].length];
-		for (int i = 0; i < matrix.length; i++) {
-			result[i][i] = 1;
-		}
-		for (int power = 0; power < n; power++) {
-			for (int i = 0; i < matrix.length; i++) { 
-				for (int j = 0; j < result[0].length; j++) { 
-					for (int k = 0; k < matrix[0].length; k++) { 
-						temp[i][j] += matrix[i][k] * result[k][j];
-						result[i][j] = temp[i][j];
-					}
+private double[][] powMatrix(double[][] matrix, int n) {
+	double [][] result = new double[matrix.length][matrix[0].length];
+	double [][] temp = new double[matrix.length][matrix[0].length];
+	for (int i = 0; i < matrix.length; i++) {
+		result[i][i] = 1;
+	}
+	for (int power = 0; power < n; power++) {
+		for (int i = 0; i < matrix.length; i++) { 
+			for (int j = 0; j < result[0].length; j++) { 
+				for (int k = 0; k < matrix[0].length; k++) { 
+					temp[i][j] += matrix[i][k] * result[k][j];
+					result[i][j] = temp[i][j];
 				}
 			}
 		}
-		return result;
 	}
+	return result;
+}
 }
