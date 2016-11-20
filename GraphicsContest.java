@@ -699,14 +699,14 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void addPixel(double x, double y, int fold) {
+		A = Math.cos(2*Math.PI/fold);
+		B = Math.sin(2*Math.PI/fold);
+		rotationalArray = new double[2][2];
+		rotationalArray[0][0] = A;
+		rotationalArray[0][1] = B;
+		rotationalArray[1][0] = -B;
+		rotationalArray[1][1] = A;
 		if (rotation == true) {
-			A = Math.cos(2*Math.PI/fold);
-			B = Math.sin(2*Math.PI/fold);
-			rotationalArray = new double[2][2];
-			rotationalArray[0][0] = A;
-			rotationalArray[0][1] = B;
-			rotationalArray[1][0] = -B;
-			rotationalArray[1][1] = A;
 			for (int n = 0; n < fold; n++) {
 				GOval pixel = new GOval (getWidth()/2 + x*(powMatrix(rotationalArray, n)[0][0]) + y*(powMatrix(rotationalArray, n)[0][1]) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(powMatrix(rotationalArray, n)[1][0]) + y*(powMatrix(rotationalArray, n)[1][1]) - s/2, s, s);
 				pixel.setFilled(true);
