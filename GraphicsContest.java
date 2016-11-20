@@ -724,13 +724,6 @@ public class GraphicsContest extends GraphicsProgram {
 				add(pixel);
 			}
 		}
-		if (reflection == true) {
-		
-			line1 = new GLine (0,ICON_HEIGHT,getWidth(),getHeight());
-			line2 = new GLine (getWidth(),ICON_HEIGHT,0,getHeight());
-			line3 = new GLine (0,getHeight()/2 + ICON_HEIGHT/2,getWidth(),getHeight()/2 + ICON_HEIGHT/2);
-			line4 = new GLine (getWidth()/2,ICON_HEIGHT,getWidth()/2,getHeight());
-		}
 	}
 
 	private Color mixColor(int chosenMixedColor) {
