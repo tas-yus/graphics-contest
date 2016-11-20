@@ -311,7 +311,7 @@ public class GraphicsContest extends GraphicsProgram {
 				add(label4);
 			}
 		}
-		double d = slope[1];
+		double d = slope[2];
 		String e = "" + d;
 		GLabel label = new GLabel (e, 50, 50);
 		add(label);
