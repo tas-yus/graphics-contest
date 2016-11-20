@@ -74,7 +74,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLine line2;
 	private GLine line3;
 	private GLine line4;
-	private double[] slope;
+	private double[] slope = new double[plane];
 	double[][] coordinate;
 	
 	private Color[][] plainColor;
