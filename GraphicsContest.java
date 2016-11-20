@@ -297,7 +297,7 @@ public class GraphicsContest extends GraphicsProgram {
 			slope = new double[plane];
 			slope[n] = getSlope(reflectionLine);
 		}
-		double d = slope[3];
+		double d = slope[1];
 		String e = "" + d;
 		GLabel label = new GLabel (e, 50, 50);
 		add(label);
