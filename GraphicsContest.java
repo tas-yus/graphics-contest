@@ -917,6 +917,7 @@ public class GraphicsContest extends GraphicsProgram {
 
 	private double[][] powMatrix(double[][] matrix, int n) {
 		double [][] result = new double[matrix.length][matrix[0].length];
+		double [][] temp = new double[matrix.length][matrix[0].length];
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[0].length; j++) {
 				result[i][j] = 1;
@@ -926,7 +927,8 @@ public class GraphicsContest extends GraphicsProgram {
 			for (int i = 0; i < matrix.length; i++) { 
 				for (int j = 0; j < result[0].length; j++) { 
 					for (int k = 0; k < matrix[0].length; k++) { 
-						result[i][j] = matrix[i][k] * result[k][j];
+						temp[i][j] += matrix[i][k] * result[k][j];
+						result[i][j] = temp[i][j];
 					}
 				}
 			}
