@@ -904,7 +904,7 @@ public class GraphicsContest extends GraphicsProgram {
 		double y2 = (line.getEndPoint()).getY();
 		double x1 =  (line.getStartPoint()).getX();
 		double y1 = (line.getStartPoint()).getY();
-		double slope = (y2 - y1)/(x2 - x1);
+		double slope = -(y2 - y1)/(x2 - x1);
 		return slope;
 	}
 }
