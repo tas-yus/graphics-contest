@@ -279,9 +279,16 @@ public class GraphicsContest extends GraphicsProgram {
 		add(colorIcon8);
 		colorIcon9 = new GRect (getWidth()*43/45, 0, getWidth(), ICON_HEIGHT);
 		add(colorIcon9);
+		setUpLines(plane);
 	}
 
-
+	private void setUpLines (int fold) {
+		for (int n = 0; n < fold; n++) {
+			GLine line = new GLine (0*(powMatrix(rotationalArray, n)[0][0]) + ICON_HEIGHT*(powMatrix(rotationalArray, n)[0][1]), 0*(powMatrix(rotationalArray, n)[1][0]) + ICON_HEIGHT*(powMatrix(rotationalArray, n)[1][1]),
+					getWidth()*(powMatrix(rotationalArray, n)[0][0]) + getHeight()*(powMatrix(rotationalArray, n)[0][1]), getWidth()*(powMatrix(rotationalArray, n)[1][0]) + getHeight()*(powMatrix(rotationalArray, n)[1][1]));
+			add(line);
+		}
+	}
 	
 	private void updateIcons() {
 		remove(brushStatus);
@@ -715,11 +722,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (reflection == true) {
-			for (int n = 0; n < fold; n++) {
-				GLine line = new GLine (0 + (powMatrix(rotationalArray, n)[0][0]) + y*(powMatrix(rotationalArray, n)[0][1]), ICON_HEIGHT+ x*(powMatrix(rotationalArray, n)[1][0]) + y*(powMatrix(rotationalArray, n)[1][1]),
-						getWidth() + x*(powMatrix(rotationalArray, n)[0][0]) + y*(powMatrix(rotationalArray, n)[0][1]), getHeight() + x*(powMatrix(rotationalArray, n)[1][0]) + y*(powMatrix(rotationalArray, n)[1][1]));
-				add(line);
-			}
+		
 			line1 = new GLine (0,ICON_HEIGHT,getWidth(),getHeight());
 			line2 = new GLine (getWidth(),ICON_HEIGHT,0,getHeight());
 			line3 = new GLine (0,getHeight()/2 + ICON_HEIGHT/2,getWidth(),getHeight()/2 + ICON_HEIGHT/2);
