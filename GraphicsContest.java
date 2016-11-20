@@ -743,8 +743,8 @@ public class GraphicsContest extends GraphicsProgram {
 				reflectionArray[1][0] = B;
 				reflectionArray[1][1] = -A;
 				for (int i = 1; i <= Math.pow(2, fold-1); i++) {
-					coordinate[(int) (Math.pow(2, n) + i)][0] = coordinate[i][0]*(powMatrix(reflectionArray, 1)[0][0]) + coordinate[0][i]*(powMatrix(reflectionArray, 1)[0][1]);
-					coordinate[0][(int) (Math.pow(2, n) + i)] = coordinate[i][0]*(powMatrix(reflectionArray, 1)[1][0]) + coordinate[0][i]*(powMatrix(reflectionArray, 1)[1][1]);
+					coordinate[(int) (Math.pow(2, n) + i)][0] = coordinate[i][0]*(reflectionArray[0][0]) + coordinate[0][i]*(reflectionArray[0][1]);
+					coordinate[0][(int) (Math.pow(2, n) + i)] = coordinate[i][0]*(reflectionArray[1][0]) + coordinate[0][i]*(reflectionArray[1][1]);
 				}
 			}
 			for (int j = 1; j < coordinate.length - 1; j++) {
