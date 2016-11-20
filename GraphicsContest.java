@@ -42,7 +42,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private int s = BRUSH_SIZE;
 	private int speed = DELAY;
 	private int speedLevel = 1;
-	private int symmetry = 5;
+	private int symmetry = 4;
 	private GRect colorTray;
 	private GRect icon1;
 	private GRect icon2;
@@ -754,6 +754,11 @@ public class GraphicsContest extends GraphicsProgram {
 		if (symmetry == 4) {
 			A = -0.5;
 			B = 0.8660254038;
+			rotationalArray = new double[2][2];
+			rotationalArray[0][0] = A;
+			rotationalArray[0][1] = B;
+			rotationalArray[1][0] = -B;
+			rotationalArray[1][1] = A;
 			GOval pixel1 = new GOval (getWidth()/2 + x - s/2, getHeight()/2 + ICON_HEIGHT/2 + y - s/2, s, s);
 			pixel1.setFilled(true);
 			pixel1.setColor(newColor);
