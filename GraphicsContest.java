@@ -39,11 +39,13 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean mixed = true;
 	private boolean auto = false;
 	private boolean line = false;
+	private boolean rotation = false;
+	private boolean reflection = true;
 	private int s = BRUSH_SIZE;
 	private int speed = DELAY;
 	private int speedLevel = 1;
-	private int symmetry = 30;
-	private int plane = 1;
+	private int symmetry = 8;
+	private int plane = 4;
 	private GRect colorTray;
 	private GRect icon1;
 	private GRect icon2;
@@ -277,12 +279,10 @@ public class GraphicsContest extends GraphicsProgram {
 		add(colorIcon8);
 		colorIcon9 = new GRect (getWidth()*43/45, 0, getWidth(), ICON_HEIGHT);
 		add(colorIcon9);
-		line1 = new GLine (0,ICON_HEIGHT,getWidth(),getHeight());
-		line2 = new GLine (getWidth(),ICON_HEIGHT,0,getHeight());
-		line3 = new GLine (0,getHeight()/2 + ICON_HEIGHT/2,getWidth(),getHeight()/2 + ICON_HEIGHT/2);
-		line4 = new GLine (getWidth()/2,ICON_HEIGHT,getWidth()/2,getHeight());
 	}
 
+
+	
 	private void updateIcons() {
 		remove(brushStatus);
 		remove(brushSizeStatus);
@@ -690,24 +690,36 @@ public class GraphicsContest extends GraphicsProgram {
 		if (auto == true) {
 			newColor = mixColor(chosenMixedColor);
 		}
-		addPixel(x,y,symmetry);
+		if (rotation == true) {
+			addPixel(x,y,symmetry);
+		}
+		if (reflection == true) {
+			addPixel(x,y,plane);
+		}
 	}
 
 	private void addPixel(double x, double y, int fold) {
-		A = Math.cos(2*Math.PI/fold);
-		B = Math.sin(2*Math.PI/fold);
-		rotationalArray = new double[2][2];
-		rotationalArray[0][0] = A;
-		rotationalArray[0][1] = B;
-		rotationalArray[1][0] = -B;
-		rotationalArray[1][1] = A;
-		for (int n = 0; n < fold; n++) {
-			GOval pixel = new GOval (getWidth()/2 + x*(powMatrix(rotationalArray, n)[0][0]) + y*(powMatrix(rotationalArray, n)[0][1]) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(powMatrix(rotationalArray, n)[1][0]) + y*(powMatrix(rotationalArray, n)[1][1]) - s/2, s, s);
-			pixel.setFilled(true);
-			pixel.setColor(newColor);
-			add(pixel);
+		if (rotation == true) {
+			A = Math.cos(2*Math.PI/fold);
+			B = Math.sin(2*Math.PI/fold);
+			rotationalArray = new double[2][2];
+			rotationalArray[0][0] = A;
+			rotationalArray[0][1] = B;
+			rotationalArray[1][0] = -B;
+			rotationalArray[1][1] = A;
+			for (int n = 0; n < fold; n++) {
+				GOval pixel = new GOval (getWidth()/2 + x*(powMatrix(rotationalArray, n)[0][0]) + y*(powMatrix(rotationalArray, n)[0][1]) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(powMatrix(rotationalArray, n)[1][0]) + y*(powMatrix(rotationalArray, n)[1][1]) - s/2, s, s);
+				pixel.setFilled(true);
+				pixel.setColor(newColor);
+				add(pixel);
+			}
 		}
-
+		if (reflection == true) {
+			line1 = new GLine (0,ICON_HEIGHT,getWidth(),getHeight());
+			line2 = new GLine (getWidth(),ICON_HEIGHT,0,getHeight());
+			line3 = new GLine (0,getHeight()/2 + ICON_HEIGHT/2,getWidth(),getHeight()/2 + ICON_HEIGHT/2);
+			line4 = new GLine (getWidth()/2,ICON_HEIGHT,getWidth()/2,getHeight());
+		}
 	}
 
 	private Color mixColor(int chosenMixedColor) {
@@ -845,5 +857,14 @@ public class GraphicsContest extends GraphicsProgram {
 			result = temp;
 		}
 		return result;
+	}
+	
+	private double getSlope(GLine line) {
+		double x2 = (line.getEndPoint()).getX();
+		double y2 = (line.getEndPoint()).getY();
+		double x1 =  (line.getStartPoint()).getX();
+		double y1 = (line.getStartPoint()).getY();
+		double slope = (y2 - y1)/(x2 - x1);
+		return slope;
 	}
 }
