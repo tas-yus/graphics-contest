@@ -917,7 +917,6 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private double[][] powMatrix(double[][] rotationalArray, int n) {
 		double [][] result = new double[rotationalArray.length][rotationalArray[0].length];
-		for (int f = 0; f < n; f++) {
 			for (int i = 0; i < rotationalArray.length; i++) { 
 			    for (int j = 0; j < rotationalArray[0].length; j++) { 
 			        for (int k = 0; k < rotationalArray[0].length; k++) { 
@@ -925,7 +924,6 @@ public class GraphicsContest extends GraphicsProgram {
 			        }
 			    }
 			}
-		}
 		return result;
 	}
 }
