@@ -313,12 +313,11 @@ public class GraphicsContest extends GraphicsProgram {
 			if (draw == false)  {
 				status = "On";
 				draw = true;
-				updateIcons();
 			} else if (draw == true) {
 				status = "Off";
 				draw = false;
-				updateIcons();
 			}
+			updateIcons();
 		}
 		if (clickIcon2(e) == true) {
 			if (adjustSize == true) {
@@ -334,7 +333,6 @@ public class GraphicsContest extends GraphicsProgram {
 				adjustSize = true;
 				adjustPlane = false;
 				adjustSymmetry = false;
-				updateIcons();
 			}
 			updateIcons();
 		}
@@ -346,9 +344,10 @@ public class GraphicsContest extends GraphicsProgram {
 				s++;
 			} else if (adjustSymmetry == true && symmetry <= 25) {
 				symmetry++;
+				removeSymLine(symLine);
 			} else if (adjustPlane == true && plane <= 8) {
 				plane++;
-				
+				removeSymLine(symLine);
 			}
 			updateIcons();
 			addSymLine(symLine);
@@ -361,10 +360,10 @@ public class GraphicsContest extends GraphicsProgram {
 				s--;
 			} else if (adjustSymmetry == true && symmetry > 0) {
 				symmetry--;
-				
+				removeSymLine(symLine);
 			} else if (adjustPlane == true && plane > 0) {
 				plane--;
-				
+				removeSymLine(symLine);
 			}
 			updateIcons();
 			addSymLine(symLine);
