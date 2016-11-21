@@ -253,6 +253,9 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(speedStatus);
 		remove(symmetryNum);
 		remove(planeNum);
+		for(int i = 0; i < symLine.length; i++) {
+			remove(symLine[i]);
+		}
 		setUpLines(plane);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 		brushStatus = new GLabel ("Brush: " + status, icon1.getX() + icon1.getWidth()/2, ICON_HEIGHT/2);
