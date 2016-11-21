@@ -19,7 +19,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int DELAY = 200;
 	private static final int WIDTH = 700;
 	private static final double S_ICON_WIDTH = WIDTH/20;
-	private static final double M_ICON_WIDTH = WIDTH/10;
+	private static final double M_ICON_WIDTH = 1.8*WIDTH/10;
 	private static final double L_ICON_WIDTH = 2.7*WIDTH/20;
 	private static final int HEIGHT = 700 + ICON_HEIGHT;
 	private static final int PAUSE = 10;
