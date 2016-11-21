@@ -236,6 +236,7 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(brushStatus);
 		remove(brushSizeStatus);
 		remove(colorMode);
+		remove(symmetryMode);
 		remove(speedStatus);
 		brushStatus = new GLabel ("Brush: " + status, icon1.getX() + icon1.getWidth()/2, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
