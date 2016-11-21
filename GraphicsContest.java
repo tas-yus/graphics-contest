@@ -361,10 +361,10 @@ public class GraphicsContest extends GraphicsProgram {
 				s--;
 			} else if (adjustSymmetry == true && symmetry > 0) {
 				symmetry--;
-				removeSymLine(symLine);
+				
 			} else if (adjustPlane == true && plane > 0) {
 				plane--;
-				removeSymLine(symLine);
+				
 			}
 			updateIcons();
 			addSymLine(symLine);
