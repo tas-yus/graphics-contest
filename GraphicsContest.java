@@ -316,6 +316,12 @@ public class GraphicsContest extends GraphicsProgram {
 				line = false;
 			}
 		}
+		if (clickIcon6(e) == true) {
+			removeAll();
+			setUpColors();
+			setUpIcons();
+			setUpColorChoice();
+		}
 		if (clickIcon7(e) == true) {
 			if (mixed == true) {
 				mixed = false;
