@@ -218,6 +218,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(colorIcon8);
 		colorIcon9 = new GRect (colorIcon8.getX() + colorIcon8.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon9);
+		setUpLines(plane);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 	}
 
@@ -249,7 +250,12 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(symmetryNum);
 		remove(planeNum);
 		removeSymLine(symLine);
-		setUpLines(plane);
+		if (rotation == true) {
+			setUpLines(plane);
+		}
+		if (reflection == true) {
+			setUpLines(symmetry);
+		}
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 		brushStatus = new GLabel ("Brush: " + status, icon1.getX() + icon1.getWidth()/2, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
