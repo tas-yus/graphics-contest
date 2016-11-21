@@ -240,7 +240,6 @@ public class GraphicsContest extends GraphicsProgram {
 		for (int n = 0; n < fold; n++) {
 			GLine reflectionLine = new GLine (getWidth()/2 + y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 + y*(powMatrix(rotationalArray, n)[1][1]),
 					getWidth()/2 - y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 - y*(powMatrix(rotationalArray, n)[1][1]));
-			add(reflectionLine);
 			slope[n] = getSlope(reflectionLine);
 			symLine[n] = reflectionLine;
 		}
@@ -367,16 +366,14 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (clickIcon5(e) == true) {
 			if (line == false) {
-				add(line1);
-				add(line2);
-				add(line3);
-				add(line4);
+				for(int i = 0; i < symLine.length; i++) {
+					add(symLine[i]);
+				}
 				line = true;
 			} else {
-				remove(line1);
-				remove(line2);
-				remove(line3);
-				remove(line4);
+				for(int i = 0; i < symLine.length; i++) {
+					remove(symLine[i]);
+				}
 				line = false;
 			}
 		}
