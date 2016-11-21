@@ -284,7 +284,7 @@ public class GraphicsContest extends GraphicsProgram {
 			add(planeNum);
 		}
 		if (line == true) {
-			addSymLine(symLine);
+			if(reflection) addSymLine(symLine);
 		}
 	}
 
