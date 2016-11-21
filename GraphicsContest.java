@@ -162,11 +162,11 @@ public class GraphicsContest extends GraphicsProgram {
 		add(icon4);
 		icon5 = new GRect (icon4.getX() + icon4.getWidth(), 0, S_ICON_WIDTH, ICON_HEIGHT);
 		add(icon5);
-		icon6 = new GRect (icon5.getX() + icon5.getWidth(), 0, M_ICON_WIDTH, ICON_HEIGHT);
+		icon6 = new GRect (icon5.getX() + icon5.getWidth(), 0, S_ICON_WIDTH, ICON_HEIGHT);
 		add(icon6);
 		icon7 = new GRect (icon6.getX() + icon6.getWidth(), 0, M_ICON_WIDTH, ICON_HEIGHT);
 		add(icon7);
-		icon8 = new GRect (icon7.getX() + icon7.getWidth(), 0, S_ICON_WIDTH, ICON_HEIGHT);
+		icon8 = new GRect (icon7.getX() + icon7.getWidth(), 0, M_ICON_WIDTH, ICON_HEIGHT);
 		add(icon8);
 		brushStatus = new GLabel ("Brush: " + status, icon1.getX() + icon1.getWidth()/2, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
