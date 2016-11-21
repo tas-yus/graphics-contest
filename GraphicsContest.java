@@ -44,6 +44,9 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean line = false;
 	private boolean rotation = true;
 	private boolean reflection = false;
+	private boolean adjustSize = true;
+	private boolean adjustSymmetry = false;
+	private boolean adjustPlane = false;
 	private int s = BRUSH_SIZE;
 	private int speed = DELAY;
 	private int speedLevel = 1;
@@ -291,13 +294,33 @@ public class GraphicsContest extends GraphicsProgram {
 				updateIcons();
 			}
 		}
+		if (clickIcon2(e) == true) {
+			if (adjustSize == true) {
+				adjustSize = false;
+				if (rotation == true) {
+					adjustSymmetry = true;
+					adjustPlane = false;
+				} else if (reflection == true) {
+					adjustPlane = true;
+					adjustSymmetry = false;
+				}
+			} else if (adjustSize == false) {
+				adjustSize = true;
+				adjustPlane = false;
+				adjustSymmetry = false;
+			}
+			updateIcons();
+		}
 		if (clickIcon3(e) == true) {
 			if (auto == true && speed > 0) {
 				speed -= 5;
 				speedLevel++;
-			}
-			else {
+			} else if (adjustSize == true) {
 				s++;
+			} else if (adjustSymmetry == true && symmetry <= 25) {
+				symmetry++;
+			} else if (adjustPlane == true && plane <= 8) {
+				plane++;
 			}
 			updateIcons();
 		}
@@ -305,8 +328,12 @@ public class GraphicsContest extends GraphicsProgram {
 			if (auto == true) {
 				speed += 5;
 				speedLevel--;
-			} else if (s != 0){
+			} else if (adjustSize == true && (s != 0)) {
 				s--;
+			} else if (adjustSymmetry == true && symmetry > 0) {
+				symmetry--;
+			} else if (adjustPlane == true && plane > 0) {
+				plane--;
 			}
 			updateIcons();
 		}
@@ -367,7 +394,6 @@ public class GraphicsContest extends GraphicsProgram {
 				updateIcons();
 			}
 		}
-		
 		if (pure == true) {
 			if(clickColorIcon1(e) == true) {
 				chosenPureColor = plainColor[RED][0]; 
