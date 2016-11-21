@@ -82,10 +82,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLabel symmetryMode;
 	private GLabel symmetryNum;
 	private GLabel planeNum;
-	private GLine line1;
-	private GLine line2;
-	private GLine line3;
-	private GLine line4;
 	private double[] slope;
 	private double[][] coordinate;
 	private GLine[] symLine;
@@ -238,10 +234,10 @@ public class GraphicsContest extends GraphicsProgram {
 		symLine = new GLine[plane];
 		double y = getHeight() - (getHeight()/2 + ICON_HEIGHT/2);
 		for (int n = 0; n < fold; n++) {
-			GLine reflectionLine = new GLine (getWidth()/2 + y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 + y*(powMatrix(rotationalArray, n)[1][1]),
+			GLine symmetryLine = new GLine (getWidth()/2 + y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 + y*(powMatrix(rotationalArray, n)[1][1]),
 					getWidth()/2 - y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 - y*(powMatrix(rotationalArray, n)[1][1]));
-			slope[n] = getSlope(reflectionLine);
-			symLine[n] = reflectionLine;
+			slope[n] = getSlope(symmetryLine);
+			symLine[n] = symmetryLine;
 		}
 	}
 	
