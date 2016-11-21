@@ -409,6 +409,7 @@ public class GraphicsContest extends GraphicsProgram {
 				rotation = false;
 				reflection = true;
 				symmetryModeStatus = "Reflection";
+				remove(symmetryNum);
 				updateIcons();
 			} else {
 				reflection = false;
