@@ -183,7 +183,7 @@ public class GraphicsContest extends GraphicsProgram {
 		minusSize = new GLabel ("-", icon4.getX() + icon4.getWidth()/2, ICON_HEIGHT/2);
 		minusSize.move(-minusSize.getWidth()/2, +minusSize.getAscent()/2);
 		add(minusSize);
-		colorMode = new GLabel (mode, icon6.getX() + icon6.getWidth()/2, ICON_HEIGHT/2);
+		colorMode = new GLabel (mode, icon7.getX() + icon7.getWidth()/2, ICON_HEIGHT/2);
 		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
 		add(colorMode);
 		double width = (getWidth() - (icon8.getX() + icon8.getWidth()))/N_COLORS;
@@ -236,7 +236,7 @@ public class GraphicsContest extends GraphicsProgram {
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		brushSizeStatus = new GLabel ("Size x" + s, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		brushSizeStatus.move(-brushSizeStatus.getWidth()/2, +brushSizeStatus.getAscent()/2);
-		colorMode = new GLabel (mode, icon6.getX() + icon6.getWidth()/2, ICON_HEIGHT/2);
+		colorMode = new GLabel (mode, icon7.getX() + icon7.getWidth()/2, ICON_HEIGHT/2);
 		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
 		speedStatus = new GLabel ("Speed x" + speedLevel, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		speedStatus.move(-speedStatus.getWidth()/2, +speedStatus.getAscent()/2);
@@ -316,7 +316,7 @@ public class GraphicsContest extends GraphicsProgram {
 				line = false;
 			}
 		}
-		if (clickIcon6(e) == true) {
+		if (clickIcon7(e) == true) {
 			if (mixed == true) {
 				mixed = false;
 				pure = true;
@@ -725,7 +725,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private boolean clickIcon1(MouseEvent e) {
-		if (clickIcon3(e) || clickIcon4(e) || clickIcon5(e) || clickIcon6(e) ||
+		if (clickIcon3(e) || clickIcon4(e) || clickIcon5(e) || clickIcon6(e) || clickIcon7(e) ||
 				clickColorIcon1(e) || clickColorIcon2(e) || clickColorIcon3(e) ||
 				clickColorIcon4(e) || clickColorIcon5(e) || clickColorIcon6(e) ||
 				clickColorIcon7(e) || clickColorIcon8(e) || clickColorIcon9(e)) {
@@ -750,6 +750,11 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private boolean clickIcon6(MouseEvent e) {
+		if (icon6.contains(e.getX(),e.getY())) return true;
+		else return false;
+	}
+	
+	private boolean clickIcon7(MouseEvent e) {
 		if (icon6.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
