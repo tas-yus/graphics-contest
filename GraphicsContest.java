@@ -218,7 +218,8 @@ public class GraphicsContest extends GraphicsProgram {
 		add(colorIcon8);
 		colorIcon9 = new GRect (colorIcon8.getX() + colorIcon8.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon9);
-		setUpLines(plane);
+		if (reflection == true) setUpLines(plane);
+		if (rotation == true) setUpLines(symmetry);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 	}
 
@@ -230,8 +231,8 @@ public class GraphicsContest extends GraphicsProgram {
 		rotationalArray[0][1] = B;
 		rotationalArray[1][0] = -B;
 		rotationalArray[1][1] = A;
-		slope = new double[plane];
-		symLine = new GLine[plane];
+		slope = new double[fold];
+		symLine = new GLine[fold];
 		double y = getHeight() - (getHeight()/2 + ICON_HEIGHT/2);
 		for (int n = 0; n < fold; n++) {
 			GLine symmetryLine = new GLine (getWidth()/2 + y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 + y*(powMatrix(rotationalArray, n)[1][1]),
