@@ -733,10 +733,14 @@ public class GraphicsContest extends GraphicsProgram {
 			rotationalArray[1][0] = -B;
 			rotationalArray[1][1] = A;
 			for (int n = 0; n < fold; n++) {
-				GOval pixel = new GOval (getWidth()/2 + x*(powMatrix(rotationalArray, n)[0][0]) + y*(powMatrix(rotationalArray, n)[0][1]) - s/2, getHeight()/2 + ICON_HEIGHT/2 + x*(powMatrix(rotationalArray, n)[1][0]) + y*(powMatrix(rotationalArray, n)[1][1]) - s/2, s, s);
-				pixel.setFilled(true);
-				pixel.setColor(newColor);
-				add(pixel);
+				double X = x*(powMatrix(rotationalArray, n)[0][0]) + y*(powMatrix(rotationalArray, n)[0][1]);
+				double Y = x*(powMatrix(rotationalArray, n)[1][0]) + y*(powMatrix(rotationalArray, n)[1][1]);
+				if (getHeight()/2 + ICON_HEIGHT/2 + Y > ICON_HEIGHT) {
+					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
+					pixel.setFilled(true);
+					pixel.setColor(newColor);
+					add(pixel);
+				}
 			}
 		}
 		if (reflection == true) {
@@ -761,10 +765,12 @@ public class GraphicsContest extends GraphicsProgram {
 			for (int j = 1; j < coordinate.length; j++) {
 				double X = coordinate[j][0];
 				double Y = coordinate[0][j];
-				GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
-				pixel.setFilled(true);
-				pixel.setColor(newColor);
-				add(pixel);
+				if (getHeight()/2 + ICON_HEIGHT/2 + Y > ICON_HEIGHT) {
+					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
+					pixel.setFilled(true);
+					pixel.setColor(newColor);
+					add(pixel);
+				}
 			}
 		}
 	}
