@@ -42,8 +42,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean mixed = true;
 	private boolean auto = false;
 	private boolean line = false;
-	private boolean rotation = false;
-	private boolean reflection = true;
+	private boolean rotation = true;
+	private boolean reflection = false;
 	private int s = BRUSH_SIZE;
 	private int speed = DELAY;
 	private int speedLevel = 1;
@@ -188,6 +188,9 @@ public class GraphicsContest extends GraphicsProgram {
 		colorMode = new GLabel (colorModeStatus, icon7.getX() + icon7.getWidth()/2, ICON_HEIGHT/2);
 		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
 		add(colorMode);
+		symmetryMode = new GLabel (symmetryModeStatus, icon8.getX() + icon8.getWidth()/2, ICON_HEIGHT/2);
+		symmetryMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
+		add(symmetryMode);
 		double width = (getWidth() - (icon8.getX() + icon8.getWidth()))/N_COLORS;
 		colorIcon1 = new GRect (icon8.getX() + icon8.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon1);
@@ -333,7 +336,6 @@ public class GraphicsContest extends GraphicsProgram {
 				pure = true;
 				colorModeStatus = "Pure";
 				updateIcons();
-				updateIcons();
 			} else if(pure == true) {
 				pure = false;
 				plain = true;
@@ -351,6 +353,19 @@ public class GraphicsContest extends GraphicsProgram {
 				updateIcons();
 			}
 		}
+		if (clickIcon8(e) == true) {
+			if (rotation == true) {
+				rotation = false;
+				reflection = true;
+				symmetryModeStatus = "Reflection";
+				updateIcons();
+			} else {
+				reflection = false;
+				symmetryModeStatus = "Rotation";
+				updateIcons();
+			}
+		}
+		
 		if (pure == true) {
 			if(clickColorIcon1(e) == true) {
 				chosenPureColor = plainColor[RED][0]; 
@@ -736,8 +751,8 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private boolean clickIcon1(MouseEvent e) {
-		if (clickIcon3(e) || clickIcon4(e) || clickIcon5(e) || clickIcon6(e) || clickIcon7(e) ||
-				clickColorIcon1(e) || clickColorIcon2(e) || clickColorIcon3(e) ||
+		if (clickIcon3(e) || clickIcon4(e) || clickIcon5(e) || clickIcon6(e) || 
+				clickIcon7(e) || clickIcon8(e) || clickColorIcon1(e) || clickColorIcon2(e) || clickColorIcon3(e) ||
 				clickColorIcon4(e) || clickColorIcon5(e) || clickColorIcon6(e) ||
 				clickColorIcon7(e) || clickColorIcon8(e) || clickColorIcon9(e)) {
 			return false;
@@ -770,6 +785,11 @@ public class GraphicsContest extends GraphicsProgram {
 		else return false;
 	}
 
+	private boolean clickIcon8(MouseEvent e) {
+		if (icon7.contains(e.getX(),e.getY())) return true;
+		else return false;
+	}
+	
 	private boolean clickColorIcon1(MouseEvent e) {
 		if (colorIcon1.contains(e.getX(),e.getY())) return true;
 		else return false;
