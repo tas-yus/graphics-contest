@@ -364,7 +364,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (clickIcon5(e) == true) {
 			if (line == false) {
-				addSymLine(symLine);
+				if (reflection == true) addSymLine(symLine);
 				line = true;
 			} else {
 				removeSymLine(symLine);
