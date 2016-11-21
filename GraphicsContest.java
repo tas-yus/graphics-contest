@@ -817,6 +817,19 @@ public class GraphicsContest extends GraphicsProgram {
 		else return 0;
 	}
 
+	private Color intToColor(int c) {
+		if (c == 0) return plainColor[RED][0];
+		else if (c == 1) return plainColor[ORANGE][0];
+		else if (c == 2) return plainColor[YELLOW][0];
+		else if (c == 3) return plainColor[GREEN][0];
+		else if (c == 4) return plainColor[BLUE][0];
+		else if (c == 5) return plainColor[CYAN][0];
+		else if (c == 6) return plainColor[PURPLE][0];
+		else if (c == 7) return plainColor[WHITE][0];
+		else if (c == 8) return plainColor[BLACK][0];
+		else return plainColor[RED][0];
+	}
+	
 	private double[][] powMatrix(double[][] matrix, int n) {
 		double [][] result = new double[matrix.length][matrix[0].length];
 		for (int i = 0; i < matrix.length; i++) {
