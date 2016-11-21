@@ -9,13 +9,13 @@ import acm.util.*;
 import java.io.*;
 import java.util.ArrayList;
 
-public class HangmanLexicon {
+public class ScreenShot {
 	
 	/** Stores all the words from HangmanLexicon text file */
 	private ArrayList <String> wordList = new ArrayList <String> (); 
 	
 	/** Returns the number of words in the lexicon. */
-	public HangmanLexicon () {
+	public ScreenShot () {
 		try {
 			BufferedReader rd = new BufferedReader(new FileReader("HangmanLexicon.txt"));
 			while(true) {
