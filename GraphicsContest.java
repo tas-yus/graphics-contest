@@ -342,9 +342,9 @@ public class GraphicsContest extends GraphicsProgram {
 				speedLevel++;
 			} else if (adjustSize == true) {
 				s++;
-			} else if (adjustSymmetry == true && symmetry <= 25) {
+			} else if (adjustSymmetry == true && symmetry < 25) {
 				symmetry++;
-			} else if (adjustPlane == true && plane <= 7) {
+			} else if (adjustPlane == true && plane < 8) {
 				plane++;
 			}
 			updateIcons();
@@ -672,27 +672,31 @@ public class GraphicsContest extends GraphicsProgram {
 				colorTray.setColor(chosenPureColor);
 			}
 		}
-		if (auto == true) {
-			if (e.getKeyCode() == KeyEvent.VK_UP && speed > 5) {
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
+			if (auto == true && speed > 5) {
 				speed -= 5;
 				speedLevel++;
-				updateIcons();
-			}
-			if (e.getKeyCode() == KeyEvent.VK_DOWN && speed < 200) {
-				speed += 5;
-				speedLevel--;
-				updateIcons();
-			}
-		}
-		if (auto == false) {
-			if (e.getKeyCode() == KeyEvent.VK_UP) {
+			} else if (adjustSize == true) {
 				s++;
-				updateIcons();
+			} else if (adjustSymmetry == true && symmetry < 25) {
+				symmetry++;
+			} else if (adjustPlane == true && plane < 8) {
+				plane++;
 			}
-			if (e.getKeyCode() == KeyEvent.VK_DOWN && s > 0) {
+			updateIcons();
+		}
+		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			if (auto == true) {
+				speed += 5;
+				speedLevel++;
+			} else if (adjustSize == true && s != 0) {
 				s--;
-				updateIcons();
+			} else if (adjustSymmetry == true && symmetry > 0) {
+				symmetry--;
+			} else if (adjustPlane == true && plane > 0) {
+				plane--;
 			}
+			updateIcons();
 		}
 	}
 	private void setUpBall(double x, double y) {
