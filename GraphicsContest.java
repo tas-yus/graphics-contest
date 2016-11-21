@@ -80,6 +80,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLabel minusSize;
 	private GLabel colorMode;
 	private GLabel symmetryMode;
+	private GLabel symmetryNum;
+	private GLabel planeNum;
 	private GLine line1;
 	private GLine line2;
 	private GLine line3;
@@ -259,6 +261,16 @@ public class GraphicsContest extends GraphicsProgram {
 		} else {
 			add(brushSizeStatus);
 		}
+		if (rotation == true) {
+			symmetryNum = new GLabel ("Axis x" + symmetry, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
+			symmetryNum.move(-symmetryNum.getWidth()/2, +symmetryNum.getAscent()/2);
+			add(symmetryNum);
+		}
+		if (reflection == true) {
+			planeNum = new GLabel ("Plane x" + plane, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
+			planeNum.move(-planeNum.getWidth()/2, +planeNum.getAscent()/2);
+			add(planeNum);
+		}
 	}
 
 	private void setUpColorChoice() {
@@ -308,6 +320,7 @@ public class GraphicsContest extends GraphicsProgram {
 				adjustSize = true;
 				adjustPlane = false;
 				adjustSymmetry = false;
+				updateIcons();
 			}
 			updateIcons();
 		}
