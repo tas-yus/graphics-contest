@@ -189,7 +189,7 @@ public class GraphicsContest extends GraphicsProgram {
 		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
 		add(colorMode);
 		symmetryMode = new GLabel (symmetryModeStatus, icon8.getX() + icon8.getWidth()/2, ICON_HEIGHT/2);
-		symmetryMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
+		symmetryMode.move(-symmetryMode.getWidth()/2, +symmetryMode.getAscent()/2);
 		add(symmetryMode);
 		double width = (getWidth() - (icon8.getX() + icon8.getWidth()))/N_COLORS;
 		colorIcon1 = new GRect (icon8.getX() + icon8.getWidth(), 0, width, ICON_HEIGHT);
@@ -244,7 +244,7 @@ public class GraphicsContest extends GraphicsProgram {
 		colorMode = new GLabel (colorModeStatus, icon7.getX() + icon7.getWidth()/2, ICON_HEIGHT/2);
 		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
 		symmetryMode = new GLabel (symmetryModeStatus, icon8.getX() + icon8.getWidth()/2, ICON_HEIGHT/2);
-		symmetryMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
+		symmetryMode.move(-symmetryMode.getWidth()/2, +symmetryMode.getAscent()/2);
 		speedStatus = new GLabel ("Speed x" + speedLevel, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		speedStatus.move(-speedStatus.getWidth()/2, +speedStatus.getAscent()/2);
 		add(brushStatus);
