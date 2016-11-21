@@ -16,6 +16,7 @@ public class GraphicsContest extends GraphicsProgram {
 	/*removeall, auto, rgb, mergecolor*/
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	private static final int ICON_HEIGHT = 30;
+
 	private static final int DELAY = 200;
 	private static final int WIDTH = 700;
 	private static final int HEIGHT = 700 + ICON_HEIGHT;
@@ -229,7 +230,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(colorTray);
 		colorTray.setFilled(true);
 		colorTray.setColor(plainColor[RED][0]);
-		icon1 = new GRect (getWidth()/20, 0, getWidth()*3/20, ICON_HEIGHT);
+		icon1 = new GRect (WIDTH/20, 0, getWidth()*3/20, ICON_HEIGHT);
 		add(icon1);
 		icon2 = new GRect (getWidth()*1/5, 0, getWidth()*3/20, ICON_HEIGHT);
 		add(icon2);
@@ -239,6 +240,8 @@ public class GraphicsContest extends GraphicsProgram {
 		add(icon4);
 		icon5 = new GRect (getWidth()*9/20, 0, getWidth()/20, ICON_HEIGHT);
 		add(icon5);
+		icon6 = new GRect (getWidth()*1/2, 0, getWidth()/10, ICON_HEIGHT);
+		add(icon6);
 		icon6 = new GRect (getWidth()*1/2, 0, getWidth()/10, ICON_HEIGHT);
 		add(icon6);
 		brushStatus = new GLabel ("Brush: " + status, getWidth()/8, ICON_HEIGHT/2);
