@@ -1,39 +1,16 @@
-/*
- * File: HangmanLexicon.java
- * -------------------------
- * This file contains a stub implementation of the HangmanLexicon
- * class that you will reimplement for Part III of the assignment.
- */
-
-import acm.util.*;
-import java.io.*;
-import java.util.ArrayList;
-
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+ 
+import javax.imageio.ImageIO;
+ 
 public class ScreenShot {
-	
-	/** Stores all the words from HangmanLexicon text file */
-	private ArrayList <String> wordList = new ArrayList <String> (); 
-	
-	/** Returns the number of words in the lexicon. */
-	public ScreenShot () {
-		try {
-			BufferedReader rd = new BufferedReader(new FileReader("HangmanLexicon.txt"));
-			while(true) {
-				String word = rd.readLine();
-				if(word == null) break;
-				wordList.add(word);
-			}
-		} catch(IOException ex) {
-			throw new ErrorException(ex);
-		}
+	public static void main(String[] args) throws Exception {
+		Robot robot = new Robot();
+ 
+		BufferedImage screenShot = robot.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+		ImageIO.write(screenShot, "JPG", new File("screenShot.jpg"));
 	}
-
-	/** Returns the word at the specified index. */
-	public String getWord(int index) {
-		return wordList.get(index);
-	}
-	
-	public int getWordCount() {
-		return wordList.size();
-	}	
 }
