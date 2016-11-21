@@ -333,6 +333,7 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 		}
 		if (clickIcon3(e) == true) {
+			
 			if (auto == true && speed > 0) {
 				speed -= 5;
 				speedLevel++;
@@ -341,6 +342,8 @@ public class GraphicsContest extends GraphicsProgram {
 			} else if (adjustSymmetry == true && symmetry <= 25) {
 				removeSymLine(symLine);
 				symmetry++;
+				updateIcons();
+				addSymLine(symLine);
 			} else if (adjustPlane == true && plane <= 7) {
 				removeSymLine(symLine);
 				plane++;
