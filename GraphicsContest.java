@@ -261,12 +261,12 @@ public class GraphicsContest extends GraphicsProgram {
 		} else {
 			add(brushSizeStatus);
 		}
-		if (rotation == true) {
+		if (adjustSymmetry == true) {
 			symmetryNum = new GLabel ("Axis x" + symmetry, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 			symmetryNum.move(-symmetryNum.getWidth()/2, +symmetryNum.getAscent()/2);
 			add(symmetryNum);
 		}
-		if (reflection == true) {
+		if (adjustPlane == true) {
 			planeNum = new GLabel ("Plane x" + plane, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 			planeNum.move(-planeNum.getWidth()/2, +planeNum.getAscent()/2);
 			add(planeNum);
