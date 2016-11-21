@@ -344,9 +344,10 @@ public class GraphicsContest extends GraphicsProgram {
 			} else if (adjustPlane == true && plane <= 7) {
 				removeSymLine(symLine);
 				plane++;
+				updateIcons();
+				addSymLine(symLine);
 			}
 			updateIcons();
-			addSymLine(symLine);
 		}
 		if (clickIcon4(e) == true) {
 			if (auto == true) {
@@ -355,14 +356,17 @@ public class GraphicsContest extends GraphicsProgram {
 			} else if (adjustSize == true && (s != 0)) {
 				s--;
 			} else if (adjustSymmetry == true && symmetry > 0) {
+				removeSymLine(symLine);
 				symmetry--;
-				removeSymLine(symLine);
+				updateIcons();
+				addSymLine(symLine);
 			} else if (adjustPlane == true && plane > 0) {
-				plane--;
 				removeSymLine(symLine);
+				plane--;
+				updateIcons();
+				addSymLine(symLine);
 			}
 			updateIcons();
-			addSymLine(symLine);
 		}
 		if (clickIcon5(e) == true) {
 			if (line == false) {
