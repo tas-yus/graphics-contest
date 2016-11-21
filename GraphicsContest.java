@@ -33,7 +33,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int PURPLE = 6;
 	private static final int WHITE = 7;
 	private static final int BLACK = 8;
-
+	private static final int N_COLORS = 9;
 
 	private Color newColor;
 	private boolean draw = false;
@@ -265,23 +265,24 @@ public class GraphicsContest extends GraphicsProgram {
 		colorMode = new GLabel (mode, getWidth()*11/20, ICON_HEIGHT/2);
 		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
 		add(colorMode);
-		colorIcon1 = new GRect (getWidth()*3/5, 0, getWidth()*2/45, ICON_HEIGHT);
+		double width = (getWidth() - (icon7.getX() + icon7.getWidth()))/N_COLORS;
+		colorIcon1 = new GRect (icon7.getX() + icon7.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon1);
-		colorIcon2 = new GRect (getWidth()*29/45, 0, getWidth()*31/45, ICON_HEIGHT);
+		colorIcon2 = new GRect (colorIcon1.getX() + colorIcon1.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon2);
-		colorIcon3 = new GRect (getWidth()*31/45, 0, getWidth()*33/45, ICON_HEIGHT);
+		colorIcon3 = new GRect (colorIcon2.getX() + colorIcon2.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon3);
-		colorIcon4 = new GRect (getWidth()*33/45, 0, getWidth()*35/45, ICON_HEIGHT);
+		colorIcon4 = new GRect (colorIcon3.getX() + colorIcon3.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon4);
-		colorIcon5 = new GRect (getWidth()*35/45, 0, getWidth()*37/45, ICON_HEIGHT);
+		colorIcon5 = new GRect (colorIcon4.getX() + colorIcon4.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon5);
-		colorIcon6 = new GRect (getWidth()*37/45, 0, getWidth()*39/45, ICON_HEIGHT);
+		colorIcon6 = new GRect (colorIcon5.getX() + colorIcon5.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon6);
-		colorIcon7 = new GRect (getWidth()*39/45, 0, getWidth()*41/45, ICON_HEIGHT);
+		colorIcon7 = new GRect (colorIcon6.getX() + colorIcon6.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon7);
-		colorIcon8 = new GRect (getWidth()*41/45, 0, getWidth()*43/35, ICON_HEIGHT);
+		colorIcon8 = new GRect (colorIcon7.getX() + colorIcon7.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon8);
-		colorIcon9 = new GRect (getWidth()*43/45, 0, getWidth(), ICON_HEIGHT);
+		colorIcon9 = new GRect (colorIcon8.getX() + colorIcon8.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon9);
 		setUpLines(plane);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
