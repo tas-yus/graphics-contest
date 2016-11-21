@@ -16,9 +16,11 @@ public class GraphicsContest extends GraphicsProgram {
 	/*removeall, auto, rgb, mergecolor*/
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	private static final int ICON_HEIGHT = 30;
-
 	private static final int DELAY = 200;
 	private static final int WIDTH = 700;
+	private static final int S_ICON_WIDTH = WIDTH/20;
+	private static final int M_ICON_WIDTH = WIDTH/10;
+	private static final int L_ICON_WIDTH = 3*WIDTH/20;
 	private static final int HEIGHT = 700 + ICON_HEIGHT;
 	private static final int PAUSE = 10;
 	private static final int BRUSH_SIZE = 5;
@@ -54,6 +56,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GRect icon4;
 	private GRect icon5;
 	private GRect icon6;
+	private GRect icon7;
 	private GRect colorIcon1;
 	private GRect colorIcon2;
 	private GRect colorIcon3;
@@ -226,24 +229,24 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void setUpIcons() {
-		colorTray = new GRect (0, 0, getWidth()/20, ICON_HEIGHT);
+		colorTray = new GRect (0, 0,S_ICON_WIDTH, ICON_HEIGHT);
 		add(colorTray);
 		colorTray.setFilled(true);
 		colorTray.setColor(plainColor[RED][0]);
-		icon1 = new GRect (WIDTH/20, 0, getWidth()*3/20, ICON_HEIGHT);
+		icon1 = new GRect (colorTray.getX() + colorTray.getWidth(), 0, L_ICON_WIDTH, ICON_HEIGHT);
 		add(icon1);
-		icon2 = new GRect (getWidth()*1/5, 0, getWidth()*3/20, ICON_HEIGHT);
+		icon2 = new GRect (icon1.getX() + icon1.getWidth(), 0, L_ICON_WIDTH, ICON_HEIGHT);
 		add(icon2);
-		icon3 = new GRect (getWidth()*7/20, 0, getWidth()/20, ICON_HEIGHT);
+		icon3 = new GRect (icon2.getX() + icon2.getWidth(), 0, S_ICON_WIDTH, ICON_HEIGHT);
 		add(icon3);
-		icon4 = new GRect (getWidth()*8/20, 0, getWidth()/20, ICON_HEIGHT);
+		icon4 = new GRect (icon3.getX() + icon3.getWidth(), 0, S_ICON_WIDTH, ICON_HEIGHT);
 		add(icon4);
-		icon5 = new GRect (getWidth()*9/20, 0, getWidth()/20, ICON_HEIGHT);
+		icon5 = new GRect (icon4.getX() + icon4.getWidth(), 0, S_ICON_WIDTH, ICON_HEIGHT);
 		add(icon5);
-		icon6 = new GRect (getWidth()*1/2, 0, getWidth()/10, ICON_HEIGHT);
+		icon6 = new GRect (icon5.getX() + icon5.getWidth(), 0, M_ICON_WIDTH, ICON_HEIGHT);
 		add(icon6);
-		icon6 = new GRect (getWidth()*1/2, 0, getWidth()/10, ICON_HEIGHT);
-		add(icon6);
+		icon7 = new GRect (icon6.getX() + icon6.getWidth(), 0, M_ICON_WIDTH, ICON_HEIGHT);
+		add(icon7);
 		brushStatus = new GLabel ("Brush: " + status, getWidth()/8, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
