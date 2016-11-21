@@ -76,6 +76,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLabel plusSize;
 	private GLabel minusSize;
 	private GLabel colorMode;
+	private GLabel symmetryMode;
 	private GLine line1;
 	private GLine line2;
 	private GLine line3;
