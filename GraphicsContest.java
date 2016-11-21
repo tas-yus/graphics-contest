@@ -376,6 +376,7 @@ public class GraphicsContest extends GraphicsProgram {
 			setUpColors();
 			setUpIcons();
 			setUpColorChoice();
+			updateIcons();
 		}
 		if (clickIcon7(e) == true) {
 			if (mixed == true) {
