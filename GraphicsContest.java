@@ -69,7 +69,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GRect colorIcon9;
 	private String status = "off";
 	private String colorModeStatus = "Mixed";
-	private String symmetryModeStatus = "Mixed";
+	private String symmetryModeStatus = "Rotation";
 	private GLabel brushStatus;
 	private GLabel brushSizeStatus;
 	private GLabel speedStatus;
