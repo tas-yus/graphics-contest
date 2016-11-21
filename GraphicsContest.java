@@ -85,7 +85,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private double[] slope;
 	private double[][] coordinate;
 	private GLine[] symLine;
-	private GLine[] symLine2;
 	
 	private Color[][] plainColor;
 	private Color[] chosenColor;
@@ -220,7 +219,6 @@ public class GraphicsContest extends GraphicsProgram {
 		colorIcon9 = new GRect (colorIcon8.getX() + colorIcon8.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon9);
 		setUpLines(plane);
-		setUpLines(symmetry);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 	}
 
@@ -239,8 +237,7 @@ public class GraphicsContest extends GraphicsProgram {
 			GLine symmetryLine = new GLine (getWidth()/2 + y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 + y*(powMatrix(rotationalArray, n)[1][1]),
 					getWidth()/2 - y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 - y*(powMatrix(rotationalArray, n)[1][1]));
 			slope[n] = getSlope(symmetryLine);
-			if (reflection == true) symLine[n] = symmetryLine;
-			else if (rotation == true)  symLine2[n] = symmetryLine;
+			symLine[n] = symmetryLine;
 		}
 	}
 	
@@ -253,7 +250,6 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(symmetryNum);
 		remove(planeNum);
 		removeSymLine(symLine);
-		removeSymLine(symLine2);
 		setUpLines(plane);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 		brushStatus = new GLabel ("Brush: " + status, icon1.getX() + icon1.getWidth()/2, ICON_HEIGHT/2);
@@ -287,8 +283,7 @@ public class GraphicsContest extends GraphicsProgram {
 			add(planeNum);
 		}
 		if (line == true) {
-			if (reflection == true) addSymLine(symLine);
-			else if (rotation == true) addSymLine(symLine2);
+			addSymLine(symLine);
 		}
 	}
 
