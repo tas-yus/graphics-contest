@@ -253,9 +253,6 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(speedStatus);
 		remove(symmetryNum);
 		remove(planeNum);
-		for(int i = 0; i < symLine.length; i++) {
-			remove(symLine[i]);
-		}
 		setUpLines(plane);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 		brushStatus = new GLabel ("Brush: " + status, icon1.getX() + icon1.getWidth()/2, ICON_HEIGHT/2);
@@ -349,10 +346,13 @@ public class GraphicsContest extends GraphicsProgram {
 				s++;
 			} else if (adjustSymmetry == true && symmetry <= 25) {
 				symmetry++;
+				removeSymLine(symLine);
 			} else if (adjustPlane == true && plane <= 8) {
 				plane++;
+				removeSymLine(symLine);
 			}
 			updateIcons();
+			addSymLine(symLine);
 		}
 		if (clickIcon4(e) == true) {
 			if (auto == true) {
@@ -362,21 +362,20 @@ public class GraphicsContest extends GraphicsProgram {
 				s--;
 			} else if (adjustSymmetry == true && symmetry > 0) {
 				symmetry--;
+				removeSymLine(symLine);
 			} else if (adjustPlane == true && plane > 0) {
 				plane--;
+				removeSymLine(symLine);
 			}
 			updateIcons();
+			addSymLine(symLine);
 		}
 		if (clickIcon5(e) == true) {
 			if (line == false) {
-				for(int i = 0; i < symLine.length; i++) {
-					add(symLine[i]);
-				}
+				addSymLine(symLine);
 				line = true;
 			} else {
-				for(int i = 0; i < symLine.length; i++) {
-					remove(symLine[i]);
-				}
+				removeSymLine(symLine);
 				line = false;
 			}
 		}
@@ -893,7 +892,19 @@ public class GraphicsContest extends GraphicsProgram {
 		if (colorIcon9.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-
+	
+	private void addSymLine(GLine[] symLine) {
+		for(int i = 0; i < symLine.length; i++) {
+			remove(symLine[i]);
+		}
+	}
+	
+	private void removeSymLine(GLine[] symLine) {
+		for(int i = 0; i < symLine.length; i++) {
+			remove(symLine[i]);
+		}
+	}
+	
 	private int colorToInt(Color color) {
 		if (color == plainColor[RED][0]) return 0;
 		else if (color == plainColor[ORANGE][0]) return 1;
