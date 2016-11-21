@@ -427,6 +427,9 @@ public class GraphicsContest extends GraphicsProgram {
 				updateIcons();
 			}
 		}
+		if (clickIcon9(e) == true) {
+			ScreenShot.ca
+		}
 		if (pure == true) {
 			if(clickColorIcon1(e) == true) {
 				chosenPureColor = plainColor[RED][0]; 
