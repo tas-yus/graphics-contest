@@ -387,16 +387,20 @@ public class GraphicsContest extends GraphicsProgram {
 				pure = true;
 				colorModeStatus = "Pure";
 				updateIcons();
+				chosenPureColor = plainColor[RED][0]; 
 			} else if(pure == true) {
 				pure = false;
 				plain = true;
 				colorModeStatus = "Plain";
 				updateIcons();
+				chosenColor = plainColor[RED];
+				; 
 			} else if (plain == true) {
 				plain = false;
 				mixed = true;
 				colorModeStatus = "Mixed";
 				updateIcons();
+				chosenMixedColor = RED;
 			} else if (auto == true) {
 				auto = false;
 				pure = true;
