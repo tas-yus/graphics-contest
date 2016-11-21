@@ -786,7 +786,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private boolean clickIcon8(MouseEvent e) {
-		if (icon7.contains(e.getX(),e.getY())) return true;
+		if (icon8.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
 	
