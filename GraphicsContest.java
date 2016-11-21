@@ -45,7 +45,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private int speed = DELAY;
 	private int speedLevel = 1;
 	private int symmetry = 12;
-	private int plane = 6;
+	private int plane = 4;
 	private GRect colorTray;
 	private GRect icon1;
 	private GRect icon2;
