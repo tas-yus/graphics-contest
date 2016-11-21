@@ -202,8 +202,8 @@ public class GraphicsContest extends GraphicsProgram {
 		symmetryMode = new GLabel (symmetryModeStatus, icon8.getX() + icon8.getWidth()/2, ICON_HEIGHT/2);
 		symmetryMode.move(-symmetryMode.getWidth()/2, +symmetryMode.getAscent()/2);
 		add(symmetryMode);
-		double width = (getWidth() - (icon8.getX() + icon8.getWidth()))/N_COLORS;
-		colorIcon1 = new GRect (icon8.getX() + icon8.getWidth(), 0, width, ICON_HEIGHT);
+		double width = (getWidth() - (icon9.getX() + icon9.getWidth()))/N_COLORS;
+		colorIcon1 = new GRect (icon9.getX() + icon9.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon1);
 		colorIcon2 = new GRect (colorIcon1.getX() + colorIcon1.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon2);
