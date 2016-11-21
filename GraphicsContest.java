@@ -237,7 +237,7 @@ public class GraphicsContest extends GraphicsProgram {
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		brushSizeStatus = new GLabel ("Size x" + s, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		brushSizeStatus.move(-brushSizeStatus.getWidth()/2, +brushSizeStatus.getAscent()/2);
-		colorMode = new GLabel (mode, icon7.getX() + icon7.getWidth()/2, ICON_HEIGHT/2);
+		colorMode = new GLabel (colorModeStatus, icon7.getX() + icon7.getWidth()/2, ICON_HEIGHT/2);
 		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
 		speedStatus = new GLabel ("Speed x" + speedLevel, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		speedStatus.move(-speedStatus.getWidth()/2, +speedStatus.getAscent()/2);
