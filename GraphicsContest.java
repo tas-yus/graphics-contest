@@ -889,7 +889,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void addSymLine(GLine[] symLine) {
 		for(int i = 0; i < symLine.length; i++) {
-			remove(symLine[i]);
+			add(symLine[i]);
 		}
 	}
 	
