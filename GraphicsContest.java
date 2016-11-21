@@ -321,22 +321,24 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 		}
 		if (clickIcon2(e) == true) {
-			if (adjustSize == true) {
-				adjustSize = false;
-				if (rotation == true) {
-					adjustSymmetry = true;
+			if (auto == false) {
+				if (adjustSize == true) {
+					adjustSize = false;
+					if (rotation == true) {
+						adjustSymmetry = true;
+						adjustPlane = false;
+					} else if (reflection == true) {
+						adjustPlane = true;
+						adjustSymmetry = false;
+					}
+				} else if (adjustSize == false) {
+					adjustSize = true;
 					adjustPlane = false;
-				} else if (reflection == true) {
-					adjustPlane = true;
 					adjustSymmetry = false;
 				}
-			} else if (adjustSize == false) {
-				adjustSize = true;
-				adjustPlane = false;
-				adjustSymmetry = false;
+				updateIcons();
 			}
-			updateIcons();
-		}
+			}
 		if (clickIcon3(e) == true) {
 			if (auto == true && speed > 0) {
 				speed -= 5;
