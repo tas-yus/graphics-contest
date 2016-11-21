@@ -339,11 +339,11 @@ public class GraphicsContest extends GraphicsProgram {
 			} else if (adjustSize == true) {
 				s++;
 			} else if (adjustSymmetry == true && symmetry <= 25) {
+				removeSymLine(symLine);
 				symmetry++;
+			} else if (adjustPlane == true && plane <= 7) {
 				removeSymLine(symLine);
-			} else if (adjustPlane == true && plane <= 8) {
 				plane++;
-				removeSymLine(symLine);
 			}
 			updateIcons();
 			addSymLine(symLine);
