@@ -249,6 +249,7 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(speedStatus);
 		remove(symmetryNum);
 		remove(planeNum);
+		removeSymLine(symLine);
 		setUpLines(plane);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 		brushStatus = new GLabel ("Brush: " + status, icon1.getX() + icon1.getWidth()/2, ICON_HEIGHT/2);
@@ -280,6 +281,9 @@ public class GraphicsContest extends GraphicsProgram {
 			planeNum = new GLabel ("Plane x" + plane, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 			planeNum.move(-planeNum.getWidth()/2, +planeNum.getAscent()/2);
 			add(planeNum);
+		}
+		if (line == true) {
+			addSymLine(symLine);
 		}
 	}
 
@@ -333,22 +337,15 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 		}
 		if (clickIcon3(e) == true) {
-			
 			if (auto == true && speed > 0) {
 				speed -= 5;
 				speedLevel++;
 			} else if (adjustSize == true) {
 				s++;
 			} else if (adjustSymmetry == true && symmetry <= 25) {
-				removeSymLine(symLine);
 				symmetry++;
-				updateIcons();
-				addSymLine(symLine);
 			} else if (adjustPlane == true && plane <= 7) {
-				removeSymLine(symLine);
 				plane++;
-				updateIcons();
-				addSymLine(symLine);
 			}
 			updateIcons();
 		}
@@ -359,15 +356,9 @@ public class GraphicsContest extends GraphicsProgram {
 			} else if (adjustSize == true && (s != 0)) {
 				s--;
 			} else if (adjustSymmetry == true && symmetry > 0) {
-				removeSymLine(symLine);
 				symmetry--;
-				updateIcons();
-				addSymLine(symLine);
 			} else if (adjustPlane == true && plane > 0) {
-				removeSymLine(symLine);
 				plane--;
-				updateIcons();
-				addSymLine(symLine);
 			}
 			updateIcons();
 		}
