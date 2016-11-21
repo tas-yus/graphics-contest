@@ -68,7 +68,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private GRect colorIcon8;
 	private GRect colorIcon9;
 	private String status = "off";
-	private String mode = "Mixed";
+	private String colorModeStatus = "Mixed";
+	private String symmetryModeStatus = "Mixed";
 	private GLabel brushStatus;
 	private GLabel brushSizeStatus;
 	private GLabel speedStatus;
@@ -183,7 +184,7 @@ public class GraphicsContest extends GraphicsProgram {
 		minusSize = new GLabel ("-", icon4.getX() + icon4.getWidth()/2, ICON_HEIGHT/2);
 		minusSize.move(-minusSize.getWidth()/2, +minusSize.getAscent()/2);
 		add(minusSize);
-		colorMode = new GLabel (mode, icon7.getX() + icon7.getWidth()/2, ICON_HEIGHT/2);
+		colorMode = new GLabel (colorModeStatus, icon7.getX() + icon7.getWidth()/2, ICON_HEIGHT/2);
 		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
 		add(colorMode);
 		double width = (getWidth() - (icon8.getX() + icon8.getWidth()))/N_COLORS;
@@ -326,23 +327,23 @@ public class GraphicsContest extends GraphicsProgram {
 			if (mixed == true) {
 				mixed = false;
 				pure = true;
-				mode = "Pure";
+				colorModeStatus = "Pure";
 				updateIcons();
 				updateIcons();
 			} else if(pure == true) {
 				pure = false;
 				plain = true;
-				mode = "Plain";
+				colorModeStatus = "Plain";
 				updateIcons();
 			} else if (plain == true) {
 				plain = false;
 				mixed = true;
-				mode = "Mixed";
+				colorModeStatus = "Mixed";
 				updateIcons();
 			} else if (auto == true) {
 				auto = false;
 				pure = true;
-				mode = "Pure";
+				colorModeStatus = "Pure";
 				updateIcons();
 			}
 		}
@@ -490,22 +491,22 @@ public class GraphicsContest extends GraphicsProgram {
 			if(pure == true) {
 				pure = false;
 				plain = true;
-				mode = "Plain";
+				colorModeStatus = "Plain";
 				updateIcons();
 			} else if (plain == true) {
 				plain = false;
 				mixed = true;
-				mode = "Mixed";
+				colorModeStatus = "Mixed";
 				updateIcons();
 			} else if (mixed == true) {
 				mixed = false;
 				pure = true;
-				mode = "Pure";
+				colorModeStatus = "Pure";
 				updateIcons();
 			} else if (auto == true) {
 				auto = false;
 				pure = true;
-				mode = "Pure";
+				colorModeStatus = "Pure";
 				updateIcons();
 			}
 		}
@@ -516,7 +517,7 @@ public class GraphicsContest extends GraphicsProgram {
 			mixed = false;
 			draw = false;
 			status = "Off";
-			mode = "Auto";
+			colorModeStatus = "Auto";
 			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
