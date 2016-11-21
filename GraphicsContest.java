@@ -762,6 +762,11 @@ public class GraphicsContest extends GraphicsProgram {
 		else return true;
 	}
 
+	private boolean clickIcon2(MouseEvent e) {
+		if (icon2.contains(e.getX(),e.getY())) return true;
+		else return false;
+	}
+	
 	private boolean clickIcon3(MouseEvent e) {
 		if (icon3.contains(e.getX(),e.getY())) return true;
 		else return false;
