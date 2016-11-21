@@ -39,7 +39,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean mixed = true;
 	private boolean auto = false;
 	private boolean line = false;
-	private boolean rotation = flase;
+	private boolean rotation = false;
 	private boolean reflection = true;
 	private int s = BRUSH_SIZE;
 	private int speed = DELAY;
