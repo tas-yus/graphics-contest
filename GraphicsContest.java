@@ -101,6 +101,9 @@ public class GraphicsContest extends GraphicsProgram {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
 		bi = new BufferedImage(this.getSize().width, this.getSize().height, BufferedImage.TYPE_INT_ARGB); 
+		Graphics g = bi.createGraphics();
+		this.paint(g); 
+		g.dispose();
 		addMouseListeners();
 		addKeyListeners();
 		setUpColors();
@@ -434,9 +437,6 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (clickIcon9(e) == true) {
-			Graphics g = bi.createGraphics();
-			this.paint(g); 
-			g.dispose();
 			try {
 			ImageIO.write(bi,"png",new File("test.png"));
 			}
