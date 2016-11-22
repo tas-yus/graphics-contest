@@ -434,7 +434,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (clickIcon9(e) == true) {
 			BufferedImage bi = new BufferedImage(this.getSize().width, this.getSize().height, BufferedImage.TYPE_INT_ARGB); 
 			Graphics g = bi.createGraphics();
-			this.print(getGraphics());
+			this.paint(g); 
 			try {
 			ImageIO.write(bi,"png",new File("test.png"));
 			}
