@@ -95,11 +95,12 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color[] chosenColor;
 	private Color chosenPureColor;
 	private int chosenMixedColor;
+	private BufferedImage bi;
 	
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
-		BufferedImage bi = new BufferedImage(this.getSize().width, this.getSize().height, BufferedImage.TYPE_INT_ARGB); 
+		bi = new BufferedImage(this.getSize().width, this.getSize().height, BufferedImage.TYPE_INT_ARGB); 
 		addMouseListeners();
 		addKeyListeners();
 		setUpColors();
