@@ -101,7 +101,7 @@ public class GraphicsContest extends GraphicsProgram {
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
-		bi = new BufferedImage(this.getSize().width, this.getSize().height, BufferedImage.TYPE_INT_ARGB); 
+		bi = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB); 
 		g = bi.createGraphics();
 		addMouseListeners();
 		addKeyListeners();
