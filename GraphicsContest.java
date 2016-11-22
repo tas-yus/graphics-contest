@@ -727,7 +727,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			if (auto == true) {
 				speed += 5;
-				speedLevel++;
+				speedLevel--;
 			} else if (adjustSize == true && s != 0) {
 				s--;
 			} else if (adjustSymmetry == true && symmetry > 1) {
