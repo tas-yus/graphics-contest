@@ -766,14 +766,14 @@ public class GraphicsContest extends GraphicsProgram {
 				updateIcons();
 			}
 		}
-		if (e.getKeyCode() == KeyEvent.VK_DELETE) {
+		if (e.getKeyCode() == KeyEvent.VK_Q) {
 			removeAll();
 			setUpColors();
 			setUpIcons();
 			setUpColorChoice();
 			updateIcons();
 		}
-		if (e.getKeyCode() == KeyEvent.VK_TAB) {
+		if (e.getKeyCode() == KeyEvent.VK_H) {
 			if (line == false) {
 				addSymLine(symLine);
 				line = true;
