@@ -60,7 +60,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private GRect icon6;
 	private GRect icon7;
 	private GRect icon8;
-	private GRect icon9;
 	private GRect colorIcon1;
 	private GRect colorIcon2;
 	private GRect colorIcon3;
