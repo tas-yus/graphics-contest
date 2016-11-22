@@ -224,11 +224,12 @@ public class GraphicsContest extends GraphicsProgram {
 		add(colorIcon8);
 		colorIcon9 = new GRect (colorIcon8.getX() + colorIcon8.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon9);
-		setUpLines(plane);
+		if (rotation == true) setUpAxes(symmetry);
+		if (reflection == true) setUpPlanes(plane);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 	}
 
-	private void setUpLines (int fold) {
+	private void setUpPlanes (int fold) {
 		double A = Math.cos(2*Math.PI/2/fold);
 		double B = Math.sin(2*Math.PI/2/fold);
 		double[][] rotationalArray = new double[2][2];
@@ -247,6 +248,23 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 	
+	private void setUpAxes (int fold) {
+		double A = Math.cos(2*Math.PI/2/fold);
+		double B = Math.sin(2*Math.PI/2/fold);
+		double[][] rotationalArray = new double[2][2];
+		rotationalArray[0][0] = A;
+		rotationalArray[0][1] = B;
+		rotationalArray[1][0] = -B;
+		rotationalArray[1][1] = A;
+		slope = new double[fold];
+		symLine = new GLine[fold];
+		double y = getHeight() - (getHeight()/2 + ICON_HEIGHT/2);
+		for (int n = 0; n < fold; n++) {
+			GLine symmetryLine = new GLine (getWidth()/2, getHeight()/2 + ICON_HEIGHT/2, getWidth()/2 + y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 + y*(powMatrix(rotationalArray, n)[1][1]));
+			symLine[n] = symmetryLine;
+		}
+	}
+	
 	private void updateIcons() {
 		remove(brushStatus);
 		remove(brushSizeStatus);
@@ -256,7 +274,7 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(symmetryNum);
 		remove(planeNum);
 		removeSymLine(symLine);
-		setUpLines(plane);
+		setUpPlanes(plane);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 		brushStatus = new GLabel ("Brush: " + status, icon1.getX() + icon1.getWidth()/2, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
@@ -399,7 +417,6 @@ public class GraphicsContest extends GraphicsProgram {
 				colorModeStatus = "Plain";
 				updateIcons();
 				chosenColor = plainColor[RED];
-				; 
 			} else if (plain == true) {
 				plain = false;
 				mixed = true;
@@ -578,16 +595,19 @@ public class GraphicsContest extends GraphicsProgram {
 				plain = true;
 				colorModeStatus = "Plain";
 				updateIcons();
+				chosenColor = plainColor[RED];
 			} else if (plain == true) {
 				plain = false;
 				mixed = true;
 				colorModeStatus = "Mixed";
 				updateIcons();
+				chosenMixedColor = RED;
 			} else if (mixed == true) {
 				mixed = false;
 				pure = true;
 				colorModeStatus = "Pure";
 				updateIcons();
+				chosenPureColor = plainColor[RED][0]; 
 			} else if (auto == true) {
 				auto = false;
 				pure = true;
@@ -938,19 +958,6 @@ public class GraphicsContest extends GraphicsProgram {
 		else if (color == plainColor[WHITE][0]) return 7;
 		else if (color == plainColor[BLACK][0]) return 8;
 		else return 0;
-	}
-
-	private Color intToColor(int c) {
-		if (c == 0) return plainColor[RED][0];
-		else if (c == 1) return plainColor[ORANGE][0];
-		else if (c == 2) return plainColor[YELLOW][0];
-		else if (c == 3) return plainColor[GREEN][0];
-		else if (c == 4) return plainColor[BLUE][0];
-		else if (c == 5) return plainColor[CYAN][0];
-		else if (c == 6) return plainColor[PURPLE][0];
-		else if (c == 7) return plainColor[WHITE][0];
-		else if (c == 8) return plainColor[BLACK][0];
-		else return plainColor[RED][0];
 	}
 	
 	private double[][] powMatrix(double[][] matrix, int n) {
