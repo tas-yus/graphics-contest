@@ -766,6 +766,22 @@ public class GraphicsContest extends GraphicsProgram {
 				updateIcons();
 			}
 		}
+		if (e.getKeyCode() == KeyEvent.VK_DELETE) {
+			removeAll();
+			setUpColors();
+			setUpIcons();
+			setUpColorChoice();
+			updateIcons();
+		}
+		if (e.getKeyCode() == KeyEvent.VK_L) {
+			if (line == false) {
+				addSymLine(symLine);
+				line = true;
+			} else {
+				removeSymLine(symLine);
+				line = false;
+			}
+		}
 	}
 	private void setUpBall(double x, double y) {
 		addAll(s, x, y);
