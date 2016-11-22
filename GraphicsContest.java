@@ -181,15 +181,21 @@ public class GraphicsContest extends GraphicsProgram {
 		brushStatus = new GLabel ("Brush: " + status, icon1.getX() + icon1.getWidth()/2, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		add(brushStatus);
-		brushSizeStatus = new GLabel ("Size x" + s, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
-		brushSizeStatus.move(-brushSizeStatus.getWidth()/2, +brushSizeStatus.getAscent()/2);
-		add(brushSizeStatus);
-		symmetryNum = new GLabel ("", icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
-		symmetryNum.move(-symmetryNum.getWidth()/2, +symmetryNum.getAscent()/2);
-		add(symmetryNum);
-		planeNum = new GLabel ("", icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
-		planeNum.move(-planeNum.getWidth()/2, +planeNum.getAscent()/2);
-		add(planeNum);
+		if (adjustSize == true) {
+			brushSizeStatus = new GLabel ("Size x" + s, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
+			brushSizeStatus.move(-brushSizeStatus.getWidth()/2, +brushSizeStatus.getAscent()/2);
+			add(brushSizeStatus);
+		}
+		if (adjustSymmetry == true) {
+			symmetryNum = new GLabel ("", icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
+			symmetryNum.move(-symmetryNum.getWidth()/2, +symmetryNum.getAscent()/2);
+			add(symmetryNum);
+		}
+		if (adjustPlane == true) {
+			planeNum = new GLabel ("", icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
+			planeNum.move(-planeNum.getWidth()/2, +planeNum.getAscent()/2);
+			add(planeNum);
+		}
 		speedStatus = new GLabel ("", icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		speedStatus.move(-speedStatus.getWidth()/2, +speedStatus.getAscent()/2);
 		add(speedStatus);
