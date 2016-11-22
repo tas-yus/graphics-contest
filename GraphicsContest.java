@@ -103,7 +103,6 @@ public class GraphicsContest extends GraphicsProgram {
 		pause(PAUSE);
 		bi = new BufferedImage(this.getSize().width, this.getSize().height, BufferedImage.TYPE_INT_RGB); 
 		g = bi.createGraphics();
-		this.paint(g); 
 		g.dispose();
 		addMouseListeners();
 		addKeyListeners();
