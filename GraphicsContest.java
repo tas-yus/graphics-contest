@@ -226,6 +226,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(colorIcon9);
 		if (rotation == true) setUpAxes(symmetry);
 		if (reflection == true) setUpPlanes(plane);
+		addSymLine(symLine);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 	}
 	
