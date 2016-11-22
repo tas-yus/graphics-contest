@@ -783,6 +783,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 	}
+	
 	private void setUpBall(double x, double y) {
 		addAll(s, x, y);
 	}
