@@ -11,6 +11,7 @@ import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.io.File;
 
 import javax.imageio.ImageIO;
@@ -97,6 +98,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private int chosenMixedColor;
 	private BufferedImage bi;
 	private Graphics g;
+	private RenderedImage ri;
 	
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
@@ -105,6 +107,7 @@ public class GraphicsContest extends GraphicsProgram {
 		g = bi.createGraphics();
 		this.paint(g); 
 		g.dispose();
+		ri = bi;
 		addMouseListeners();
 		addKeyListeners();
 		setUpColors();
@@ -439,7 +442,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (clickIcon9(e) == true) {
 			try {
-			ImageIO.write(bi,"png",new File("test.png"));
+			ImageIO.write(ri,"png",new File("test.png"));
 			}
 			catch (Exception e1) {}
 		}
