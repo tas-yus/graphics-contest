@@ -282,6 +282,9 @@ public class GraphicsContest extends GraphicsProgram {
 		add(brushStatus);
 		add(colorMode);
 		add(symmetryMode);
+		if (adjustSize == true) {
+			add(brushSizeStatus);
+		}
 		if (adjustSymmetry == true) {
 			symmetryNum = new GLabel ("Axis x" + symmetry, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 			symmetryNum.move(-symmetryNum.getWidth()/2, +symmetryNum.getAscent()/2);
@@ -296,11 +299,7 @@ public class GraphicsContest extends GraphicsProgram {
 			addSymLine(symLine);
 		}
 		if (auto == true) {
-			remove(symmetryNum);
-			remove(planeNum);
 			add(speedStatus);
-		} else {
-			add(brushSizeStatus);
 		}
 	}
 
