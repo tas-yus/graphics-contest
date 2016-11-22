@@ -256,7 +256,6 @@ public class GraphicsContest extends GraphicsProgram {
 		rotationalArray[0][1] = B;
 		rotationalArray[1][0] = -B;
 		rotationalArray[1][1] = A;
-		slope = new double[fold];
 		symLine = new GLine[fold];
 		double y = getHeight() - (getHeight()/2 + ICON_HEIGHT/2);
 		for (int n = 0; n < fold; n++) {
