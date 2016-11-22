@@ -295,7 +295,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (line == true) {
 			addSymLine(symLine);
 		}
-		if(auto == true) {
+		if (auto == true) {
 			remove(symmetryNum);
 			remove(planeNum);
 			add(speedStatus);
