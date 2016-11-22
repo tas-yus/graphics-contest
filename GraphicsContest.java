@@ -622,6 +622,9 @@ public class GraphicsContest extends GraphicsProgram {
 			pure = false;
 			mixed = false;
 			draw = false;
+			adjustSize = false;
+			adjustSymmetry = false;
+			adjustPlane = false;
 			status = "Off";
 			colorModeStatus = "Auto";
 			updateIcons();
