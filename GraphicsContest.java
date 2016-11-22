@@ -562,8 +562,8 @@ public class GraphicsContest extends GraphicsProgram {
 
 	public void mouseMoved(MouseEvent e) {
 		if (draw == true) {
-			double x = e.getX();
-			double y = e.getY() + 4*s;
+			double x = e.getX() - s/2;
+			double y = e.getY() - s/2;
 			if (y > ICON_HEIGHT) {
 				x = (x - getWidth()/2);
 				y = (y - (getHeight()/2 + ICON_HEIGHT/2));
@@ -765,7 +765,7 @@ public class GraphicsContest extends GraphicsProgram {
 			for (int n = 0; n < fold; n++) {
 				double X = x*(powMatrix(rotationalArray, n)[0][0]) + y*(powMatrix(rotationalArray, n)[0][1]);
 				double Y = x*(powMatrix(rotationalArray, n)[1][0]) + y*(powMatrix(rotationalArray, n)[1][1]);
-				if (getHeight()/2 + ICON_HEIGHT/2 + Y > ICON_HEIGHT) {
+				if (getHeight()/2 + ICON_HEIGHT/2 + Y  - s/2 > ICON_HEIGHT) {
 					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
 					pixel.setFilled(true);
 					pixel.setColor(newColor);
@@ -795,7 +795,7 @@ public class GraphicsContest extends GraphicsProgram {
 			for (int j = 1; j < coordinate.length; j++) {
 				double X = coordinate[j][0];
 				double Y = coordinate[0][j];
-				if (getHeight()/2 + ICON_HEIGHT/2 + Y > ICON_HEIGHT) {
+				if (getHeight()/2 + ICON_HEIGHT/2 + Y - s/2 > ICON_HEIGHT) {
 					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
 					pixel.setFilled(true);
 					pixel.setColor(newColor);
