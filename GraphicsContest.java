@@ -95,7 +95,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color[] chosenColor;
 	private Color chosenPureColor;
 	private int chosenMixedColor;
-
+	private BufferedImage bi = new BufferedImage(this.getSize().width, this.getSize().height, BufferedImage.TYPE_INT_ARGB); 
+	
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
@@ -432,9 +433,9 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (clickIcon9(e) == true) {
-			BufferedImage bi = new BufferedImage(this.getSize().width, this.getSize().height, BufferedImage.TYPE_INT_ARGB); 
 			Graphics g = bi.createGraphics();
 			this.paint(g); 
+			g.dispose();
 			try {
 			ImageIO.write(bi,"png",new File("test.png"));
 			}
