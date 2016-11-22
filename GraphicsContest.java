@@ -416,16 +416,16 @@ public class GraphicsContest extends GraphicsProgram {
 		if (clickIcon8(e) == true) {
 			if (rotation == true) {
 				rotation = false;
-				adjustSymmetry = false;
-				adjustSize = true;
 				reflection = true;
+				adjustSymmetry = true;
+				adjustSize = false;
 				symmetryModeStatus = "Reflection";
 				updateIcons();
 			} else {
 				reflection = false;
 				rotation = true;
-				adjustPlane = false;
-				adjustSize = true;
+				adjustPlane = true;
+				adjustSize = false;
 				symmetryModeStatus = "Rotation";
 				updateIcons();
 			}
