@@ -560,8 +560,8 @@ public class GraphicsContest extends GraphicsProgram {
 
 	public void mouseMoved(MouseEvent e) {
 		if (draw == true) {
-			double x = e.getX() - s;
-			double y = e.getY() - s;
+			double x = e.getX() - s/2;
+			double y = e.getY() - s/2;
 			if (y > ICON_HEIGHT) {
 				x = (x - getWidth()/2);
 				y = (y - (getHeight()/2 + ICON_HEIGHT/2));
