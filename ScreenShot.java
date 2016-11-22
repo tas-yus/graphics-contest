@@ -13,7 +13,6 @@ public class ScreenShot {
 		   Rectangle screenRectangle = new Rectangle(screenSize);
 		   Robot robot = new Robot();
 		   BufferedImage image = robot.createScreenCapture(screenRectangle);
-		   ImageIO.write(image, "png", new File(fileName));
-
+		   ImageIO.write(image, "jpg", new File(fileName));
 		}
 }
