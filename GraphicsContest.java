@@ -282,25 +282,23 @@ public class GraphicsContest extends GraphicsProgram {
 		add(brushStatus);
 		add(colorMode);
 		add(symmetryMode);
-		if(auto == true) {
-			add(speedStatus);
-		} else {
-			add(brushSizeStatus);
-		}
 		if (adjustSymmetry == true) {
-			remove(brushSizeStatus);
 			symmetryNum = new GLabel ("Axis x" + symmetry, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 			symmetryNum.move(-symmetryNum.getWidth()/2, +symmetryNum.getAscent()/2);
 			add(symmetryNum);
 		}
 		if (adjustPlane == true) {
-			remove(brushSizeStatus);
 			planeNum = new GLabel ("Plane x" + plane, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 			planeNum.move(-planeNum.getWidth()/2, +planeNum.getAscent()/2);
 			add(planeNum);
 		}
 		if (line == true) {
 			addSymLine(symLine);
+		}
+		if(auto == true) {
+			add(speedStatus);
+		} else {
+			add(brushSizeStatus);
 		}
 	}
 
