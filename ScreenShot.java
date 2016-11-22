@@ -8,11 +8,10 @@ import java.io.File;
 
 public class ScreenShot {
 	public static void captureScreen(String fileName) throws Exception {
-
-		   Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		   Rectangle screenRectangle = new Rectangle(screenSize);
-		   Robot robot = new Robot();
-		   BufferedImage image = robot.createScreenCapture(screenRectangle);
-		   ImageIO.write(image, "jpg", new File(fileName));
+		BufferedImage bi = new BufferedImage(this.getSize().width, this.getSize().height, BufferedImage.TYPE_INT_ARGB); 
+		Graphics g = bi.createGraphics();
+		this.paint(g);  //this == JComponent
+		g.dispose();
+		try{ImageIO.write(bi,"png",new File("test.png"));}catch (Exception e) {}
 		}
 }

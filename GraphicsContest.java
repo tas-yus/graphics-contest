@@ -10,6 +10,10 @@ import acm.util.*;
 import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.imageio.ImageIO;
 
 public class GraphicsContest extends GraphicsProgram {
 
@@ -428,11 +432,14 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (clickIcon9(e) == true) {
+			BufferedImage bi = new BufferedImage(this.getSize().width, this.getSize().height, BufferedImage.TYPE_INT_ARGB); 
+			Graphics g = bi.createGraphics();
+			this.paint(g); 
+			g.dispose();
 			try {
-				ScreenShot.captureScreen("hola");
-			} catch (Exception e1) {
-				e1.printStackTrace();
-			};
+			ImageIO.write(bi,"png",new File("test.png"));
+			}
+			catch (Exception e1) {}
 		}
 		if (pure == true) {
 			if(clickColorIcon1(e) == true) {
