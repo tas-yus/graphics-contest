@@ -84,12 +84,12 @@ public class GraphicsContest extends GraphicsProgram {
 	private double[] slope;
 	private double[][] coordinate;
 	private GLine[] symLine;
-	
+
 	private Color[][] plainColor;
 	private Color[] chosenColor;
 	private Color chosenPureColor;
 	private int chosenMixedColor;
-	
+
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
@@ -222,7 +222,7 @@ public class GraphicsContest extends GraphicsProgram {
 		addSymLine(symLine);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 	}
-	
+
 	private void setUpAxes (int fold) {
 		double A = Math.cos(2*Math.PI/fold);
 		double B = Math.sin(2*Math.PI/fold);
@@ -256,7 +256,7 @@ public class GraphicsContest extends GraphicsProgram {
 			symLine[n] = symmetryLine;
 		}
 	}
-	
+
 	private void updateIcons() {
 		remove(brushStatus);
 		remove(brushSizeStatus);
@@ -356,7 +356,7 @@ public class GraphicsContest extends GraphicsProgram {
 				}
 				updateIcons();
 			}
-			}
+		}
 		if (clickIcon3(e) == true) {
 			if (auto == true && speed > 0) {
 				speed -= 5;
@@ -728,6 +728,25 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 			updateIcons();
 		}
+		if (e.getKeyCode() == KeyEvent.VK_ALT) {
+			if (auto == false) {
+				if (adjustSize == true) {
+					adjustSize = false;
+					if (rotation == true) {
+						adjustSymmetry = true;
+						adjustPlane = false;
+					} else if (reflection == true) {
+						adjustPlane = true;
+						adjustSymmetry = false;
+					}
+				} else if (adjustSize == false) {
+					adjustSize = true;
+					adjustPlane = false;
+					adjustSymmetry = false;
+				}
+				updateIcons();
+			}
+		}
 	}
 	private void setUpBall(double x, double y) {
 		addAll(s, x, y);
@@ -855,7 +874,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (icon2.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-	
+
 	private boolean clickIcon3(MouseEvent e) {
 		if (icon3.contains(e.getX(),e.getY())) return true;
 		else return false;
@@ -875,7 +894,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (icon6.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-	
+
 	private boolean clickIcon7(MouseEvent e) {
 		if (icon7.contains(e.getX(),e.getY())) return true;
 		else return false;
@@ -885,7 +904,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (icon8.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-	
+
 	private boolean clickColorIcon1(MouseEvent e) {
 		if (colorIcon1.contains(e.getX(),e.getY())) return true;
 		else return false;
@@ -924,19 +943,19 @@ public class GraphicsContest extends GraphicsProgram {
 		if (colorIcon9.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-	
+
 	private void addSymLine(GLine[] symLine) {
 		for(int i = 0; i < symLine.length; i++) {
 			add(symLine[i]);
 		}
 	}
-	
+
 	private void removeSymLine(GLine[] symLine) {
 		for(int i = 0; i < symLine.length; i++) {
 			remove(symLine[i]);
 		}
 	}
-	
+
 	private int colorToInt(Color color) {
 		if (color == plainColor[RED][0]) return 0;
 		else if (color == plainColor[ORANGE][0]) return 1;
@@ -949,7 +968,7 @@ public class GraphicsContest extends GraphicsProgram {
 		else if (color == plainColor[BLACK][0]) return 8;
 		else return 0;
 	}
-	
+
 	private double[][] powMatrix(double[][] matrix, int n) {
 		double [][] result = new double[matrix.length][matrix[0].length];
 		for (int i = 0; i < matrix.length; i++) {
@@ -968,7 +987,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		return result;
 	}
-	
+
 	private double getSlope(GLine line) {
 		double x2 = (line.getEndPoint()).getX();
 		double y2 = (line.getEndPoint()).getY();
@@ -977,7 +996,7 @@ public class GraphicsContest extends GraphicsProgram {
 		double slope = -(y2 - y1)/(x2 - x1);
 		return slope;
 	}
-	
+
 	private void autoDraw() {
 		double x = getWidth()/2 - s;
 		double y = getHeight()/2 + ICON_HEIGHT/2;
