@@ -296,6 +296,8 @@ public class GraphicsContest extends GraphicsProgram {
 			addSymLine(symLine);
 		}
 		if(auto == true) {
+			remove(symmetryNum);
+			remove(planeNum);
 			add(speedStatus);
 		} else {
 			add(brushSizeStatus);
