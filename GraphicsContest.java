@@ -909,7 +909,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (clickIcon2(e) || clickIcon3(e) || clickIcon4(e) || clickIcon5(e) || clickIcon6(e) || 
 				clickIcon7(e) || clickIcon8(e) || clickColorIcon1(e) || clickColorIcon2(e) || clickColorIcon3(e) ||
 				clickColorIcon4(e) || clickColorIcon5(e) || clickColorIcon6(e) ||
-				clickColorIcon7(e) || clickColorIcon8(e)) {
+				clickColorIcon7(e) || clickColorIcon8(e) || clickColorIcon9(e)) {
 			return false;
 		}
 		else return true;
