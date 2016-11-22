@@ -49,7 +49,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean reflection = true;
 	private boolean adjustSize = false;
 	private boolean adjustSymmetry = false;
-	private boolean adjustPlane = false;
+	private boolean adjustPlane = true;
 	private int s = BRUSH_SIZE;
 	private int speed = DELAY;
 	private int speedLevel = 1;
