@@ -390,7 +390,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (clickIcon5(e) == true) {
 			if (line == false) {
-				if (reflection == true) addSymLine(symLine);
+				addSymLine(symLine);
 				line = true;
 			} else {
 				removeSymLine(symLine);
