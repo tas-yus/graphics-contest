@@ -94,15 +94,10 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color[] chosenColor;
 	private Color chosenPureColor;
 	private int chosenMixedColor;
-	private BufferedImage bi;
-	private Graphics g;
 	
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
-		bi = new BufferedImage(this.getSize().width, this.getSize().height, BufferedImage.TYPE_INT_ARGB); 
-		g = bi.createGraphics();
-		this.paint(g); 
 		addMouseListeners();
 		addKeyListeners();
 		setUpColors();
@@ -434,13 +429,6 @@ public class GraphicsContest extends GraphicsProgram {
 				symmetryModeStatus = "Rotation";
 				updateIcons();
 			}
-		}
-		if (clickIcon9(e) == true) {
-			g.dispose();
-			try {
-			ImageIO.write(bi,"png",new File("test.png"));
-			}
-			catch (Exception e1) {}
 		}
 		if (pure == true) {
 			if(clickColorIcon1(e) == true) {
