@@ -747,6 +747,25 @@ public class GraphicsContest extends GraphicsProgram {
 				updateIcons();
 			}
 		}
+		if (e.getKeyCode() == KeyEvent.VK_CONTROL == true) {
+			if (rotation == true) {
+				rotation = false;
+				reflection = true;
+				adjustSymmetry = false;
+				adjustPlane = true;
+				adjustSize = false;
+				symmetryModeStatus = "Reflection";
+				updateIcons();
+			} else {
+				reflection = false;
+				rotation = true;
+				adjustPlane = false;
+				adjustSymmetry = true;
+				adjustSize = false;
+				symmetryModeStatus = "Rotation";
+				updateIcons();
+			}
+		}
 	}
 	private void setUpBall(double x, double y) {
 		addAll(s, x, y);
