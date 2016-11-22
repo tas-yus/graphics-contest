@@ -7,7 +7,6 @@ import acm.program.*;
 import acm.graphics.*;
 import acm.util.*;
 
-import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
@@ -436,8 +435,6 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (clickIcon9(e) == true) {
-			this.paint(g); 
-			g.dispose();
 			try {
 			ImageIO.write(bi,"png",new File("test.png"));
 			}
@@ -765,6 +762,8 @@ public class GraphicsContest extends GraphicsProgram {
 					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
 					pixel.setFilled(true);
 					pixel.setColor(newColor);
+					this.paint(g); 
+					g.dispose();
 					add(pixel);
 				}
 			}
@@ -795,6 +794,8 @@ public class GraphicsContest extends GraphicsProgram {
 					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
 					pixel.setFilled(true);
 					pixel.setColor(newColor);
+					this.paint(g); 
+					g.dispose();
 					add(pixel);
 				}
 			}
