@@ -766,7 +766,7 @@ public class GraphicsContest extends GraphicsProgram {
 				updateIcons();
 			}
 		}
-		if (e.getKeyCode() == KeyEvent.VK_L) {
+		if (e.getKeyCode() == KeyEvent.VK_Q) {
 			removeAll();
 			setUpColors();
 			setUpIcons();
