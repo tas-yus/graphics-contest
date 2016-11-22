@@ -283,6 +283,9 @@ public class GraphicsContest extends GraphicsProgram {
 		add(colorMode);
 		add(symmetryMode);
 		if(auto == true) {
+			remove(brushSizeStatus);
+			remove(symmetryNum);
+			remove(planeNum);
 			add(speedStatus);
 		} else {
 			add(brushSizeStatus);
