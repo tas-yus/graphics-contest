@@ -225,7 +225,7 @@ public class GraphicsContest extends GraphicsProgram {
 		colorIcon9 = new GRect (colorIcon8.getX() + colorIcon8.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon9);
 		if (rotation == true) setUpAxes(symmetry);
-		if (reflection == true) setUpPlanes(plane);
+		else if (reflection == true) setUpPlanes(plane);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 	}
 	
@@ -379,7 +379,7 @@ public class GraphicsContest extends GraphicsProgram {
 				speedLevel--;
 			} else if (adjustSize == true && (s != 0)) {
 				s--;
-			} else if (adjustSymmetry == true && symmetry > 0) {
+			} else if (adjustSymmetry == true && symmetry > 1) {
 				symmetry--;
 			} else if (adjustPlane == true && plane > 0) {
 				plane--;
