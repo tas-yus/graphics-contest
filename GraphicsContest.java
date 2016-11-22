@@ -228,7 +228,22 @@ public class GraphicsContest extends GraphicsProgram {
 		if (reflection == true) setUpPlanes(plane);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 	}
-
+	
+	private void setUpAxes (int fold) {
+		double A = Math.cos(2*Math.PI/fold);
+		double B = Math.sin(2*Math.PI/fold);
+		double[][] rotationalArray = new double[2][2];
+		rotationalArray[0][0] = A;
+		rotationalArray[0][1] = B;
+		rotationalArray[1][0] = -B;
+		rotationalArray[1][1] = A;
+		symLine = new GLine[fold];
+		double y = getHeight() - (getHeight()/2 + ICON_HEIGHT/2);
+		for (int n = 0; n < fold; n++) {
+			GLine symmetryLine = new GLine (getWidth()/2, getHeight()/2 + ICON_HEIGHT/2, getWidth()/2 + y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 + y*(powMatrix(rotationalArray, n)[1][1]));
+			symLine[n] = symmetryLine;
+		}
+	}
 	private void setUpPlanes (int fold) {
 		double A = Math.cos(2*Math.PI/2/fold);
 		double B = Math.sin(2*Math.PI/2/fold);
@@ -244,22 +259,6 @@ public class GraphicsContest extends GraphicsProgram {
 			GLine symmetryLine = new GLine (getWidth()/2 + y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 + y*(powMatrix(rotationalArray, n)[1][1]),
 					getWidth()/2 - y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 - y*(powMatrix(rotationalArray, n)[1][1]));
 			slope[n] = getSlope(symmetryLine);
-			symLine[n] = symmetryLine;
-		}
-	}
-	
-	private void setUpAxes (int fold) {
-		double A = Math.cos(2*Math.PI/2/fold);
-		double B = Math.sin(2*Math.PI/2/fold);
-		double[][] rotationalArray = new double[2][2];
-		rotationalArray[0][0] = A;
-		rotationalArray[0][1] = B;
-		rotationalArray[1][0] = -B;
-		rotationalArray[1][1] = A;
-		symLine = new GLine[fold];
-		double y = getHeight() - (getHeight()/2 + ICON_HEIGHT/2);
-		for (int n = 0; n < fold; n++) {
-			GLine symmetryLine = new GLine (getWidth()/2, getHeight()/2 + ICON_HEIGHT/2, getWidth()/2 + y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 + y*(powMatrix(rotationalArray, n)[1][1]));
 			symLine[n] = symmetryLine;
 		}
 	}
