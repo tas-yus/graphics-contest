@@ -102,6 +102,8 @@ public class GraphicsContest extends GraphicsProgram {
 		pause(PAUSE);
 		bi = new BufferedImage(this.getSize().width, this.getSize().height, BufferedImage.TYPE_INT_ARGB); 
 		g = bi.createGraphics();
+		this.paint(g); 
+		g.dispose();
 		addMouseListeners();
 		addKeyListeners();
 		setUpColors();
@@ -762,8 +764,6 @@ public class GraphicsContest extends GraphicsProgram {
 					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
 					pixel.setFilled(true);
 					pixel.setColor(newColor);
-					this.paint(g); 
-					g.dispose();
 					add(pixel);
 				}
 			}
@@ -794,8 +794,6 @@ public class GraphicsContest extends GraphicsProgram {
 					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
 					pixel.setFilled(true);
 					pixel.setColor(newColor);
-					this.paint(g); 
-					g.dispose();
 					add(pixel);
 				}
 			}
