@@ -7,7 +7,7 @@ import javax.imageio.ImageIO;
 import java.io.File;
 
 public class ScreenShot {
-	public void captureScreen(String fileName) throws Exception {
+	public static void captureScreen(String fileName) throws Exception {
 
 		   Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		   Rectangle screenRectangle = new Rectangle(screenSize);

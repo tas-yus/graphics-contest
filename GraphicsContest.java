@@ -428,7 +428,11 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (clickIcon9(e) == true) {
-			ScreenShot.ca
+			try {
+				ScreenShot.captureScreen("hola");
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			};
 		}
 		if (pure == true) {
 			if(clickColorIcon1(e) == true) {
