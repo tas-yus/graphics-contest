@@ -192,6 +192,12 @@ public class GraphicsContest extends GraphicsProgram {
 		minusSize = new GLabel ("-", icon4.getX() + icon4.getWidth()/2, ICON_HEIGHT/2);
 		minusSize.move(-minusSize.getWidth()/2, +minusSize.getAscent()/2);
 		add(minusSize);
+		GLabel iconSign = new GLabel ("H", icon5.getX() + icon5.getWidth()/2, ICON_HEIGHT/2);
+		iconSign.move(-iconSign.getWidth()/2, +iconSign.getAscent()/2);
+		add(iconSign);
+		GLabel iconSign2 = new GLabel ("C", icon6.getX() + icon6.getWidth()/2, ICON_HEIGHT/2);
+		iconSign2.move(-iconSign2.getWidth()/2, +iconSign2.getAscent()/2);
+		add(iconSign2);
 		colorMode = new GLabel (colorModeStatus, icon7.getX() + icon7.getWidth()/2, ICON_HEIGHT/2);
 		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
 		add(colorMode);
