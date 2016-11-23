@@ -430,6 +430,7 @@ public class GraphicsContest extends GraphicsProgram {
 				colorModeStatus = "Pure";
 				updateIcons();
 			}
+			colorTray.setColor(plainColor[RED][0]);
 		}
 		if (clickIcon8(e) == true) {
 			if (rotation == true) {
