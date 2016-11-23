@@ -90,21 +90,11 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color chosenPureColor;
 	private int chosenMixedColor;
 
-	public void componentHidden(ComponentEvent e) { }
-	public void componentMoved(ComponentEvent e) { }
-	public void componentResized(ComponentEvent e) { 
-		setUpColors();
-		setUpIcons();
-		setUpColorChoice();
-		updateIcons(); }
-	public void componentShown(ComponentEvent e) { }
-
 	public void run() {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
 		addMouseListeners();
 		addKeyListeners();
-		addComponentListener((ComponentListener) this);
 		setUpColors();
 		setUpIcons();
 		setUpColorChoice();
