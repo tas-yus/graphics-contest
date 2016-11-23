@@ -244,6 +244,7 @@ public class GraphicsContest extends GraphicsProgram {
 			symLine[n] = symmetryLine;
 		}
 	}
+	
 	private void setUpPlanes (int fold) {
 		double A = Math.cos(2*Math.PI/2/fold);
 		double B = Math.sin(2*Math.PI/2/fold);
