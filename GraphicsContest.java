@@ -467,7 +467,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (clickIcon8(e) == true) {
 			if (rotation == true) {
 				rotation = false;
-				reflection = false;
+				translation = true;
 				adjustSymmetry = false;
 				adjustPlane = false;
 				adjustBlock = true;
