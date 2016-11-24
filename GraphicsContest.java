@@ -914,7 +914,7 @@ public class GraphicsContest extends GraphicsProgram {
 			for (int j = 1; j < coordinate.length; j++) {
 				double X = coordinate[j][0];
 				double Y = coordinate[0][j];
-				GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
+				GOval pixel = new GOval (getWidth()/2 + X, getHeight()/2 + ICON_HEIGHT/2 + Y, s, s);
 				pixel.setFilled(true);
 				pixel.setColor(newColor);
 				add(pixel);
