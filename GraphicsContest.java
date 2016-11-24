@@ -43,15 +43,16 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int DEFAULT_COLOR = CYAN;
 	private static final int N_COLORS = 9;
 	private static final int DEFAULT_AUTO_SPEED_DELAY = 200;
+	private static final int DEFAULT_AUTO_SPEED_LEVEL = 1;
 	private static final int MIXED = 0;
 	private static final int PURE = 1;
 	private static final int PLAIN = 2;
 	private static final int AUTO = 3;
-	private static final int DEFAULT_COLOR_MODE = MIXED;
+	private static final int DEFAULT_COLOR_MODE = PURE;
 	private static final int ROT = 0;
 	private static final int REF = 1;
 	private static final int TRANS = 2;
-	private static final int DEFAULT_SYM_MODE = REF;
+	private static final int DEFAULT_SYM_MODE = ROT;
 	private static final int AXIS = 0;
 	private static final int PLANE = 1;
 	private static final int BLOCK = 2;
@@ -67,7 +68,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private int Adjust = DEFAULT_ADJUST;
 	private int s = DEFAULT_BRUSH_SIZE;
 	private int speed = DEFAULT_AUTO_SPEED_DELAY;
-	private int speedLevel = 1;
+	private int speedLevel = DEFAULT_AUTO_SPEED_LEVEL;
 	private int symmetry = DEFAULT_SYMMETRY;
 	private int plane = DEFAULT_PLANE;
 	private int block = DEFAULT_BLOCK;
@@ -435,11 +436,11 @@ public class GraphicsContest extends GraphicsProgram {
 				speedLevel--;
 			} else if (Adjust == SIZE && (s != 0)) {
 				s--;
-			} else if (Adjust == AXIS && symmetry > MIN_SYMMETRY) {
+			} else if (Adjust == AXIS && symmetry > MIN_SYMMETRY + 1) {
 				symmetry--;
-			} else if (Adjust == PLANE && plane > MIN_PLANE) {
+			} else if (Adjust == PLANE && plane > MIN_PLANE + 1) {
 				plane--;
-			} else if (Adjust == BLOCK && block > MIN_BLOCK) {
+			} else if (Adjust == BLOCK && block > MIN_BLOCK + 1) {
 				block--;
 			}
 			updateIcons();
@@ -776,11 +777,11 @@ public class GraphicsContest extends GraphicsProgram {
 				speedLevel--;
 			} else if (Adjust == SIZE && (s != 0)) {
 				s--;
-			} else if (Adjust == AXIS && symmetry > MIN_SYMMETRY) {
+			} else if (Adjust == AXIS && symmetry > MIN_SYMMETRY + 1) {
 				symmetry--;
-			} else if (Adjust == PLANE && plane > MIN_PLANE) {
+			} else if (Adjust == PLANE && plane > MIN_PLANE + 1) {
 				plane--;
-			} else if (Adjust == BLOCK && block > MIN_BLOCK) {
+			} else if (Adjust == BLOCK && block > MIN_BLOCK + 1) {
 				block--;
 			}
 			updateIcons();
