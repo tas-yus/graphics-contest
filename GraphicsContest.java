@@ -43,14 +43,17 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean line = true;
 	private boolean rotation = false;
 	private boolean reflection = true;
+	private boolean translation = true;
 	private boolean adjustSize = false;
 	private boolean adjustSymmetry = false;
 	private boolean adjustPlane = true;
+	private boolean adjustBlock = true;
 	private int s = BRUSH_SIZE;
 	private int speed = DELAY;
 	private int speedLevel = 1;
 	private int symmetry = 8;
 	private int plane = 4;
+	private int block = 2;
 	private GRect colorTray;
 	private GRect icon1;
 	private GRect icon2;
@@ -374,6 +377,8 @@ public class GraphicsContest extends GraphicsProgram {
 				symmetry++;
 			} else if (adjustPlane == true && plane < 8) {
 				plane++;
+			} else if (adjustBlock == true && block < 6) {
+				block++;
 			}
 			updateIcons();
 		}
@@ -387,6 +392,8 @@ public class GraphicsContest extends GraphicsProgram {
 				symmetry--;
 			} else if (adjustPlane == true && plane > 1) {
 				plane--;
+			} else if (adjustBlock == true && block > 1) {
+				block++;
 			}
 			updateIcons();
 		}
@@ -439,14 +446,25 @@ public class GraphicsContest extends GraphicsProgram {
 				reflection = true;
 				adjustSymmetry = false;
 				adjustPlane = true;
+				adjustBlock = false;
 				adjustSize = false;
 				symmetryModeStatus = "Reflection";
 				updateIcons();
-			} else {
+			} else if (reflection == true) {
 				reflection = false;
-				rotation = true;
+				translation = true;
 				adjustPlane = false;
 				adjustSymmetry = true;
+				adjustSize = false;
+				adjustBlock = false;
+				symmetryModeStatus = "Rotation";
+				updateIcons();
+			} else if (translation == true) {
+				translation = false;
+				rotation = false;
+				adjustBlock = true;
+				adjustPlane = false;
+				adjustSymmetry = false;
 				adjustSize = false;
 				symmetryModeStatus = "Rotation";
 				updateIcons();
