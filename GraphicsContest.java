@@ -903,7 +903,7 @@ public class GraphicsContest extends GraphicsProgram {
 				double X = coordinate[j][0];
 				double Y = coordinate[0][j];
 				if (getHeight()/2 + ICON_HEIGHT/2 + Y > ICON_HEIGHT) {
-					GOval pixel = new GOval (getWidth()/2 + X, getHeight()/2 + ICON_HEIGHT/2 + Y, s, s);
+					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
 					pixel.setFilled(true);
 					pixel.setColor(newColor);
 					add(pixel);
