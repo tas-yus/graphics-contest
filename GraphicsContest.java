@@ -48,6 +48,10 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int PLAIN = 2;
 	private static final int AUTO = 3;
 	private static final int DEFAULT_COLOR_MODE = MIXED;
+	private static final int ROT = 0;
+	private static final int REF = 1;
+	private static final int TRANS = 2;
+	private static final int DEFAULT_SYM_MODE = REF;
 	
 	private Color newColor;
 	private boolean draw = false;
@@ -64,6 +68,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean adjustPlane = true;
 	private boolean adjustBlock = false;
 	private int ColorMode = DEFAULT_COLOR_MODE;
+	private int SymMode = DEFAULT_SYM_MODE;
 	private int s = DEFAULT_BRUSH_SIZE;
 	private int speed = DEFAULT_AUTO_SPEED_DELAY;
 	private int speedLevel = 1;
@@ -254,9 +259,9 @@ public class GraphicsContest extends GraphicsProgram {
 		if (ColorMode == MIXED) {
 			chosenMixedColor = DEFAULT_COLOR;
 		} 
-		if (rotation == true) setUpAxes(symmetry);
-		if (reflection == true) setUpPlanes(plane);
-		if (translation == true) setUpBlocks(block);
+		if (SymMode == ROT) setUpAxes(symmetry);
+		if (SymMode == REF) setUpPlanes(plane);
+		if (SymMode == TRANS) setUpBlocks(block);
 		addSymLine(symLine);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 	}
@@ -333,9 +338,9 @@ public class GraphicsContest extends GraphicsProgram {
 		add(brushStatus);
 		add(colorMode);
 		add(symmetryMode);
-		if (rotation == true) setUpAxes(symmetry);
-		if (reflection == true) setUpPlanes(plane);
-		if (translation == true) setUpBlocks(block);
+		if (SymMode == ROT) setUpAxes(symmetry);
+		if (SymMode == REF) setUpPlanes(plane);
+		if (SymMode == TRANS) setUpBlocks(block);
 		if (adjustSize == true) {
 			add(brushSizeStatus);
 		}
@@ -401,15 +406,15 @@ public class GraphicsContest extends GraphicsProgram {
 			if (auto == false) {
 				if (adjustSize == true) {
 					adjustSize = false;
-					if (rotation == true) {
+					if (SymMode == ROT) {
 						adjustSymmetry = true;
 						adjustPlane = false;
 						adjustBlock = false;
-					} else if (reflection == true) {
+					} else if (SymMode == REF) {
 						adjustPlane = true;
 						adjustSymmetry = false;
 						adjustBlock = false;
-					} else if (translation == true) {
+					} else if (SymMode == TRANS) {
 						adjustBlock = true;
 						adjustPlane = false;
 						adjustSymmetry = false;
@@ -493,27 +498,24 @@ public class GraphicsContest extends GraphicsProgram {
 			colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
 		}
 		if (clickIcon8(e) == true) {
-			if (rotation == true) {
-				rotation = false;
-				translation = true;
+			if (SymMode == ROT) {
+				SymMode = TRANS;
 				adjustSymmetry = false;
 				adjustPlane = false;
 				adjustBlock = true;
 				adjustSize = false;
 				symmetryModeStatus = "Translation";
 				updateIcons();
-			} else if (reflection == true) {
-				reflection = false;
-				rotation = true;
+			} else if (SymMode == REF) {
+				SymMode = ROT;
 				adjustPlane = false;
 				adjustSymmetry = true;
 				adjustSize = false;
 				adjustBlock = false;
 				symmetryModeStatus = "Rotation";
 				updateIcons();
-			} else if (translation == true) {
-				translation = false;
-				reflection = true;
+			} else if (SymMode == TRANS) {
+				SymMode = REF;
 				adjustBlock = false;
 				adjustPlane = true;
 				adjustSymmetry = false;
@@ -812,15 +814,15 @@ public class GraphicsContest extends GraphicsProgram {
 			if (ColorMode == AUTO) {
 				if (adjustSize == true) {
 					adjustSize = false;
-					if (rotation == true) {
+					if (SymMode == ROT) {
 						adjustSymmetry = true;
 						adjustPlane = false;
 						adjustBlock = false;
-					} else if (reflection == true) {
+					} else if (SymMode == REF) {
 						adjustPlane = true;
 						adjustSymmetry = false;
 						adjustBlock = false;
-					} else if (translation == true) {
+					} else if (SymMode == TRANS) {
 						adjustBlock = true;
 						adjustPlane = false;
 						adjustSymmetry = false;
@@ -835,27 +837,24 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_CONTROL == true) {
-			if (rotation == true) {
-				rotation = false;
-				translation = true;
+			if (SymMode == ROT) {
+				SymMode = TRANS;
 				adjustSymmetry = false;
 				adjustPlane = false;
 				adjustBlock = true;
 				adjustSize = false;
 				symmetryModeStatus = "Translation";
 				updateIcons();
-			} else if (reflection == true) {
-				reflection = false;
-				rotation = true;
+			} else if (SymMode == REF) {
+				SymMode = ROT;
 				adjustPlane = false;
 				adjustSymmetry = true;
 				adjustSize = false;
 				adjustBlock = false;
 				symmetryModeStatus = "Rotation";
 				updateIcons();
-			} else if (translation == true) {
-				translation = false;
-				reflection = true;
+			} else if (SymMode == TRANS) {
+				SymMode = REF;
 				adjustBlock = false;
 				adjustPlane = true;
 				adjustSymmetry = false;
@@ -898,19 +897,19 @@ public class GraphicsContest extends GraphicsProgram {
 		if (ColorMode == AUTO) {
 			newColor = mixColor(chosenMixedColor);
 		}
-		if (rotation == true) {
+		if (SymMode == ROT) {
 			addPixel(x,y,symmetry);
 		}
-		if (reflection == true) {
+		if (SymMode == REF) {
 			addPixel(x,y,plane);
 		}
-		if (translation == true) {
+		if (SymMode == TRANS) {
 			addPixel(x,y,block);
 		}
 	}
 
 	private void addPixel(double x, double y, int fold) {
-		if (rotation == true) {
+		if (SymMode == ROT) {
 			double A = Math.cos(2*Math.PI/fold);
 			double B = Math.sin(2*Math.PI/fold);
 			double[][] rotationalArray = new double[2][2];
@@ -929,7 +928,7 @@ public class GraphicsContest extends GraphicsProgram {
 				}
 			}
 		}
-		if (reflection == true) {
+		if (SymMode == REF) {
 			coordinate[1][0] = x;
 			coordinate[0][1] = y;
 			coordinate[2][0] = -x;
@@ -957,7 +956,7 @@ public class GraphicsContest extends GraphicsProgram {
 				add(pixel);
 			}
 		}
-		if (translation == true) {
+		if (SymMode == TRANS) {
 			x += getWidth()/2;
 			y += getHeight()/2 - ICON_HEIGHT/2;
 			double width = getWidth()/fold;
