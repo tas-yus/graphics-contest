@@ -937,12 +937,12 @@ public class GraphicsContest extends GraphicsProgram {
 			for (int i = 0; i < fold; i++) {
 				for (int j = 0; j < fold; j++) {
 					if (i % 2 == 0) {
-						X = width*i + x;
+						X = width*(2*i + 1) + x;
 					} else {
 						X = width*(2*i) - x;
 					}
 					if (j % 2 == 0) {
-						Y = ICON_HEIGHT + height*j + y;
+						Y = ICON_HEIGHT + height*(2*j + 1) + y;
 					} else {
 						Y = ICON_HEIGHT + height*(2*j) - y;
 					}
