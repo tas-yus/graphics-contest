@@ -936,14 +936,17 @@ public class GraphicsContest extends GraphicsProgram {
 			double Y = 0;
 			for (int i = 0; i < fold; i++) {
 				for (int j = 0; j < fold; j++) {
-					if (i % 2 == 0) {
+					if (i % 2 == 0 && j % 2 == 0) {
 						X = width*i + x;
-					} else {
-						X = width*i - x;
-					}
-					if (j % 2 == 0) {
 						Y = ICON_HEIGHT + height*j + y;
-					} else {
+					} else if (i % 2 != 0 && j % 2 == 0) {
+						X = width*i - x;
+						Y = ICON_HEIGHT + height*j + y;
+					} else if (i % 2 == 0 && j % 2 != 0) {
+						X = width*i + x;
+						Y = ICON_HEIGHT + height*j - y;
+					} else if (i % 2 != 0 && j % 2 != 0) {
+						X = width*i - x;
 						Y = ICON_HEIGHT + height*j - y;
 					}
 					GOval pixel = new GOval (X - s/2, Y - s/2, s, s);
