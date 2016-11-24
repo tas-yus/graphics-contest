@@ -52,7 +52,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private int speed = DELAY;
 	private int speedLevel = 1;
 	private int symmetry = 8;
-	private int plane = 4;
+	private int plane = 5;
 	private int block = 2;
 	private GRect colorTray;
 	private GRect icon1;
@@ -416,7 +416,7 @@ public class GraphicsContest extends GraphicsProgram {
 			} else if (adjustPlane == true && plane > 1) {
 				plane--;
 			} else if (adjustBlock == true && block > 1) {
-				block++;
+				block--;
 			}
 			updateIcons();
 		}
