@@ -276,7 +276,7 @@ public class GraphicsContest extends GraphicsProgram {
 			symLine[i] = symmetryLine;
 		}
 		for (int j = 0; j < fold; j++) {
-			GLine symmetryLine = new GLine (0, ICON_HEIGHT + (getHeight() - ICON_HEIGHT)*j/fold, getWidth(), (getHeight() - ICON_HEIGHT)*j/fold);
+			GLine symmetryLine = new GLine (0, ICON_HEIGHT + (getHeight() - ICON_HEIGHT)*j/fold, getWidth(), ICON_HEIGHT + (getHeight() - ICON_HEIGHT)*j/fold);
 			symLine[fold + j] = symmetryLine;
 		}
 		
