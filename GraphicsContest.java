@@ -941,7 +941,7 @@ public class GraphicsContest extends GraphicsProgram {
 					} else {
 						X = width*(2*i + 1) - x;
 					}
-					if (j % 2 == 1) {
+					if (j % 2 == 0) {
 						Y = ICON_HEIGHT + height*j + y;
 					} else {
 						Y = ICON_HEIGHT + height*(2*j + 1) - y;
