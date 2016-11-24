@@ -26,6 +26,9 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int MAX_PLANE = 8;
 	private static final int MAX_SYMMETRY = 18;
 	private static final int MAX_BLOCK = 6;
+	private static final int MIN_PLANE = 0;
+	private static final int MIN_SYMMETRY = 0;
+	private static final int MIN_BLOCK = 0;
 	private static final int HEIGHT = 700 + ICON_HEIGHT;
 	private static final int PAUSE = 10;
 	private static final int BRUSH_SIZE = 5;
@@ -38,6 +41,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int PURPLE = 6;
 	private static final int WHITE = 7;
 	private static final int BLACK = 8;
+	private static final int DEFAULT_COLOR = RED;
 	private static final int N_COLORS = 9;
 
 	private Color newColor;
@@ -164,7 +168,7 @@ public class GraphicsContest extends GraphicsProgram {
 		colorTray = new GRect (0, 0,S_ICON_WIDTH, ICON_HEIGHT);
 		add(colorTray);
 		colorTray.setFilled(true);
-		colorTray.setColor(plainColor[RED][0]);
+		colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
 		icon1 = new GRect (colorTray.getX() + colorTray.getWidth(), 0, L_ICON_WIDTH, ICON_HEIGHT);
 		add(icon1);
 		icon2 = new GRect (icon1.getX() + icon1.getWidth(), 0, L_ICON_WIDTH, ICON_HEIGHT);
@@ -425,11 +429,11 @@ public class GraphicsContest extends GraphicsProgram {
 				speedLevel--;
 			} else if (adjustSize == true && (s != 0)) {
 				s--;
-			} else if (adjustSymmetry == true && symmetry > 1) {
+			} else if (adjustSymmetry == true && symmetry > MIN_SYMMETRY) {
 				symmetry--;
-			} else if (adjustPlane == true && plane > 1) {
+			} else if (adjustPlane == true && plane > MIN_PLANE) {
 				plane--;
-			} else if (adjustBlock == true && block > 1) {
+			} else if (adjustBlock == true && block > MIN_BLOCK) {
 				block--;
 			}
 			updateIcons();
@@ -456,26 +460,26 @@ public class GraphicsContest extends GraphicsProgram {
 				pure = true;
 				colorModeStatus = "Pure";
 				updateIcons();
-				chosenPureColor = plainColor[RED][0]; 
+				chosenPureColor = plainColor[DEFAULT_COLOR][0]; 
 			} else if(pure == true) {
 				pure = false;
 				plain = true;
 				colorModeStatus = "Plain";
 				updateIcons();
-				chosenColor = plainColor[RED];
+				chosenColor = plainColor[DEFAULT_COLOR];
 			} else if (plain == true) {
 				plain = false;
 				mixed = true;
 				colorModeStatus = "Mixed";
 				updateIcons();
-				chosenMixedColor = RED;
+				chosenMixedColor = DEFAULT_COLOR;
 			} else if (auto == true) {
 				auto = false;
 				pure = true;
 				colorModeStatus = "Pure";
 				updateIcons();
 			}
-			colorTray.setColor(plainColor[RED][0]);
+			colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
 		}
 		if (clickIcon8(e) == true) {
 			if (rotation == true) {
@@ -653,26 +657,26 @@ public class GraphicsContest extends GraphicsProgram {
 				plain = true;
 				colorModeStatus = "Plain";
 				updateIcons();
-				chosenColor = plainColor[RED];
+				chosenColor = plainColor[DEFAULT_COLOR];
 			} else if (plain == true) {
 				plain = false;
 				mixed = true;
 				colorModeStatus = "Mixed";
 				updateIcons();
-				chosenMixedColor = RED;
+				chosenMixedColor = DEFAULT_COLOR;
 			} else if (mixed == true) {
 				mixed = false;
 				pure = true;
 				colorModeStatus = "Pure";
 				updateIcons();
-				chosenPureColor = plainColor[RED][0]; 
+				chosenPureColor = plainColor[DEFAULT_COLOR][0]; 
 			} else if (auto == true) {
 				auto = false;
 				pure = true;
 				colorModeStatus = "Pure";
 				updateIcons();
 			}
-			colorTray.setColor(plainColor[RED][0]);
+			colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			auto = true;
@@ -775,11 +779,11 @@ public class GraphicsContest extends GraphicsProgram {
 				speedLevel++;
 			} else if (adjustSize == true) {
 				s++;
-			} else if (adjustSymmetry == true && symmetry < 25) {
+			} else if (adjustSymmetry == true && symmetry < MAX_SYMMETRY) {
 				symmetry++;
-			} else if (adjustPlane == true && plane < 8) {
+			} else if (adjustPlane == true && plane < MAX_PLANE) {
 				plane++;
-			} else if (adjustBlock == true && block < 6) {
+			} else if (adjustBlock == true && block < MAX_BLOCK) {
 				block++;
 			}
 			updateIcons();
@@ -791,11 +795,11 @@ public class GraphicsContest extends GraphicsProgram {
 				speedLevel--;
 			} else if (adjustSize == true && (s != 0)) {
 				s--;
-			} else if (adjustSymmetry == true && symmetry > 1) {
+			} else if (adjustSymmetry == true && symmetry > MIN_SYMMETRY) {
 				symmetry--;
-			} else if (adjustPlane == true && plane > 1) {
+			} else if (adjustPlane == true && plane > MIN_PLANE) {
 				plane--;
-			} else if (adjustBlock == true && block > 1) {
+			} else if (adjustBlock == true && block > MIN_BLOCK) {
 				block--;
 			}
 			updateIcons();
