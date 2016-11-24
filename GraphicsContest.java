@@ -379,14 +379,21 @@ public class GraphicsContest extends GraphicsProgram {
 					if (rotation == true) {
 						adjustSymmetry = true;
 						adjustPlane = false;
+						adjustBlock = false;
 					} else if (reflection == true) {
 						adjustPlane = true;
+						adjustSymmetry = false;
+						adjustBlock = false;
+					} else if (translation == true) {
+						adjustBlock = true;
+						adjustPlane = false;
 						adjustSymmetry = false;
 					}
 				} else if (adjustSize == false) {
 					adjustSize = true;
 					adjustPlane = false;
 					adjustSymmetry = false;
+					adjustBlock = false;
 				}
 				updateIcons();
 			}
