@@ -946,10 +946,12 @@ public class GraphicsContest extends GraphicsProgram {
 						X = width*(i+1) - x;
 						Y = ICON_HEIGHT + height*(j+1) - y;
 					}
-					GOval pixel = new GOval (X, Y, s, s);
-					pixel.setFilled(true);
-					pixel.setColor(newColor);
-					add(pixel);
+					if (Y - s/2 > ICON_HEIGHT) {
+						GOval pixel = new GOval (X - s/2, Y - s/2, s, s);
+						pixel.setFilled(true);
+						pixel.setColor(newColor);
+						add(pixel);
+					}
 				}
 			}
 		}
