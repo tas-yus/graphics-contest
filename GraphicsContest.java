@@ -15,7 +15,6 @@ public class GraphicsContest extends GraphicsProgram {
 	/*removeall, auto, rgb, mergecolor*/
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	private static final int ICON_HEIGHT = 30;
-	private static final int DELAY = 200;
 	private static final int WIDTH = 700;
 	private static final double S_ICON_WIDTH = 0.8*WIDTH/20;
 	private static final double M_ICON_WIDTH = WIDTH/10;
@@ -43,7 +42,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int BLACK = 8;
 	private static final int DEFAULT_COLOR = RED;
 	private static final int N_COLORS = 9;
-
+	private static final int DEFAULT_AUTO_SPEED_DELAY = 200;
+	
 	private Color newColor;
 	private boolean draw = false;
 	private boolean pure = false;
@@ -59,7 +59,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean adjustPlane = true;
 	private boolean adjustBlock = false;
 	private int s = BRUSH_SIZE;
-	private int speed = DELAY;
+	private int speed = DEFAULT_AUTO_SPEED_DELAY;
 	private int speedLevel = 1;
 	private int symmetry = DEFAULT_SYMMETRY;
 	private int plane = DEFAULT_PLANE;
