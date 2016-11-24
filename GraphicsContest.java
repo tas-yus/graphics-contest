@@ -932,10 +932,20 @@ public class GraphicsContest extends GraphicsProgram {
 					break;
 				}
 			}
+			double X = 0;
+			double Y = 0;
 			for (int i = 0; i < fold; i++) {
 				for (int j = 0; j < fold; j++) {
-					double X = width*i + x;
-					double Y = ICON_HEIGHT + height*j + y;
+					if (i % 2 == 0) {
+						X = width*i*2 + x;
+					} else {
+						X = width*(2*i + 1) - x;
+					}
+					if (j % 2 == 1) {
+						Y = ICON_HEIGHT + height*j + y;
+					} else {
+						Y = ICON_HEIGHT + height*(2*j + 1) + y;
+					}
 					GOval pixel = new GOval (X - s/2, Y - s/2, s, s);
 					pixel.setFilled(true);
 					pixel.setColor(newColor);
