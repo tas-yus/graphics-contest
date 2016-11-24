@@ -918,7 +918,7 @@ public class GraphicsContest extends GraphicsProgram {
 			while (true) {
 				y -= height;
 				if (y < 0) {
-					x += height;
+					y += height;
 					break;
 				}
 			}
