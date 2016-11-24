@@ -270,7 +270,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void setUpBlocks (int fold) {
-		symLine = new GLine[fold];
+		symLine = new GLine[fold*2];
 		for (int i = 0; i < fold; i++) {
 			GLine symmetryLine = new GLine (getWidth()*i/fold, ICON_HEIGHT, getWidth()*i/fold, getHeight());
 			symLine[i] = symmetryLine;
@@ -279,6 +279,7 @@ public class GraphicsContest extends GraphicsProgram {
 			GLine symmetryLine = new GLine (0, ICON_HEIGHT + (getHeight() - ICON_HEIGHT)*j/fold, getWidth(), (getHeight() - ICON_HEIGHT)*j/fold);
 			symLine[fold + j] = symmetryLine;
 		}
+		
 	}
 
 	private void updateIcons() {
