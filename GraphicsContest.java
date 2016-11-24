@@ -935,7 +935,7 @@ public class GraphicsContest extends GraphicsProgram {
 			for (int i = 0; i < fold; i++) {
 				for (int j = 0; j < fold; j++) {
 					double X = width*i + x;
-					double Y = getHeight() - height*j + y;
+					double Y = ICON_HEIGHT + height*j + y;
 					GOval pixel = new GOval (X - s/2, Y - s/2, s, s);
 					pixel.setFilled(true);
 					pixel.setColor(newColor);
