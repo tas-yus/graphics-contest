@@ -944,7 +944,7 @@ public class GraphicsContest extends GraphicsProgram {
 					if (j % 2 == 1) {
 						Y = ICON_HEIGHT + height*j + y;
 					} else {
-						Y = ICON_HEIGHT + height*(2*j + 1) + y;
+						Y = ICON_HEIGHT + height*(2*j + 1) - y;
 					}
 					GOval pixel = new GOval (X - s/2, Y - s/2, s, s);
 					pixel.setFilled(true);
