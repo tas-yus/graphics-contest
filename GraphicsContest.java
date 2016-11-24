@@ -787,7 +787,7 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_ALT) {
-			if (ColorMode == AUTO) {
+			if (ColorMode != AUTO) {
 				if (Adjust == SIZE) {
 					if (SymMode == ROT) {
 						Adjust = AXIS;
