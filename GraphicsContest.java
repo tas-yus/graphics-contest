@@ -457,7 +457,7 @@ public class GraphicsContest extends GraphicsProgram {
 				adjustSymmetry = true;
 				adjustSize = false;
 				adjustBlock = false;
-				symmetryModeStatus = "Rotation";
+				symmetryModeStatus = "Translation";
 				updateIcons();
 			} else if (translation == true) {
 				translation = false;
