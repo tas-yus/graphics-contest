@@ -493,7 +493,7 @@ public class GraphicsContest extends GraphicsProgram {
 			} else if (ColorMode == AUTO) {
 				ColorMode = PURE;
 			}
-			colorModeStatus = printColorMode(ColorMode);
+			
 			updateIcons();
 			colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
 		}
