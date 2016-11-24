@@ -187,6 +187,9 @@ public class GraphicsContest extends GraphicsProgram {
 		planeNum = new GLabel ("Plane x" + plane, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		planeNum.move(-planeNum.getWidth()/2, +planeNum.getAscent()/2);
 		if (adjustPlane == true) add(planeNum);
+		blockNum = new GLabel ("Block: " + block + " x " + block, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
+		blockNum.move(-blockNum.getWidth()/2, +blockNum.getAscent()/2);
+		add(blockNum);
 		speedStatus = new GLabel ("Speed x" + speedLevel, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		speedStatus.move(-speedStatus.getWidth()/2, +speedStatus.getAscent()/2);
 		if (auto == true) add(speedStatus);
