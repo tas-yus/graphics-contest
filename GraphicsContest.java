@@ -239,6 +239,15 @@ public class GraphicsContest extends GraphicsProgram {
 		add(colorIcon8);
 		colorIcon9 = new GRect (colorIcon8.getX() + colorIcon8.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon9);
+		if (pure == true) {
+			chosenPureColor = plainColor[DEFAULT_COLOR][0]; 
+		}
+		if (plain == true) {
+			chosenColor = plainColor[DEFAULT_COLOR]; 
+		}
+		if (mixed == true) {
+			chosenMixedColor = DEFAULT_COLOR;
+		} 
 		if (rotation == true) setUpAxes(symmetry);
 		if (reflection == true) setUpPlanes(plane);
 		if (translation == true) setUpBlocks(block);
@@ -304,9 +313,6 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(planeNum);
 		remove(blockNum);
 		removeSymLine(symLine);
-		if (rotation == true) setUpAxes(symmetry);
-		else if (reflection == true) setUpPlanes(plane);
-		else if (translation == true) setUpBlocks(block);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 		brushStatus = new GLabel ("Brush: " + status, icon1.getX() + icon1.getWidth()/2, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
@@ -321,6 +327,9 @@ public class GraphicsContest extends GraphicsProgram {
 		add(brushStatus);
 		add(colorMode);
 		add(symmetryMode);
+		if (rotation == true) setUpAxes(symmetry);
+		if (reflection == true) setUpPlanes(plane);
+		if (translation == true) setUpBlocks(block);
 		if (adjustSize == true) {
 			add(brushSizeStatus);
 		}
