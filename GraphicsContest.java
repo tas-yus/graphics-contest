@@ -52,23 +52,19 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int REF = 1;
 	private static final int TRANS = 2;
 	private static final int DEFAULT_SYM_MODE = REF;
+	private static final int AXIS = 0;
+	private static final int PLANE = 1;
+	private static final int BLOCK = 2;
+	private static final int SIZE = 3;
+	private static final int NONE = 4;
+	private static final int DEFAULT_ADJUST = DEFAULT_SYM_MODE;
 	
 	private Color newColor;
 	private boolean draw = false;
-	private boolean pure = false;
-	private boolean plain = false;
-	private boolean mixed = true;
-	private boolean auto = false;
 	private boolean line = true;
-	private boolean rotation = false;
-	private boolean reflection = true;
-	private boolean translation = false;
-	private boolean adjustSize = false;
-	private boolean adjustSymmetry = false;
-	private boolean adjustPlane = true;
-	private boolean adjustBlock = false;
 	private int ColorMode = DEFAULT_COLOR_MODE;
 	private int SymMode = DEFAULT_SYM_MODE;
+	private int Adjust = DEFAULT_ADJUST;
 	private int s = DEFAULT_BRUSH_SIZE;
 	private int speed = DEFAULT_AUTO_SPEED_DELAY;
 	private int speedLevel = 1;
@@ -201,18 +197,18 @@ public class GraphicsContest extends GraphicsProgram {
 		add(brushStatus);
 		brushSizeStatus = new GLabel ("Size x" + s, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		brushSizeStatus.move(-brushSizeStatus.getWidth()/2, +brushSizeStatus.getAscent()/2);
-		if (adjustSize == true) add(brushSizeStatus);
+		if (Adjust == SIZE) add(brushSizeStatus);
 		symmetryNum = new GLabel ("Axis x" + symmetry, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		symmetryNum.move(-symmetryNum.getWidth()/2, +symmetryNum.getAscent()/2);
-		if (adjustSymmetry == true) add(symmetryNum);
+		if (Adjust == AXIS) add(symmetryNum);
 		planeNum = new GLabel ("Plane x" + plane, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		planeNum.move(-planeNum.getWidth()/2, +planeNum.getAscent()/2);
-		if (adjustPlane == true) add(planeNum);
+		if (Adjust == PLANE) add(planeNum);
 		blockNum = new GLabel ("Block: " + block + " x " + block, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		blockNum.move(-blockNum.getWidth()/2, +blockNum.getAscent()/2);
 		speedStatus = new GLabel ("Speed x" + speedLevel, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		speedStatus.move(-speedStatus.getWidth()/2, +speedStatus.getAscent()/2);
-		if (auto == true) add(speedStatus);
+		if (ColorMode == AUTO) add(speedStatus);
 		plusSize = new GLabel ("+", icon3.getX() + icon3.getWidth()/2, ICON_HEIGHT/2);
 		plusSize.move(-plusSize.getWidth()/2, +plusSize.getAscent()/2);
 		add(plusSize);
@@ -341,20 +337,20 @@ public class GraphicsContest extends GraphicsProgram {
 		if (SymMode == ROT) setUpAxes(symmetry);
 		if (SymMode == REF) setUpPlanes(plane);
 		if (SymMode == TRANS) setUpBlocks(block);
-		if (adjustSize == true) {
+		if (Adjust == SIZE) {
 			add(brushSizeStatus);
 		}
-		if (adjustSymmetry == true) {
+		if (Adjust == AXIS) {
 			symmetryNum = new GLabel ("Axis x" + symmetry, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 			symmetryNum.move(-symmetryNum.getWidth()/2, +symmetryNum.getAscent()/2);
 			add(symmetryNum);
 		}
-		if (adjustPlane == true) {
+		if (Adjust == PLANE) {
 			planeNum = new GLabel ("Plane x" + plane, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 			planeNum.move(-planeNum.getWidth()/2, +planeNum.getAscent()/2);
 			add(planeNum);
 		}
-		if (adjustBlock == true) {
+		if (Adjust == BLOCK) {
 			blockNum = new GLabel ("Block: " + block + " x " + block, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 			blockNum.move(-blockNum.getWidth()/2, +blockNum.getAscent()/2);
 			add(blockNum);
@@ -362,7 +358,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (line == true) {
 			addSymLine(symLine);
 		}
-		if (auto == true) {
+		if (ColorMode == AUTO) {
 			remove(brushSizeStatus);
 			remove(symmetryNum);
 			remove(planeNum);
@@ -403,57 +399,47 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 		}
 		if (clickIcon2(e) == true) {
-			if (auto == false) {
-				if (adjustSize == true) {
-					adjustSize = false;
+			if (ColorMode != AUTO) {
+				if (Adjust == SIZE) {
 					if (SymMode == ROT) {
-						adjustSymmetry = true;
-						adjustPlane = false;
-						adjustBlock = false;
+						Adjust = AXIS;
 					} else if (SymMode == REF) {
-						adjustPlane = true;
-						adjustSymmetry = false;
-						adjustBlock = false;
+						Adjust = PLANE;
 					} else if (SymMode == TRANS) {
-						adjustBlock = true;
-						adjustPlane = false;
-						adjustSymmetry = false;
+						Adjust = BLOCK;
 					}
-				} else if (adjustSize == false) {
-					adjustSize = true;
-					adjustPlane = false;
-					adjustSymmetry = false;
-					adjustBlock = false;
+				} else if (Adjust != SIZE) {
+					Adjust = SIZE;
 				}
 				updateIcons();
 			}
 		}
 		if (clickIcon3(e) == true) {
-			if (auto == true && speed > 0) {
+			if (ColorMode == AUTO && speed > 0) {
 				speed -= 5;
 				speedLevel++;
-			} else if (adjustSize == true) {
+			} else if (Adjust == SIZE) {
 				s++;
-			} else if (adjustSymmetry == true && symmetry < MAX_SYMMETRY) {
+			} else if (Adjust == AXIS && symmetry < MAX_SYMMETRY) {
 				symmetry++;
-			} else if (adjustPlane == true && plane < MAX_PLANE) {
+			} else if (Adjust == PLANE && plane < MAX_PLANE) {
 				plane++;
-			} else if (adjustBlock == true && block < MAX_BLOCK) {
+			} else if (Adjust == BLOCK && block < MAX_BLOCK) {
 				block++;
 			}
 			updateIcons();
 		}
 		if (clickIcon4(e) == true) {
-			if (auto == true) {
+			if (ColorMode == AUTO) {
 				speed += 5;
 				speedLevel--;
-			} else if (adjustSize == true && (s != 0)) {
+			} else if (Adjust == SIZE && (s != 0)) {
 				s--;
-			} else if (adjustSymmetry == true && symmetry > MIN_SYMMETRY) {
+			} else if (Adjust == AXIS && symmetry > MIN_SYMMETRY) {
 				symmetry--;
-			} else if (adjustPlane == true && plane > MIN_PLANE) {
+			} else if (Adjust == PLANE && plane > MIN_PLANE) {
 				plane--;
-			} else if (adjustBlock == true && block > MIN_BLOCK) {
+			} else if (Adjust == BLOCK && block > MIN_BLOCK) {
 				block--;
 			}
 			updateIcons();
@@ -500,26 +486,17 @@ public class GraphicsContest extends GraphicsProgram {
 		if (clickIcon8(e) == true) {
 			if (SymMode == ROT) {
 				SymMode = TRANS;
-				adjustSymmetry = false;
-				adjustPlane = false;
-				adjustBlock = true;
-				adjustSize = false;
+				Adjust = BLOCK;
 				symmetryModeStatus = "Translation";
 				updateIcons();
 			} else if (SymMode == REF) {
 				SymMode = ROT;
-				adjustPlane = false;
-				adjustSymmetry = true;
-				adjustSize = false;
-				adjustBlock = false;
+				Adjust = AXIS;
 				symmetryModeStatus = "Rotation";
 				updateIcons();
 			} else if (SymMode == TRANS) {
 				SymMode = REF;
-				adjustBlock = false;
-				adjustPlane = true;
-				adjustSymmetry = false;
-				adjustSize = false;
+				Adjust = PLANE;
 				symmetryModeStatus = "Reflection";
 				updateIcons();
 			}
@@ -690,9 +667,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			ColorMode = AUTO;
 			draw = false;
-			adjustSize = false;
-			adjustSymmetry = false;
-			adjustPlane = false;
+			Adjust = NONE;
 			status = "Off";
 			colorModeStatus = "Auto";
 			updateIcons();
@@ -783,13 +758,13 @@ public class GraphicsContest extends GraphicsProgram {
 			if (ColorMode == AUTO && speed > 0) {
 				speed -= 5;
 				speedLevel++;
-			} else if (adjustSize == true) {
+			} else if (Adjust == SIZE) {
 				s++;
-			} else if (adjustSymmetry == true && symmetry < MAX_SYMMETRY) {
+			} else if (Adjust == AXIS && symmetry < MAX_SYMMETRY) {
 				symmetry++;
-			} else if (adjustPlane == true && plane < MAX_PLANE) {
+			} else if (Adjust == PLANE && plane < MAX_PLANE) {
 				plane++;
-			} else if (adjustBlock == true && block < MAX_BLOCK) {
+			} else if (Adjust == BLOCK && block < MAX_BLOCK) {
 				block++;
 			}
 			updateIcons();
@@ -799,39 +774,29 @@ public class GraphicsContest extends GraphicsProgram {
 			if (ColorMode == AUTO) {
 				speed += 5;
 				speedLevel--;
-			} else if (adjustSize == true && (s != 0)) {
+			} else if (Adjust == SIZE && (s != 0)) {
 				s--;
-			} else if (adjustSymmetry == true && symmetry > MIN_SYMMETRY) {
+			} else if (Adjust == AXIS && symmetry > MIN_SYMMETRY) {
 				symmetry--;
-			} else if (adjustPlane == true && plane > MIN_PLANE) {
+			} else if (Adjust == PLANE && plane > MIN_PLANE) {
 				plane--;
-			} else if (adjustBlock == true && block > MIN_BLOCK) {
+			} else if (Adjust == BLOCK && block > MIN_BLOCK) {
 				block--;
 			}
 			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_ALT) {
 			if (ColorMode == AUTO) {
-				if (adjustSize == true) {
-					adjustSize = false;
+				if (Adjust == SIZE) {
 					if (SymMode == ROT) {
-						adjustSymmetry = true;
-						adjustPlane = false;
-						adjustBlock = false;
+						Adjust = AXIS;
 					} else if (SymMode == REF) {
-						adjustPlane = true;
-						adjustSymmetry = false;
-						adjustBlock = false;
+						Adjust = PLANE;
 					} else if (SymMode == TRANS) {
-						adjustBlock = true;
-						adjustPlane = false;
-						adjustSymmetry = false;
+						Adjust = BLOCK;
 					}
-				} else if (adjustSize == false) {
-					adjustSize = true;
-					adjustPlane = false;
-					adjustSymmetry = false;
-					adjustBlock = false;
+				} else if (Adjust != SIZE) {
+					Adjust = SIZE;
 				}
 				updateIcons();
 			}
@@ -839,26 +804,17 @@ public class GraphicsContest extends GraphicsProgram {
 		if (e.getKeyCode() == KeyEvent.VK_CONTROL == true) {
 			if (SymMode == ROT) {
 				SymMode = TRANS;
-				adjustSymmetry = false;
-				adjustPlane = false;
-				adjustBlock = true;
-				adjustSize = false;
+				Adjust = BLOCK;
 				symmetryModeStatus = "Translation";
 				updateIcons();
 			} else if (SymMode == REF) {
 				SymMode = ROT;
-				adjustPlane = false;
-				adjustSymmetry = true;
-				adjustSize = false;
-				adjustBlock = false;
+				Adjust = AXIS;
 				symmetryModeStatus = "Rotation";
 				updateIcons();
 			} else if (SymMode == TRANS) {
 				SymMode = REF;
-				adjustBlock = false;
-				adjustPlane = true;
-				adjustSymmetry = false;
-				adjustSize = false;
+				Adjust = PLANE;
 				symmetryModeStatus = "Reflection";
 				updateIcons();
 			}
@@ -1182,7 +1138,7 @@ public class GraphicsContest extends GraphicsProgram {
 		int c = 0;
 		int n = 1;
 		while(true) {
-			if(auto == true) {
+			if(ColorMode == AUTO) {
 				double dx = s;
 				double dy = s;
 				if (c == 0) {
