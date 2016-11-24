@@ -84,6 +84,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLabel symmetryMode;
 	private GLabel symmetryNum;
 	private GLabel planeNum;
+	private GLabel blockNum;
 	private double[] slope;
 	private double[][] coordinate;
 	private GLine[] symLine;
@@ -228,6 +229,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(colorIcon9);
 		if (rotation == true) setUpAxes(symmetry);
 		if (reflection == true) setUpPlanes(plane);
+		if (translation == true) setUpBlocks(plane);
 		addSymLine(symLine);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 	}
@@ -264,6 +266,18 @@ public class GraphicsContest extends GraphicsProgram {
 					getWidth()/2 - y*(powMatrix(rotationalArray, n)[0][1]), getHeight()/2 + ICON_HEIGHT/2 - y*(powMatrix(rotationalArray, n)[1][1]));
 			slope[n] = getSlope(symmetryLine);
 			symLine[n] = symmetryLine;
+		}
+	}
+	
+	private void setUpBlocks (int fold) {
+		symLine = new GLine[fold];
+		for (int i = 0; i < fold; i++) {
+			GLine symmetryLine = new GLine (getWidth()*i/fold, ICON_HEIGHT, getWidth()*i/fold, getHeight());
+			symLine[i] = symmetryLine;
+		}
+		for (int j = 0; j < fold; j++) {
+			GLine symmetryLine = new GLine (0, ICON_HEIGHT + (getHeight() - ICON_HEIGHT)*j/fold, getWidth(), (getHeight() - ICON_HEIGHT)*j/fold);
+			symLine[fold + j] = symmetryLine;
 		}
 	}
 
@@ -304,6 +318,11 @@ public class GraphicsContest extends GraphicsProgram {
 			planeNum = new GLabel ("Plane x" + plane, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 			planeNum.move(-planeNum.getWidth()/2, +planeNum.getAscent()/2);
 			add(planeNum);
+		}
+		if (adjustBlock == true) {
+			blockNum = new GLabel ("Block: " + block + " x " + block, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
+			blockNum.move(-blockNum.getWidth()/2, +blockNum.getAscent()/2);
+			add(blockNum);
 		}
 		if (line == true) {
 			addSymLine(symLine);
