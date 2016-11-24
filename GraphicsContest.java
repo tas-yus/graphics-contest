@@ -43,6 +43,11 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int DEFAULT_COLOR = CYAN;
 	private static final int N_COLORS = 9;
 	private static final int DEFAULT_AUTO_SPEED_DELAY = 200;
+	private static final int MIXED = 0;
+	private static final int PURE = 1;
+	private static final int PLAIN = 2;
+	private static final int AUTO = 3;
+	private static final int DEFAULT_COLOR_MODE = MIXED;
 	
 	private Color newColor;
 	private boolean draw = false;
@@ -58,6 +63,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean adjustSymmetry = false;
 	private boolean adjustPlane = true;
 	private boolean adjustBlock = false;
+	private int ColorMode = DEFAULT_COLOR_MODE;
 	private int s = DEFAULT_BRUSH_SIZE;
 	private int speed = DEFAULT_AUTO_SPEED_DELAY;
 	private int speedLevel = 1;
@@ -239,13 +245,13 @@ public class GraphicsContest extends GraphicsProgram {
 		add(colorIcon8);
 		colorIcon9 = new GRect (colorIcon8.getX() + colorIcon8.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon9);
-		if (pure == true) {
+		if (ColorMode == PURE) {
 			chosenPureColor = plainColor[DEFAULT_COLOR][0]; 
 		}
-		if (plain == true) {
+		if (ColorMode == PLAIN) {
 			chosenColor = plainColor[DEFAULT_COLOR]; 
 		}
-		if (mixed == true) {
+		if (ColorMode == MIXED) {
 			chosenMixedColor = DEFAULT_COLOR;
 		} 
 		if (rotation == true) setUpAxes(symmetry);
@@ -464,27 +470,23 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 		}
 		if (clickIcon7(e) == true) {
-			if (mixed == true) {
-				mixed = false;
-				pure = true;
+			if (ColorMode == MIXED) {
+				ColorMode = PURE;
 				colorModeStatus = "Pure";
 				updateIcons();
 				chosenPureColor = plainColor[DEFAULT_COLOR][0]; 
-			} else if(pure == true) {
-				pure = false;
-				plain = true;
+			} else if(ColorMode == PURE) {
+				ColorMode = PLAIN;
 				colorModeStatus = "Plain";
 				updateIcons();
 				chosenColor = plainColor[DEFAULT_COLOR];
-			} else if (plain == true) {
-				plain = false;
-				mixed = true;
+			} else if (ColorMode == PLAIN) {
+				ColorMode = MIXED;
 				colorModeStatus = "Mixed";
 				updateIcons();
 				chosenMixedColor = DEFAULT_COLOR;
-			} else if (auto == true) {
-				auto = false;
-				pure = true;
+			} else if (ColorMode == AUTO) {
+				ColorMode = PURE;
 				colorModeStatus = "Pure";
 				updateIcons();
 			}
@@ -520,7 +522,7 @@ public class GraphicsContest extends GraphicsProgram {
 				updateIcons();
 			}
 		}
-		if (pure == true) {
+		if (ColorMode == PURE) {
 			if(clickColorIcon1(e) == true) {
 				chosenPureColor = plainColor[RED][0]; 
 			}
@@ -549,7 +551,7 @@ public class GraphicsContest extends GraphicsProgram {
 				chosenPureColor = plainColor[BLACK][0]; 
 			}
 		}
-		if (plain == true) {
+		if (ColorMode == PLAIN) {
 			if(clickColorIcon1(e) == true) {
 				chosenColor = plainColor[RED];
 			}
@@ -578,7 +580,7 @@ public class GraphicsContest extends GraphicsProgram {
 				chosenColor = plainColor[BLACK]; 
 			}
 		}
-		if (mixed == true || auto == true) {
+		if (ColorMode == MIXED || ColorMode == AUTO) {
 			if(clickColorIcon1(e) == true) {
 				chosenMixedColor = RED;
 			}
@@ -661,37 +663,30 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
-			if(pure == true) {
-				pure = false;
-				plain = true;
+			if(ColorMode == PURE) {
+				ColorMode = PLAIN;
 				colorModeStatus = "Plain";
 				updateIcons();
 				chosenColor = plainColor[DEFAULT_COLOR];
-			} else if (plain == true) {
-				plain = false;
-				mixed = true;
+			} else if (ColorMode == PLAIN) {
+				ColorMode = MIXED;
 				colorModeStatus = "Mixed";
 				updateIcons();
 				chosenMixedColor = DEFAULT_COLOR;
-			} else if (mixed == true) {
-				mixed = false;
-				pure = true;
+			} else if (ColorMode == MIXED) {
+				ColorMode = PURE;
 				colorModeStatus = "Pure";
 				updateIcons();
 				chosenPureColor = plainColor[DEFAULT_COLOR][0]; 
-			} else if (auto == true) {
-				auto = false;
-				pure = true;
+			} else if (ColorMode == AUTO) {
+				ColorMode = PURE;
 				colorModeStatus = "Pure";
 				updateIcons();
 			}
 			colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			auto = true;
-			plain = false;
-			pure = false;
-			mixed = false;
+			ColorMode = AUTO;
 			draw = false;
 			adjustSize = false;
 			adjustSymmetry = false;
@@ -701,7 +696,7 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			if (pure == true) {
+			if (ColorMode == PURE) {
 				int newColor = colorToInt(colorTray.getColor()) + 1;
 				if (newColor == 9) {
 					newColor = 0;
@@ -709,7 +704,7 @@ public class GraphicsContest extends GraphicsProgram {
 				chosenPureColor = plainColor[newColor][0];
 				colorTray.setColor(plainColor[newColor][0]);
 			}
-			if (plain == true) {
+			if (ColorMode == PLAIN) {
 				int newColor = colorToInt(colorTray.getColor()) + 1;
 				if (newColor == 9) {
 					newColor = 0;
@@ -717,7 +712,7 @@ public class GraphicsContest extends GraphicsProgram {
 				chosenColor = plainColor[newColor];
 				colorTray.setColor(plainColor[newColor][0]);
 			}
-			if (mixed == true || auto == true) {
+			if (ColorMode == MIXED || ColorMode == AUTO) {
 				int newColor = colorToInt(colorTray.getColor()) + 1;
 				if (newColor == 9) {
 					newColor = 0;
@@ -727,7 +722,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			if (pure == true) {
+			if (ColorMode == PURE) {
 				int newColor = colorToInt(colorTray.getColor()) - 1;
 				if (newColor == -1) {
 					newColor = 8;
@@ -735,7 +730,7 @@ public class GraphicsContest extends GraphicsProgram {
 				chosenPureColor = plainColor[newColor][0];
 				colorTray.setColor(plainColor[newColor][0]);
 			}
-			if (plain == true) {
+			if (ColorMode == PLAIN) {
 				int newColor = colorToInt(colorTray.getColor()) - 1;
 				if (newColor == -1) {
 					newColor = 8;
@@ -743,7 +738,7 @@ public class GraphicsContest extends GraphicsProgram {
 				chosenColor = plainColor[newColor];
 				colorTray.setColor(plainColor[newColor][0]);
 			}
-			if (mixed == true || auto == true) {
+			if (ColorMode == MIXED || ColorMode == AUTO) {
 				int newColor = colorToInt(colorTray.getColor()) - 1;
 				if (newColor == -1) {
 					newColor = 8;
@@ -753,7 +748,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_R) {
-			if (pure == true) {
+			if (ColorMode == PURE) {
 				int r = (colorTray.getColor()).getRed();
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
@@ -763,7 +758,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_G) {
-			if (pure == true) {
+			if (ColorMode == PURE) {
 				int r = (colorTray.getColor()).getRed();
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
@@ -773,7 +768,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_B) {
-			if (pure == true) {
+			if (ColorMode == PURE) {
 				int r = (colorTray.getColor()).getRed();
 				int g = (colorTray.getColor()).getGreen();
 				int b = (colorTray.getColor()).getBlue();
@@ -783,7 +778,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			if (auto == true && speed > 0) {
+			if (ColorMode == AUTO && speed > 0) {
 				speed -= 5;
 				speedLevel++;
 			} else if (adjustSize == true) {
@@ -799,7 +794,7 @@ public class GraphicsContest extends GraphicsProgram {
 
 		}
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			if (auto == true) {
+			if (ColorMode == AUTO) {
 				speed += 5;
 				speedLevel--;
 			} else if (adjustSize == true && (s != 0)) {
@@ -814,7 +809,7 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_ALT) {
-			if (auto == false) {
+			if (ColorMode == AUTO) {
 				if (adjustSize == true) {
 					adjustSize = false;
 					if (rotation == true) {
@@ -891,16 +886,16 @@ public class GraphicsContest extends GraphicsProgram {
 		addAll(s, x, y);
 	}
 	private void addAll(int s, double x, double y) {
-		if (pure == true) {
+		if (ColorMode == PURE) {
 			newColor = chosenPureColor; 
 		}
-		if (plain == true) {
+		if (ColorMode == PLAIN) {
 			newColor = randomizeColor(chosenColor);
 		}
-		if (mixed == true) {
+		if (ColorMode == MIXED) {
 			newColor = mixColor(chosenMixedColor);
 		}
-		if (auto == true) {
+		if (ColorMode == AUTO) {
 			newColor = mixColor(chosenMixedColor);
 		}
 		if (rotation == true) {
