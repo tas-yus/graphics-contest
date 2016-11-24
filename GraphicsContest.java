@@ -443,30 +443,30 @@ public class GraphicsContest extends GraphicsProgram {
 		if (clickIcon8(e) == true) {
 			if (rotation == true) {
 				rotation = false;
-				reflection = true;
+				reflection = false;
 				adjustSymmetry = false;
-				adjustPlane = true;
-				adjustBlock = false;
+				adjustPlane = false;
+				adjustBlock = true;
 				adjustSize = false;
-				symmetryModeStatus = "Reflection";
+				symmetryModeStatus = "Translation";
 				updateIcons();
 			} else if (reflection == true) {
 				reflection = false;
-				translation = true;
-				adjustPlane = false;
-				adjustSymmetry = false;
-				adjustSize = false;
-				adjustBlock = true;
-				symmetryModeStatus = "Translation";
-				updateIcons();
-			} else if (translation == true) {
-				translation = false;
 				rotation = true;
-				adjustBlock = false;
 				adjustPlane = false;
 				adjustSymmetry = true;
 				adjustSize = false;
+				adjustBlock = false;
 				symmetryModeStatus = "Rotation";
+				updateIcons();
+			} else if (translation == true) {
+				translation = false;
+				reflection = true;
+				adjustBlock = false;
+				adjustPlane = true;
+				adjustSymmetry = false;
+				adjustSize = false;
+				symmetryModeStatus = "Reflection";
 				updateIcons();
 			}
 		}
