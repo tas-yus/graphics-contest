@@ -48,11 +48,11 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int PURE = 1;
 	private static final int PLAIN = 2;
 	private static final int AUTO = 3;
-	private static final int DEFAULT_COLOR_MODE = PURE;
+	private static final int DEFAULT_COLOR_MODE = MIXED;
 	private static final int ROT = 0;
 	private static final int REF = 1;
 	private static final int TRANS = 2;
-	private static final int DEFAULT_SYM_MODE = ROT;
+	private static final int DEFAULT_SYM_MODE = REF;
 	private static final int AXIS = 0;
 	private static final int PLANE = 1;
 	private static final int BLOCK = 2;
