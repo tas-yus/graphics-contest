@@ -40,7 +40,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int PURPLE = 6;
 	private static final int WHITE = 7;
 	private static final int BLACK = 8;
-	private static final int DEFAULT_COLOR = RED;
+	private static final int DEFAULT_COLOR = GREEN;
 	private static final int N_COLORS = 9;
 	private static final int DEFAULT_AUTO_SPEED_DELAY = 200;
 	
