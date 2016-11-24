@@ -21,9 +21,9 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final double S_ICON_WIDTH = 0.8*WIDTH/20;
 	private static final double M_ICON_WIDTH = WIDTH/10;
 	private static final double L_ICON_WIDTH = 2.7*WIDTH/20;
-	private static final int DEFAULT_PLANE = 4;
-	private static final int DEFAULT_SYMMETRY = 8;
-	private static final int DEFAULT_BLOCK = 2;
+	private static final int DEFAULT_PLANE_NUM = 4;
+	private static final int DEFAULT_SYMMETRY_NUM = 8;
+	private static final int DEFAULT_BLOCK_NUM = 2;
 	private static final int MAX_PLANE = 8;
 	private static final int MAX_SYMMETRY = 18;
 	private static final int MAX_BLOCK = 6;
@@ -69,9 +69,9 @@ public class GraphicsContest extends GraphicsProgram {
 	private int s = DEFAULT_BRUSH_SIZE;
 	private int speed = DEFAULT_AUTO_SPEED_DELAY;
 	private int speedLevel = DEFAULT_AUTO_SPEED_LEVEL;
-	private int symmetry = DEFAULT_SYMMETRY;
-	private int plane = DEFAULT_PLANE;
-	private int block = DEFAULT_BLOCK;
+	private int symmetry = DEFAULT_SYMMETRY_NUM;
+	private int plane = DEFAULT_PLANE_NUM;
+	private int block = DEFAULT_BLOCK_NUM;
 	private GRect colorTray;
 	private GRect icon1;
 	private GRect icon2;
