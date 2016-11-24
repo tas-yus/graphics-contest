@@ -30,7 +30,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int MIN_BLOCK = 0;
 	private static final int HEIGHT = 700 + ICON_HEIGHT;
 	private static final int PAUSE = 10;
-	private static final int BRUSH_SIZE = 5;
+	private static final int DEFAULT_BRUSH_SIZE = 5;
 	private static final int RED = 0;
 	private static final int ORANGE = 1;
 	private static final int YELLOW = 2;
@@ -58,7 +58,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean adjustSymmetry = false;
 	private boolean adjustPlane = true;
 	private boolean adjustBlock = false;
-	private int s = BRUSH_SIZE;
+	private int s = DEFAULT_BRUSH_SIZE;
 	private int speed = DEFAULT_AUTO_SPEED_DELAY;
 	private int speedLevel = 1;
 	private int symmetry = DEFAULT_SYMMETRY;
