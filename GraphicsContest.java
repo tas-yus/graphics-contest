@@ -48,11 +48,11 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int PURE = 1;
 	private static final int PLAIN = 2;
 	private static final int AUTO = 3;
-	private static final int DEFAULT_COLOR_MODE = PURE;
+	private static final int DEFAULT_COLOR_MODE = MIXED;
 	private static final int ROT = 0;
 	private static final int REF = 1;
 	private static final int TRANS = 2;
-	private static final int DEFAULT_SYM_MODE = ROT;
+	private static final int DEFAULT_SYM_MODE = REF;
 	private static final int AXIS = 0;
 	private static final int PLANE = 1;
 	private static final int BLOCK = 2;
@@ -90,9 +90,9 @@ public class GraphicsContest extends GraphicsProgram {
 	private GRect colorIcon7;
 	private GRect colorIcon8;
 	private GRect colorIcon9;
-	private String status = "off";
-	private String colorModeStatus = "Mixed";
-	private String symmetryModeStatus = "Reflection";
+	private String status = "Off";
+	private String colorModeStatus;
+	private String symmetryModeStatus;
 	private GLabel brushStatus;
 	private GLabel brushSizeStatus;
 	private GLabel speedStatus;
@@ -171,7 +171,7 @@ public class GraphicsContest extends GraphicsProgram {
 		plainColor[BLACK][3] = new Color(153,153,153);
 		plainColor[BLACK][4] = new Color(204,204,204);
 	}
-
+	
 	private void setUpIcons() {
 		colorTray = new GRect (0, 0,S_ICON_WIDTH, ICON_HEIGHT);
 		add(colorTray);
@@ -222,9 +222,11 @@ public class GraphicsContest extends GraphicsProgram {
 		GLabel iconSign2 = new GLabel ("C", icon6.getX() + icon6.getWidth()/2, ICON_HEIGHT/2);
 		iconSign2.move(-iconSign2.getWidth()/2, +iconSign2.getAscent()/2);
 		add(iconSign2);
+		colorModeStatus = printColorMode(ColorMode);
 		colorMode = new GLabel (colorModeStatus, icon7.getX() + icon7.getWidth()/2, ICON_HEIGHT/2);
 		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
 		add(colorMode);
+		symmetryModeStatus = printSymMode(SymMode);
 		symmetryMode = new GLabel (symmetryModeStatus, icon8.getX() + icon8.getWidth()/2, ICON_HEIGHT/2);
 		symmetryMode.move(-symmetryMode.getWidth()/2, +symmetryMode.getAscent()/2);
 		add(symmetryMode);
@@ -308,9 +310,25 @@ public class GraphicsContest extends GraphicsProgram {
 			GLine symmetryLine = new GLine (0, ICON_HEIGHT + (getHeight() - ICON_HEIGHT)*j/fold, getWidth(), ICON_HEIGHT + (getHeight() - ICON_HEIGHT)*j/fold);
 			symLine[fold + j] = symmetryLine;
 		}
-		
 	}
 
+	private String printColorMode(int mode) {
+		String result = "";
+		if (mode == MIXED) result += "Mixed";
+		else if (mode == PURE) result += "Pure";
+		else if (mode == PLAIN) result += "Plain";
+		else if (mode == AUTO) result += "Auto";
+		return result;
+	}
+	
+	private String printSymMode(int mode) {
+		String result = "";
+		if (mode == ROT) result += "Rotation";
+		else if (mode == REF) result += "Reflection";
+		else if (mode == TRANS) result += "Translation";
+		return result;
+	}
+	
 	private void updateIcons() {
 		remove(brushStatus);
 		remove(brushSizeStatus);
@@ -326,9 +344,10 @@ public class GraphicsContest extends GraphicsProgram {
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
 		brushSizeStatus = new GLabel ("Size x" + s, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		brushSizeStatus.move(-brushSizeStatus.getWidth()/2, +brushSizeStatus.getAscent()/2);
+		colorModeStatus = printColorMode(ColorMode);
 		colorMode = new GLabel (colorModeStatus, icon7.getX() + icon7.getWidth()/2, ICON_HEIGHT/2);
 		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
-		symmetryMode = new GLabel (symmetryModeStatus, icon8.getX() + icon8.getWidth()/2, ICON_HEIGHT/2);
+		symmetryMode = new GLabel (printSymMode(SymMode), icon8.getX() + icon8.getWidth()/2, ICON_HEIGHT/2);
 		symmetryMode.move(-symmetryMode.getWidth()/2, +symmetryMode.getAscent()/2);
 		speedStatus = new GLabel ("Speed x" + speedLevel, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		speedStatus.move(-speedStatus.getWidth()/2, +speedStatus.getAscent()/2);
@@ -464,43 +483,33 @@ public class GraphicsContest extends GraphicsProgram {
 		if (clickIcon7(e) == true) {
 			if (ColorMode == MIXED) {
 				ColorMode = PURE;
-				colorModeStatus = "Pure";
-				updateIcons();
 				chosenPureColor = plainColor[DEFAULT_COLOR][0]; 
 			} else if(ColorMode == PURE) {
 				ColorMode = PLAIN;
-				colorModeStatus = "Plain";
-				updateIcons();
 				chosenColor = plainColor[DEFAULT_COLOR];
 			} else if (ColorMode == PLAIN) {
 				ColorMode = MIXED;
-				colorModeStatus = "Mixed";
-				updateIcons();
 				chosenMixedColor = DEFAULT_COLOR;
 			} else if (ColorMode == AUTO) {
 				ColorMode = PURE;
-				colorModeStatus = "Pure";
-				updateIcons();
 			}
+			colorModeStatus = printColorMode(ColorMode);
+			updateIcons();
 			colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
 		}
 		if (clickIcon8(e) == true) {
 			if (SymMode == ROT) {
 				SymMode = TRANS;
 				Adjust = BLOCK;
-				symmetryModeStatus = "Translation";
-				updateIcons();
 			} else if (SymMode == REF) {
 				SymMode = ROT;
 				Adjust = AXIS;
-				symmetryModeStatus = "Rotation";
-				updateIcons();
 			} else if (SymMode == TRANS) {
 				SymMode = REF;
 				Adjust = PLANE;
-				symmetryModeStatus = "Reflection";
-				updateIcons();
 			}
+			symmetryModeStatus = printSymMode(SymMode);
+			updateIcons();
 		}
 		if (ColorMode == PURE) {
 			if(clickColorIcon1(e) == true) {
@@ -645,24 +654,18 @@ public class GraphicsContest extends GraphicsProgram {
 		if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
 			if(ColorMode == PURE) {
 				ColorMode = PLAIN;
-				colorModeStatus = "Plain";
-				updateIcons();
 				chosenColor = plainColor[DEFAULT_COLOR];
 			} else if (ColorMode == PLAIN) {
 				ColorMode = MIXED;
-				colorModeStatus = "Mixed";
-				updateIcons();
 				chosenMixedColor = DEFAULT_COLOR;
 			} else if (ColorMode == MIXED) {
 				ColorMode = PURE;
-				colorModeStatus = "Pure";
-				updateIcons();
 				chosenPureColor = plainColor[DEFAULT_COLOR][0]; 
 			} else if (ColorMode == AUTO) {
 				ColorMode = PURE;
-				colorModeStatus = "Pure";
-				updateIcons();
 			}
+			colorModeStatus = printColorMode(ColorMode);
+			updateIcons();
 			colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -670,7 +673,7 @@ public class GraphicsContest extends GraphicsProgram {
 			draw = false;
 			Adjust = NONE;
 			status = "Off";
-			colorModeStatus = "Auto";
+			colorModeStatus = printColorMode(ColorMode);
 			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
@@ -806,19 +809,15 @@ public class GraphicsContest extends GraphicsProgram {
 			if (SymMode == ROT) {
 				SymMode = TRANS;
 				Adjust = BLOCK;
-				symmetryModeStatus = "Translation";
-				updateIcons();
 			} else if (SymMode == REF) {
 				SymMode = ROT;
 				Adjust = AXIS;
-				symmetryModeStatus = "Rotation";
-				updateIcons();
 			} else if (SymMode == TRANS) {
 				SymMode = REF;
 				Adjust = PLANE;
-				symmetryModeStatus = "Reflection";
-				updateIcons();
 			}
+			symmetryModeStatus = printSymMode(SymMode);
+			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_Q) {
 			removeAll();
