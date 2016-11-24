@@ -347,6 +347,7 @@ public class GraphicsContest extends GraphicsProgram {
 		colorModeStatus = printColorMode(ColorMode);
 		colorMode = new GLabel (colorModeStatus, icon7.getX() + icon7.getWidth()/2, ICON_HEIGHT/2);
 		colorMode.move(-colorMode.getWidth()/2, +colorMode.getAscent()/2);
+		symmetryModeStatus = printSymMode(SymMode);
 		symmetryMode = new GLabel (printSymMode(SymMode), icon8.getX() + icon8.getWidth()/2, ICON_HEIGHT/2);
 		symmetryMode.move(-symmetryMode.getWidth()/2, +symmetryMode.getAscent()/2);
 		speedStatus = new GLabel ("Speed x" + speedLevel, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
@@ -662,7 +663,6 @@ public class GraphicsContest extends GraphicsProgram {
 			} else if (ColorMode == AUTO) {
 				ColorMode = PURE;
 			}
-			colorModeStatus = printColorMode(ColorMode);
 			updateIcons();
 			colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
 		}
@@ -671,7 +671,6 @@ public class GraphicsContest extends GraphicsProgram {
 			draw = false;
 			Adjust = NONE;
 			status = "Off";
-			colorModeStatus = printColorMode(ColorMode);
 			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
@@ -814,7 +813,6 @@ public class GraphicsContest extends GraphicsProgram {
 				SymMode = REF;
 				Adjust = PLANE;
 			}
-			symmetryModeStatus = printSymMode(SymMode);
 			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_Q) {
