@@ -915,7 +915,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (translation == true) {
 			x += getWidth()/2;
-			y += getHeight()/2 + ICON_HEIGHT/2;
+			y += getHeight()/2 - ICON_HEIGHT/2;
 			double width = getWidth()/fold;
 			double height = (getHeight() - ICON_HEIGHT)/fold;
 			while (true) {
