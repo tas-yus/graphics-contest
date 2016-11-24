@@ -764,7 +764,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			if (auto == true && speed > 5) {
+			if (auto == true && speed > 0) {
 				speed -= 5;
 				speedLevel++;
 			} else if (adjustSize == true) {
@@ -773,19 +773,24 @@ public class GraphicsContest extends GraphicsProgram {
 				symmetry++;
 			} else if (adjustPlane == true && plane < 8) {
 				plane++;
+			} else if (adjustBlock == true && block < 6) {
+				block++;
 			}
 			updateIcons();
+
 		}
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			if (auto == true) {
 				speed += 5;
 				speedLevel--;
-			} else if (adjustSize == true && s != 0) {
+			} else if (adjustSize == true && (s != 0)) {
 				s--;
 			} else if (adjustSymmetry == true && symmetry > 1) {
 				symmetry--;
 			} else if (adjustPlane == true && plane > 1) {
 				plane--;
+			} else if (adjustBlock == true && block > 1) {
+				block--;
 			}
 			updateIcons();
 		}
@@ -796,14 +801,21 @@ public class GraphicsContest extends GraphicsProgram {
 					if (rotation == true) {
 						adjustSymmetry = true;
 						adjustPlane = false;
+						adjustBlock = false;
 					} else if (reflection == true) {
 						adjustPlane = true;
+						adjustSymmetry = false;
+						adjustBlock = false;
+					} else if (translation == true) {
+						adjustBlock = true;
+						adjustPlane = false;
 						adjustSymmetry = false;
 					}
 				} else if (adjustSize == false) {
 					adjustSize = true;
 					adjustPlane = false;
 					adjustSymmetry = false;
+					adjustBlock = false;
 				}
 				updateIcons();
 			}
@@ -811,19 +823,30 @@ public class GraphicsContest extends GraphicsProgram {
 		if (e.getKeyCode() == KeyEvent.VK_CONTROL == true) {
 			if (rotation == true) {
 				rotation = false;
-				reflection = true;
+				translation = true;
 				adjustSymmetry = false;
-				adjustPlane = true;
+				adjustPlane = false;
+				adjustBlock = true;
 				adjustSize = false;
-				symmetryModeStatus = "Reflection";
+				symmetryModeStatus = "Translation";
 				updateIcons();
-			} else {
+			} else if (reflection == true) {
 				reflection = false;
 				rotation = true;
 				adjustPlane = false;
 				adjustSymmetry = true;
 				adjustSize = false;
+				adjustBlock = false;
 				symmetryModeStatus = "Rotation";
+				updateIcons();
+			} else if (translation == true) {
+				translation = false;
+				reflection = true;
+				adjustBlock = false;
+				adjustPlane = true;
+				adjustSymmetry = false;
+				adjustSize = false;
+				symmetryModeStatus = "Reflection";
 				updateIcons();
 			}
 		}
@@ -885,7 +908,7 @@ public class GraphicsContest extends GraphicsProgram {
 				double X = x*(powMatrix(rotationalArray, n)[0][0]) + y*(powMatrix(rotationalArray, n)[0][1]);
 				double Y = x*(powMatrix(rotationalArray, n)[1][0]) + y*(powMatrix(rotationalArray, n)[1][1]);
 				if (getHeight()/2 + ICON_HEIGHT/2 + Y  - s/2 > ICON_HEIGHT) {
-					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
+					GOval pixel = new GOval (getWidth()/2 + X, getHeight()/2 + ICON_HEIGHT/2 + Y, s, s);
 					pixel.setFilled(true);
 					pixel.setColor(newColor);
 					add(pixel);
