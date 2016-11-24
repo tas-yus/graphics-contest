@@ -290,6 +290,7 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(speedStatus);
 		remove(symmetryNum);
 		remove(planeNum);
+		remove(blockNum);
 		removeSymLine(symLine);
 		if (rotation == true) setUpAxes(symmetry);
 		else if (reflection == true) setUpPlanes(plane);
