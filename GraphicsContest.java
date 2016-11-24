@@ -30,6 +30,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int MIN_PLANE = 0;
 	private static final int MIN_SYMMETRY = 0;
 	private static final int MIN_BLOCK = 0;
+	private static final int MAX_BRUSH_SIZE = 50;
+	private static final int MIN_BRUSH_SIZE = 0;
 	private static final int DEFAULT_BRUSH_SIZE = 5;
 	private static final int RED = 0;
 	private static final int ORANGE = 1;
@@ -439,7 +441,7 @@ public class GraphicsContest extends GraphicsProgram {
 			if (ColorMode == AUTO && speed > 0) {
 				speed -= 5;
 				speedLevel++;
-			} else if (Adjust == SIZE) {
+			} else if (Adjust == SIZE && s < MAX_BRUSH_SIZE) {
 				s++;
 			} else if (Adjust == AXIS && symmetry < MAX_SYMMETRY) {
 				symmetry++;
@@ -454,7 +456,7 @@ public class GraphicsContest extends GraphicsProgram {
 			if (ColorMode == AUTO) {
 				speed += 5;
 				speedLevel--;
-			} else if (Adjust == SIZE && (s != 0)) {
+			} else if (Adjust == SIZE && (s != MIN_BRUSH_SIZE)) {
 				s--;
 			} else if (Adjust == AXIS && symmetry > MIN_SYMMETRY + 1) {
 				symmetry--;
@@ -759,7 +761,7 @@ public class GraphicsContest extends GraphicsProgram {
 			if (ColorMode == AUTO && speed > 0) {
 				speed -= 5;
 				speedLevel++;
-			} else if (Adjust == SIZE) {
+			} else if (Adjust == SIZE && s < MAX_BRUSH_SIZE) {
 				s++;
 			} else if (Adjust == AXIS && symmetry < MAX_SYMMETRY) {
 				symmetry++;
@@ -775,7 +777,7 @@ public class GraphicsContest extends GraphicsProgram {
 			if (ColorMode == AUTO) {
 				speed += 5;
 				speedLevel--;
-			} else if (Adjust == SIZE && (s != 0)) {
+			} else if (Adjust == SIZE && (s != MIN_BRUSH_SIZE)) {
 				s--;
 			} else if (Adjust == AXIS && symmetry > MIN_SYMMETRY + 1) {
 				symmetry--;
