@@ -493,7 +493,6 @@ public class GraphicsContest extends GraphicsProgram {
 			} else if (ColorMode == AUTO) {
 				ColorMode = PURE;
 			}
-			
 			updateIcons();
 			colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
 		}
@@ -508,7 +507,6 @@ public class GraphicsContest extends GraphicsProgram {
 				SymMode = REF;
 				Adjust = PLANE;
 			}
-			symmetryModeStatus = printSymMode(SymMode);
 			updateIcons();
 		}
 		if (ColorMode == PURE) {
