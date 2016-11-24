@@ -939,12 +939,12 @@ public class GraphicsContest extends GraphicsProgram {
 					if (i % 2 == 0) {
 						X = width*i + x;
 					} else {
-						X = width*(i) - x;
+						X = width*i - x;
 					}
 					if (j % 2 == 0) {
 						Y = ICON_HEIGHT + height*j + y;
 					} else {
-						Y = ICON_HEIGHT + height*(j) - y;
+						Y = ICON_HEIGHT + height*j - y;
 					}
 					GOval pixel = new GOval (X - s/2, Y - s/2, s, s);
 					pixel.setFilled(true);
