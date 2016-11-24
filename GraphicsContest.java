@@ -615,7 +615,7 @@ public class GraphicsContest extends GraphicsProgram {
 			double x = e.getX() - s/2;
 			double y = e.getY() - s/2;
 			if (translation == true) {
-				setUpBall(x,y);
+				setUpBall(x, y);
 			} else if (y > ICON_HEIGHT) {
 				x = (x - getWidth()/2);
 				y = (y - (getHeight()/2 + ICON_HEIGHT/2));
@@ -908,8 +908,8 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (translation == true) {
-			double width = getWidth()/block;
-			double height = (getHeight() - ICON_HEIGHT)/block;
+			double width = getWidth()/fold;
+			double height = (getHeight() - ICON_HEIGHT)/fold;
 			while (true) {
 				x -= width;
 				if (x < 0) {
