@@ -231,7 +231,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(colorIcon9);
 		if (rotation == true) setUpAxes(symmetry);
 		if (reflection == true) setUpPlanes(plane);
-		if (translation == true) setUpBlocks(plane);
+		if (translation == true) setUpBlocks(block);
 		addSymLine(symLine);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 	}
@@ -296,6 +296,7 @@ public class GraphicsContest extends GraphicsProgram {
 		removeSymLine(symLine);
 		if (rotation == true) setUpAxes(symmetry);
 		else if (reflection == true) setUpPlanes(plane);
+		else if (translation == true) setUpBlocks(block);
 		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
 		brushStatus = new GLabel ("Brush: " + status, icon1.getX() + icon1.getWidth()/2, ICON_HEIGHT/2);
 		brushStatus.move(-brushStatus.getWidth()/2, +brushStatus.getAscent()/2);
