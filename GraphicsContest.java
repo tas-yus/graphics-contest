@@ -860,6 +860,9 @@ public class GraphicsContest extends GraphicsProgram {
 		if (reflection == true) {
 			addPixel(x,y,plane);
 		}
+		if (translation == true) {
+			addPixel(x,y,block);
+		}
 	}
 
 	private void addPixel(double x, double y, int fold) {
@@ -901,11 +904,29 @@ public class GraphicsContest extends GraphicsProgram {
 					coordinate[0][(int) (Math.pow(2, n) + i)] = coordinate[i][0]*(reflectionArray[1][0]) + coordinate[0][i]*(reflectionArray[1][1]);
 				}
 			}
-			for (int j = 1; j < coordinate.length; j++) {
-				double X = coordinate[j][0];
-				double Y = coordinate[0][j];
-				if (getHeight()/2 + ICON_HEIGHT/2 + Y - s/2 > ICON_HEIGHT) {
-					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
+		}
+		if (translation == true) {
+			double width = getWidth()/block;
+			double height = (getHeight() - ICON_HEIGHT)/block;
+			while (true) {
+				x -= width;
+				if (x < 0) {
+					x += width;
+					break;
+				}
+			}
+			while (true) {
+				y -= height;
+				if (y < 0) {
+					x += height;
+					break;
+				}
+			}
+			for (int i = 0; i < fold; i++) {
+				for (int j = 0; j < fold; j++) {
+					double X = i*x;
+					double Y = ICON_HEIGHT + j*y;
+					GOval pixel = new GOval (X - s/2, Y - s/2, s, s);
 					pixel.setFilled(true);
 					pixel.setColor(newColor);
 					add(pixel);
