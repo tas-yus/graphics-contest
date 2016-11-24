@@ -43,7 +43,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean line = true;
 	private boolean rotation = false;
 	private boolean reflection = true;
-	private boolean translation = true;
+	private boolean translation = false;
 	private boolean adjustSize = false;
 	private boolean adjustSymmetry = false;
 	private boolean adjustPlane = true;
