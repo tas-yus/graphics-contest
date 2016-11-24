@@ -20,6 +20,12 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final double S_ICON_WIDTH = 0.8*WIDTH/20;
 	private static final double M_ICON_WIDTH = WIDTH/10;
 	private static final double L_ICON_WIDTH = 2.7*WIDTH/20;
+	private static final int DEFAULT_PLANE = 4;
+	private static final int DEFAULT_SYMMETRY = 8;
+	private static final int DEFAULT_BLOCK = 2;
+	private static final int MAX_PLANE = 8;
+	private static final int MAX_SYMMETRY = 18;
+	private static final int MAX_BLOCK = 6;
 	private static final int HEIGHT = 700 + ICON_HEIGHT;
 	private static final int PAUSE = 10;
 	private static final int BRUSH_SIZE = 5;
@@ -51,9 +57,9 @@ public class GraphicsContest extends GraphicsProgram {
 	private int s = BRUSH_SIZE;
 	private int speed = DELAY;
 	private int speedLevel = 1;
-	private int symmetry = 8;
-	private int plane = 4;
-	private int block = 2;
+	private int symmetry = DEFAULT_SYMMETRY;
+	private int plane = DEFAULT_PLANE;
+	private int block = DEFAULT_BLOCK;
 	private GRect colorTray;
 	private GRect icon1;
 	private GRect icon2;
@@ -404,11 +410,11 @@ public class GraphicsContest extends GraphicsProgram {
 				speedLevel++;
 			} else if (adjustSize == true) {
 				s++;
-			} else if (adjustSymmetry == true && symmetry < 25) {
+			} else if (adjustSymmetry == true && symmetry < MAX_SYMMETRY) {
 				symmetry++;
-			} else if (adjustPlane == true && plane < 8) {
+			} else if (adjustPlane == true && plane < MAX_PLANE) {
 				plane++;
-			} else if (adjustBlock == true && block < 6) {
+			} else if (adjustBlock == true && block < MAX_BLOCK) {
 				block++;
 			}
 			updateIcons();
