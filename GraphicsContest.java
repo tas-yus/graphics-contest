@@ -806,7 +806,7 @@ public class GraphicsContest extends GraphicsProgram {
 				updateIcons();
 			}
 		}
-		if (e.getKeyCode() == KeyEvent.VK_CONTROL == true) {
+		if (e.getKeyCode() == KeyEvent.VK_CONTROL) {
 			if (SymMode == ROT) {
 				SymMode = TRANS;
 				Adjust = BLOCK;
