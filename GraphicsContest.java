@@ -59,7 +59,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int PLANE = 1;
 	private static final int BLOCK = 2;
 	private static final int SIZE = 3;
-	private static final int NONE = 4;
+	private static final int SPEED = 4;
 	private static final int DEFAULT_ADJUST = DEFAULT_SYM_MODE;
 	
 	private Color newColor;
@@ -438,7 +438,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (clickIcon3(e) == true) {
-			if (ColorMode == AUTO && speed > 0) {
+			if (ColorMode == AUTO && Adjust == SPEED && speed > 0) {
 				speed -= 5;
 				speedLevel++;
 			} else if (Adjust == SIZE && s < MAX_BRUSH_SIZE) {
@@ -673,7 +673,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			ColorMode = AUTO;
 			draw = false;
-			Adjust = NONE;
+			Adjust = SPEED;
 			status = "Off";
 			updateIcons();
 		}
