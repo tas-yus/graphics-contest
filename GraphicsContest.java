@@ -908,6 +908,9 @@ public class GraphicsContest extends GraphicsProgram {
 					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
 					pixel.setFilled(true);
 					pixel.setColor(newColor);
+					if (getElementAt(X - s/2, Y - s/2) != null) {
+						remove(getElementAt(X - s/2, Y - s/2));
+					}
 					add(pixel);
 				}
 			}
