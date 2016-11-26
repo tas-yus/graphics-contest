@@ -1216,5 +1216,4 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 	}
-
 }
