@@ -510,7 +510,7 @@ public class GraphicsContest extends GraphicsProgram {
 			} else if (SymMode == TRANS) {
 				SymMode = REF;
 				Adjust = PLANE;
-			}
+			} 
 			updateIcons();
 		}
 		if (ColorMode == PURE) {
