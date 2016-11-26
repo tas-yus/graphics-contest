@@ -102,7 +102,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLabel minusSize;
 	private GLabel colorMode;
 	private GLabel symmetryMode;
-	private GLabel symmetryNum;
+	private GLabel axisNum;
 	private GLabel planeNum;
 	private GLabel blockNum;
 	private double[] slope;
@@ -201,9 +201,9 @@ public class GraphicsContest extends GraphicsProgram {
 		brushSizeStatus = new GLabel ("Size x" + s, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		brushSizeStatus.move(-brushSizeStatus.getWidth()/2, +brushSizeStatus.getAscent()/2);
 		if (Adjust == SIZE) add(brushSizeStatus);
-		symmetryNum = new GLabel ("Axis x" + symmetry, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
-		symmetryNum.move(-symmetryNum.getWidth()/2, +symmetryNum.getAscent()/2);
-		if (Adjust == AXIS) add(symmetryNum);
+		axisNum = new GLabel ("Axis x" + symmetry, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
+		axisNum.move(-axisNum.getWidth()/2, +axisNum.getAscent()/2);
+		if (Adjust == AXIS) add(axisNum);
 		planeNum = new GLabel ("Plane x" + plane, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
 		planeNum.move(-planeNum.getWidth()/2, +planeNum.getAscent()/2);
 		if (Adjust == PLANE) add(planeNum);
@@ -337,7 +337,7 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(colorMode);
 		remove(symmetryMode);
 		remove(speedStatus);
-		remove(symmetryNum);
+		remove(axisNum);
 		remove(planeNum);
 		remove(blockNum);
 		removeSymLine(symLine);
@@ -364,9 +364,9 @@ public class GraphicsContest extends GraphicsProgram {
 			add(brushSizeStatus);
 		}
 		if (Adjust == AXIS) {
-			symmetryNum = new GLabel ("Axis x" + symmetry, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
-			symmetryNum.move(-symmetryNum.getWidth()/2, +symmetryNum.getAscent()/2);
-			add(symmetryNum);
+			axisNum = new GLabel ("Axis x" + symmetry, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
+			axisNum.move(-axisNum.getWidth()/2, +axisNum.getAscent()/2);
+			add(axisNum);
 		}
 		if (Adjust == PLANE) {
 			planeNum = new GLabel ("Plane x" + plane, icon2.getX() + icon2.getWidth()/2, ICON_HEIGHT/2);
@@ -383,7 +383,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (ColorMode == AUTO) {
 			remove(brushSizeStatus);
-			remove(symmetryNum);
+			remove(axisNum);
 			remove(planeNum);
 			remove(blockNum);
 			add(speedStatus);
