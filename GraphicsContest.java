@@ -901,7 +901,7 @@ public class GraphicsContest extends GraphicsProgram {
 					coordinate[0][(int) (Math.pow(2, n) + i)] = coordinate[i][0]*(reflectionArray[1][0]) + coordinate[0][i]*(reflectionArray[1][1]);
 				}
 			}
-			double N = Math.log10(2*fold)/Math.log(2) + 1;
+			double N = Math.log10(2*fold)/Math.log10(2) + 1;
 			for (int j = 1; j < N; j++) {
 				double X = coordinate[j][0];
 				double Y = coordinate[0][j];
