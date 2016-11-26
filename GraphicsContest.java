@@ -899,12 +899,10 @@ public class GraphicsContest extends GraphicsProgram {
 				reflectionArray[0][1] = B;
 				reflectionArray[1][0] = B;
 				reflectionArray[1][1] = -A;
-				for (int i = 1; i < fold; i++) {
-					coordinate[i + 1][0] = x*(reflectionArray[0][0]) + y*(reflectionArray[0][1]);
-					coordinate[0][i + 1] = x*(reflectionArray[1][0]) + y*(reflectionArray[1][1]);
-					coordinate[i + fold + 1][0] = -x*(reflectionArray[0][0]) + y*(reflectionArray[0][1]);
-					coordinate[0][i + fold + 1] = -x*(reflectionArray[1][0]) + y*(reflectionArray[1][1]);
-				}
+				coordinate[n + 1][0] = x*(reflectionArray[0][0]) + y*(reflectionArray[0][1]);
+				coordinate[0][n + 1] = x*(reflectionArray[1][0]) + y*(reflectionArray[1][1]);
+				coordinate[n + fold + 1][0] = -x*(reflectionArray[0][0]) + y*(reflectionArray[0][1]);
+				coordinate[0][n + fold + 1] = -x*(reflectionArray[1][0]) + y*(reflectionArray[1][1]);
 			}
 			for (int j = 1; j < coordinate.length ; j++) {
 				double X = coordinate[j][0];
