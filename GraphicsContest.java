@@ -495,6 +495,7 @@ public class GraphicsContest extends GraphicsProgram {
 				chosenMixedColor = DEFAULT_COLOR;
 			} else if (ColorMode == AUTO) {
 				ColorMode = PURE;
+				Adjust = SIZE;
 			}
 			updateIcons();
 			colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
