@@ -908,8 +908,8 @@ public class GraphicsContest extends GraphicsProgram {
 				double X = coordinate[j][0];
 				double Y = coordinate[0][j];
 				if (getHeight()/2 + ICON_HEIGHT/2 + Y - s/2 > ICON_HEIGHT) {
-					if (getElementAt(X - s/2, Y - s/2) != null) {
-						remove(getElementAt(X - s/2, Y - s/2));
+					if (getElementAt(getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2) != null) {
+						remove(getElementAt(getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2));
 					}
 					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
 					pixel.setFilled(true);
