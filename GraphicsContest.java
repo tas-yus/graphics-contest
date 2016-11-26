@@ -902,7 +902,7 @@ public class GraphicsContest extends GraphicsProgram {
 				}
 			}
 			double N = Math.log10(2*fold)/Math.log10(2) + 1;
-			for (int j = 1; j < N + 1; j++) {
+			for (int j = 1; j < N + 2; j++) {
 				double X = coordinate[j][0];
 				double Y = coordinate[0][j];
 				if (getHeight()/2 + ICON_HEIGHT/2 + Y - s/2 > ICON_HEIGHT) {
