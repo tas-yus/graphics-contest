@@ -494,7 +494,7 @@ public class GraphicsContest extends GraphicsProgram {
 				ColorMode = MIXED;
 				chosenMixedColor = DEFAULT_COLOR;
 			} else if (ColorMode == AUTO) {
-				ColorMode = PURE;
+				ColorMode = DEFAULT_COLOR_MODE;
 				Adjust = SIZE;
 			}
 			updateIcons();
@@ -664,7 +664,8 @@ public class GraphicsContest extends GraphicsProgram {
 				ColorMode = PURE;
 				chosenPureColor = plainColor[DEFAULT_COLOR][0]; 
 			} else if (ColorMode == AUTO) {
-				ColorMode = PURE;
+				ColorMode = DEFAULT_COLOR_MODE;
+				Adjust = SIZE;
 			}
 			updateIcons();
 			colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
