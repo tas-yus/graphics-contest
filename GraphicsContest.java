@@ -897,16 +897,12 @@ public class GraphicsContest extends GraphicsProgram {
 				reflectionArray[1][0] = B;
 				reflectionArray[1][1] = -A;
 				for (int i = 1; i <= (int) Math.pow(2, n); i++) {
-					if (!contains(coordinate, coordinate[i][0]*(reflectionArray[0][0]) + coordinate[0][i]*(reflectionArray[0][1]))) {
-						coordinate[(int) (Math.pow(2, n) + i)][0] = coordinate[i][0]*(reflectionArray[0][0]) + coordinate[0][i]*(reflectionArray[0][1]);
-					}
-					if (!contains(coordinate, coordinate[0][(int) (Math.pow(2, n) + i)] = coordinate[i][0]*(reflectionArray[1][0]) + coordinate[0][i]*(reflectionArray[1][1]))) {
-						coordinate[0][(int) (Math.pow(2, n) + i)] = coordinate[i][0]*(reflectionArray[1][0]) + coordinate[0][i]*(reflectionArray[1][1]);
-					}
-					
+					coordinate[(int) (Math.pow(2, n) + i)][0] = coordinate[i][0]*(reflectionArray[0][0]) + coordinate[0][i]*(reflectionArray[0][1]);
+					coordinate[0][(int) (Math.pow(2, n) + i)] = coordinate[i][0]*(reflectionArray[1][0]) + coordinate[0][i]*(reflectionArray[1][1]);
 				}
 			}
-			for (int j = 1; j < coordinate.length; j++) {
+			int N = (int)(Math.log10(2*fold)/Math.log(2)) + 1;
+			for (int j = 1; j < N; j++) {
 				double X = coordinate[j][0];
 				double Y = coordinate[0][j];
 				if (getHeight()/2 + ICON_HEIGHT/2 + Y - s/2 > ICON_HEIGHT) {
@@ -998,17 +994,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color randomizeColor(Color[] chosenColor) {
 		Color color = chosenColor[rgen.nextInt(0,chosenColor.length - 1)];
 		return color;
-	}
-	
-	private boolean contains(double[][] coordinate, double x) {
-		for (int i = 0; i < coordinate.length; i++) {
-			for (int j = 0; j < coordinate[0].length; j++) {
-				if (coordinate[i][j] == x) {
-					return true;
-				}
-			}
-		}
-		return false;
 	}
 	
 	private boolean clickIcon1(MouseEvent e) {
