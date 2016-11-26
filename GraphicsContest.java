@@ -264,7 +264,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (SymMode == REF) setUpPlanes(plane);
 		if (SymMode == TRANS) setUpBlocks(block);
 		addSymLine(symLine);
-		coordinate = new double[(int) Math.pow(2, (plane)) + 1][(int) Math.pow(2, (plane)) + 1];
+		coordinate = new double[2*plane + 1][2*plane + 1];
 	}
 
 	private void setUpAxes (int fold) {
@@ -888,8 +888,8 @@ public class GraphicsContest extends GraphicsProgram {
 		if (SymMode == REF) {
 			coordinate[1][0] = x;
 			coordinate[0][1] = y;
-			coordinate[2][0] = -x;
-			coordinate[0][2] = y;
+			coordinate[fold + 1][0] = -x;
+			coordinate[0][fold + 1] = y;
 			for (int n = 1; n < fold; n++) {
 				double[][] reflectionArray = new double[2][2];
 				double m = slope[n];
@@ -899,15 +899,14 @@ public class GraphicsContest extends GraphicsProgram {
 				reflectionArray[0][1] = B;
 				reflectionArray[1][0] = B;
 				reflectionArray[1][1] = -A;
-				for (int i = 1; i <= (int) Math.pow(2, n); i++) {
-					coordinate[(int) (Math.pow(2, n) + i)][0] = coordinate[i][0]*(reflectionArray[0][0]) + coordinate[0][i]*(reflectionArray[0][1]);
-					coordinate[0][(int) (Math.pow(2, n) + i)] = coordinate[i][0]*(reflectionArray[1][0]) + coordinate[0][i]*(reflectionArray[1][1]);
+				for (int i = 1; i <= fold; i++) {
+					coordinate[i + 1][0] = coordinate[1][0]*(reflectionArray[0][0]) + coordinate[0][1]*(reflectionArray[0][1]);
+					coordinate[0][i + 1] = coordinate[1][0]*(reflectionArray[1][0]) + coordinate[0][1]*(reflectionArray[1][1]);
+					coordinate[i + fold + 1][0] = coordinate[fold + 1][0]*(reflectionArray[0][0]) + coordinate[0][fold + 1]*(reflectionArray[0][1]);
+					coordinate[0][i + fold + 1] = coordinate[fold + 1][0]*(reflectionArray[1][0]) + coordinate[0][fold + 1]*(reflectionArray[1][1]);
 				}
 			}
-			int N = (int) Math.round((Math.log10(2*fold)/Math.log10(2)));
-			GLabel h = new GLabel ("" + N, 50, 50);
-			add(h);
-			for (int j = 1; j < N ; j++) {
+			for (int j = 1; j < coordinate.length ; j++) {
 				double X = coordinate[j][0];
 				double Y = coordinate[0][j];
 				if (getHeight()/2 + ICON_HEIGHT/2 + Y - s/2 > ICON_HEIGHT) {
