@@ -909,7 +909,7 @@ public class GraphicsContest extends GraphicsProgram {
 					pixel.setFilled(true);
 					pixel.setColor(newColor);
 					if (getElementAt(X - s/2, Y - s/2) != null) {
-						remove(getElementAt(X - s/2, Y - s/2));
+						remove(getElementAt(X, Y));
 					}
 					add(pixel);
 				}
