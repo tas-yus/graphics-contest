@@ -665,6 +665,8 @@ public class GraphicsContest extends GraphicsProgram {
 				chosenPureColor = plainColor[DEFAULT_COLOR][0]; 
 			} else if (ColorMode == AUTO) {
 				ColorMode = DEFAULT_COLOR_MODE;
+				
+
 			}
 			updateIcons();
 			colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
