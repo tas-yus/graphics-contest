@@ -905,7 +905,7 @@ public class GraphicsContest extends GraphicsProgram {
 				}
 			}
 			double N = Math.log10(2*fold)/Math.log10(2);
-			N = Math.pow(2, N + 1);
+			N = Math.pow(2, N + 2);
 			for (int j = 1; j < N ; j++) {
 				double X = coordinate[j][0];
 				double Y = coordinate[0][j];
