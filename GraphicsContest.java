@@ -887,7 +887,8 @@ public class GraphicsContest extends GraphicsProgram {
 			coordinate[0][1] = y;
 			coordinate[2][0] = -x;
 			coordinate[0][2] = y;
-			for (int n = 1; n < fold; n++) {
+			double N = Math.log10(2*fold)/Math.log10(2) + 1;
+			for (int n = 1; n < N; n++) {
 				double[][] reflectionArray = new double[2][2];
 				double m = slope[n];
 				double A = (1 - m*m)/(1 + m*m);
@@ -901,8 +902,7 @@ public class GraphicsContest extends GraphicsProgram {
 					coordinate[0][(int) (Math.pow(2, n) + i)] = coordinate[i][0]*(reflectionArray[1][0]) + coordinate[0][i]*(reflectionArray[1][1]);
 				}
 			}
-			double N = Math.log10(2*fold)/Math.log10(2) + 1;
-			for (int j = 1; j < N; j++) {
+			for (int j = 1; j < coordinate.length ; j++) {
 				double X = coordinate[j][0];
 				double Y = coordinate[0][j];
 				if (getHeight()/2 + ICON_HEIGHT/2 + Y - s/2 > ICON_HEIGHT) {
