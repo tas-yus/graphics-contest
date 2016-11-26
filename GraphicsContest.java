@@ -904,7 +904,10 @@ public class GraphicsContest extends GraphicsProgram {
 					coordinate[0][(int) (Math.pow(2, n) + i)] = coordinate[i][0]*(reflectionArray[1][0]) + coordinate[0][i]*(reflectionArray[1][1]);
 				}
 			}
-			for (int j = 1; j < coordinate.length ; j++) {
+			int N = (int) (Math.log10(2*fold)/Math.log10(2));
+			GLabel h = new GLabel ("" + N, 50, 50);
+			add(h);
+			for (int j = 1; j < N ; j++) {
 				double X = coordinate[j][0];
 				double Y = coordinate[0][j];
 				if (getHeight()/2 + ICON_HEIGHT/2 + Y - s/2 > ICON_HEIGHT) {
