@@ -904,7 +904,7 @@ public class GraphicsContest extends GraphicsProgram {
 					coordinate[0][(int) (Math.pow(2, n) + i)] = coordinate[i][0]*(reflectionArray[1][0]) + coordinate[0][i]*(reflectionArray[1][1]);
 				}
 			}
-			int N = (int) (Math.log10(2*fold)/Math.log10(2)) + 1;
+			int N = (int) Math.round((Math.log10(2*fold)/Math.log10(2)));
 			GLabel h = new GLabel ("" + N, 50, 50);
 			add(h);
 			for (int j = 1; j < N ; j++) {
