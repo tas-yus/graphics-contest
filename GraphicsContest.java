@@ -385,6 +385,7 @@ public class GraphicsContest extends GraphicsProgram {
 			remove(brushSizeStatus);
 			remove(symmetryNum);
 			remove(planeNum);
+			remove(blockNum);
 			add(speedStatus);
 		}
 	}
