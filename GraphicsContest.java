@@ -915,7 +915,6 @@ public class GraphicsContest extends GraphicsProgram {
 					pixel.setFilled(true);
 					pixel.setColor(newColor);
 					add(pixel);
-					updateIcons();
 				}
 			}
 		}
