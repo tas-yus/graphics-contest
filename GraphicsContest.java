@@ -530,7 +530,9 @@ public class GraphicsContest extends GraphicsProgram {
 					} else if (SymMode == TRANS) {
 						Adjust = BLOCK;
 					}
-				} else if (Adjust != SIZE) {
+				} else if (Adjust == AXIS || Adjust == PLANE || Adjust == BLOCK) {
+					Adjust = SPEED;
+				} else if (Adjust == SPEED) {
 					Adjust = SIZE;
 				}
 			}
