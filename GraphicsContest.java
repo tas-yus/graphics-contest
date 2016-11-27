@@ -509,7 +509,7 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 		}
 		if (clickIcon2(e) == true) {
-			if (Adjust == SIZE || Adjust == SPEED) {
+			if (Adjust == SIZE) {
 				if (SymMode == ROT) {
 					Adjust = AXIS;
 				} else if (SymMode == REF) {
