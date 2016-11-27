@@ -744,6 +744,7 @@ public class GraphicsContest extends GraphicsProgram {
 				draw(x, y);
 			}
 		}
+		updateIcons();
 	}
 	
 	/* Method: draw */
