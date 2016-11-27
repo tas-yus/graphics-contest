@@ -7,20 +7,28 @@ import acm.program.*;
 import acm.graphics.*;
 import acm.util.*;
 
-import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.*;
 
 public class GraphicsContest extends GraphicsProgram {
 
+	/** Random number generator */
 	private RandomGenerator rgen = RandomGenerator.getInstance();
+	
+	/** Screen dimensions */
 	private static final int ICON_HEIGHT = 30;
 	private static final int WIDTH = 700;
 	private static final int HEIGHT = 700 + ICON_HEIGHT;
+	
+	/** Delay to reset the screen */
 	private static final int PAUSE = 10;
+	
+	/** Icon size */
 	private static final double S_ICON_WIDTH = 0.8*WIDTH/20;
 	private static final double M_ICON_WIDTH = WIDTH/10;
 	private static final double L_ICON_WIDTH = 2.7*WIDTH/20;
+	
+	/** Symmetry Info (axes, planes, blocks) */
 	private static final int DEFAULT_PLANE_NUM = 4;
 	private static final int DEFAULT_SYMMETRY_NUM = 8;
 	private static final int DEFAULT_BLOCK_NUM = 2;
@@ -30,15 +38,21 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int MIN_PLANE = 0;
 	private static final int MIN_AXIS = 0;
 	private static final int MIN_BLOCK = 0;
+	
+	/** Brush size */
+	private static final int DEFAULT_BRUSH_SIZE = 4;
 	private static final int MAX_BRUSH_SIZE = 50;
 	private static final int MIN_BRUSH_SIZE = 0;
-	private static final int DEFAULT_BRUSH_SIZE = 4;
+	
+	/** Auto mode */
 	private static final int MAX_AUTO_SPEED_LEVEL = 25;
 	private static final int MIN_AUTO_SPEED_LEVEL = 0;
 	private static final int MAX_AUTO_RING = 20;
 	private static final int DEFAULT_AUTO_SPEED_DELAY = 200;
 	private static final int DEFAULT_AUTO_SPEED_LEVEL = 1;
 	private static final int DEFAULT_SPEED_INTERVAL = 5;
+	
+	/** Color Indices */
 	private static final int RED = 0;
 	private static final int ORANGE = 1;
 	private static final int YELLOW = 2;
@@ -50,25 +64,31 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int BLACK = 8;
 	private static final int DEFAULT_COLOR = ORANGE;
 	private static final int N_COLORS = 9;
+	
+	/** Color mode indices */
 	private static final int MIXED = 0;
 	private static final int PURE = 1;
 	private static final int PLAIN = 2;
 	private static final int AUTO = 3;
 	private static final int DEFAULT_COLOR_MODE = MIXED;
+	
+	/** Symmetry mode indices */
 	private static final int ROT = 0;
 	private static final int REF = 1;
 	private static final int TRANS = 2;
 	private static final int DEFAULT_SYM_MODE = REF;
+	
+	/** Adjust indices */
 	private static final int AXIS = 0;
 	private static final int PLANE = 1;
 	private static final int BLOCK = 2;
 	private static final int SIZE = 3;
 	private static final int SPEED = 4;
 	private static final int DEFAULT_ADJUST = DEFAULT_SYM_MODE;
-	
-	private Color newColor;
+
 	private boolean draw = false;
 	private boolean line = true;
+	private Color newColor;
 	private int ColorMode = DEFAULT_COLOR_MODE;
 	private int SymMode = DEFAULT_SYM_MODE;
 	private int Adjust = DEFAULT_ADJUST;
@@ -78,6 +98,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private int symmetry = DEFAULT_SYMMETRY_NUM;
 	private int plane = DEFAULT_PLANE_NUM;
 	private int block = DEFAULT_BLOCK_NUM;
+	
+	/** Icons */
 	private GRect colorTray;
 	private GRect icon1;
 	private GRect icon2;
@@ -96,6 +118,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private GRect colorIcon7;
 	private GRect colorIcon8;
 	private GRect colorIcon9;
+	
+	/** Icon texts */
 	private String status = "Off";
 	private String colorModeStatus;
 	private String symmetryModeStatus;
@@ -109,10 +133,13 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLabel axisNum;
 	private GLabel planeNum;
 	private GLabel blockNum;
+	
+	/** Arrays dealing with lines */
 	private double[] slope;
 	private double[][] coordinate;
 	private GLine[] symLine;
 
+	/** Arrays dealing with colors */
 	private Color[][] plainColor;
 	private Color[] chosenColor;
 	private Color chosenPureColor;
