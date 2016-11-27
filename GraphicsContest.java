@@ -33,6 +33,11 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int MAX_BRUSH_SIZE = 50;
 	private static final int MIN_BRUSH_SIZE = 0;
 	private static final int DEFAULT_BRUSH_SIZE = 5;
+	private static final int MAX_AUTO_SPEED_LEVEL = 25;
+	private static final int MIN_AUTO_SPEED_LEVEL = 0;
+	private static final int DEFAULT_AUTO_SPEED_DELAY = 200;
+	private static final int DEFAULT_AUTO_SPEED_LEVEL = 1;
+	private static final int DEFAULT_SPEED_INTERVAL = 5;
 	private static final int RED = 0;
 	private static final int ORANGE = 1;
 	private static final int YELLOW = 2;
@@ -44,8 +49,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int BLACK = 8;
 	private static final int DEFAULT_COLOR = ORANGE;
 	private static final int N_COLORS = 9;
-	private static final int DEFAULT_AUTO_SPEED_DELAY = 200;
-	private static final int DEFAULT_AUTO_SPEED_LEVEL = 1;
 	private static final int MIXED = 0;
 	private static final int PURE = 1;
 	private static final int PLAIN = 2;
@@ -61,7 +64,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int SIZE = 3;
 	private static final int SPEED = 4;
 	private static final int DEFAULT_ADJUST = DEFAULT_SYM_MODE;
-	private static final int DEFAULT_SPEED_INTERVAL = 5;
 	
 	private Color newColor;
 	private boolean draw = false;
@@ -523,7 +525,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (clickIcon3(e) == true) {
-			if (ColorMode == AUTO && Adjust == SPEED && speed > 30) {
+			if (ColorMode == AUTO && Adjust == SPEED && speedLevel < MAX_AUTO_SPEED_LEVEL) {
 				speed -= DEFAULT_SPEED_INTERVAL;
 				speedLevel++;
 			} else if (Adjust == SIZE && s < MAX_BRUSH_SIZE) {
@@ -538,7 +540,7 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 		}
 		if (clickIcon4(e) == true) {
-			if (ColorMode == AUTO) {
+			if (ColorMode == AUTO && Adjust == SPEED && speedLevel > MIN_AUTO_SPEED_LEVEL) {
 				speed += DEFAULT_SPEED_INTERVAL;
 				speedLevel--;
 			} else if (Adjust == SIZE && (s != MIN_BRUSH_SIZE)) {
@@ -955,8 +957,8 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			if (ColorMode == AUTO && speed > 0) {
-				speed -= 5;
+			if (ColorMode == AUTO && speedLevel < MAX_AUTO_SPEED_LEVEL) {
+				speed -= DEFAULT_SPEED_INTERVAL;
 				speedLevel++;
 			} else if (Adjust == SIZE && s < MAX_BRUSH_SIZE) {
 				s++;
@@ -971,8 +973,8 @@ public class GraphicsContest extends GraphicsProgram {
 
 		}
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			if (ColorMode == AUTO) {
-				speed += 5;
+			if (ColorMode == AUTO && Adjust == SPEED && speedLevel > MIN_AUTO_SPEED_LEVEL) {
+				speed += DEFAULT_SPEED_INTERVAL;
 				speedLevel--;
 			} else if (Adjust == SIZE && (s != MIN_BRUSH_SIZE)) {
 				s--;
