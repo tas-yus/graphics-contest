@@ -115,16 +115,31 @@ public class GraphicsContest extends GraphicsProgram {
 	private int chosenMixedColor;
 
 	public void run() {
+		setUp();
+		autoDraw();
+	}
+
+	/* Method: setUp */
+	/**
+	 * Sets up the canvas before the user draws.
+	 */
+
+	private void setUp() {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
 		addMouseListeners();
 		addKeyListeners();
 		setUpColors();
 		setUpIcons();
+		setUpLines();
 		setUpColorChoice();
-		autoDraw();
 	}
-
+	
+	/* Method: setUpColors */
+	/**
+	 * Add the colors to the array "plainColor" that will be used throughout the program.
+	 */
+	
 	private void setUpColors() {
 		plainColor = new Color[9][5];
 		plainColor[RED][0] = new Color(255,0,0); 
@@ -173,6 +188,11 @@ public class GraphicsContest extends GraphicsProgram {
 		plainColor[BLACK][3] = new Color(153,153,153);
 		plainColor[BLACK][4] = new Color(204,204,204);
 	}
+	
+	/* Method: setUpIcons */
+	/**
+	 * Creates all the over-head icons including the color tray on the top left corner.
+	 */
 	
 	private void setUpIcons() {
 		colorTray = new GRect (0, 0,S_ICON_WIDTH, ICON_HEIGHT);
@@ -260,13 +280,45 @@ public class GraphicsContest extends GraphicsProgram {
 		if (ColorMode == MIXED) {
 			chosenMixedColor = DEFAULT_COLOR;
 		} 
+	}
+
+	/* Method: printColorMode && printSymMode */
+	/**
+	 * Takes in the number of the mode to print the corresponding status.
+	 */
+	private String printColorMode(int mode) {
+		String result = "";
+		if (mode == MIXED) result += "Mixed";
+		else if (mode == PURE) result += "Pure";
+		else if (mode == PLAIN) result += "Plain";
+		else if (mode == AUTO) result += "Auto";
+		return result;
+	}
+	
+	private String printSymMode(int mode) {
+		String result = "";
+		if (mode == ROT) result += "Rotation";
+		else if (mode == REF) result += "Reflection";
+		else if (mode == TRANS) result += "Translation";
+		return result;
+	}
+
+	/* Method: setUpLines */
+	/**
+	 * Creates the division lines depending on the symmetry mode chosen by the user.
+	 */
+	private void setUpLines() {
 		if (SymMode == ROT) setUpAxes(symmetry);
 		if (SymMode == REF) setUpPlanes(plane);
 		if (SymMode == TRANS) setUpBlocks(block);
 		addSymLine(symLine);
 		coordinate = new double[2*plane + 1][2*plane + 1];
 	}
-
+	
+	/* Method: setUpAxes */
+	/**
+	 * Creates axes for the rotation mode.
+	 */
 	private void setUpAxes (int fold) {
 		double A = Math.cos(2*Math.PI/fold);
 		double B = Math.sin(2*Math.PI/fold);
@@ -283,6 +335,10 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 	
+	/* Method: setUpPlanes */
+	/**
+	 * Creates planes & calculate the slope of those planes for the reflection mode.
+	 */
 	private void setUpPlanes (int fold) {
 		double A = Math.cos(2*Math.PI/2/fold);
 		double B = Math.sin(2*Math.PI/2/fold);
@@ -302,6 +358,10 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 	
+	/* Method: setUpBlocks */
+	/**
+	 * Creates n x n blocks for the translation mode.
+	 */
 	private void setUpBlocks (int fold) {
 		symLine = new GLine[fold*2];
 		for (int i = 0; i < fold; i++) {
@@ -314,23 +374,36 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 
-	private String printColorMode(int mode) {
-		String result = "";
-		if (mode == MIXED) result += "Mixed";
-		else if (mode == PURE) result += "Pure";
-		else if (mode == PLAIN) result += "Plain";
-		else if (mode == AUTO) result += "Auto";
-		return result;
+	/* Method: setUpColorChoices */
+	/**
+	 * Fills color icons with colors so the user knows which one to choose.
+	 */
+	private void setUpColorChoice() {
+		colorIcon1.setFilled(true);
+		colorIcon1.setColor(plainColor[RED][0]);
+		colorIcon2.setFilled(true);
+		colorIcon2.setColor(plainColor[ORANGE][0]);
+		colorIcon3.setFilled(true);
+		colorIcon3.setColor(plainColor[YELLOW][0]);
+		colorIcon4.setFilled(true);
+		colorIcon4.setColor(plainColor[GREEN][0]);
+		colorIcon5.setFilled(true);
+		colorIcon5.setColor(plainColor[BLUE][0]);
+		colorIcon6.setFilled(true);
+		colorIcon6.setColor(plainColor[CYAN][0]);
+		colorIcon7.setFilled(true);
+		colorIcon7.setColor(plainColor[PURPLE][0]);
+		colorIcon8.setFilled(true);
+		colorIcon8.setColor(plainColor[WHITE][0]);
+		colorIcon9.setFilled(true);
+		colorIcon9.setColor(plainColor[BLACK][0]);
 	}
-	
-	private String printSymMode(int mode) {
-		String result = "";
-		if (mode == ROT) result += "Rotation";
-		else if (mode == REF) result += "Reflection";
-		else if (mode == TRANS) result += "Translation";
-		return result;
-	}
-	
+
+	/* Method: updateIcons */
+	/**
+	 * Update how each icon appears upon clicking (For example, the color of the tray is 
+	 * changed according to color chosen). 
+	 */
 	private void updateIcons() {
 		remove(brushStatus);
 		remove(brushSizeStatus);
@@ -390,27 +463,18 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 
-	private void setUpColorChoice() {
-		colorIcon1.setFilled(true);
-		colorIcon1.setColor(plainColor[RED][0]);
-		colorIcon2.setFilled(true);
-		colorIcon2.setColor(plainColor[ORANGE][0]);
-		colorIcon3.setFilled(true);
-		colorIcon3.setColor(plainColor[YELLOW][0]);
-		colorIcon4.setFilled(true);
-		colorIcon4.setColor(plainColor[GREEN][0]);
-		colorIcon5.setFilled(true);
-		colorIcon5.setColor(plainColor[BLUE][0]);
-		colorIcon6.setFilled(true);
-		colorIcon6.setColor(plainColor[CYAN][0]);
-		colorIcon7.setFilled(true);
-		colorIcon7.setColor(plainColor[PURPLE][0]);
-		colorIcon8.setFilled(true);
-		colorIcon8.setColor(plainColor[WHITE][0]);
-		colorIcon9.setFilled(true);
-		colorIcon9.setColor(plainColor[BLACK][0]);
-	}
-
+	/* Method: mouseClicked */
+	/**
+	 * Contains important information of how the clicking of each icon influences the change.
+	 *  - Clicking icon 1 when the brush is off will turn on the brush, and vice versa.
+	 *  - Icon 2 allows the user to adjust the number of planes, axes, blocks. 
+	 *  However, clicking it again will allow the user to adjust brush size.
+	 *  - Icon 3 increases the value of what is current shown in icon 2
+	 *  - Icon 4 decreases the value of what is current shown in icon 2
+	 *  - Icon 5 allows the user to change color modes from Mixed to Pure to Plain.
+	 *  - Icon 6 allows the user to change symmetry modes from Reflection to Rotation to
+	 *  Translation.
+	 */
 	public void mouseClicked(MouseEvent e) {
 		if (clickIcon1(e) == true) {
 			if (draw == false)  {
