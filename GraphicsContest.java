@@ -1133,6 +1133,7 @@ public class GraphicsContest extends GraphicsProgram {
 				status = "Off";
 			} else {
 				ColorMode = DEFAULT_COLOR_MODE;
+				SymMode = DEFAULT_SYM_MODE;
 				Adjust = DEFAULT_ADJUST; 
 			}
 			updateIcons();
