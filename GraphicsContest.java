@@ -699,7 +699,9 @@ public class GraphicsContest extends GraphicsProgram {
 
 	/* Method: mouseMoved */
 	/**
-	 * Enables the user to draw circles anywhere the mouse is moved to.
+	 * Enables the user to draw circles anywhere the mouse is moved to. It first 
+	 * references the x y coordinate of the mouse to the center of the screen
+	 * for further calculation purposes.
 	 */
 	
 	public void mouseMoved(MouseEvent e) {
@@ -709,16 +711,17 @@ public class GraphicsContest extends GraphicsProgram {
 			if (y > ICON_HEIGHT) {
 				x = (x - getWidth()/2);
 				y = (y - (getHeight()/2 + ICON_HEIGHT/2));
-				addAll(x, y);
+				draw(x, y);
 			}
 		}
 	}
 	
-	/* Method: mouseMoved */
+	/* Method: draw */
 	/**
-	 * Enables the user to draw circles anywhere the mouse is moved to.
+	 * First, choose colors depending on the color mode. Then, add pixels depending 
+	 * on the current symmetry mode. 
 	 */
-	private void addAll(double x, double y) {
+	private void draw(double x, double y) {
 		if (ColorMode == PURE) {
 			newColor = chosenPureColor; 
 		}
@@ -732,17 +735,22 @@ public class GraphicsContest extends GraphicsProgram {
 			newColor = mixColor(chosenMixedColor);
 		}
 		if (SymMode == ROT) {
-			addPixel(x,y,symmetry);
+			addPixels(x,y,symmetry);
 		}
 		if (SymMode == REF) {
-			addPixel(x,y,plane);
+			addPixels(x,y,plane);
 		}
 		if (SymMode == TRANS) {
-			addPixel(x,y,block);
+			addPixels(x,y,block);
 		}
 	}
 
-	private void addPixel(double x, double y, int fold) {
+	/* Method: addPixels */
+	/**
+	 * Depending on the symmetry mode, this methods adds multiple circles on the screen. 
+	 * The idea of each mode has to do with matrix transformation of vectors.  
+	 */
+	private void addPixels(double x, double y, int fold) {
 		if (SymMode == ROT) {
 			double A = Math.cos(2*Math.PI/fold);
 			double B = Math.sin(2*Math.PI/fold);
@@ -838,6 +846,25 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 	}
+	
+	/* Method: keyPressed */
+	/**
+	 * Contains important information of how the entering of each key influences the change.
+	 *  - Space bar = icon 1 (turn brush on/off) 
+	 *  - 
+	 *  - Up = icon 3 (+) 
+	 *  - Down = icon 4 (-) 
+	 *  - H = icon 5 (hide)
+	 *  - C = icon 6 (clear)
+	 * 	- Shift = icon 7 (color mode)
+	 * 	- Alt = icon 8 (symmetry mode)
+	 *  - Left = go from current color to the one on the left
+	 *  - Right = go from current color to the one on the right
+	 *  - Icon 7 allows the user to change color modes from Mixed to Pure to Plain.
+	 *  - Icon 8 allows the user to change symmetry modes from Reflection to Rotation to
+	 *  Translation.
+	 *  - ColorIcon 1-9 changes colors of the brush. 
+	 */
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			if (draw == false)  {
@@ -1016,7 +1043,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 			updateIcons();
 		}
-		if (e.getKeyCode() == KeyEvent.VK_Q) {
+		if (e.getKeyCode() == KeyEvent.VK_C) {
 			removeAll();
 			setUpColors();
 			setUpIcons();
@@ -1223,53 +1250,53 @@ public class GraphicsContest extends GraphicsProgram {
 				if (c == 0) {
 					for (int i = 0; i < n; i++) {
 						x = x + dx;
-						addAll(x, y);
+						draw(x, y);
 					}
 				}
 				if (c == 1) {
 					for (int i = 0; i < n; i++) {
 						x = x + dx;
 						y = y + dy;
-						addAll(x, y);
+						draw(x, y);
 					}
 				}
 				if (c == 2) {
 					for (int i = 0; i < n; i++) {
 						y = y + dy;
-						addAll(x, y);
+						draw(x, y);
 					}
 				}
 				if (c == 3) {
 					for (int i = 0; i < n+1; i++) {
 						x = x - dx;
 						y = y + dy;
-						addAll(x, y);
+						draw(x, y);
 					}
 				}
 				if (c == 4) {
 					for (int i = 0; i < n+1; i++) {
 						x = x - dx;
-						addAll(x, y);
+						draw(x, y);
 					}
 				}
 				if (c == 5) {
 					for (int i = 0; i < n+1; i++) {
 						x = x - dx;
 						y = y - dy;
-						addAll(x, y);
+						draw(x, y);
 					}
 				}
 				if (c == 6) {
 					for (int i = 0; i < n; i++) {
 						y = y - dy;
-						addAll(x, y);
+						draw(x, y);
 					}
 				}
 				if (c == 7) {
 					for (int i = 0; i < n+1; i++) {
 						x = x + dx;
 						y = y - dy;
-						addAll(x, y);
+						draw(x, y);
 					}
 					n++;
 				}
