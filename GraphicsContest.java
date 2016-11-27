@@ -61,6 +61,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int SIZE = 3;
 	private static final int SPEED = 4;
 	private static final int DEFAULT_ADJUST = DEFAULT_SYM_MODE;
+	private static final int DEFAULT_SPEED_INTERVAL = 5;
 	
 	private Color newColor;
 	private boolean draw = false;
@@ -317,7 +318,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	/* Method: setUpAxes */
 	/**
-	 * Creates axes for the rotation mode.
+	 * Creates axes for the rotation mode + add those line onto the array containing lines.
 	 */
 	private void setUpAxes (int fold) {
 		double A = Math.cos(2*Math.PI/fold);
@@ -337,7 +338,8 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	/* Method: setUpPlanes */
 	/**
-	 * Creates planes & calculate the slope of those planes for the reflection mode.
+	 * Creates planes + add those line onto the array containing lines. 
+	 * It also calculate the slope of those planes for the reflection mode.
 	 */
 	private void setUpPlanes (int fold) {
 		double A = Math.cos(2*Math.PI/2/fold);
@@ -360,7 +362,8 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	/* Method: setUpBlocks */
 	/**
-	 * Creates n x n blocks for the translation mode.
+	 * Creates n x n blocks for the translation mode + add those line onto 
+	 * the array containing lines.
 	 */
 	private void setUpBlocks (int fold) {
 		symLine = new GLine[fold*2];
@@ -373,7 +376,21 @@ public class GraphicsContest extends GraphicsProgram {
 			symLine[fold + j] = symmetryLine;
 		}
 	}
-
+	/* Method: addSymLine & removeSymLine */
+	/**
+	 * add/remove all the division lines onto the screen.
+	 */
+	private void addSymLine(GLine[] symLine) {
+		for(int i = 0; i < symLine.length; i++) {
+			add(symLine[i]);
+		}
+	}
+	private void removeSymLine(GLine[] symLine) {
+		for(int i = 0; i < symLine.length; i++) {
+			remove(symLine[i]);
+		}
+	}
+	
 	/* Method: setUpColorChoices */
 	/**
 	 * Fills color icons with colors so the user knows which one to choose.
@@ -462,7 +479,7 @@ public class GraphicsContest extends GraphicsProgram {
 			add(speedStatus);
 		}
 	}
-
+	
 	/* Method: mouseClicked */
 	/**
 	 * Contains important information of how the clicking of each icon influences the change.
@@ -506,8 +523,8 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (clickIcon3(e) == true) {
-			if (ColorMode == AUTO && Adjust == SPEED && speed > 0) {
-				speed -= 5;
+			if (ColorMode == AUTO && Adjust == SPEED && speed > 30) {
+				speed -= DEFAULT_SPEED_INTERVAL;
 				speedLevel++;
 			} else if (Adjust == SIZE && s < MAX_BRUSH_SIZE) {
 				s++;
@@ -522,7 +539,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (clickIcon4(e) == true) {
 			if (ColorMode == AUTO) {
-				speed += 5;
+				speed += DEFAULT_SPEED_INTERVAL;
 				speedLevel--;
 			} else if (Adjust == SIZE && (s != MIN_BRUSH_SIZE)) {
 				s--;
@@ -744,6 +761,52 @@ public class GraphicsContest extends GraphicsProgram {
 			addPixels(x,y,block);
 		}
 	}
+	
+	/* Method: randomizeColor */
+	/**
+	 * Takes in the array containing color and randomly assign the color within that
+	 * array to the drawn pixel one at a time
+	 */
+	private Color randomizeColor(Color[] chosenColor) {
+		Color color = chosenColor[rgen.nextInt(0,chosenColor.length - 1)];
+		return color;
+	}
+	
+	/* Method: mixColor */
+	/**
+	 * Takes in the color index and mix that color with colors of similar shades
+	 */
+	private Color mixColor(int chosenMixedColor) {
+		if (chosenMixedColor == RED) {
+			Color color = new Color (255,rgen.nextInt(25,220),rgen.nextInt(25,255));
+			return color;
+		} else if (chosenMixedColor == ORANGE) {
+			Color color = new Color (255, rgen.nextInt(128,255),0);
+			return color;
+		} else if (chosenMixedColor == YELLOW) {
+			Color color = new Color (rgen.nextInt(200,255), rgen.nextInt(230,255),0);
+			return color;
+		} else if (chosenMixedColor == GREEN) {
+			Color color = new Color (rgen.nextInt(0,102), rgen.nextInt(102,255), 0);
+			return color;
+		} else if (chosenMixedColor == BLUE) {
+			Color color = new Color (rgen.nextInt(0,102), rgen.nextInt(128,255),rgen.nextInt(102,255));
+			return color;
+		} else if (chosenMixedColor == CYAN) {
+			Color color = new Color (rgen.nextInt(0,128), rgen.nextInt(0,255),255);
+			return color;
+		} else if (chosenMixedColor == PURPLE) {
+			Color color = new Color (rgen.nextInt(0,255), 0,rgen.nextInt(127,255));
+			return color;
+		} else if (chosenMixedColor == WHITE) {
+			Color color = Color.WHITE;
+			return color;
+		} else if (chosenMixedColor == BLACK) {
+			int x = rgen.nextInt(0,255);
+			Color color = new Color (x, x, x);
+			return color;
+		} else return null;
+	}
 
 	/* Method: addPixels */
 	/**
@@ -851,19 +914,17 @@ public class GraphicsContest extends GraphicsProgram {
 	/**
 	 * Contains important information of how the entering of each key influences the change.
 	 *  - Space bar = icon 1 (turn brush on/off) 
-	 *  - 
+	 *  - ALT = icon 2 (switch adjust symmetry to brush size)
 	 *  - Up = icon 3 (+) 
 	 *  - Down = icon 4 (-) 
 	 *  - H = icon 5 (hide)
 	 *  - C = icon 6 (clear)
 	 * 	- Shift = icon 7 (color mode)
-	 * 	- Alt = icon 8 (symmetry mode)
+	 * 	- CTRL = icon 8 (symmetry mode)
 	 *  - Left = go from current color to the one on the left
 	 *  - Right = go from current color to the one on the right
-	 *  - Icon 7 allows the user to change color modes from Mixed to Pure to Plain.
-	 *  - Icon 8 allows the user to change symmetry modes from Reflection to Rotation to
-	 *  Translation.
-	 *  - ColorIcon 1-9 changes colors of the brush. 
+	 *  - R/G/B = increase the value of red green blue of the color (under PURE mode)
+	 *  - ENTER = enable/disable the auto draw mode
 	 */
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
@@ -875,6 +936,69 @@ public class GraphicsContest extends GraphicsProgram {
 				status = "Off";
 				draw = false;
 				updateIcons();
+			}
+		}
+		if (e.getKeyCode() == KeyEvent.VK_ALT) {
+			if (ColorMode != AUTO) {
+				if (Adjust == SIZE) {
+					if (SymMode == ROT) {
+						Adjust = AXIS;
+					} else if (SymMode == REF) {
+						Adjust = PLANE;
+					} else if (SymMode == TRANS) {
+						Adjust = BLOCK;
+					}
+				} else if (Adjust != SIZE) {
+					Adjust = SIZE;
+				}
+				updateIcons();
+			}
+		}
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
+			if (ColorMode == AUTO && speed > 0) {
+				speed -= 5;
+				speedLevel++;
+			} else if (Adjust == SIZE && s < MAX_BRUSH_SIZE) {
+				s++;
+			} else if (Adjust == AXIS && symmetry < MAX_SYMMETRY) {
+				symmetry++;
+			} else if (Adjust == PLANE && plane < MAX_PLANE) {
+				plane++;
+			} else if (Adjust == BLOCK && block < MAX_BLOCK) {
+				block++;
+			}
+			updateIcons();
+
+		}
+		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			if (ColorMode == AUTO) {
+				speed += 5;
+				speedLevel--;
+			} else if (Adjust == SIZE && (s != MIN_BRUSH_SIZE)) {
+				s--;
+			} else if (Adjust == AXIS && symmetry > MIN_SYMMETRY + 1) {
+				symmetry--;
+			} else if (Adjust == PLANE && plane > MIN_PLANE + 1) {
+				plane--;
+			} else if (Adjust == BLOCK && block > MIN_BLOCK + 1) {
+				block--;
+			}
+			updateIcons();
+		}
+		if (e.getKeyCode() == KeyEvent.VK_C) {
+			removeAll();
+			setUpColors();
+			setUpIcons();
+			setUpColorChoice();
+			updateIcons();
+		}
+		if (e.getKeyCode() == KeyEvent.VK_H) {
+			if (line == false) {
+				addSymLine(symLine);
+				line = true;
+			} else {
+				removeSymLine(symLine);
+				line = false;
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
@@ -894,11 +1018,17 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 			colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
 		}
-		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			ColorMode = AUTO;
-			draw = false;
-			Adjust = SPEED;
-			status = "Off";
+		if (e.getKeyCode() == KeyEvent.VK_CONTROL) {
+			if (SymMode == ROT) {
+				SymMode = TRANS;
+				Adjust = BLOCK;
+			} else if (SymMode == REF) {
+				SymMode = ROT;
+				Adjust = AXIS;
+			} else if (SymMode == TRANS) {
+				SymMode = REF;
+				Adjust = PLANE;
+			}
 			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
@@ -983,122 +1113,19 @@ public class GraphicsContest extends GraphicsProgram {
 				colorTray.setColor(chosenPureColor);
 			}
 		}
-		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			if (ColorMode == AUTO && speed > 0) {
-				speed -= 5;
-				speedLevel++;
-			} else if (Adjust == SIZE && s < MAX_BRUSH_SIZE) {
-				s++;
-			} else if (Adjust == AXIS && symmetry < MAX_SYMMETRY) {
-				symmetry++;
-			} else if (Adjust == PLANE && plane < MAX_PLANE) {
-				plane++;
-			} else if (Adjust == BLOCK && block < MAX_BLOCK) {
-				block++;
-			}
+		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+			ColorMode = AUTO;
+			draw = false;
+			Adjust = SPEED;
+			status = "Off";
 			updateIcons();
-
-		}
-		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			if (ColorMode == AUTO) {
-				speed += 5;
-				speedLevel--;
-			} else if (Adjust == SIZE && (s != MIN_BRUSH_SIZE)) {
-				s--;
-			} else if (Adjust == AXIS && symmetry > MIN_SYMMETRY + 1) {
-				symmetry--;
-			} else if (Adjust == PLANE && plane > MIN_PLANE + 1) {
-				plane--;
-			} else if (Adjust == BLOCK && block > MIN_BLOCK + 1) {
-				block--;
-			}
-			updateIcons();
-		}
-		if (e.getKeyCode() == KeyEvent.VK_ALT) {
-			if (ColorMode != AUTO) {
-				if (Adjust == SIZE) {
-					if (SymMode == ROT) {
-						Adjust = AXIS;
-					} else if (SymMode == REF) {
-						Adjust = PLANE;
-					} else if (SymMode == TRANS) {
-						Adjust = BLOCK;
-					}
-				} else if (Adjust != SIZE) {
-					Adjust = SIZE;
-				}
-				updateIcons();
-			}
-		}
-		if (e.getKeyCode() == KeyEvent.VK_CONTROL) {
-			if (SymMode == ROT) {
-				SymMode = TRANS;
-				Adjust = BLOCK;
-			} else if (SymMode == REF) {
-				SymMode = ROT;
-				Adjust = AXIS;
-			} else if (SymMode == TRANS) {
-				SymMode = REF;
-				Adjust = PLANE;
-			}
-			updateIcons();
-		}
-		if (e.getKeyCode() == KeyEvent.VK_C) {
-			removeAll();
-			setUpColors();
-			setUpIcons();
-			setUpColorChoice();
-			updateIcons();
-		}
-		if (e.getKeyCode() == KeyEvent.VK_H) {
-			if (line == false) {
-				addSymLine(symLine);
-				line = true;
-			} else {
-				removeSymLine(symLine);
-				line = false;
-			}
 		}
 	}
 
-	
-
-	private Color mixColor(int chosenMixedColor) {
-		if (chosenMixedColor == RED) {
-			Color color = new Color (255,rgen.nextInt(25,220),rgen.nextInt(25,255));
-			return color;
-		} else if (chosenMixedColor == ORANGE) {
-			Color color = new Color (255, rgen.nextInt(128,255),0);
-			return color;
-		} else if (chosenMixedColor == YELLOW) {
-			Color color = new Color (rgen.nextInt(200,255), rgen.nextInt(230,255),0);
-			return color;
-		} else if (chosenMixedColor == GREEN) {
-			Color color = new Color (rgen.nextInt(0,102), rgen.nextInt(102,255), 0);
-			return color;
-		} else if (chosenMixedColor == BLUE) {
-			Color color = new Color (rgen.nextInt(0,102), rgen.nextInt(128,255),rgen.nextInt(102,255));
-			return color;
-		} else if (chosenMixedColor == CYAN) {
-			Color color = new Color (rgen.nextInt(0,128), rgen.nextInt(0,255),255);
-			return color;
-		} else if (chosenMixedColor == PURPLE) {
-			Color color = new Color (rgen.nextInt(0,255), 0,rgen.nextInt(127,255));
-			return color;
-		} else if (chosenMixedColor == WHITE) {
-			Color color = Color.WHITE;
-			return color;
-		} else if (chosenMixedColor == BLACK) {
-			int x = rgen.nextInt(0,255);
-			Color color = new Color (x, x, x);
-			return color;
-		} else return null;
-	}
-	private Color randomizeColor(Color[] chosenColor) {
-		Color color = chosenColor[rgen.nextInt(0,chosenColor.length - 1)];
-		return color;
-	}
-	
+	/* Method: clickIcon1-8 & clickColorIcon1-9 */
+	/**
+	 * returns true when clicking on that particular region else return false.
+	 */
 	private boolean clickIcon1(MouseEvent e) {
 		if (clickIcon2(e) || clickIcon3(e) || clickIcon4(e) || clickIcon5(e) || clickIcon6(e) || 
 				clickIcon7(e) || clickIcon8(e) || clickColorIcon1(e) || clickColorIcon2(e) || clickColorIcon3(e) ||
@@ -1108,52 +1135,42 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		else return true;
 	}
-
 	private boolean clickIcon2(MouseEvent e) {
 		if (icon2.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-
 	private boolean clickIcon3(MouseEvent e) {
 		if (icon3.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-
 	private boolean clickIcon4(MouseEvent e) {
 		if (icon4.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-
 	private boolean clickIcon5(MouseEvent e) {
 		if (icon5.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-
 	private boolean clickIcon6(MouseEvent e) {
 		if (icon6.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-
 	private boolean clickIcon7(MouseEvent e) {
 		if (icon7.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-
 	private boolean clickIcon8(MouseEvent e) {
 		if (icon8.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-
 	private boolean clickColorIcon1(MouseEvent e) {
 		if (colorIcon1.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-
 	private boolean clickColorIcon2(MouseEvent e) {
 		if (colorIcon2.contains(e.getX(),e.getY())) return true;
 		else return false;
 	}
-
 	private boolean clickColorIcon3(MouseEvent e) {
 		if (colorIcon3.contains(e.getX(),e.getY())) return true;
 		else return false;
@@ -1183,18 +1200,10 @@ public class GraphicsContest extends GraphicsProgram {
 		else return false;
 	}
 
-	private void addSymLine(GLine[] symLine) {
-		for(int i = 0; i < symLine.length; i++) {
-			add(symLine[i]);
-		}
-	}
-
-	private void removeSymLine(GLine[] symLine) {
-		for(int i = 0; i < symLine.length; i++) {
-			remove(symLine[i]);
-		}
-	}
-
+	/* Method: colorToInt */
+	/**
+	 * takes in current color of the tray and returns color index.
+	 */
 	private int colorToInt(Color color) {
 		if (color == plainColor[RED][0]) return 0;
 		else if (color == plainColor[ORANGE][0]) return 1;
@@ -1208,6 +1217,10 @@ public class GraphicsContest extends GraphicsProgram {
 		else return 0;
 	}
 
+	/* Method: powMatrix */
+	/**
+	 * raises matrix to the power of n.
+	 */
 	private double[][] powMatrix(double[][] matrix, int n) {
 		double [][] result = new double[matrix.length][matrix[0].length];
 		for (int i = 0; i < matrix.length; i++) {
@@ -1227,6 +1240,10 @@ public class GraphicsContest extends GraphicsProgram {
 		return result;
 	}
 
+	/* Method: getSlope */
+	/**
+	 * returns the slope of a line.
+	 */
 	private double getSlope(GLine line) {
 		double x2 = (line.getEndPoint()).getX();
 		double y2 = (line.getEndPoint()).getY();
@@ -1236,6 +1253,11 @@ public class GraphicsContest extends GraphicsProgram {
 		return slope;
 	}
 
+	/* Method: autoDraw */
+	/**
+	 * draws pictures on the screen automatically and resets the screen to blank and start over
+	 * once the picture is too large
+	 */
 	private void autoDraw() {
 		double x = getWidth()/2 - s;
 		double y = getHeight()/2 + ICON_HEIGHT/2;
