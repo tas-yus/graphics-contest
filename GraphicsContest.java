@@ -7,6 +7,7 @@ import acm.program.*;
 import acm.graphics.*;
 import acm.util.*;
 
+import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -116,6 +117,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color[] chosenColor;
 	private Color chosenPureColor;
 	private int chosenMixedColor;
+	
+	AudioClip Click = MediaTools.loadAudioClip("click.mp3");
 
 	public void run() {
 		setUp();
@@ -494,6 +497,7 @@ public class GraphicsContest extends GraphicsProgram {
 	 *  - ColorIcon 1-9 changes colors of the brush. 
 	 */
 	public void mouseClicked(MouseEvent e) {
+		Click.play();
 		if (clickIcon1(e) == true) {
 			if (draw == false)  {
 				status = "On";
