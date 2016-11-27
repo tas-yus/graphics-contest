@@ -450,9 +450,6 @@ public class GraphicsContest extends GraphicsProgram {
 		add(brushStatus);
 		add(colorMode);
 		add(symmetryMode);
-		if (SymMode == ROT) setUpAxes(symmetry);
-		if (SymMode == REF) setUpPlanes(plane);
-		if (SymMode == TRANS) setUpBlocks(block);
 		if (Adjust == SIZE) {
 			add(brushSizeStatus);
 		}
@@ -471,11 +468,23 @@ public class GraphicsContest extends GraphicsProgram {
 			blockNum.move(-blockNum.getWidth()/2, +blockNum.getAscent()/2);
 			add(blockNum);
 		}
-		if (line == true) {
-			addSymLine(symLine);
-		}
 		if (Adjust == SPEED) {
 			add(speedStatus);
+		}
+		if (ColorMode == PURE) {
+			chosenPureColor = plainColor[colorToInt(colorTray.getColor())][0];
+		}
+		if (ColorMode == PLAIN) {
+			chosenColor = plainColor[colorToInt(colorTray.getColor())];
+		}
+		if (ColorMode == MIXED || ColorMode == AUTO) {
+			chosenMixedColor = colorToInt(colorTray.getColor());
+		}
+		if (SymMode == ROT) setUpAxes(symmetry);
+		if (SymMode == REF) setUpPlanes(plane);
+		if (SymMode == TRANS) setUpBlocks(block);
+		if (line == true) {
+			addSymLine(symLine);
 		}
 	}
 	
