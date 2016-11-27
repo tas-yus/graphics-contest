@@ -32,7 +32,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int MIN_BLOCK = 0;
 	private static final int MAX_BRUSH_SIZE = 50;
 	private static final int MIN_BRUSH_SIZE = 0;
-	private static final int DEFAULT_BRUSH_SIZE = 5;
+	private static final int DEFAULT_BRUSH_SIZE = 4;
 	private static final int MAX_AUTO_SPEED_LEVEL = 25;
 	private static final int MIN_AUTO_SPEED_LEVEL = 0;
 	private static final int MAX_AUTO_RING = 20;
