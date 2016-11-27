@@ -1322,20 +1322,20 @@ public class GraphicsContest extends GraphicsProgram {
 					}
 				}
 				if (c == 3) {
-					for (int i = 0; i < n; i++) {
+					for (int i = 0; i < n+1; i++) {
 						x = x - dx;
 						y = y + dy;
 						draw(x, y);
 					}
 				}
 				if (c == 4) {
-					for (int i = 0; i < n; i++) {
+					for (int i = 0; i < n+1; i++) {
 						x = x - dx;
 						draw(x, y);
 					}
 				}
 				if (c == 5) {
-					for (int i = 0; i < n; i++) {
+					for (int i = 0; i < n+1; i++) {
 						x = x - dx;
 						y = y - dy;
 						draw(x, y);
@@ -1348,7 +1348,7 @@ public class GraphicsContest extends GraphicsProgram {
 					}
 				}
 				if (c == 7) {
-					for (int i = 0; i < n; i++) {
+					for (int i = 0; i < n+1; i++) {
 						x = x + dx;
 						y = y - dy;
 						draw(x, y);
