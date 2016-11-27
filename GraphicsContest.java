@@ -957,7 +957,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			if (ColorMode == AUTO && speedLevel < MAX_AUTO_SPEED_LEVEL) {
+			if (Adjust == SPEED && speedLevel < MAX_AUTO_SPEED_LEVEL) {
 				speed -= DEFAULT_SPEED_INTERVAL;
 				speedLevel++;
 			} else if (Adjust == SIZE && s < MAX_BRUSH_SIZE) {
