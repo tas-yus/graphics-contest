@@ -596,7 +596,7 @@ public class GraphicsContest extends GraphicsProgram {
 				Adjust = DEFAULT_ADJUST;
 			}
 			updateIcons();
-			colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
+			colorTray.setColor(plainColor[colorToInt(colorTray.getColor())][0]);
 		}
 		if (clickIcon8(e) == true) {
 			if (SymMode == ROT) {
