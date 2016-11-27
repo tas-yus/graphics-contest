@@ -117,8 +117,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color[] chosenColor;
 	private Color chosenPureColor;
 	private int chosenMixedColor;
-	
-	AudioClip Click = MediaTools.loadAudioClip("click.au");
 
 	public void run() {
 		setUp();
@@ -727,7 +725,6 @@ public class GraphicsContest extends GraphicsProgram {
 		if(clickColorIcon9(e) == true) {
 			colorTray.setColor(plainColor[BLACK][0]);
 		}
-		if (!clickIcon1(e)) Click.play();
 	}
 
 	/* Method: mouseMoved */
