@@ -118,7 +118,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private Color chosenPureColor;
 	private int chosenMixedColor;
 	
-	AudioClip Click = MediaTools.loadAudioClip("click.mp3");
+	AudioClip Click = MediaTools.loadAudioClip("click.au");
 
 	public void run() {
 		setUp();
