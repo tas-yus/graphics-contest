@@ -477,15 +477,6 @@ public class GraphicsContest extends GraphicsProgram {
 		if (Adjust == SPEED) {
 			add(speedStatus);
 		}
-		if (ColorMode == PURE) {
-			chosenPureColor = plainColor[colorToInt(colorTray.getColor())][0]; 
-		}
-		if (ColorMode == PLAIN) {
-			chosenColor = plainColor[colorToInt(colorTray.getColor())]; 
-		}
-		if (ColorMode == MIXED) {
-			chosenMixedColor = colorToInt(colorTray.getColor());
-		} 
 	}
 	
 	/* Method: mouseClicked */
@@ -593,13 +584,13 @@ public class GraphicsContest extends GraphicsProgram {
 		if (clickIcon7(e) == true) {
 			if (ColorMode == MIXED) {
 				ColorMode = PURE;
-				chosenPureColor = plainColor[DEFAULT_COLOR][0]; 
+				chosenPureColor = plainColor[colorToInt(colorTray.getColor())][0]; 
 			} else if(ColorMode == PURE) {
 				ColorMode = PLAIN;
-				chosenColor = plainColor[DEFAULT_COLOR];
+				chosenColor = plainColor[colorToInt(colorTray.getColor())];
 			} else if (ColorMode == PLAIN) {
 				ColorMode = MIXED;
-				chosenMixedColor = DEFAULT_COLOR;
+				chosenMixedColor = colorToInt(colorTray.getColor());
 			} else if (ColorMode == AUTO) {
 				ColorMode = DEFAULT_COLOR_MODE;
 				Adjust = DEFAULT_ADJUST;
