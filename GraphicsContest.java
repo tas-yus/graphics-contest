@@ -679,7 +679,6 @@ public class GraphicsContest extends GraphicsProgram {
 			if(clickColorIcon9(e) == true) {
 				chosenColor = plainColor[BLACK]; 
 			}
-			Click.play();
 		}
 		if (ColorMode == MIXED || ColorMode == AUTO) {
 			if(clickColorIcon1(e) == true) {
@@ -709,34 +708,42 @@ public class GraphicsContest extends GraphicsProgram {
 			if(clickColorIcon9(e) == true) {
 				chosenMixedColor = BLACK; 
 			}
-			Click.play();
 		}
 		if(clickColorIcon1(e) == true) {
 			colorTray.setColor(plainColor[RED][0]);
+			Click.play();
 		}
 		if(clickColorIcon2(e) == true) {
 			colorTray.setColor(plainColor[ORANGE][0]);
+			Click.play();
 		}
 		if(clickColorIcon3(e) == true) {
 			colorTray.setColor(plainColor[YELLOW][0]);
+			Click.play();
 		}
 		if(clickColorIcon4(e) == true) {
 			colorTray.setColor(plainColor[GREEN][0]);
+			Click.play();
 		}
 		if(clickColorIcon5(e) == true) {
 			colorTray.setColor(plainColor[BLUE][0]);
+			Click.play();
 		}
 		if(clickColorIcon6(e) == true) {
 			colorTray.setColor(plainColor[CYAN][0]);
+			Click.play();
 		}
 		if(clickColorIcon7(e) == true) {
 			colorTray.setColor(plainColor[PURPLE][0]);
+			Click.play();
 		}
 		if(clickColorIcon8(e) == true) {
 			colorTray.setColor(plainColor[WHITE][0]);
+			Click.play();
 		}
 		if(clickColorIcon9(e) == true) {
 			colorTray.setColor(plainColor[BLACK][0]);
+			Click.play();
 		}
 	}
 
