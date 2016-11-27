@@ -473,7 +473,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (line == true) {
 			addSymLine(symLine);
 		}
-		if (ColorMode == AUTO) {
+		if (Adjust == SPEED) {
 			remove(brushSizeStatus);
 			remove(axisNum);
 			remove(planeNum);
