@@ -617,118 +617,112 @@ public class GraphicsContest extends GraphicsProgram {
 			} 
 			updateIcons();
 		}
-		if (ColorMode == PURE) {
-			if(clickColorIcon1(e) == true) {
-				chosenPureColor = plainColor[RED][0]; 
+		if (clickColorIcon1(e) == true) {
+			if (ColorMode == PURE) {
+				chosenPureColor = plainColor[RED][0];
 			}
-			if(clickColorIcon2(e) == true) {
-				chosenPureColor = plainColor[ORANGE][0]; 
-			}
-			if(clickColorIcon3(e) == true) {
-				chosenPureColor = plainColor[YELLOW][0]; 
-			}
-			if(clickColorIcon4(e) == true) {
-				chosenPureColor = plainColor[GREEN][0]; 
-			}
-			if(clickColorIcon5(e) == true) {
-				chosenPureColor = plainColor[BLUE][0]; 
-			}
-			if(clickColorIcon6(e) == true) {
-				chosenPureColor = plainColor[CYAN][0]; 
-			}
-			if(clickColorIcon7(e) == true) {
-				chosenPureColor = plainColor[PURPLE][0]; 
-			}
-			if(clickColorIcon8(e) == true) {
-				chosenPureColor = plainColor[WHITE][0]; 
-			}
-			if(clickColorIcon9(e) == true) {
-				chosenPureColor = plainColor[BLACK][0]; 
-			}
-		}
-		if (ColorMode == PLAIN) {
-			if(clickColorIcon1(e) == true) {
+			if (ColorMode == PLAIN) {
 				chosenColor = plainColor[RED];
 			}
-			if(clickColorIcon2(e) == true) {
-				chosenColor = plainColor[ORANGE];
-			}
-			if(clickColorIcon3(e) == true) {
-				chosenColor = plainColor[YELLOW];
-			}
-			if(clickColorIcon4(e) == true) {
-				chosenColor = plainColor[GREEN]; 
-			}
-			if(clickColorIcon5(e) == true) {
-				chosenColor = plainColor[BLUE]; 
-			}
-			if(clickColorIcon6(e) == true) {
-				chosenColor = plainColor[CYAN]; 
-			}
-			if(clickColorIcon7(e) == true) {
-				chosenColor = plainColor[PURPLE]; 
-			}
-			if(clickColorIcon8(e) == true) {
-				chosenColor = plainColor[WHITE]; 
-			}
-			if(clickColorIcon9(e) == true) {
-				chosenColor = plainColor[BLACK]; 
-			}
-		}
-		if (ColorMode == MIXED || ColorMode == AUTO) {
-			if(clickColorIcon1(e) == true) {
+			if (ColorMode == MIXED || ColorMode == AUTO) {
 				chosenMixedColor = RED;
 			}
-			if(clickColorIcon2(e) == true) {
-				chosenMixedColor = ORANGE;
-			}
-			if(clickColorIcon3(e) == true) {
-				chosenMixedColor = YELLOW;
-			}
-			if(clickColorIcon4(e) == true) {
-				chosenMixedColor = GREEN;
-			}
-			if(clickColorIcon5(e) == true) {
-				chosenMixedColor = BLUE;
-			}
-			if(clickColorIcon6(e) == true) {
-				chosenMixedColor = CYAN;
-			}
-			if(clickColorIcon7(e) == true) {
-				chosenMixedColor = PURPLE; 
-			}
-			if(clickColorIcon8(e) == true) {
-				chosenMixedColor = WHITE; 
-			}
-			if(clickColorIcon9(e) == true) {
-				chosenMixedColor = BLACK; 
-			}
-		}
-		if(clickColorIcon1(e) == true) {
 			colorTray.setColor(plainColor[RED][0]);
 		}
-		if(clickColorIcon2(e) == true) {
+		if (clickColorIcon2(e) == true) {
+			if (ColorMode == PURE) {
+				chosenPureColor = plainColor[ORANGE][0];
+			}
+			if (ColorMode == PLAIN) {
+				chosenColor = plainColor[ORANGE];
+			}
+			if (ColorMode == MIXED || ColorMode == AUTO) {
+				chosenMixedColor = ORANGE;
+			}
 			colorTray.setColor(plainColor[ORANGE][0]);
 		}
-		if(clickColorIcon3(e) == true) {
+		if (clickColorIcon3(e) == true) {
+			if (ColorMode == PURE) {
+				chosenPureColor = plainColor[YELLOW][0];
+			}
+			if (ColorMode == PLAIN) {
+				chosenColor = plainColor[YELLOW];
+			}
+			if (ColorMode == MIXED || ColorMode == AUTO) {
+				chosenMixedColor = YELLOW;
+			}
 			colorTray.setColor(plainColor[YELLOW][0]);
 		}
-		if(clickColorIcon4(e) == true) {
+		if (clickColorIcon4(e) == true) {
+			if (ColorMode == PURE) {
+				chosenPureColor = plainColor[GREEN][0];
+			}
+			if (ColorMode == PLAIN) {
+				chosenColor = plainColor[GREEN];
+			}
+			if (ColorMode == MIXED || ColorMode == AUTO) {
+				chosenMixedColor = GREEN;
+			}
 			colorTray.setColor(plainColor[GREEN][0]);
 		}
-		if(clickColorIcon5(e) == true) {
+		if (clickColorIcon5(e) == true) {
+			if (ColorMode == PURE) {
+				chosenPureColor = plainColor[BLUE][0];
+			}
+			if (ColorMode == PLAIN) {
+				chosenColor = plainColor[BLUE];
+			}
+			if (ColorMode == MIXED || ColorMode == AUTO) {
+				chosenMixedColor = BLUE;
+			}
 			colorTray.setColor(plainColor[BLUE][0]);
 		}
-		if(clickColorIcon6(e) == true) {
+		if (clickColorIcon6(e) == true) {
+			if (ColorMode == PURE) {
+				chosenPureColor = plainColor[CYAN][0];
+			}
+			if (ColorMode == PLAIN) {
+				chosenColor = plainColor[CYAN];
+			}
+			if (ColorMode == MIXED || ColorMode == AUTO) {
+				chosenMixedColor = CYAN;
+			}
 			colorTray.setColor(plainColor[CYAN][0]);
 		}
-		if(clickColorIcon7(e) == true) {
+		if (clickColorIcon7(e) == true) {
+			if (ColorMode == PURE) {
+				chosenPureColor = plainColor[PURPLE][0];
+			}
+			if (ColorMode == PLAIN) {
+				chosenColor = plainColor[PURPLE];
+			}
+			if (ColorMode == MIXED || ColorMode == AUTO) {
+				chosenMixedColor = PURPLE;
+			}
 			colorTray.setColor(plainColor[PURPLE][0]);
 		}
-		if(clickColorIcon8(e) == true) {
+		if (clickColorIcon8(e) == true) {
+			if (ColorMode == PURE) {
+				chosenPureColor = plainColor[WHITE][0];
+			}
+			if (ColorMode == PLAIN) {
+				chosenColor = plainColor[WHITE];
+			}
+			if (ColorMode == MIXED || ColorMode == AUTO) {
+				chosenMixedColor = WHITE;
+			}
 			colorTray.setColor(plainColor[WHITE][0]);
 		}
-		if(clickColorIcon9(e) == true) {
+		if (clickColorIcon9(e) == true) {
+			if (ColorMode == PURE) {
+				chosenPureColor = plainColor[BLACK][0];
+			}
+			if (ColorMode == PLAIN) {
+				chosenColor = plainColor[BLACK];
+			}
+			if (ColorMode == MIXED || ColorMode == AUTO) {
+				chosenMixedColor = BLACK;
+			}
 			colorTray.setColor(plainColor[BLACK][0]);
 		}
 	}
