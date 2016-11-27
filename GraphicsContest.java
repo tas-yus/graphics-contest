@@ -35,6 +35,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int DEFAULT_BRUSH_SIZE = 5;
 	private static final int MAX_AUTO_SPEED_LEVEL = 25;
 	private static final int MIN_AUTO_SPEED_LEVEL = 0;
+	private static final int MAX_AUTO_RING = 20;
 	private static final int DEFAULT_AUTO_SPEED_DELAY = 200;
 	private static final int DEFAULT_AUTO_SPEED_LEVEL = 1;
 	private static final int DEFAULT_SPEED_INTERVAL = 5;
@@ -1321,20 +1322,20 @@ public class GraphicsContest extends GraphicsProgram {
 					}
 				}
 				if (c == 3) {
-					for (int i = 0; i < n+1; i++) {
+					for (int i = 0; i < n; i++) {
 						x = x - dx;
 						y = y + dy;
 						draw(x, y);
 					}
 				}
 				if (c == 4) {
-					for (int i = 0; i < n+1; i++) {
+					for (int i = 0; i < n; i++) {
 						x = x - dx;
 						draw(x, y);
 					}
 				}
 				if (c == 5) {
-					for (int i = 0; i < n+1; i++) {
+					for (int i = 0; i < n; i++) {
 						x = x - dx;
 						y = y - dy;
 						draw(x, y);
@@ -1347,7 +1348,7 @@ public class GraphicsContest extends GraphicsProgram {
 					}
 				}
 				if (c == 7) {
-					for (int i = 0; i < n+1; i++) {
+					for (int i = 0; i < n; i++) {
 						x = x + dx;
 						y = y - dy;
 						draw(x, y);
@@ -1357,7 +1358,7 @@ public class GraphicsContest extends GraphicsProgram {
 				c = (c+1)%8;
 			}
 			pause(speed);
-			if (n == 20) {
+			if (n == MAX_AUTO_RING) {
 				removeAll();
 				setUpColors();
 				setUpIcons();
