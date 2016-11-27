@@ -469,11 +469,14 @@ public class GraphicsContest extends GraphicsProgram {
 	 *  - Clicking icon 1 when the brush is off will turn on the brush, and vice versa.
 	 *  - Icon 2 allows the user to adjust the number of planes, axes, blocks. 
 	 *  However, clicking it again will allow the user to adjust brush size.
-	 *  - Icon 3 increases the value of what is current shown in icon 2
-	 *  - Icon 4 decreases the value of what is current shown in icon 2
-	 *  - Icon 5 allows the user to change color modes from Mixed to Pure to Plain.
-	 *  - Icon 6 allows the user to change symmetry modes from Reflection to Rotation to
+	 *  - Icon 3 increases the value of what is current shown in icon 2.
+	 *  - Icon 4 decreases the value of what is current shown in icon 2.
+	 *  - Icon 5 hides all the division lines.
+	 *  - Icon 6 clears screen to a blank.
+	 *  - Icon 7 allows the user to change color modes from Mixed to Pure to Plain.
+	 *  - Icon 8 allows the user to change symmetry modes from Reflection to Rotation to
 	 *  Translation.
+	 *  - ColorIcon 1-9 changes colors of the brush. 
 	 */
 	public void mouseClicked(MouseEvent e) {
 		if (clickIcon1(e) == true) {
@@ -694,6 +697,11 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 
+	/* Method: mouseMoved */
+	/**
+	 * Enables the user to draw circles anywhere the mouse is moved to.
+	 */
+	
 	public void mouseMoved(MouseEvent e) {
 		if (draw == true) {
 			double x = e.getX() - s/2;
@@ -701,11 +709,135 @@ public class GraphicsContest extends GraphicsProgram {
 			if (y > ICON_HEIGHT) {
 				x = (x - getWidth()/2);
 				y = (y - (getHeight()/2 + ICON_HEIGHT/2));
-				setUpBall(x, y);
+				addAll(x, y);
 			}
 		}
 	}
+	
+	/* Method: mouseMoved */
+	/**
+	 * Enables the user to draw circles anywhere the mouse is moved to.
+	 */
+	private void addAll(double x, double y) {
+		if (ColorMode == PURE) {
+			newColor = chosenPureColor; 
+		}
+		if (ColorMode == PLAIN) {
+			newColor = randomizeColor(chosenColor);
+		}
+		if (ColorMode == MIXED) {
+			newColor = mixColor(chosenMixedColor);
+		}
+		if (ColorMode == AUTO) {
+			newColor = mixColor(chosenMixedColor);
+		}
+		if (SymMode == ROT) {
+			addPixel(x,y,symmetry);
+		}
+		if (SymMode == REF) {
+			addPixel(x,y,plane);
+		}
+		if (SymMode == TRANS) {
+			addPixel(x,y,block);
+		}
+	}
 
+	private void addPixel(double x, double y, int fold) {
+		if (SymMode == ROT) {
+			double A = Math.cos(2*Math.PI/fold);
+			double B = Math.sin(2*Math.PI/fold);
+			double[][] rotationalArray = new double[2][2];
+			rotationalArray[0][0] = A;
+			rotationalArray[0][1] = B;
+			rotationalArray[1][0] = -B;
+			rotationalArray[1][1] = A;
+			for (int n = 0; n < fold; n++) {
+				double X = x*(powMatrix(rotationalArray, n)[0][0]) + y*(powMatrix(rotationalArray, n)[0][1]);
+				double Y = x*(powMatrix(rotationalArray, n)[1][0]) + y*(powMatrix(rotationalArray, n)[1][1]);
+				if (getHeight()/2 + ICON_HEIGHT/2 + Y - s/2 > ICON_HEIGHT) {
+					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
+					pixel.setFilled(true);
+					pixel.setColor(newColor);
+					add(pixel);
+				}
+			}
+		}
+		if (SymMode == REF) {
+			coordinate[1][0] = x;
+			coordinate[0][1] = y;
+			coordinate[fold + 1][0] = -x;
+			coordinate[0][fold + 1] = y;
+			for (int n = 1; n < fold; n++) {
+				double[][] reflectionArray = new double[2][2];
+				double m = slope[n];
+				double A = (1 - m*m)/(1 + m*m);
+				double B = 2*m/(1 + m*m);
+				reflectionArray[0][0] = A;
+				reflectionArray[0][1] = B;
+				reflectionArray[1][0] = B;
+				reflectionArray[1][1] = -A;
+				coordinate[n + 1][0] = x*(reflectionArray[0][0]) + y*(reflectionArray[0][1]);
+				coordinate[0][n + 1] = x*(reflectionArray[1][0]) + y*(reflectionArray[1][1]);
+				coordinate[n + fold + 1][0] = -x*(reflectionArray[0][0]) + y*(reflectionArray[0][1]);
+				coordinate[0][n + fold + 1] = -x*(reflectionArray[1][0]) + y*(reflectionArray[1][1]);
+			}
+			for (int j = 1; j < coordinate.length ; j++) {
+				double X = coordinate[j][0];
+				double Y = coordinate[0][j];
+				if (getHeight()/2 + ICON_HEIGHT/2 + Y - s/2 > ICON_HEIGHT) {
+					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
+					pixel.setFilled(true);
+					pixel.setColor(newColor);
+					add(pixel);
+				}
+			}
+		}
+		if (SymMode == TRANS) {
+			x += getWidth()/2;
+			y += getHeight()/2 - ICON_HEIGHT/2;
+			double width = getWidth()/fold;
+			double height = (getHeight() - ICON_HEIGHT)/fold;
+			while (true) {
+				x -= width;
+				if (x < 0) {
+					x += width;
+					break;
+				}
+			}
+			while (true) {
+				y -= height;
+				if (y < 0) {
+					y += height;
+					break;
+				}
+			}
+			double X = 0;
+			double Y = 0;
+			for (int i = 0; i < fold; i++) {
+				for (int j = 0; j < fold; j++) {
+					if (i % 2 == 0 && j % 2 == 0) {
+						X = width*i + x;
+						Y = ICON_HEIGHT + height*(j) + y;
+					} else if (i % 2 != 0 && j % 2 == 0) {
+						X = width*(i+1) - x;
+						Y = ICON_HEIGHT + height*(j) + y;
+					} else if (i % 2 == 0 && j % 2 != 0) {
+						X = width*i + x;
+						Y = ICON_HEIGHT + height*(j+1) - y;
+					} else if (i % 2 != 0 && j % 2 != 0) {
+						X = width*(i+1) - x;
+						Y = ICON_HEIGHT + height*(j+1) - y;
+					}
+					if (Y - s/2 > ICON_HEIGHT) {
+						GOval pixel = new GOval (X - s/2, Y - s/2, s, s);
+						pixel.setFilled(true);
+						pixel.setColor(newColor);
+						add(pixel);
+					}
+				}
+			}
+		}
+	}
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			if (draw == false)  {
@@ -902,129 +1034,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 
-	private void setUpBall(double x, double y) {
-		addAll(s, x, y);
-	}
-	private void addAll(int s, double x, double y) {
-		if (ColorMode == PURE) {
-			newColor = chosenPureColor; 
-		}
-		if (ColorMode == PLAIN) {
-			newColor = randomizeColor(chosenColor);
-		}
-		if (ColorMode == MIXED) {
-			newColor = mixColor(chosenMixedColor);
-		}
-		if (ColorMode == AUTO) {
-			newColor = mixColor(chosenMixedColor);
-		}
-		if (SymMode == ROT) {
-			addPixel(x,y,symmetry);
-		}
-		if (SymMode == REF) {
-			addPixel(x,y,plane);
-		}
-		if (SymMode == TRANS) {
-			addPixel(x,y,block);
-		}
-	}
-
-	private void addPixel(double x, double y, int fold) {
-		if (SymMode == ROT) {
-			double A = Math.cos(2*Math.PI/fold);
-			double B = Math.sin(2*Math.PI/fold);
-			double[][] rotationalArray = new double[2][2];
-			rotationalArray[0][0] = A;
-			rotationalArray[0][1] = B;
-			rotationalArray[1][0] = -B;
-			rotationalArray[1][1] = A;
-			for (int n = 0; n < fold; n++) {
-				double X = x*(powMatrix(rotationalArray, n)[0][0]) + y*(powMatrix(rotationalArray, n)[0][1]);
-				double Y = x*(powMatrix(rotationalArray, n)[1][0]) + y*(powMatrix(rotationalArray, n)[1][1]);
-				if (getHeight()/2 + ICON_HEIGHT/2 + Y - s/2 > ICON_HEIGHT) {
-					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
-					pixel.setFilled(true);
-					pixel.setColor(newColor);
-					add(pixel);
-				}
-			}
-		}
-		if (SymMode == REF) {
-			coordinate[1][0] = x;
-			coordinate[0][1] = y;
-			coordinate[fold + 1][0] = -x;
-			coordinate[0][fold + 1] = y;
-			for (int n = 1; n < fold; n++) {
-				double[][] reflectionArray = new double[2][2];
-				double m = slope[n];
-				double A = (1 - m*m)/(1 + m*m);
-				double B = 2*m/(1 + m*m);
-				reflectionArray[0][0] = A;
-				reflectionArray[0][1] = B;
-				reflectionArray[1][0] = B;
-				reflectionArray[1][1] = -A;
-				coordinate[n + 1][0] = x*(reflectionArray[0][0]) + y*(reflectionArray[0][1]);
-				coordinate[0][n + 1] = x*(reflectionArray[1][0]) + y*(reflectionArray[1][1]);
-				coordinate[n + fold + 1][0] = -x*(reflectionArray[0][0]) + y*(reflectionArray[0][1]);
-				coordinate[0][n + fold + 1] = -x*(reflectionArray[1][0]) + y*(reflectionArray[1][1]);
-			}
-			for (int j = 1; j < coordinate.length ; j++) {
-				double X = coordinate[j][0];
-				double Y = coordinate[0][j];
-				if (getHeight()/2 + ICON_HEIGHT/2 + Y - s/2 > ICON_HEIGHT) {
-					GOval pixel = new GOval (getWidth()/2 + X - s/2, getHeight()/2 + ICON_HEIGHT/2 + Y - s/2, s, s);
-					pixel.setFilled(true);
-					pixel.setColor(newColor);
-					add(pixel);
-				}
-			}
-		}
-		if (SymMode == TRANS) {
-			x += getWidth()/2;
-			y += getHeight()/2 - ICON_HEIGHT/2;
-			double width = getWidth()/fold;
-			double height = (getHeight() - ICON_HEIGHT)/fold;
-			while (true) {
-				x -= width;
-				if (x < 0) {
-					x += width;
-					break;
-				}
-			}
-			while (true) {
-				y -= height;
-				if (y < 0) {
-					y += height;
-					break;
-				}
-			}
-			double X = 0;
-			double Y = 0;
-			for (int i = 0; i < fold; i++) {
-				for (int j = 0; j < fold; j++) {
-					if (i % 2 == 0 && j % 2 == 0) {
-						X = width*i + x;
-						Y = ICON_HEIGHT + height*(j) + y;
-					} else if (i % 2 != 0 && j % 2 == 0) {
-						X = width*(i+1) - x;
-						Y = ICON_HEIGHT + height*(j) + y;
-					} else if (i % 2 == 0 && j % 2 != 0) {
-						X = width*i + x;
-						Y = ICON_HEIGHT + height*(j+1) - y;
-					} else if (i % 2 != 0 && j % 2 != 0) {
-						X = width*(i+1) - x;
-						Y = ICON_HEIGHT + height*(j+1) - y;
-					}
-					if (Y - s/2 > ICON_HEIGHT) {
-						GOval pixel = new GOval (X - s/2, Y - s/2, s, s);
-						pixel.setFilled(true);
-						pixel.setColor(newColor);
-						add(pixel);
-					}
-				}
-			}
-		}
-	}
+	
 
 	private Color mixColor(int chosenMixedColor) {
 		if (chosenMixedColor == RED) {
