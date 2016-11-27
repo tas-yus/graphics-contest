@@ -276,13 +276,13 @@ public class GraphicsContest extends GraphicsProgram {
 		colorIcon9 = new GRect (colorIcon8.getX() + colorIcon8.getWidth(), 0, width, ICON_HEIGHT);
 		add(colorIcon9);
 		if (ColorMode == PURE) {
-			chosenPureColor = plainColor[DEFAULT_COLOR][0]; 
+			chosenPureColor = plainColor[colorToInt(colorTray.getColor())][0]; 
 		}
 		if (ColorMode == PLAIN) {
-			chosenColor = plainColor[DEFAULT_COLOR]; 
+			chosenColor = plainColor[colorToInt(colorTray.getColor())]; 
 		}
 		if (ColorMode == MIXED) {
-			chosenMixedColor = DEFAULT_COLOR;
+			chosenMixedColor = colorToInt(colorTray.getColor());
 		} 
 	}
 
@@ -1249,7 +1249,7 @@ public class GraphicsContest extends GraphicsProgram {
 		else if (color == plainColor[BLACK][0]) return 8;
 		else return 0;
 	}
-
+	
 	/* Method: powMatrix */
 	/**
 	 * raises matrix to the power of n.
