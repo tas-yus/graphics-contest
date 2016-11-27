@@ -26,7 +26,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int DEFAULT_BLOCK_NUM = 2;
 	private static final int MAX_PLANE = 18;
 	private static final int MAX_SYMMETRY = 18;
-	private static final int MAX_BLOCK = 6;
+	private static final int MAX_BLOCK = 10;
 	private static final int MIN_PLANE = 0;
 	private static final int MIN_SYMMETRY = 0;
 	private static final int MIN_BLOCK = 0;
