@@ -509,18 +509,20 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 		}
 		if (clickIcon2(e) == true) {
-			if (Adjust == SIZE) {
-				if (SymMode == ROT) {
-					Adjust = AXIS;
-				} else if (SymMode == REF) {
-					Adjust = PLANE;
-				} else if (SymMode == TRANS) {
-					Adjust = BLOCK;
+			if (ColorMode != AUTO) {
+				if (Adjust == SIZE) {
+					if (SymMode == ROT) {
+						Adjust = AXIS;
+					} else if (SymMode == REF) {
+						Adjust = PLANE;
+					} else if (SymMode == TRANS) {
+						Adjust = BLOCK;
+					}
 				} else if (Adjust != SIZE) {
 					Adjust = SIZE;
 				}
+				updateIcons();
 			}
-			updateIcons();
 		}
 		if (clickIcon3(e) == true) {
 			if (ColorMode == AUTO && Adjust == SPEED && speedLevel < MAX_AUTO_SPEED_LEVEL) {
