@@ -126,7 +126,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	private void setUpColors() {
-		plainColor = new Color[9][5];
+		plainColor = new Color[8][5];
 		plainColor[RED][0] = new Color(255,0,0); 
 		plainColor[RED][1] = new Color(255,51,51); 
 		plainColor[RED][2] = new Color(255,102,102); 
@@ -162,11 +162,6 @@ public class GraphicsContest extends GraphicsProgram {
 		plainColor[PURPLE][2] = new Color(178,102,255); 
 		plainColor[PURPLE][3] = new Color(204,153,255);
 		plainColor[PURPLE][4] = new Color(229,204,255);
-		plainColor[WHITE][0] = Color.WHITE;
-		plainColor[WHITE][1] = Color.WHITE;
-		plainColor[WHITE][2] = Color.WHITE; 
-		plainColor[WHITE][3] = Color.WHITE;
-		plainColor[WHITE][4] = Color.WHITE;;
 		plainColor[BLACK][0] = new Color(0,0,0);
 		plainColor[BLACK][1] = new Color(51,51,51);
 		plainColor[BLACK][2] = new Color(102,102,102);
