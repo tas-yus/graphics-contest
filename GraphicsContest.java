@@ -486,6 +486,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (line == true) {
 			addSymLine(symLine);
 		}
+		colorTray.setColor(plainColor[colorToInt(colorTray.getColor())][0]);
 	}
 	
 	/* Method: mouseClicked */
@@ -593,19 +594,15 @@ public class GraphicsContest extends GraphicsProgram {
 		if (clickIcon7(e) == true) {
 			if (ColorMode == MIXED) {
 				ColorMode = PURE;
-				chosenPureColor = plainColor[colorToInt(colorTray.getColor())][0]; 
 			} else if(ColorMode == PURE) {
 				ColorMode = PLAIN;
-				chosenColor = plainColor[colorToInt(colorTray.getColor())];
 			} else if (ColorMode == PLAIN) {
 				ColorMode = MIXED;
-				chosenMixedColor = colorToInt(colorTray.getColor());
 			} else if (ColorMode == AUTO) {
 				ColorMode = DEFAULT_COLOR_MODE;
 				Adjust = DEFAULT_ADJUST;
 			}
 			updateIcons();
-			colorTray.setColor(plainColor[colorToInt(colorTray.getColor())][0]);
 		}
 		if (clickIcon8(e) == true) {
 			if (SymMode == ROT) {
