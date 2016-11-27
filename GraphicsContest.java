@@ -497,7 +497,6 @@ public class GraphicsContest extends GraphicsProgram {
 	 *  - ColorIcon 1-9 changes colors of the brush. 
 	 */
 	public void mouseClicked(MouseEvent e) {
-		Click.play();
 		if (clickIcon1(e) == true) {
 			if (draw == false)  {
 				status = "On";
@@ -507,6 +506,7 @@ public class GraphicsContest extends GraphicsProgram {
 				draw = false;
 			}
 			updateIcons();
+			Click.play();
 		}
 		if (clickIcon2(e) == true) {
 			if (ColorMode != AUTO) {
@@ -537,6 +537,7 @@ public class GraphicsContest extends GraphicsProgram {
 				}
 			}
 			updateIcons();
+			Click.play();
 		}
 		if (clickIcon3(e) == true) {
 			if (ColorMode == AUTO && Adjust == SPEED && speedLevel < MAX_AUTO_SPEED_LEVEL) {
@@ -552,6 +553,7 @@ public class GraphicsContest extends GraphicsProgram {
 				block++;
 			}
 			updateIcons();
+			Click.play();
 		}
 		if (clickIcon4(e) == true) {
 			if (ColorMode == AUTO && Adjust == SPEED && speedLevel > MIN_AUTO_SPEED_LEVEL) {
@@ -567,6 +569,7 @@ public class GraphicsContest extends GraphicsProgram {
 				block--;
 			}
 			updateIcons();
+			Click.play();
 		}
 		if (clickIcon5(e) == true) {
 			if (line == false) {
@@ -576,6 +579,7 @@ public class GraphicsContest extends GraphicsProgram {
 				removeSymLine(symLine);
 				line = false;
 			}
+			Click.play();
 		}
 		if (clickIcon6(e) == true) {
 			removeAll();
@@ -583,6 +587,7 @@ public class GraphicsContest extends GraphicsProgram {
 			setUpIcons();
 			setUpColorChoice();
 			updateIcons();
+			Click.play();
 		}
 		if (clickIcon7(e) == true) {
 			if (ColorMode == MIXED) {
@@ -599,6 +604,7 @@ public class GraphicsContest extends GraphicsProgram {
 				Adjust = DEFAULT_ADJUST;
 			}
 			updateIcons();
+			Click.play();
 			colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
 		}
 		if (clickIcon8(e) == true) {
@@ -613,6 +619,7 @@ public class GraphicsContest extends GraphicsProgram {
 				Adjust = PLANE;
 			} 
 			updateIcons();
+			Click.play();
 		}
 		if (ColorMode == PURE) {
 			if(clickColorIcon1(e) == true) {
@@ -642,6 +649,7 @@ public class GraphicsContest extends GraphicsProgram {
 			if(clickColorIcon9(e) == true) {
 				chosenPureColor = plainColor[BLACK][0]; 
 			}
+			Click.play();
 		}
 		if (ColorMode == PLAIN) {
 			if(clickColorIcon1(e) == true) {
@@ -671,6 +679,7 @@ public class GraphicsContest extends GraphicsProgram {
 			if(clickColorIcon9(e) == true) {
 				chosenColor = plainColor[BLACK]; 
 			}
+			Click.play();
 		}
 		if (ColorMode == MIXED || ColorMode == AUTO) {
 			if(clickColorIcon1(e) == true) {
@@ -700,6 +709,7 @@ public class GraphicsContest extends GraphicsProgram {
 			if(clickColorIcon9(e) == true) {
 				chosenMixedColor = BLACK; 
 			}
+			Click.play();
 		}
 		if(clickColorIcon1(e) == true) {
 			colorTray.setColor(plainColor[RED][0]);
