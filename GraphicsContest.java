@@ -25,10 +25,10 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int DEFAULT_SYMMETRY_NUM = 8;
 	private static final int DEFAULT_BLOCK_NUM = 2;
 	private static final int MAX_PLANE = 18;
-	private static final int MAX_SYMMETRY = 18;
+	private static final int MAX_AXIS = 2*MAX_PLANE;
 	private static final int MAX_BLOCK = 10;
 	private static final int MIN_PLANE = 0;
-	private static final int MIN_SYMMETRY = 0;
+	private static final int MIN_AXIS = 0;
 	private static final int MIN_BLOCK = 0;
 	private static final int MAX_BRUSH_SIZE = 50;
 	private static final int MIN_BRUSH_SIZE = 0;
@@ -541,7 +541,7 @@ public class GraphicsContest extends GraphicsProgram {
 				speedLevel++;
 			} else if (Adjust == SIZE && s < MAX_BRUSH_SIZE) {
 				s++;
-			} else if (Adjust == AXIS && symmetry < MAX_SYMMETRY) {
+			} else if (Adjust == AXIS && symmetry < MAX_AXIS) {
 				symmetry++;
 			} else if (Adjust == PLANE && plane < MAX_PLANE) {
 				plane++;
@@ -556,7 +556,7 @@ public class GraphicsContest extends GraphicsProgram {
 				speedLevel--;
 			} else if (Adjust == SIZE && (s != MIN_BRUSH_SIZE)) {
 				s--;
-			} else if (Adjust == AXIS && symmetry > MIN_SYMMETRY + 1) {
+			} else if (Adjust == AXIS && symmetry > MIN_AXIS + 1) {
 				symmetry--;
 			} else if (Adjust == PLANE && plane > MIN_PLANE + 1) {
 				plane--;
@@ -987,7 +987,7 @@ public class GraphicsContest extends GraphicsProgram {
 				speedLevel++;
 			} else if (Adjust == SIZE && s < MAX_BRUSH_SIZE) {
 				s++;
-			} else if (Adjust == AXIS && symmetry < MAX_SYMMETRY) {
+			} else if (Adjust == AXIS && symmetry < MAX_AXIS) {
 				symmetry++;
 			} else if (Adjust == PLANE && plane < MAX_PLANE) {
 				plane++;
@@ -1003,7 +1003,7 @@ public class GraphicsContest extends GraphicsProgram {
 				speedLevel--;
 			} else if (Adjust == SIZE && (s != MIN_BRUSH_SIZE)) {
 				s--;
-			} else if (Adjust == AXIS && symmetry > MIN_SYMMETRY + 1) {
+			} else if (Adjust == AXIS && symmetry > MIN_AXIS + 1) {
 				symmetry--;
 			} else if (Adjust == PLANE && plane > MIN_PLANE + 1) {
 				plane--;
