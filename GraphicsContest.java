@@ -1116,10 +1116,15 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			ColorMode = AUTO;
-			draw = false;
-			Adjust = SPEED;
-			status = "Off";
+			if (ColorMode != AUTO) {
+				ColorMode = AUTO;
+				draw = false;
+				Adjust = SPEED;
+				status = "Off";
+			} else {
+				ColorMode = DEFAULT_COLOR_MODE;
+				Adjust = DEFAULT_ADJUST; 
+			}
 			updateIcons();
 		}
 	}
