@@ -649,7 +649,6 @@ public class GraphicsContest extends GraphicsProgram {
 			if(clickColorIcon9(e) == true) {
 				chosenPureColor = plainColor[BLACK][0]; 
 			}
-			Click.play();
 		}
 		if (ColorMode == PLAIN) {
 			if(clickColorIcon1(e) == true) {
