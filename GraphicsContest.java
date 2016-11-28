@@ -6,7 +6,7 @@
 import acm.program.*;
 import acm.graphics.*;
 import acm.util.*;
-import acmx.export.java.util.ArrayList;
+import java.util.ArrayList;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -139,7 +139,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private double[] slope;
 	private double[][] coordinate;
 	private GLine[] symLine;
-	private ArrayList drawnCircles = new ArrayList();
+	ArrayList<GOval> drawnCircles = new ArrayList<GOval>();
 
 	/** Arrays dealing with colors */
 	private Color[][] plainColor;
