@@ -30,20 +30,20 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final double L_ICON_WIDTH = 2.7*WIDTH/20;
 	
 	/** Symmetry Info (axes, planes, blocks) */
-	private static final int DEFAULT_PLANE_NUM = 4;
-	private static final int DEFAULT_SYMMETRY_NUM = 8;
-	private static final int DEFAULT_BLOCK_NUM = 2;
 	private static final int MAX_PLANE = 18;
 	private static final int MAX_AXIS = 2*MAX_PLANE;
 	private static final int MAX_BLOCK = 10;
 	private static final int MIN_PLANE = 0;
 	private static final int MIN_AXIS = 0;
 	private static final int MIN_BLOCK = 0;
+	private static final int DEFAULT_PLANE_NUM = 4;
+	private static final int DEFAULT_SYMMETRY_NUM = 8;
+	private static final int DEFAULT_BLOCK_NUM = 2;
 	
 	/** Brush size */
-	private static final int DEFAULT_BRUSH_SIZE = 4;
 	private static final int MAX_BRUSH_SIZE = 50;
 	private static final int MIN_BRUSH_SIZE = 0;
+	private static final int DEFAULT_BRUSH_SIZE = 4;
 	
 	/** Auto mode */
 	private static final int MAX_AUTO_SPEED_LEVEL = 25;
@@ -63,8 +63,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int PURPLE = 6;
 	private static final int WHITE = 7;
 	private static final int BLACK = 8;
-	private static final int DEFAULT_COLOR = ORANGE;
 	private static final int N_COLORS = 9;
+	private static final int DEFAULT_COLOR = ORANGE;
 	
 	/** Color mode indices */
 	private static final int MIXED = 0;
@@ -87,6 +87,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int SPEED = 4;
 	private static final int DEFAULT_ADJUST = DEFAULT_SYM_MODE;
 
+	/** private variables that are subject to change after updates*/
 	private boolean draw = false;
 	private boolean line = true;
 	private Color newColor;
@@ -139,8 +140,9 @@ public class GraphicsContest extends GraphicsProgram {
 	private double[] slope;
 	private double[][] coordinate;
 	private GLine[] symLine;
+	
+	/** Array to store the circles created*/
 	private ArrayList<GOval> drawnCircles = new ArrayList<GOval>();
-	private ArrayList<GOval> tempCircles = new ArrayList<GOval>();
 
 	/** Arrays dealing with colors */
 	private Color[][] plainColor;
