@@ -1042,9 +1042,8 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (e.getKeyCode() == KeyEvent.VK_C) {
 			removeAll();
-			setUpColors();
-			setUpIcons();
-			setUpColorChoice();
+			
+			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_H) {
 			if (line == false) {
