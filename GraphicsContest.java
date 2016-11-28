@@ -1182,7 +1182,7 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_U) {
-			for (int i = 0; i < drawnCircles.size()/50; i++) {
+			for (int i = drawnCircles.size()/50; i > 0; i--) {
 				remove(drawnCircles.get(i));
 			}
 			updateIcons();
