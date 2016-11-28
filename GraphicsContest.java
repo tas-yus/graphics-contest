@@ -1097,24 +1097,24 @@ public class GraphicsContest extends GraphicsProgram {
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			if (ColorMode == PURE) {
 				int newColor = colorToInt(colorTray.getColor()) + 1;
-				if (newColor == 9) {
-					newColor = 0;
+				if (newColor == N_COLORS + 1) {
+					newColor = RED;
 				}
 				chosenPureColor = plainColor[newColor][0];
 				colorTray.setColor(plainColor[newColor][0]);
 			}
 			if (ColorMode == PLAIN) {
 				int newColor = colorToInt(colorTray.getColor()) + 1;
-				if (newColor == 9) {
-					newColor = 0;
+				if (newColor == N_COLORS) {
+					newColor = RED;
 				}
 				chosenColor = plainColor[newColor];
 				colorTray.setColor(plainColor[newColor][0]);
 			}
 			if (ColorMode == MIXED || ColorMode == AUTO) {
 				int newColor = colorToInt(colorTray.getColor()) + 1;
-				if (newColor == 9) {
-					newColor = 0;
+				if (newColor == N_COLORS) {
+					newColor = RED;
 				}
 				chosenMixedColor = newColor;
 				colorTray.setColor(plainColor[newColor][0]);
