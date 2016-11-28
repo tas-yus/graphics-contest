@@ -504,7 +504,11 @@ public class GraphicsContest extends GraphicsProgram {
 			add(speedStatus);
 		}
 		if (ColorMode == PURE) {
-			chosenPureColor = plainColor[colorToInt(colorTray.getColor())][0];
+			if (colorToInt(colorTray.getColor()) != (Integer) null) {
+				chosenPureColor = plainColor[colorToInt(colorTray.getColor())][0];
+			} else {
+				newColor = colorTray.getColor();
+			}
 		}
 		if (ColorMode == PLAIN) {
 			chosenColor = plainColor[colorToInt(colorTray.getColor())];
@@ -1149,7 +1153,6 @@ public class GraphicsContest extends GraphicsProgram {
 				r = (r + 10)%255;
 				chosenPureColor = new Color (r,g,b);
 				colorTray.setColor(chosenPureColor);
-				newColor = chosenPureColor;
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_G) {
@@ -1160,7 +1163,6 @@ public class GraphicsContest extends GraphicsProgram {
 				g = (g + 10)%255;
 				chosenPureColor = new Color (r,g,b);
 				colorTray.setColor(chosenPureColor);
-				newColor = chosenPureColor;
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_B) {
@@ -1171,7 +1173,6 @@ public class GraphicsContest extends GraphicsProgram {
 				b = (b + 10)%255;
 				chosenPureColor = new Color (r,g,b);
 				colorTray.setColor(chosenPureColor);
-				newColor = chosenPureColor;
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -1281,7 +1282,7 @@ public class GraphicsContest extends GraphicsProgram {
 		else if (color == plainColor[PURPLE][0]) return 6;
 		else if (color == plainColor[WHITE][0]) return 7;
 		else if (color == plainColor[BLACK][0]) return 8;
-		else return 0;
+		else return (Integer) null;
 	}
 	
 	/* Method: powMatrix */
