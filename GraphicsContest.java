@@ -6,6 +6,7 @@
 import acm.program.*;
 import acm.graphics.*;
 import acm.util.*;
+import acmx.export.java.util.ArrayList;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -138,6 +139,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private double[] slope;
 	private double[][] coordinate;
 	private GLine[] symLine;
+	private ArrayList drawnCircles = new ArrayList();
 
 	/** Arrays dealing with colors */
 	private Color[][] plainColor;
@@ -870,6 +872,7 @@ public class GraphicsContest extends GraphicsProgram {
 					pixel.setFilled(true);
 					pixel.setColor(newColor);
 					add(pixel);
+					drawnCircles.add(pixel);
 				}
 			}
 		}
@@ -900,6 +903,7 @@ public class GraphicsContest extends GraphicsProgram {
 					pixel.setFilled(true);
 					pixel.setColor(newColor);
 					add(pixel);
+					drawnCircles.add(pixel);
 				}
 			}
 		}
@@ -944,6 +948,7 @@ public class GraphicsContest extends GraphicsProgram {
 						pixel.setFilled(true);
 						pixel.setColor(newColor);
 						add(pixel);
+						drawnCircles.add(pixel);
 					}
 				}
 			}
@@ -1040,11 +1045,9 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_C) {
-			removeAll();
-			setUpColors();
-			setUpIcons();
-			setUpLines();
-			setUpColorChoice();
+			for (int i = 0; i < drawnCircles.size(); i++) {
+				drawnCircles.remove(i);
+			}
 			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_H) {
