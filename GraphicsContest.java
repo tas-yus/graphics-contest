@@ -1149,6 +1149,7 @@ public class GraphicsContest extends GraphicsProgram {
 				r = (r + 10)%255;
 				chosenPureColor = new Color (r,g,b);
 				colorTray.setColor(chosenPureColor);
+				newColor = chosenPureColor;
 			}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_G) {
@@ -1159,8 +1160,8 @@ public class GraphicsContest extends GraphicsProgram {
 				g = (g + 10)%255;
 				chosenPureColor = new Color (r,g,b);
 				colorTray.setColor(chosenPureColor);
+				newColor = chosenPureColor;
 			}
-			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_B) {
 			if (ColorMode == PURE) {
@@ -1170,8 +1171,8 @@ public class GraphicsContest extends GraphicsProgram {
 				b = (b + 10)%255;
 				chosenPureColor = new Color (r,g,b);
 				colorTray.setColor(chosenPureColor);
+				newColor = chosenPureColor;
 			}
-			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			if (ColorMode != AUTO) {
