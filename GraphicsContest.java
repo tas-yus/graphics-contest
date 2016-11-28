@@ -63,6 +63,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int PURPLE = 6;
 	private static final int WHITE = 7;
 	private static final int BLACK = 8;
+	private static final int NONE = 9;
 	private static final int N_COLORS = 9;
 	private static final int DEFAULT_COLOR = ORANGE;
 	
@@ -504,7 +505,7 @@ public class GraphicsContest extends GraphicsProgram {
 			add(speedStatus);
 		}
 		if (ColorMode == PURE) {
-			if (colorToInt(colorTray.getColor()) != (Integer) null) {
+			if (colorToInt(colorTray.getColor()) != NONE) {
 				chosenPureColor = plainColor[colorToInt(colorTray.getColor())][0];
 			} else {
 				newColor = colorTray.getColor();
@@ -1282,7 +1283,7 @@ public class GraphicsContest extends GraphicsProgram {
 		else if (color == plainColor[PURPLE][0]) return 6;
 		else if (color == plainColor[WHITE][0]) return 7;
 		else if (color == plainColor[BLACK][0]) return 8;
-		else return (Integer) null;
+		else return NONE;
 	}
 	
 	/* Method: powMatrix */
