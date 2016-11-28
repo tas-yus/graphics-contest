@@ -1,6 +1,6 @@
 /*
  * File: GraphicsContest.java
- * --------------------------
+ * Tas Yusoontorn
  */
 
 import acm.program.*;
@@ -160,7 +160,6 @@ public class GraphicsContest extends GraphicsProgram {
 	/**
 	 * Sets up the canvas before the user draws.
 	 */
-
 	private void setUp() {
 		this.resize(WIDTH,HEIGHT);
 		pause(PAUSE);
