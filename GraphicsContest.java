@@ -613,10 +613,9 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 		if (clickIcon6(e) == true) {
-			removeAll();
-			setUpColors();
-			setUpIcons();
-			setUpColorChoice();
+			for (int i = 0; i < drawnCircles.size(); i++) {
+				remove(drawnCircles.get(i));
+			}
 			updateIcons();
 		}
 		if (clickIcon7(e) == true) {
@@ -1179,6 +1178,12 @@ public class GraphicsContest extends GraphicsProgram {
 				ColorMode = DEFAULT_COLOR_MODE;
 				SymMode = DEFAULT_SYM_MODE;
 				Adjust = DEFAULT_ADJUST; 
+			}
+			updateIcons();
+		}
+		if (e.getKeyCode() == KeyEvent.VK_U) {
+			for (int i = 0; i < drawnCircles.size()/50; i++) {
+				remove(drawnCircles.get(i));
 			}
 			updateIcons();
 		}
