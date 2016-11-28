@@ -1182,26 +1182,6 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 			updateIcons();
 		}
-		if (e.getKeyCode() == KeyEvent.VK_U) {
-			GLabel h = new GLabel ("" + drawnCircles.size(), 50, 50);
-			add(h);
-			for (int i = drawnCircles.size() - 1; i >= drawnCircles.size()*15/16; i--) {
-				remove(drawnCircles.get(i));
-			}
-			GLabel f = new GLabel ("" + drawnCircles.size(), 100, 50);
-			add(f);
-			drawnCircles.remove(0);
-			GLabel p = new GLabel ("" + drawnCircles.size(), 150, 50);
-			add(p);
-			for (int j = drawnCircles.size() - 1; j >= drawnCircles.size()*15/16; j--) {
-				drawnCircles.remove(j);
-				GLabel y = new GLabel ("" + drawnCircles.size(), 200, 50 + 10*j);
-				add(y);
-			}
-			GLabel l = new GLabel ("" + drawnCircles.size(), 250, 50);
-			add(l);
-			updateIcons();
-		}
 	}
 
 	/* Method: clickIcon1-8 & clickColorIcon1-9 */
