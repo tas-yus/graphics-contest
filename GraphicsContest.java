@@ -1048,7 +1048,6 @@ public class GraphicsContest extends GraphicsProgram {
 			for (int i = 0; i < drawnCircles.size(); i++) {
 				remove(drawnCircles.get(i));
 			}
-			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_H) {
 			if (line == false) {
