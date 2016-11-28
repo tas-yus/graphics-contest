@@ -1188,10 +1188,12 @@ public class GraphicsContest extends GraphicsProgram {
 			for (int i = drawnCircles.size() - 1; i >= drawnCircles.size()*7/8; i--) {
 				remove(drawnCircles.get(i));
 			}
+			GLabel f = new GLabel ("" + drawnCircles.size(), 100, 50);
+			add(f);
 			for (int j = drawnCircles.size() - 1; j >= drawnCircles.size()*7/8; j--) {
 				drawnCircles.remove(j);
 			}
-			GLabel l = new GLabel ("" + drawnCircles.size(), 100, 100);
+			GLabel l = new GLabel ("" + drawnCircles.size(), 150, 50);
 			add(l);
 			updateIcons();
 		}
