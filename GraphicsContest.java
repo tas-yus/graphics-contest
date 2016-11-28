@@ -1193,7 +1193,7 @@ public class GraphicsContest extends GraphicsProgram {
 			drawnCircles.remove(0);
 			GLabel p = new GLabel ("" + drawnCircles.size(), 150, 50);
 			add(p);
-			for (int j = drawnCircles.size() - 1; j >= drawnCircles.size()*15/16; j--) {
+			for (int j = 0; j < 5; j++) {
 				drawnCircles.remove(j);
 				GLabel y = new GLabel ("" + drawnCircles.size(), 200, 50 + 10*j);
 				add(y);
