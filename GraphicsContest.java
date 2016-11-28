@@ -1096,7 +1096,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			if (ColorMode == PURE) {
-				int newColor = colorToInt(colorTray.getColor()) % N_COLORS;
+				int newColor = (colorToInt(colorTray.getColor()) + 1) % N_COLORS;
 				chosenPureColor = plainColor[newColor][0];
 				colorTray.setColor(plainColor[newColor][0]);
 			}
