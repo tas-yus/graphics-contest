@@ -1183,10 +1183,10 @@ public class GraphicsContest extends GraphicsProgram {
 			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_U) {
-			for (int i = drawnCircles.size() - 1; i >= drawnCircles.size() - 1 - 10; i--) {
+			for (int i = drawnCircles.size() - 1; i >= drawnCircles.size()/8; i--) {
 				remove(drawnCircles.get(i));
 			}
-			for (int j = drawnCircles.size() - 1; j >= drawnCircles.size() - 1 - 10; j--) {
+			for (int j = drawnCircles.size() - 1; j >= drawnCircles.size()/8; j--) {
 				drawnCircles.remove(j);
 			}
 			updateIcons();
