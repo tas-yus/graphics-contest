@@ -513,7 +513,6 @@ public class GraphicsContest extends GraphicsProgram {
 		if (line == true) {
 			addSymLine(symLine);
 		}
-		colorTray.setColor(plainColor[colorToInt(colorTray.getColor())][0]);
 	}
 	
 	/* Method: mouseClicked */
@@ -1072,7 +1071,6 @@ public class GraphicsContest extends GraphicsProgram {
 				Adjust = DEFAULT_ADJUST;
 			}
 			updateIcons();
-			colorTray.setColor(plainColor[DEFAULT_COLOR][0]);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_CONTROL) {
 			if (SymMode == ROT) {
