@@ -139,7 +139,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private double[] slope;
 	private double[][] coordinate;
 	private GLine[] symLine;
-	private ArrayList<GOval> drawnCircles = new ArrayList<GOval>();
+	private ArrayList<GOval> drawnCircles;
 
 	/** Arrays dealing with colors */
 	private Color[][] plainColor;
@@ -166,6 +166,7 @@ public class GraphicsContest extends GraphicsProgram {
 		setUpIcons();
 		setUpLines();
 		setUpColorChoice();
+		drawnCircles = new ArrayList<GOval>();
 	}
 	
 	/* Method: setUpColors */
