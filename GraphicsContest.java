@@ -1160,6 +1160,7 @@ public class GraphicsContest extends GraphicsProgram {
 				chosenPureColor = new Color (r,g,b);
 				colorTray.setColor(chosenPureColor);
 			}
+			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_B) {
 			if (ColorMode == PURE) {
@@ -1170,6 +1171,7 @@ public class GraphicsContest extends GraphicsProgram {
 				chosenPureColor = new Color (r,g,b);
 				colorTray.setColor(chosenPureColor);
 			}
+			updateIcons();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			if (ColorMode != AUTO) {
