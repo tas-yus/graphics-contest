@@ -1185,7 +1185,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if (e.getKeyCode() == KeyEvent.VK_U) {
 			GLabel h = new GLabel ("" + drawnCircles.size(), 50, 50);
 			add(h);
-			for (int i = 0; i < 5; i--) {
+			for (int i = 0; i < 5; i++) {
 				remove(drawnCircles.get(i));
 			}
 			GLabel f = new GLabel ("" + drawnCircles.size(), 100, 50);
@@ -1193,7 +1193,7 @@ public class GraphicsContest extends GraphicsProgram {
 			drawnCircles.remove(0);
 			GLabel p = new GLabel ("" + drawnCircles.size(), 150, 50);
 			add(p);
-			for (int j = 0; j < 5; j--) {
+			for (int j = 0; j < 5; j++) {
 				drawnCircles.remove(j);
 				GLabel y = new GLabel ("" + drawnCircles.size(), 200, 50 + 10*j);
 				add(y);
