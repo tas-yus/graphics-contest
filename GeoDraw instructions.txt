@@ -1,0 +1,16 @@
+GeoDraw (stands for geometrical drawing)
+
+This program will help you create some cool symmetrical pictures.
+
+- Choose color by clicking the color icons or pressing left or right key
+- Click anywhere on canvas to turn brush on.
+- Move your mouse along the screen to create symmetrical pictures
+- You can change the color mode to “Pure” and “Plain” by clicking on “Mixed.”
+- You can change the symmetry mode to “Rotation” and “Translation” by clicking on what is now “Reflection.”
+- In each symmetry mode, you can adjust the symmetry element (planes, axes, and blocks) by clicking +, - or pressing up, down on the keyboard. The number of division lines will adjust accordingly.
+- To hide the division lines, press H or click on the H icon.
+- To change brush size, click on icon 2 (what now says “Plane”) and the brush size will appear.
+- To clear the screen, press C or click on the C icon.
+- To turn on the auto draw mode, press enter. In that mode, you can adjust speed the same way before.
+
+Have fun doodling! 
